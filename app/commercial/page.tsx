@@ -17,6 +17,7 @@ import Card from "@/components/Card";
 import ProcessStep from "@/components/ProcessStep";
 import FAQAccordion from "@/components/FAQAccordion";
 import CTABanner from "@/components/CTABanner";
+import AnimateIn from "@/components/AnimateIn";
 
 export const metadata: Metadata = {
   title: "Commercial Real Estate | HorizonsAI",
@@ -35,17 +36,23 @@ export default function CommercialPage() {
   return (
     <>
       {/* 1. Hero */}
-      <section className="bg-dark-bg py-16 md:py-24">
+      <section className="hero-gradient py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="font-heading font-bold text-4xl md:text-5xl lg:text-6xl text-text-on-dark mb-6">
-            {CRE_HERO.headline}
-          </h1>
-          <p className="text-text-on-dark/70 text-lg md:text-xl max-w-3xl mx-auto mb-8">
-            {CRE_HERO.subtext}
-          </p>
-          <Button href="/book-a-call" size="lg">
-            {CRE_HERO.cta}
-          </Button>
+          <AnimateIn>
+            <h1 className="font-heading font-bold text-4xl md:text-5xl lg:text-6xl text-text-on-dark mb-6">
+              {CRE_HERO.headline}
+            </h1>
+          </AnimateIn>
+          <AnimateIn delay={0.1}>
+            <p className="text-text-on-dark/70 text-lg md:text-xl max-w-3xl mx-auto mb-8">
+              {CRE_HERO.subtext}
+            </p>
+          </AnimateIn>
+          <AnimateIn delay={0.2}>
+            <Button href="/book-a-call" size="lg">
+              {CRE_HERO.cta}
+            </Button>
+          </AnimateIn>
         </div>
       </section>
 
@@ -55,11 +62,13 @@ export default function CommercialPage() {
       {/* 3. Problem / Solution */}
       <section className="py-16 md:py-24 bg-light-secondary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            label="The Problem"
-            title="Manual Deal Sourcing Is Costing You"
-            subtitle="Most CRE investors are still relying on outdated methods to find distressed opportunities."
-          />
+          <AnimateIn>
+            <SectionHeading
+              label="The Problem"
+              title="Manual Deal Sourcing Is Costing You"
+              subtitle="Most CRE investors are still relying on outdated methods to find distressed opportunities."
+            />
+          </AnimateIn>
           <ProblemSolution items={CRE_PROBLEMS} />
         </div>
       </section>
@@ -67,37 +76,41 @@ export default function CommercialPage() {
       {/* 4. System Overview - Pipeline */}
       <section className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            label="System Overview"
-            title="How It Works"
-            subtitle="A fully automated pipeline from public data to actionable deal reports."
-          />
+          <AnimateIn>
+            <SectionHeading
+              label="System Overview"
+              title="How It Works"
+              subtitle="A fully automated pipeline from public data to actionable deal reports."
+            />
+          </AnimateIn>
           <div className="flex flex-col md:flex-row items-stretch justify-center gap-0">
             {pipelinePhases.map((phase, index) => (
-              <div key={phase.label} className="flex items-center">
-                <div className="bg-light-secondary border border-light-border rounded-xl p-5 text-center min-w-[160px]">
-                  <div className="font-heading font-semibold text-text-primary mb-1">
-                    {phase.label}
+              <AnimateIn key={phase.label} delay={index * 0.15}>
+                <div className="flex items-center">
+                  <div className="bg-light-secondary border border-light-border rounded-xl p-5 text-center min-w-[160px]">
+                    <div className="font-heading font-semibold text-text-primary mb-1">
+                      {phase.label}
+                    </div>
+                    <div className="text-text-muted text-xs">
+                      {phase.detail}
+                    </div>
                   </div>
-                  <div className="text-text-muted text-xs">
-                    {phase.detail}
-                  </div>
+                  {index < pipelinePhases.length - 1 && (
+                    <div className="hidden md:flex items-center px-2">
+                      <svg className="w-6 h-6 text-brand-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  )}
+                  {index < pipelinePhases.length - 1 && (
+                    <div className="flex md:hidden items-center justify-center py-2">
+                      <svg className="w-6 h-6 text-brand-primary rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  )}
                 </div>
-                {index < pipelinePhases.length - 1 && (
-                  <div className="hidden md:flex items-center px-2">
-                    <svg className="w-6 h-6 text-brand-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </div>
-                )}
-                {index < pipelinePhases.length - 1 && (
-                  <div className="flex md:hidden items-center justify-center py-2">
-                    <svg className="w-6 h-6 text-brand-primary rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </div>
-                )}
-              </div>
+              </AnimateIn>
             ))}
           </div>
         </div>
@@ -106,20 +119,23 @@ export default function CommercialPage() {
       {/* 5. Data Sources */}
       <section className="py-16 md:py-24 bg-light-secondary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            label="Data"
-            title="6 Public Data Sources"
-            subtitle="We aggregate and analyze data from the most reliable public sources in commercial real estate."
-          />
+          <AnimateIn>
+            <SectionHeading
+              label="Data"
+              title="6 Public Data Sources"
+              subtitle="We aggregate and analyze data from the most reliable public sources in commercial real estate."
+            />
+          </AnimateIn>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {CRE_DATA_SOURCES.map((source) => (
-              <Card
-                key={source.title}
-                icon={source.icon}
-                title={source.title}
-                description={source.description}
-                timing={source.timing}
-              />
+            {CRE_DATA_SOURCES.map((source, index) => (
+              <AnimateIn key={source.title} delay={index * 0.1}>
+                <Card
+                  icon={source.icon}
+                  title={source.title}
+                  description={source.description}
+                  timing={source.timing}
+                />
+              </AnimateIn>
             ))}
           </div>
         </div>
@@ -128,19 +144,22 @@ export default function CommercialPage() {
       {/* 6. What You Receive */}
       <section className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            label="Deliverables"
-            title="What You Receive"
-            subtitle="Professional reports and a live pipeline, delivered weekly."
-          />
+          <AnimateIn>
+            <SectionHeading
+              label="Deliverables"
+              title="What You Receive"
+              subtitle="Professional reports and a live pipeline, delivered weekly."
+            />
+          </AnimateIn>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {CRE_DELIVERABLES.map((item) => (
-              <Card
-                key={item.title}
-                icon={item.icon}
-                title={item.title}
-                description={item.description}
-              />
+            {CRE_DELIVERABLES.map((item, index) => (
+              <AnimateIn key={item.title} delay={index * 0.1}>
+                <Card
+                  icon={item.icon}
+                  title={item.title}
+                  description={item.description}
+                />
+              </AnimateIn>
             ))}
           </div>
         </div>
@@ -149,19 +168,22 @@ export default function CommercialPage() {
       {/* 7. Additional Services */}
       <section className="py-16 md:py-24 bg-light-secondary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            label="Add-Ons"
-            title="Additional Services"
-            subtitle="Extend your pipeline with these optional capabilities."
-          />
+          <AnimateIn>
+            <SectionHeading
+              label="Add-Ons"
+              title="Additional Services"
+              subtitle="Extend your pipeline with these optional capabilities."
+            />
+          </AnimateIn>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {CRE_ADDITIONAL.map((item) => (
-              <Card
-                key={item.title}
-                icon={item.icon}
-                title={item.title}
-                description={item.description}
-              />
+            {CRE_ADDITIONAL.map((item, index) => (
+              <AnimateIn key={item.title} delay={index * 0.1}>
+                <Card
+                  icon={item.icon}
+                  title={item.title}
+                  description={item.description}
+                />
+              </AnimateIn>
             ))}
           </div>
         </div>
@@ -170,20 +192,23 @@ export default function CommercialPage() {
       {/* 8. Process */}
       <section className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            label="Get Started"
-            title="Getting Started"
-            subtitle="Three simple steps to a fully automated deal pipeline."
-          />
+          <AnimateIn>
+            <SectionHeading
+              label="Get Started"
+              title="Getting Started"
+              subtitle="Three simple steps to a fully automated deal pipeline."
+            />
+          </AnimateIn>
           <div className="max-w-2xl mx-auto">
             {CRE_PROCESS.map((proc, index) => (
-              <ProcessStep
-                key={proc.step}
-                step={proc.step}
-                title={proc.title}
-                description={proc.description}
-                isLast={index === CRE_PROCESS.length - 1}
-              />
+              <AnimateIn key={proc.step} delay={index * 0.1}>
+                <ProcessStep
+                  step={proc.step}
+                  title={proc.title}
+                  description={proc.description}
+                  isLast={index === CRE_PROCESS.length - 1}
+                />
+              </AnimateIn>
             ))}
           </div>
         </div>

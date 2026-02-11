@@ -40,6 +40,20 @@ const config: Config = {
         heading: ["var(--font-poppins)", "sans-serif"],
         body: ["var(--font-inter)", "sans-serif"],
       },
+      animation: {
+        float: "float 3s ease-in-out infinite",
+        "glow-pulse": "glow-pulse 2s ease-in-out infinite",
+      },
+      keyframes: {
+        float: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-5px)" },
+        },
+        "glow-pulse": {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0.5" },
+        },
+      },
     },
   },
   plugins: [],

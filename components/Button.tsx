@@ -9,7 +9,7 @@ interface ButtonProps {
 
 const variantStyles = {
   primary:
-    "bg-brand-primary text-white hover:bg-brand-primary/90 shadow-lg shadow-brand-primary/25",
+    "bg-brand-primary text-white hover:bg-brand-primary/90 shadow-lg shadow-brand-primary/25 hover:shadow-xl hover:shadow-brand-primary/30",
   secondary:
     "bg-white text-brand-primary border border-brand-primary hover:bg-brand-primary/5",
   ghost: "bg-transparent text-brand-primary hover:bg-brand-primary/5",
@@ -27,7 +27,7 @@ export default function Button({
   href,
   children,
 }: ButtonProps) {
-  const className = `inline-flex items-center justify-center rounded-lg font-heading font-semibold transition-all duration-200 ${variantStyles[variant]} ${sizeStyles[size]}`;
+  const className = `inline-flex items-center justify-center rounded-lg font-heading font-semibold transition-all duration-200 hover:scale-105 active:scale-95 ${variantStyles[variant]} ${sizeStyles[size]}`;
 
   if (href) {
     return (

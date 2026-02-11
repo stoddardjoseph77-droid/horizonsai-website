@@ -34,9 +34,9 @@ export default function Card({
 
   return (
     <div
-      className={`rounded-xl p-6 transition-all duration-200 ${
+      className={`rounded-xl p-6 transition-all duration-200 hover:-translate-y-1 hover:scale-[1.02] hover:shadow-xl ${
         isLight
-          ? "bg-white border border-light-border hover:shadow-lg hover:border-brand-primary/30"
+          ? "bg-white border border-light-border hover:border-brand-primary/30"
           : "bg-dark-surface border border-dark-border hover:border-brand-primary/50"
       }`}
     >

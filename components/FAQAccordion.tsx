@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface FAQItem {
   question: string;
@@ -36,13 +37,24 @@ export default function FAQAccordion({ items }: FAQAccordionProps) {
               +
             </span>
           </button>
-          {openIndex === index && (
-            <div className="px-5 pb-5">
-              <p className="text-text-secondary leading-relaxed">
-                {item.answer}
-              </p>
-            </div>
-          )}
+          <AnimatePresence initial={false}>
+            {openIndex === index && (
+              <motion.div
+                key="content"
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                className="overflow-hidden"
+              >
+                <div className="px-5 pb-5">
+                  <p className="text-text-secondary leading-relaxed">
+                    {item.answer}
+                  </p>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       ))}
     </div>
