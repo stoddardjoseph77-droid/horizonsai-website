@@ -206,12 +206,20 @@ export const CRE_PROBLEMS = [
     solution: "Nationwide county record scanning for NODs and Lis Pendens",
   },
   {
-    problem: "Relying solely on broker networks for deal flow",
-    solution: "6 independent data sources feeding a centralized pipeline",
+    problem: "Broker emails piling up with no way to filter signal from noise",
+    solution: "AI scans your inbox, matches deals to your criteria, and flags what matters",
   },
   {
-    problem: "Spending hours on manual underwriting analysis",
-    solution: "AI-assisted analysis to quickly assess deal viability",
+    problem: "Relying solely on broker networks for deal flow",
+    solution: "6 independent public data sources feeding a centralized pipeline",
+  },
+  {
+    problem: "Spending hours on spreadsheets just to screen a single deal",
+    solution: "AI-powered underwriting runs preliminary analysis in seconds",
+  },
+  {
+    problem: "No consistent scoring — every deal evaluated differently",
+    solution: "Every opportunity scored against your specific acquisition criteria",
   },
 ];
 

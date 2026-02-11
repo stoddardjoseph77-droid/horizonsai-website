@@ -84,9 +84,9 @@ export default function CommercialPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <AnimateIn>
             <SectionHeading
-              label="The Problem"
-              title="Manual Deal Sourcing Is Costing You"
-              subtitle="Most CRE investors are still relying on outdated methods to find distressed opportunities."
+              label="Problem / Solution"
+              title="What You\u2019re Doing vs. What We Do"
+              subtitle="Most CRE investors are still relying on outdated methods. Here\u2019s what changes when AI takes over."
               dark={true}
             />
           </AnimateIn>

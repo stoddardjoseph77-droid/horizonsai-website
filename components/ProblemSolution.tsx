@@ -20,6 +20,15 @@ export default function ProblemSolution({
 
   return (
     <div className="space-y-4">
+      {/* Column headers */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-2">
+        <p className={`text-xs font-semibold uppercase tracking-wider ${isDark ? "text-red-400/70" : "text-red-500/70"}`}>
+          Problem
+        </p>
+        <p className={`text-xs font-semibold uppercase tracking-wider hidden md:block ${isDark ? "text-green-400/70" : "text-green-500/70"}`}>
+          Solution
+        </p>
+      </div>
       {items.map((item, index) => (
         <div
           key={index}

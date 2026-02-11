@@ -69,8 +69,8 @@ export default function RealEstatePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimateIn>
             <SectionHeading
-              label="The Problem"
-              title="Where Most Agencies Get Stuck"
+              label="Problem / Solution"
+              title="Where Most Agencies Get Stuck — And How We Fix It"
               dark={true}
             />
           </AnimateIn>
