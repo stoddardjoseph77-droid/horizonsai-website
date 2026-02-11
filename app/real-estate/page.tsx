@@ -171,9 +171,9 @@ export default function RealEstatePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <AnimateIn>
             <SectionHeading
-              label="Your Command Center"
-              title="Everything In One Dashboard"
-              subtitle="Track leads, response times, and pipeline value — all updated in real time."
+              label="CRM Integration"
+              title="Your CRM, Supercharged by AI"
+              subtitle="Lead scores, qualification notes, and follow-up status — synced directly into your existing CRM in real time."
               dark={true}
             />
           </AnimateIn>
