@@ -60,55 +60,55 @@ export default function CommercialPage() {
       </section>
 
       {/* 2. Stats Bar */}
-      <StatsBar stats={CRE_STATS} variant="light" />
+      <StatsBar stats={CRE_STATS} variant="dark" />
 
       {/* Trust Bar */}
-      <TrustBar variant="light" />
+      <TrustBar variant="dark" />
 
-      <div className="section-divider-light" />
+      <div className="section-divider" />
 
       {/* 3. Problem / Solution */}
-      <section className="py-24 md:py-32 bg-[#F8F7FF] relative overflow-hidden light-section-glow">
-        <div className="gradient-blob gradient-blob-light-primary absolute -top-40 -right-40" />
+      <section className="bg-dark-deep py-24 md:py-36 relative overflow-hidden">
+        <div className="gradient-blob gradient-blob-primary absolute -top-40 -right-40" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <AnimateIn>
             <SectionHeading
               label="The Problem"
               title="Manual Deal Sourcing Is Costing You"
               subtitle="Most CRE investors are still relying on outdated methods to find distressed opportunities."
-              dark={false}
+              dark={true}
             />
           </AnimateIn>
-          <ProblemSolution items={CRE_PROBLEMS} variant="light" />
+          <ProblemSolution items={CRE_PROBLEMS} variant="dark" />
         </div>
       </section>
 
-      <div className="section-divider-light" />
+      <div className="section-divider" />
 
       {/* 4. System Overview - Pipeline */}
-      <section className="py-24 md:py-32 bg-white relative overflow-hidden">
-        <div className="gradient-blob gradient-blob-light-secondary absolute -bottom-40 left-1/2 -translate-x-1/2" />
+      <section className="bg-[#0A0A1A] py-24 md:py-36 relative overflow-hidden grid-pattern">
+        <div className="gradient-blob gradient-blob-secondary absolute -bottom-40 left-1/2 -translate-x-1/2" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <AnimateIn>
             <SectionHeading
               label="System Overview"
               title="How It Works"
               subtitle="A fully automated pipeline from public data to actionable deal reports."
-              dark={false}
+              dark={true}
             />
           </AnimateIn>
           <div className="flex flex-col md:flex-row items-stretch justify-center gap-0">
             {pipelinePhases.map((phase, index) => (
               <AnimateIn key={phase.label} delay={index * 0.12}>
                 <div className="flex flex-col md:flex-row items-center">
-                  <div className="glass-card-light p-5 text-center min-w-[150px] card-accent">
+                  <div className="glass-card p-5 text-center min-w-[150px] glow-border card-accent">
                     <div className="w-8 h-8 rounded-lg bg-brand-primary/10 flex items-center justify-center mx-auto mb-2">
                       <span className="text-brand-primary font-heading font-bold text-sm">{index + 1}</span>
                     </div>
-                    <div className="font-heading font-semibold text-text-primary text-sm mb-1">
+                    <div className="font-heading font-semibold text-text-on-dark text-sm mb-1">
                       {phase.label}
                     </div>
-                    <div className="text-text-muted text-xs">
+                    <div className="text-white/50 text-xs">
                       {phase.detail}
                     </div>
                   </div>
@@ -133,19 +133,19 @@ export default function CommercialPage() {
         </div>
       </section>
 
-      <div className="section-divider-light" />
+      <div className="section-divider" />
 
       {/* 5. Data Sources */}
-      <section className="py-24 md:py-32 bg-[#F8F7FF] relative overflow-hidden grid-pattern-light">
-        <div className="gradient-blob gradient-blob-light-primary absolute -top-20 -left-40" />
-        <div className="gradient-blob gradient-blob-light-secondary absolute -bottom-20 -right-40" />
+      <section className="bg-dark-deep py-24 md:py-36 relative overflow-hidden">
+        <div className="gradient-blob gradient-blob-primary absolute -top-20 -left-40" />
+        <div className="gradient-blob gradient-blob-secondary absolute -bottom-20 -right-40" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <AnimateIn>
             <SectionHeading
               label="Data"
               title="6 Public Data Sources"
               subtitle="We aggregate and analyze data from the most reliable public sources in commercial real estate."
-              dark={false}
+              dark={true}
             />
           </AnimateIn>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -156,7 +156,7 @@ export default function CommercialPage() {
                   title={source.title}
                   description={source.description}
                   timing={source.timing}
-                  variant="light"
+                  variant="dark"
                 />
               </AnimateIn>
             ))}
@@ -164,17 +164,18 @@ export default function CommercialPage() {
         </div>
       </section>
 
-      <div className="section-divider-light" />
+      <div className="section-divider" />
 
       {/* 6. What You Receive */}
-      <section className="py-24 md:py-32 bg-white relative overflow-hidden light-section-glow">
+      <section className="bg-[#0A0A1A] py-24 md:py-36 relative overflow-hidden grid-pattern">
+        <div className="gradient-blob gradient-blob-primary absolute -top-40 left-1/2 -translate-x-1/2" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <AnimateIn>
             <SectionHeading
               label="Deliverables"
               title="What You Receive"
               subtitle="Professional reports and a live pipeline, delivered weekly."
-              dark={false}
+              dark={true}
             />
           </AnimateIn>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -184,7 +185,7 @@ export default function CommercialPage() {
                   icon={item.icon}
                   title={item.title}
                   description={item.description}
-                  variant="light"
+                  variant="dark"
                 />
               </AnimateIn>
             ))}
@@ -192,18 +193,18 @@ export default function CommercialPage() {
         </div>
       </section>
 
-      <div className="section-divider-light" />
+      <div className="section-divider" />
 
       {/* 7. Additional Services */}
-      <section className="py-24 md:py-32 bg-[#F8F7FF] relative overflow-hidden">
-        <div className="gradient-blob gradient-blob-light-primary absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+      <section className="bg-dark-deep py-24 md:py-36 relative overflow-hidden">
+        <div className="gradient-blob gradient-blob-secondary absolute top-1/2 -right-40 -translate-y-1/2" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <AnimateIn>
             <SectionHeading
               label="Add-Ons"
               title="Additional Services"
               subtitle="Extend your pipeline with these optional capabilities."
-              dark={false}
+              dark={true}
             />
           </AnimateIn>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -213,7 +214,7 @@ export default function CommercialPage() {
                   icon={item.icon}
                   title={item.title}
                   description={item.description}
-                  variant="light"
+                  variant="dark"
                 />
               </AnimateIn>
             ))}
@@ -221,18 +222,18 @@ export default function CommercialPage() {
         </div>
       </section>
 
-      <div className="section-divider-light" />
+      <div className="section-divider" />
 
       {/* 8. Process */}
-      <section className="py-24 md:py-32 bg-white relative overflow-hidden">
-        <div className="gradient-blob gradient-blob-light-secondary absolute -bottom-40 -right-40" />
+      <section className="bg-[#0A0A1A] py-24 md:py-36 relative overflow-hidden">
+        <div className="gradient-blob gradient-blob-primary absolute -bottom-40 -left-40" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <AnimateIn>
             <SectionHeading
               label="Get Started"
               title="Getting Started"
               subtitle="Three simple steps to a fully automated deal pipeline."
-              dark={false}
+              dark={true}
             />
           </AnimateIn>
           <div className="max-w-2xl mx-auto">
@@ -243,7 +244,7 @@ export default function CommercialPage() {
                   title={proc.title}
                   description={proc.description}
                   isLast={index === CRE_PROCESS.length - 1}
-                  variant="light"
+                  variant="dark"
                 />
               </AnimateIn>
             ))}
@@ -251,16 +252,16 @@ export default function CommercialPage() {
         </div>
       </section>
 
-      <div className="section-divider-light" />
+      <div className="section-divider" />
 
       {/* 9. FAQ */}
-      <section className="py-24 md:py-32 bg-[#F8F7FF] relative overflow-hidden light-section-glow">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <section className="bg-dark-deep py-24 md:py-36">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             title="Frequently Asked Questions"
-            dark={false}
+            dark={true}
           />
-          <FAQAccordion items={CRE_FAQ} variant="light" />
+          <FAQAccordion items={CRE_FAQ} variant="dark" />
         </div>
       </section>
 

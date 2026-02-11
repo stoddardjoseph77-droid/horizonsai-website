@@ -14,7 +14,7 @@ export default function TestimonialCard({
   const isDark = variant === "dark";
 
   return (
-    <div className={`${isDark ? "glass-card p-8 shimmer-border" : "glass-card-light p-8"} h-full flex flex-col`}>
+    <div className={`${isDark ? "glass-card p-8 glow-border" : "glass-card-light p-8"} h-full flex flex-col`}>
       <div
         className={`text-5xl font-serif leading-none mb-3 ${
           isDark ? "text-gradient" : "text-brand-primary"

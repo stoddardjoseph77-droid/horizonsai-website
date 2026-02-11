@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ── Animatable custom property for border rotation ── */
+@property --glow-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
 body {
   color: #F9FAFB;
   background: #050505;
@@ -226,7 +233,54 @@ html {
   background-clip: text;
 }
 
-/* ── Shimmer border effect ────────────────── */
+/* ── Animated glowing border ─────────────── */
+.glow-border {
+  --glow-angle: 0deg;
+  position: relative;
+  animation: glow-rotate 4s linear infinite;
+}
+
+.glow-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(
+    from var(--glow-angle),
+    transparent 25%,
+    rgba(109, 122, 255, 0.35) 30%,
+    rgba(139, 92, 246, 0.25) 36%,
+    transparent 41%,
+    transparent 75%,
+    rgba(109, 122, 255, 0.2) 80%,
+    rgba(139, 92, 246, 0.12) 86%,
+    transparent 91%
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.glow-border:hover::before {
+  background: conic-gradient(
+    from var(--glow-angle),
+    transparent 20%,
+    rgba(109, 122, 255, 0.6) 26%,
+    rgba(139, 92, 246, 0.5) 34%,
+    transparent 40%,
+    transparent 70%,
+    rgba(109, 122, 255, 0.4) 76%,
+    rgba(139, 92, 246, 0.3) 84%,
+    transparent 90%
+  );
+}
+
+/* ── Shimmer border effect (hover only) ──── */
 .shimmer-border {
   position: relative;
 }
@@ -330,5 +384,11 @@ html {
   }
   50% {
     opacity: 0.5;
+  }
+}
+
+@keyframes glow-rotate {
+  to {
+    --glow-angle: 360deg;
   }
 }

@@ -121,7 +121,7 @@ export default function RealEstatePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {RE_BENEFITS.map((benefit, index) => (
               <AnimateIn key={benefit.title} delay={index * 0.1}>
-                <div className="glass-card p-7 shimmer-border card-accent h-full">
+                <div className="glass-card p-7 glow-border card-accent h-full">
                   <h3 className="font-heading font-semibold text-lg text-text-on-dark mb-3">
                     {benefit.title}
                   </h3>

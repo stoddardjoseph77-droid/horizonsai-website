@@ -34,7 +34,7 @@ export default function Card({
 
   return (
     <div
-      className={`${isDark ? "glass-card p-8 shimmer-border card-accent" : "glass-card-light p-8 shimmer-border card-accent"} h-full`}
+      className={`${isDark ? "glass-card p-8 glow-border card-accent" : "glass-card-light p-8 glow-border card-accent"} h-full`}
     >
       <div
         className={`w-12 h-12 rounded-2xl flex items-center justify-center text-2xl mb-5 ${
