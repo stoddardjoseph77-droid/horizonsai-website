@@ -178,14 +178,14 @@ export const ABOUT_TEXT =
 export const CRE_HERO = {
   headline: "Find Distressed Deals Before They Hit the Market",
   subtext:
-    "We monitor SEC filings, county records, and CRE news to surface distressed opportunities 1\u20133 months before your competitors see them.",
+    "We monitor SEC filings, county records, and CRE news to surface distressed opportunities 1\u20133 months before your competitors see them \u2014 then use AI to score every deal against your specific acquisition criteria and run preliminary underwriting in seconds.",
   cta: "Book a Call",
 };
 
 export const CRE_STATS = [
   { value: "6", label: "Public Data Sources Monitored" },
-  { value: "280+", label: "Reports Generated" },
-  { value: "Weekly", label: "Delivery to Your Inbox" },
+  { value: "2,800+", label: "Reports Generated" },
+  { value: "Live", label: "Delivered to Your Dashboard" },
 ];
 
 export const CRE_PROBLEMS = [
