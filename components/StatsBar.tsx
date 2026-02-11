@@ -10,6 +10,7 @@ interface Stat {
 
 interface StatsBarProps {
   stats: Stat[];
+  variant?: "dark" | "light";
 }
 
 function parseStatValue(value: string): { numeric: number; prefix: string; suffix: string } | null {
@@ -22,7 +23,11 @@ function parseStatValue(value: string): { numeric: number; prefix: string; suffi
   };
 }
 
-function AnimatedStat({ value, label }: Stat) {
+function AnimatedStat({
+  value,
+  label,
+  isDark,
+}: Stat & { isDark: boolean }) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
   const [displayValue, setDisplayValue] = useState(value);
@@ -56,13 +61,17 @@ function AnimatedStat({ value, label }: Stat) {
   return (
     <div ref={ref}>
       <div
-        className="font-heading font-bold text-4xl text-brand-primary mb-2 transition-opacity duration-500"
+        className={`font-heading font-bold text-4xl mb-2 transition-opacity duration-500 ${
+          isDark ? "text-gradient" : "text-brand-primary"
+        }`}
         style={{ opacity: isInView ? 1 : 0 }}
       >
         {displayValue}
       </div>
       <div
-        className="text-text-secondary text-sm transition-opacity duration-500"
+        className={`text-sm transition-opacity duration-500 ${
+          isDark ? "text-white/60" : "text-text-secondary"
+        }`}
         style={{ opacity: isInView ? 1 : 0, transitionDelay: "0.3s" }}
       >
         {label}
@@ -71,13 +80,23 @@ function AnimatedStat({ value, label }: Stat) {
   );
 }
 
-export default function StatsBar({ stats }: StatsBarProps) {
+export default function StatsBar({
+  stats,
+  variant = "dark",
+}: StatsBarProps) {
+  const isDark = variant === "dark";
+
   return (
-    <div className="bg-white py-12">
+    <div className={isDark ? "bg-transparent py-12" : "bg-white py-12"}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
           {stats.map((stat, index) => (
-            <AnimatedStat key={index} value={stat.value} label={stat.label} />
+            <AnimatedStat
+              key={index}
+              value={stat.value}
+              label={stat.label}
+              isDark={isDark}
+            />
           ))}
         </div>
       </div>

@@ -10,23 +10,36 @@ interface FAQItem {
 
 interface FAQAccordionProps {
   items: FAQItem[];
+  variant?: "dark" | "light";
 }
 
-export default function FAQAccordion({ items }: FAQAccordionProps) {
+export default function FAQAccordion({
+  items,
+  variant = "dark",
+}: FAQAccordionProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const isDark = variant === "dark";
 
   return (
-    <div className="space-y-3 max-w-3xl mx-auto">
+    <div className="space-y-4 max-w-3xl mx-auto">
       {items.map((item, index) => (
         <div
           key={index}
-          className="border border-light-border rounded-xl overflow-hidden"
+          className={
+            isDark
+              ? "glass-card overflow-hidden"
+              : "border border-light-border rounded-3xl overflow-hidden"
+          }
         >
           <button
             onClick={() => setOpenIndex(openIndex === index ? null : index)}
             className="w-full flex items-center justify-between p-5 text-left hover:bg-light-secondary/50 transition-colors"
           >
-            <span className="font-heading font-semibold text-text-primary pr-4">
+            <span
+              className={`font-heading font-semibold pr-4 ${
+                isDark ? "text-text-on-dark" : "text-text-primary"
+              }`}
+            >
               {item.question}
             </span>
             <span
@@ -48,7 +61,11 @@ export default function FAQAccordion({ items }: FAQAccordionProps) {
                 className="overflow-hidden"
               >
                 <div className="px-5 pb-5">
-                  <p className="text-text-secondary leading-relaxed">
+                  <p
+                    className={`leading-relaxed ${
+                      isDark ? "text-white/60" : "text-text-secondary"
+                    }`}
+                  >
                     {item.answer}
                   </p>
                 </div>

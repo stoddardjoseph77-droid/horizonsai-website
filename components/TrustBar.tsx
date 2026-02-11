@@ -5,6 +5,7 @@ import Marquee from "react-fast-marquee";
 
 interface TrustBarProps {
   heading?: string;
+  variant?: "dark" | "light";
 }
 
 const LOGOS = [
@@ -22,19 +23,26 @@ const LOGOS = [
 
 export default function TrustBar({
   heading = "Partners We Work With",
+  variant = "dark",
 }: TrustBarProps) {
+  const isDark = variant === "dark";
+
   return (
-    <section className="py-12 bg-light-secondary">
+    <section className={isDark ? "py-12 bg-transparent" : "py-12 bg-light-secondary"}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {heading && (
-          <p className="text-center text-text-muted text-sm font-heading font-semibold uppercase tracking-wide mb-8">
+          <p
+            className={`text-center text-sm font-heading font-semibold uppercase tracking-wide mb-8 ${
+              isDark ? "text-white/40" : "text-text-muted"
+            }`}
+          >
             {heading}
           </p>
         )}
         <Marquee
           speed={40}
           gradient={true}
-          gradientColor="rgb(249, 250, 251)"
+          gradientColor={isDark ? "rgb(5, 5, 5)" : "rgb(249, 250, 251)"}
           gradientWidth={100}
           pauseOnHover={true}
         >
@@ -49,9 +57,13 @@ export default function TrustBar({
                 alt={name}
                 width={28}
                 height={28}
-                className="shrink-0"
+                className={`shrink-0 ${isDark ? "grayscale brightness-[2]" : ""}`}
               />
-              <span className="text-sm font-heading font-semibold whitespace-nowrap text-text-secondary">
+              <span
+                className={`text-sm font-heading font-semibold whitespace-nowrap ${
+                  isDark ? "text-white/60" : "text-text-secondary"
+                }`}
+              >
                 {name}
               </span>
             </div>

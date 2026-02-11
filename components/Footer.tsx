@@ -3,10 +3,16 @@ import { SITE, NAV_LINKS } from "@/lib/constants";
 
 export default function Footer() {
   return (
-    <footer className="bg-dark-bg text-text-on-dark">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <footer className="bg-dark-deep text-text-on-dark relative overflow-hidden">
+      {/* Gradient blob */}
+      <div className="gradient-blob gradient-blob-secondary absolute -bottom-40 -right-40" />
+
+      {/* Section divider */}
+      <div className="section-divider" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-          {/* ── Column 1: Logo + Tagline ─────────── */}
+          {/* -- Column 1: Logo + Tagline ----------------- */}
           <div>
             <Link href="/" className="flex items-center gap-2">
               <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-primary to-brand-secondary flex items-center justify-center">
@@ -23,7 +29,7 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* ── Column 2: Page Links ─────────────── */}
+          {/* -- Column 2: Page Links --------------------- */}
           <div>
             <h4 className="font-heading font-semibold text-sm uppercase tracking-widest text-text-on-dark/40 mb-4">
               Pages
@@ -50,7 +56,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* ── Column 3: Contact ────────────────── */}
+          {/* -- Column 3: Contact ------------------------ */}
           <div>
             <h4 className="font-heading font-semibold text-sm uppercase tracking-widest text-text-on-dark/40 mb-4">
               Contact
@@ -65,8 +71,8 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* ── Bottom bar ───────────────────────────── */}
-      <div className="border-t border-dark-border">
+      {/* -- Bottom bar ---------------------------------- */}
+      <div className="border-t border-white/[0.08]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <p className="text-center text-text-on-dark/40 text-sm">
             &copy; {new Date().getFullYear()} {SITE.name}. All rights reserved.

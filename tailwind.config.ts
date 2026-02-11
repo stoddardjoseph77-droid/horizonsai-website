@@ -14,6 +14,7 @@ const config: Config = {
           secondary: "#8B5CF6",
         },
         dark: {
+          deep: "#050505",
           bg: "#0F0F1A",
           surface: "#1A1A2E",
           border: "#2D2D3F",

@@ -9,12 +9,12 @@ export default function SectionHeading({
   label,
   title,
   subtitle,
-  dark = false,
+  dark = true,
 }: SectionHeadingProps) {
   return (
-    <div className="text-center max-w-3xl mx-auto mb-12">
+    <div className="text-center max-w-3xl mx-auto mb-16">
       {label && (
-        <span className="inline-block text-brand-primary font-heading font-semibold text-sm tracking-wide uppercase mb-3">
+        <span className="inline-block px-4 py-1.5 rounded-full bg-brand-primary/10 text-brand-primary text-xs font-semibold tracking-wide uppercase mb-4">
           {label}
         </span>
       )}
@@ -28,7 +28,7 @@ export default function SectionHeading({
       {subtitle && (
         <p
           className={`text-lg ${
-            dark ? "text-text-on-dark/70" : "text-text-secondary"
+            dark ? "text-white/60" : "text-text-secondary"
           }`}
         >
           {subtitle}

@@ -30,27 +30,25 @@ export default function Card({
   variant = "light",
   timing,
 }: CardProps) {
-  const isLight = variant === "light";
+  const isDark = variant === "dark";
 
   return (
     <div
-      className={`rounded-xl p-6 transition-all duration-200 hover:-translate-y-1 hover:scale-[1.02] hover:shadow-xl ${
-        isLight
-          ? "bg-white border border-light-border hover:border-brand-primary/30"
-          : "bg-dark-surface border border-dark-border hover:border-brand-primary/50"
-      }`}
+      className={`${isDark ? "glass-card p-8 shimmer-border" : "glass-card-light p-8 shimmer-border"}`}
     >
-      <div className="text-3xl mb-4">{iconMap[icon] || "\ud83d\udd39"}</div>
+      <div className="w-12 h-12 rounded-2xl bg-brand-primary/10 flex items-center justify-center text-2xl mb-4">
+        {iconMap[icon] || "\ud83d\udd39"}
+      </div>
       <h3
         className={`font-heading font-semibold text-lg mb-2 ${
-          isLight ? "text-text-primary" : "text-text-on-dark"
+          isDark ? "text-text-on-dark" : "text-text-primary"
         }`}
       >
         {title}
       </h3>
       <p
         className={`text-sm leading-relaxed ${
-          isLight ? "text-text-secondary" : "text-text-on-dark/70"
+          isDark ? "text-white/60" : "text-text-secondary"
         }`}
       >
         {description}
