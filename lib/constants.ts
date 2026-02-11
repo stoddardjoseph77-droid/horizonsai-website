@@ -2,7 +2,7 @@ export const SITE = {
   name: "HorizonsAI",
   tagline: "AI Automation for Real Estate",
   description: "We build AI agents that qualify buyers, personalize follow-ups, and power reporting dashboards for real estate businesses.",
-  calendlyUrl: "#", // TODO: Replace with actual Calendly URL
+  calendlyUrl: "https://calendly.com/stoddardjoseph77/exploration-call",
   email: "support@horizonsai.co",
 };
 
