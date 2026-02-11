@@ -147,7 +147,7 @@ export default function CommercialPage() {
           <AnimateIn>
             <SectionHeading
               label="Data"
-              title="6 Public Data Sources"
+              title="Core Data Sources"
               subtitle="We aggregate and analyze data from the most reliable public sources in commercial real estate."
               dark={true}
             />
@@ -165,6 +165,11 @@ export default function CommercialPage() {
               </AnimateIn>
             ))}
           </div>
+          <AnimateIn delay={0.7}>
+            <p className="text-center text-white/40 text-sm mt-8 max-w-2xl mx-auto">
+              These are just the starting point. Our pipeline is fully customizable — we can add additional data sources based on your target market, asset class, and investment criteria.
+            </p>
+          </AnimateIn>
         </div>
       </section>
 
