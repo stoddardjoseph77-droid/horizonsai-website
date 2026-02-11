@@ -5,6 +5,8 @@ import Button from "@/components/Button";
 import TrustBar from "@/components/TrustBar";
 import CTABanner from "@/components/CTABanner";
 import AnimateIn from "@/components/AnimateIn";
+import DashboardMockup from "@/components/DashboardMockup";
+import DealCard from "@/components/DealCard";
 
 export const metadata: Metadata = {
   title: "HorizonsAI | AI Automation for Real Estate",
@@ -92,6 +94,49 @@ export default function HomePage() {
                   Learn more &rarr;
                 </span>
               </Link>
+            </AnimateIn>
+          </div>
+        </div>
+      </section>
+
+      <div className="section-divider" />
+
+      {/* ── Product Previews ── */}
+      <section className="bg-[#0A0A1A] py-28 md:py-40 relative overflow-hidden">
+        <div className="gradient-blob gradient-blob-primary -top-40 -left-20" />
+        <div className="gradient-blob gradient-blob-secondary -bottom-40 -right-20" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <AnimateIn>
+            <div className="text-center mb-16">
+              <span className="inline-block px-4 py-1.5 rounded-full bg-brand-primary/10 text-brand-primary text-xs font-semibold tracking-wide uppercase mb-4">
+                What You Get
+              </span>
+              <h2 className="font-heading font-bold text-3xl md:text-4xl text-text-on-dark">
+                See What We Build
+              </h2>
+              <p className="text-white/50 text-lg mt-4 max-w-2xl mx-auto">
+                Real dashboards and deal reports — not mockups. Here&apos;s a preview of what our clients work with daily.
+              </p>
+            </div>
+          </AnimateIn>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+            <AnimateIn delay={0.1}>
+              <div>
+                <h3 className="font-heading font-semibold text-lg text-text-on-dark mb-2">Real Estate — Lead Dashboard</h3>
+                <p className="text-white/40 text-sm mb-5">Track every lead, response time, and pipeline metric in one place.</p>
+                <div className="mockup-float-left rounded-3xl">
+                  <DashboardMockup />
+                </div>
+              </div>
+            </AnimateIn>
+            <AnimateIn delay={0.2}>
+              <div>
+                <h3 className="font-heading font-semibold text-lg text-text-on-dark mb-2">Commercial — Scored Deal Card</h3>
+                <p className="text-white/40 text-sm mb-5">Every distressed opportunity ranked with AI analysis and commentary.</p>
+                <div className="mockup-float-right rounded-3xl">
+                  <DealCard />
+                </div>
+              </div>
             </AnimateIn>
           </div>
         </div>

@@ -5,7 +5,6 @@ import {
   CRE_PROBLEMS,
   CRE_DATA_SOURCES,
   CRE_DELIVERABLES,
-  CRE_ADDITIONAL,
   CRE_PROCESS,
   CRE_FAQ,
 } from "@/lib/constants";
@@ -19,6 +18,11 @@ import FAQAccordion from "@/components/FAQAccordion";
 import CTABanner from "@/components/CTABanner";
 import TrustBar from "@/components/TrustBar";
 import AnimateIn from "@/components/AnimateIn";
+import DealCard from "@/components/DealCard";
+import PipelineTable from "@/components/PipelineTable";
+import EmailDigestMockup from "@/components/EmailDigestMockup";
+import InboxMonitorMockup from "@/components/InboxMonitorMockup";
+import UnderwritingMockup from "@/components/UnderwritingMockup";
 
 export const metadata: Metadata = {
   title: "Commercial Real Estate | HorizonsAI",
@@ -195,29 +199,68 @@ export default function CommercialPage() {
 
       <div className="section-divider" />
 
-      {/* 7. Additional Services */}
+      {/* 6.5 Deal Preview Snapshots */}
       <section className="bg-dark-deep py-24 md:py-36 relative overflow-hidden">
-        <div className="gradient-blob gradient-blob-secondary absolute top-1/2 -right-40 -translate-y-1/2" />
+        <div className="gradient-blob gradient-blob-primary -top-40 -left-40" />
+        <div className="gradient-blob gradient-blob-secondary -bottom-40 -right-40" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <AnimateIn>
             <SectionHeading
-              label="Add-Ons"
-              title="Additional Services"
-              subtitle="Extend your pipeline with these optional capabilities."
+              label="Example Output"
+              title="What a Scored Deal Looks Like"
+              subtitle="Every opportunity is ranked, annotated, and delivered with actionable commentary."
               dark={true}
             />
           </AnimateIn>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {CRE_ADDITIONAL.map((item, index) => (
-              <AnimateIn key={item.title} delay={index * 0.1}>
-                <Card
-                  icon={item.icon}
-                  title={item.title}
-                  description={item.description}
-                  variant="dark"
-                />
-              </AnimateIn>
-            ))}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+            <AnimateIn delay={0.1}>
+              <div className="mockup-float-left rounded-3xl">
+                <DealCard />
+              </div>
+            </AnimateIn>
+            <AnimateIn delay={0.2}>
+              <div className="mockup-float-right rounded-3xl">
+                <PipelineTable />
+              </div>
+            </AnimateIn>
+          </div>
+        </div>
+      </section>
+
+      <div className="section-divider" />
+
+      {/* 7. Additional Services — Visual Mockups */}
+      <section className="bg-[#0A0A1A] py-24 md:py-36 relative overflow-hidden grid-pattern">
+        <div className="gradient-blob gradient-blob-secondary absolute top-1/2 -right-40 -translate-y-1/2" />
+        <div className="gradient-blob gradient-blob-primary absolute -top-40 -left-20" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <AnimateIn>
+            <SectionHeading
+              label="Add-On Systems"
+              title="Extend Your Pipeline"
+              subtitle="Optional AI-powered capabilities that take your deal sourcing further."
+              dark={true}
+            />
+          </AnimateIn>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+            <AnimateIn delay={0.1}>
+              <div>
+                <h3 className="font-heading font-semibold text-lg text-text-on-dark mb-4">Broker Email Intelligence</h3>
+                <p className="text-white/50 text-sm mb-6">We scan your inbox so you never miss a deal from your broker network.</p>
+                <div className="mockup-float-left rounded-3xl">
+                  <InboxMonitorMockup />
+                </div>
+              </div>
+            </AnimateIn>
+            <AnimateIn delay={0.2}>
+              <div>
+                <h3 className="font-heading font-semibold text-lg text-text-on-dark mb-4">AI-Powered Underwriting</h3>
+                <p className="text-white/50 text-sm mb-6">Preliminary analysis in seconds, not hours. Screen deals against your criteria instantly.</p>
+                <div className="mockup-float-right rounded-3xl">
+                  <UnderwritingMockup />
+                </div>
+              </div>
+            </AnimateIn>
           </div>
         </div>
       </section>
@@ -249,6 +292,28 @@ export default function CommercialPage() {
               </AnimateIn>
             ))}
           </div>
+        </div>
+      </section>
+
+      <div className="section-divider" />
+
+      {/* 8.5 Weekly Email Preview */}
+      <section className="bg-dark-deep py-24 md:py-36 relative overflow-hidden">
+        <div className="gradient-blob gradient-blob-primary -top-40 left-1/2 -translate-x-1/2" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <AnimateIn>
+            <SectionHeading
+              label="Delivery"
+              title="Delivered Every Monday"
+              subtitle="No searching. No manual work. Just open your inbox."
+              dark={true}
+            />
+          </AnimateIn>
+          <AnimateIn delay={0.15}>
+            <div className="mockup-float-center rounded-3xl max-w-2xl mx-auto">
+              <EmailDigestMockup />
+            </div>
+          </AnimateIn>
         </div>
       </section>
 

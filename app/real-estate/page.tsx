@@ -19,6 +19,8 @@ import TestimonialCard from "@/components/TestimonialCard";
 import FAQAccordion from "@/components/FAQAccordion";
 import CTABanner from "@/components/CTABanner";
 import AnimateIn from "@/components/AnimateIn";
+import ChatMockup from "@/components/ChatMockup";
+import DashboardMockup from "@/components/DashboardMockup";
 
 export const metadata: Metadata = {
   title: "Real Estate Agencies | HorizonsAI",
@@ -78,6 +80,61 @@ export default function RealEstatePage() {
 
       <div className="section-divider" />
 
+      {/* 3.5 AI Agent Chat Preview */}
+      <section className="bg-[#0A0A1A] py-24 md:py-36 relative overflow-hidden">
+        <div className="gradient-blob gradient-blob-secondary -top-40 -right-20" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <AnimateIn>
+            <SectionHeading
+              label="See It In Action"
+              title="AI That Qualifies Leads Instantly"
+              subtitle="Our AI agent responds in under 60 seconds — qualifying buyers and routing warm leads to your team."
+              dark={true}
+            />
+          </AnimateIn>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <AnimateIn delay={0.1}>
+              <div className="mockup-float-left rounded-[2.5rem]">
+                <ChatMockup />
+              </div>
+            </AnimateIn>
+            <AnimateIn delay={0.2}>
+              <div className="space-y-6">
+                <div className="glass-card p-5 flex items-center gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-green-500/15 flex items-center justify-center shrink-0">
+                    <span className="text-green-400 text-lg">⚡</span>
+                  </div>
+                  <div>
+                    <p className="text-text-on-dark font-heading font-semibold text-sm">Qualified in 47 Seconds</p>
+                    <p className="text-white/50 text-xs">Budget, timeline, and area confirmed automatically</p>
+                  </div>
+                </div>
+                <div className="glass-card p-5 flex items-center gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-brand-primary/15 flex items-center justify-center shrink-0">
+                    <span className="text-brand-primary text-lg">🔄</span>
+                  </div>
+                  <div>
+                    <p className="text-text-on-dark font-heading font-semibold text-sm">Auto-Synced to CRM</p>
+                    <p className="text-white/50 text-xs">Lead data flows directly into your pipeline</p>
+                  </div>
+                </div>
+                <div className="glass-card p-5 flex items-center gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-purple-500/15 flex items-center justify-center shrink-0">
+                    <span className="text-purple-400 text-lg">📞</span>
+                  </div>
+                  <div>
+                    <p className="text-text-on-dark font-heading font-semibold text-sm">Agent Notified Instantly</p>
+                    <p className="text-white/50 text-xs">Warm leads routed to the right team member</p>
+                  </div>
+                </div>
+              </div>
+            </AnimateIn>
+          </div>
+        </div>
+      </section>
+
+      <div className="section-divider" />
+
       {/* 4. Services */}
       <section className="bg-[#0A0A1A] py-24 md:py-36 relative overflow-hidden grid-pattern">
         <div className="gradient-blob gradient-blob-primary -top-20 -right-40" />
@@ -103,6 +160,28 @@ export default function RealEstatePage() {
               </AnimateIn>
             ))}
           </div>
+        </div>
+      </section>
+
+      <div className="section-divider" />
+
+      {/* 4.5 Dashboard Preview */}
+      <section className="bg-dark-deep py-24 md:py-36 relative overflow-hidden">
+        <div className="gradient-blob gradient-blob-primary -bottom-40 left-1/2 -translate-x-1/2" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <AnimateIn>
+            <SectionHeading
+              label="Your Command Center"
+              title="Everything In One Dashboard"
+              subtitle="Track leads, response times, and pipeline value — all updated in real time."
+              dark={true}
+            />
+          </AnimateIn>
+          <AnimateIn delay={0.15}>
+            <div className="mockup-float-center rounded-3xl max-w-5xl mx-auto">
+              <DashboardMockup />
+            </div>
+          </AnimateIn>
         </div>
       </section>
 
