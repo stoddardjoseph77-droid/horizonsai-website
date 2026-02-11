@@ -34,13 +34,17 @@ export default function Card({
 
   return (
     <div
-      className={`${isDark ? "glass-card p-8 shimmer-border" : "glass-card-light p-8 shimmer-border"}`}
+      className={`${isDark ? "glass-card p-8 shimmer-border card-accent" : "glass-card-light p-8 shimmer-border card-accent"} h-full`}
     >
-      <div className="w-12 h-12 rounded-2xl bg-brand-primary/10 flex items-center justify-center text-2xl mb-4">
+      <div
+        className={`w-12 h-12 rounded-2xl flex items-center justify-center text-2xl mb-5 ${
+          isDark ? "bg-brand-primary/10" : "bg-brand-primary/[0.07]"
+        }`}
+      >
         {iconMap[icon] || "\ud83d\udd39"}
       </div>
       <h3
-        className={`font-heading font-semibold text-lg mb-2 ${
+        className={`font-heading font-semibold text-lg mb-3 ${
           isDark ? "text-text-on-dark" : "text-text-primary"
         }`}
       >
@@ -54,7 +58,7 @@ export default function Card({
         {description}
       </p>
       {timing && (
-        <span className="inline-block mt-3 text-xs font-semibold text-brand-primary bg-brand-primary/10 px-3 py-1 rounded-full">
+        <span className="inline-block mt-4 text-xs font-semibold text-brand-primary bg-brand-primary/10 px-3 py-1 rounded-full">
           {timing}
         </span>
       )}

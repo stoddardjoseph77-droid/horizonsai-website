@@ -87,7 +87,7 @@ export default function StatsBar({
   const isDark = variant === "dark";
 
   return (
-    <div className={isDark ? "bg-transparent py-12" : "bg-white py-12"}>
+    <div className={isDark ? "bg-transparent py-16" : "bg-white py-16 border-b border-light-border/50"}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
           {stats.map((stat, index) => (

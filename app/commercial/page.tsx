@@ -37,17 +37,17 @@ export default function CommercialPage() {
   return (
     <>
       {/* 1. Hero */}
-      <section className="hero-gradient py-24 md:py-40 relative overflow-hidden">
+      <section className="hero-gradient py-28 md:py-44 relative overflow-hidden">
         <div className="gradient-blob gradient-blob-primary -top-40 -left-20" />
         <div className="gradient-blob gradient-blob-secondary top-20 -right-40" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <AnimateIn>
-            <h1 className="font-heading font-bold text-4xl md:text-5xl lg:text-6xl text-text-on-dark mb-6">
+            <h1 className="font-heading font-bold text-4xl md:text-5xl lg:text-6xl text-text-on-dark mb-6 leading-tight">
               {CRE_HERO.headline}
             </h1>
           </AnimateIn>
           <AnimateIn delay={0.1}>
-            <p className="text-text-on-dark/70 text-lg md:text-xl max-w-3xl mx-auto mb-8">
+            <p className="text-text-on-dark/70 text-lg md:text-xl max-w-3xl mx-auto mb-10">
               {CRE_HERO.subtext}
             </p>
           </AnimateIn>
@@ -93,10 +93,13 @@ export default function CommercialPage() {
           </AnimateIn>
           <div className="flex flex-col md:flex-row items-stretch justify-center gap-0">
             {pipelinePhases.map((phase, index) => (
-              <AnimateIn key={phase.label} delay={index * 0.15}>
-                <div className="flex items-center">
-                  <div className="glass-card-light p-5 text-center min-w-[160px]">
-                    <div className="font-heading font-semibold text-text-primary mb-1">
+              <AnimateIn key={phase.label} delay={index * 0.12}>
+                <div className="flex flex-col md:flex-row items-center">
+                  <div className="glass-card-light p-5 text-center min-w-[150px] card-accent">
+                    <div className="w-8 h-8 rounded-lg bg-brand-primary/10 flex items-center justify-center mx-auto mb-2">
+                      <span className="text-brand-primary font-heading font-bold text-sm">{index + 1}</span>
+                    </div>
+                    <div className="font-heading font-semibold text-text-primary text-sm mb-1">
                       {phase.label}
                     </div>
                     <div className="text-text-muted text-xs">
@@ -105,14 +108,14 @@ export default function CommercialPage() {
                   </div>
                   {index < pipelinePhases.length - 1 && (
                     <div className="hidden md:flex items-center px-2">
-                      <svg className="w-6 h-6 text-brand-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-5 h-5 text-brand-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
                     </div>
                   )}
                   {index < pipelinePhases.length - 1 && (
                     <div className="flex md:hidden items-center justify-center py-2">
-                      <svg className="w-6 h-6 text-brand-primary rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-5 h-5 text-brand-primary rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
                     </div>

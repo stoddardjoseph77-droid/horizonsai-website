@@ -26,9 +26,11 @@ html {
   background: linear-gradient(
     180deg,
     #050505 0%,
+    #080618 15%,
     #0d0a20 30%,
     #1a1040 50%,
     #0d0a20 70%,
+    #080618 85%,
     #050505 100%
   );
   background-color: #050505;
@@ -40,9 +42,9 @@ html {
   position: absolute;
   inset: 0;
   background: radial-gradient(
-    ellipse at top center,
-    rgba(109, 122, 255, 0.2) 0%,
-    rgba(139, 92, 246, 0.1) 30%,
+    ellipse 80% 60% at 50% 30%,
+    rgba(109, 122, 255, 0.25) 0%,
+    rgba(139, 92, 246, 0.12) 30%,
     transparent 60%
   );
   pointer-events: none;
@@ -50,55 +52,83 @@ html {
 
 /* ── Glassmorphism card (dark mode) ───────── */
 .glass-card {
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 24px;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
 .glass-card:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.22);
-  transform: translateY(-4px);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-6px);
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.4),
+    0 0 40px rgba(109, 122, 255, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 /* ── Glassmorphism card (light mode) ──────── */
 .glass-card-light {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid #E5E7EB;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(229, 231, 235, 0.8);
   border-radius: 24px;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .glass-card-light:hover {
   background: rgba(255, 255, 255, 1);
-  border-color: rgba(109, 122, 255, 0.3);
-  transform: translateY(-4px);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+  border-color: rgba(109, 122, 255, 0.25);
+  transform: translateY(-6px);
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.06),
+    0 0 40px rgba(109, 122, 255, 0.04);
+}
+
+/* ── Card accent line (gradient top border) ── */
+.card-accent {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-accent::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #6D7AFF, #8B5CF6, #6D7AFF);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.card-accent:hover::after {
+  opacity: 1;
 }
 
 /* ── Gradient blob decorations ────────────── */
 .gradient-blob {
   position: absolute;
   border-radius: 50%;
-  filter: blur(100px);
+  filter: blur(120px);
   pointer-events: none;
   z-index: 0;
 }
 
 .gradient-blob-primary {
-  background: rgba(109, 122, 255, 0.15);
+  background: rgba(109, 122, 255, 0.12);
   width: 600px;
   height: 600px;
 }
 
 .gradient-blob-secondary {
-  background: rgba(139, 92, 246, 0.12);
+  background: rgba(139, 92, 246, 0.10);
   width: 500px;
   height: 500px;
 }
@@ -118,11 +148,11 @@ html {
 
 /* ── Button glow ──────────────────────────── */
 .btn-glow {
-  box-shadow: 0 0 20px rgba(109, 122, 255, 0.3);
+  box-shadow: 0 0 20px rgba(109, 122, 255, 0.25);
 }
 
 .btn-glow:hover {
-  box-shadow: 0 0 40px rgba(109, 122, 255, 0.5);
+  box-shadow: 0 0 40px rgba(109, 122, 255, 0.45);
 }
 
 /* ── Text gradient ────────────────────────── */
@@ -145,14 +175,14 @@ html {
   border-radius: inherit;
   background: linear-gradient(
     135deg,
-    rgba(109, 122, 255, 0.5),
-    rgba(139, 92, 246, 0.3),
+    rgba(109, 122, 255, 0.4),
+    rgba(139, 92, 246, 0.25),
     transparent,
-    rgba(109, 122, 255, 0.3)
+    rgba(109, 122, 255, 0.25)
   );
   z-index: -1;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.4s ease;
 }
 
 .shimmer-border:hover::before {
@@ -170,10 +200,26 @@ html {
   inset: 0;
   background-image: radial-gradient(
     circle,
-    rgba(255, 255, 255, 0.05) 1px,
+    rgba(255, 255, 255, 0.03) 1px,
     transparent 1px
   );
   background-size: 30px 30px;
+  pointer-events: none;
+}
+
+/* ── Grid pattern overlay ─────────────────── */
+.grid-pattern {
+  position: relative;
+}
+
+.grid-pattern::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  background-size: 60px 60px;
   pointer-events: none;
 }
 
@@ -195,7 +241,7 @@ html {
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.4s ease;
   pointer-events: none;
 }
 

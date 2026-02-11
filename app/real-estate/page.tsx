@@ -79,7 +79,7 @@ export default function RealEstatePage() {
       <div className="section-divider" />
 
       {/* 4. Services */}
-      <section className="bg-[#0A0A1A] py-24 md:py-36 relative overflow-hidden">
+      <section className="bg-[#0A0A1A] py-24 md:py-36 relative overflow-hidden grid-pattern">
         <div className="gradient-blob gradient-blob-primary -top-20 -right-40" />
         <div className="gradient-blob gradient-blob-secondary bottom-0 -left-20" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -121,8 +121,8 @@ export default function RealEstatePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {RE_BENEFITS.map((benefit, index) => (
               <AnimateIn key={benefit.title} delay={index * 0.1}>
-                <div className="glass-card p-6 shimmer-border">
-                  <h3 className="font-heading font-semibold text-lg text-text-on-dark mb-2">
+                <div className="glass-card p-7 shimmer-border card-accent h-full">
+                  <h3 className="font-heading font-semibold text-lg text-text-on-dark mb-3">
                     {benefit.title}
                   </h3>
                   <p className="text-white/60 text-sm leading-relaxed">
@@ -167,8 +167,9 @@ export default function RealEstatePage() {
       <div className="section-divider" />
 
       {/* 7. About */}
-      <section className="bg-dark-deep py-24 md:py-36">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-dark-deep py-24 md:py-36 relative overflow-hidden">
+        <div className="gradient-blob gradient-blob-primary -top-40 left-1/2 -translate-x-1/2" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <AnimateIn>
               <SectionHeading
@@ -178,9 +179,11 @@ export default function RealEstatePage() {
               />
             </AnimateIn>
             <AnimateIn delay={0.1}>
-              <p className="text-white/70 text-lg leading-relaxed">
-                {ABOUT_TEXT}
-              </p>
+              <div className="glass-card p-8 md:p-10">
+                <p className="text-white/70 text-lg leading-relaxed">
+                  {ABOUT_TEXT}
+                </p>
+              </div>
             </AnimateIn>
           </div>
         </div>
@@ -189,7 +192,7 @@ export default function RealEstatePage() {
       <div className="section-divider" />
 
       {/* 8. Testimonials */}
-      <section className="bg-[#0A0A1A] py-24 md:py-36 relative overflow-hidden">
+      <section className="bg-[#0A0A1A] py-24 md:py-36 relative overflow-hidden grid-pattern">
         <div className="gradient-blob gradient-blob-primary -top-40 -right-20" />
         <div className="gradient-blob gradient-blob-secondary -bottom-40 -left-20" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

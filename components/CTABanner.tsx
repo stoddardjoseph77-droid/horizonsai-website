@@ -17,7 +17,7 @@ export default function CTABanner({
 }: CTABannerProps) {
   return (
     <section
-      className={`py-24 md:py-32 relative overflow-hidden ${
+      className={`py-28 md:py-36 relative overflow-hidden ${
         dark ? "hero-gradient" : "bg-brand-primary"
       }`}
     >
@@ -30,14 +30,14 @@ export default function CTABanner({
         className="absolute inset-0 flex items-center justify-center pointer-events-none"
         aria-hidden="true"
       >
-        <div className="w-[600px] h-[300px] bg-brand-primary/15 rounded-full blur-3xl" />
+        <div className="w-[700px] h-[350px] bg-brand-primary/15 rounded-full blur-[100px]" />
       </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-        <h2 className="font-heading font-bold text-4xl md:text-5xl text-white mb-4">
+        <h2 className="font-heading font-bold text-4xl md:text-5xl text-white mb-5 leading-tight">
           {headline}
         </h2>
         {subtext && (
-          <p className="text-white/70 text-lg mb-8 max-w-2xl mx-auto">
+          <p className="text-white/60 text-lg md:text-xl mb-10 max-w-2xl mx-auto">
             {subtext}
           </p>
         )}

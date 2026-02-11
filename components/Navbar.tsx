@@ -15,6 +15,9 @@ export default function Navbar() {
   const isLightPage =
     pathname === "/commercial" || pathname.startsWith("/commercial");
 
+  // When scrolled on a light page, switch navbar to light theme
+  const isLightScrolled = scrolled && isLightPage;
+
   /* Track scroll position for transparent -> glass transition */
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10);
@@ -41,16 +44,14 @@ export default function Navbar() {
       <nav
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-          isLightPage
-            ? scrolled
-              ? "bg-white shadow-md"
-              : "bg-white"
-            : scrolled
-              ? "bg-white/[0.04] border-b border-white/[0.08]"
-              : "bg-transparent"
+          scrolled
+            ? isLightPage
+              ? "bg-white/95 shadow-lg border-b border-light-border/50"
+              : "bg-white/[0.04] border-b border-white/[0.08]"
+            : "bg-transparent"
         )}
         style={
-          !isLightPage && scrolled
+          scrolled
             ? {
                 backdropFilter: "blur(20px)",
                 WebkitBackdropFilter: "blur(20px)",
@@ -69,8 +70,8 @@ export default function Navbar() {
               </div>
               <span
                 className={cn(
-                  "font-heading font-bold text-xl",
-                  isLightPage ? "text-text-primary" : "text-text-on-dark"
+                  "font-heading font-bold text-xl transition-colors duration-300",
+                  isLightScrolled ? "text-text-primary" : "text-text-on-dark"
                 )}
               >
                 {SITE.name}
@@ -85,7 +86,7 @@ export default function Navbar() {
                   href={link.href}
                   className={cn(
                     "text-sm font-medium transition-colors duration-200",
-                    isLightPage
+                    isLightScrolled
                       ? pathname === link.href
                         ? "text-brand-primary"
                         : "text-text-secondary hover:text-text-primary"
@@ -117,21 +118,33 @@ export default function Navbar() {
               <span
                 className={cn(
                   "block w-6 h-0.5 transition-all duration-300 origin-center",
-                  isLightPage ? "bg-text-primary" : "bg-white",
+                  mobileOpen
+                    ? "bg-white"
+                    : isLightScrolled
+                      ? "bg-text-primary"
+                      : "bg-white",
                   mobileOpen && "rotate-45 translate-y-2"
                 )}
               />
               <span
                 className={cn(
                   "block w-6 h-0.5 transition-all duration-300",
-                  isLightPage ? "bg-text-primary" : "bg-white",
+                  mobileOpen
+                    ? "bg-white"
+                    : isLightScrolled
+                      ? "bg-text-primary"
+                      : "bg-white",
                   mobileOpen && "opacity-0"
                 )}
               />
               <span
                 className={cn(
                   "block w-6 h-0.5 transition-all duration-300 origin-center",
-                  isLightPage ? "bg-text-primary" : "bg-white",
+                  mobileOpen
+                    ? "bg-white"
+                    : isLightScrolled
+                      ? "bg-text-primary"
+                      : "bg-white",
                   mobileOpen && "-rotate-45 -translate-y-2"
                 )}
               />
@@ -143,8 +156,7 @@ export default function Navbar() {
       {/* -- Mobile fullscreen overlay ------------------- */}
       <div
         className={cn(
-          "fixed inset-0 z-40 flex flex-col items-center justify-center transition-all duration-300 md:hidden",
-          isLightPage ? "bg-white" : "bg-dark-deep",
+          "fixed inset-0 z-40 flex flex-col items-center justify-center transition-all duration-300 md:hidden bg-dark-deep",
           mobileOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
@@ -158,13 +170,9 @@ export default function Navbar() {
               onClick={() => setMobileOpen(false)}
               className={cn(
                 "text-2xl font-heading font-medium transition-colors duration-200",
-                isLightPage
-                  ? pathname === link.href
-                    ? "text-brand-primary"
-                    : "text-text-primary hover:text-brand-primary"
-                  : pathname === link.href
-                    ? "text-white"
-                    : "text-white/70 hover:text-white"
+                pathname === link.href
+                  ? "text-white"
+                  : "text-white/70 hover:text-white"
               )}
             >
               {link.label}
