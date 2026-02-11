@@ -56,15 +56,13 @@ export default function RealEstatePage() {
         </div>
       </section>
 
-      <div className="section-divider" />
-
       {/* 2. Trust Bar */}
       <TrustBar variant="dark" />
 
       <div className="section-divider" />
 
       {/* 3. Problem / Solution */}
-      <section className="dark-section py-24 md:py-36">
+      <section className="bg-dark-deep py-24 md:py-36 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimateIn>
             <SectionHeading
@@ -81,7 +79,7 @@ export default function RealEstatePage() {
       <div className="section-divider" />
 
       {/* 4. Services */}
-      <section className="dark-section py-24 md:py-36 relative overflow-hidden">
+      <section className="bg-[#0A0A1A] py-24 md:py-36 relative overflow-hidden">
         <div className="gradient-blob gradient-blob-primary -top-20 -right-40" />
         <div className="gradient-blob gradient-blob-secondary bottom-0 -left-20" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -111,7 +109,7 @@ export default function RealEstatePage() {
       <div className="section-divider" />
 
       {/* 5. Benefits */}
-      <section className="dark-section py-24 md:py-36">
+      <section className="bg-dark-deep py-24 md:py-36">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimateIn>
             <SectionHeading
@@ -123,7 +121,7 @@ export default function RealEstatePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {RE_BENEFITS.map((benefit, index) => (
               <AnimateIn key={benefit.title} delay={index * 0.1}>
-                <div className="glass-card p-6">
+                <div className="glass-card p-6 shimmer-border">
                   <h3 className="font-heading font-semibold text-lg text-text-on-dark mb-2">
                     {benefit.title}
                   </h3>
@@ -140,8 +138,9 @@ export default function RealEstatePage() {
       <div className="section-divider" />
 
       {/* 6. Process */}
-      <section className="dark-section py-24 md:py-36">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-[#0A0A1A] py-24 md:py-36 relative overflow-hidden">
+        <div className="gradient-blob gradient-blob-secondary -bottom-40 -left-40" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <AnimateIn>
             <SectionHeading
               label="How It Works"
@@ -168,7 +167,7 @@ export default function RealEstatePage() {
       <div className="section-divider" />
 
       {/* 7. About */}
-      <section className="dark-section py-24 md:py-36">
+      <section className="bg-dark-deep py-24 md:py-36">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <AnimateIn>
@@ -190,8 +189,9 @@ export default function RealEstatePage() {
       <div className="section-divider" />
 
       {/* 8. Testimonials */}
-      <section className="dark-section py-24 md:py-36 relative overflow-hidden">
-        <div className="gradient-blob gradient-blob-secondary -bottom-40 -right-20" />
+      <section className="bg-[#0A0A1A] py-24 md:py-36 relative overflow-hidden">
+        <div className="gradient-blob gradient-blob-primary -top-40 -right-20" />
+        <div className="gradient-blob gradient-blob-secondary -bottom-40 -left-20" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <AnimateIn>
             <SectionHeading
@@ -218,7 +218,7 @@ export default function RealEstatePage() {
       <div className="section-divider" />
 
       {/* 9. FAQ */}
-      <section className="dark-section py-24 md:py-36">
+      <section className="bg-dark-deep py-24 md:py-36">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             title="Frequently Asked Questions"

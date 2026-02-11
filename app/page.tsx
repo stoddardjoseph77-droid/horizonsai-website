@@ -15,12 +15,12 @@ export default function HomePage() {
   return (
     <>
       {/* ── Hero Section ── */}
-      <section className="hero-gradient py-24 md:py-40 relative overflow-hidden">
+      <section className="hero-gradient py-28 md:py-44 relative overflow-hidden">
         <div className="gradient-blob gradient-blob-primary -top-40 -left-20" />
         <div className="gradient-blob gradient-blob-secondary top-20 -right-40" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <AnimateIn>
-            <h1 className="font-heading font-bold text-4xl md:text-5xl lg:text-6xl text-text-on-dark mb-6">
+            <h1 className="font-heading font-bold text-4xl md:text-5xl lg:text-6xl text-text-on-dark mb-6 leading-tight">
               {SITE.tagline}
             </h1>
           </AnimateIn>
@@ -38,13 +38,13 @@ export default function HomePage() {
       </section>
 
       {/* ── Two Service Cards ── */}
-      <section className="dark-section py-24 md:py-36">
+      <section className="bg-dark-deep py-24 md:py-36">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-8">
             <AnimateIn delay={0}>
               <Link
                 href="/real-estate"
-                className="group block glass-card p-8 md:p-10 transition-all duration-200 hover:shadow-xl"
+                className="group block glass-card p-8 md:p-10 shimmer-border"
               >
                 <div className="text-4xl mb-4">🏠</div>
                 <h2 className="font-heading font-bold text-2xl text-text-on-dark mb-3 group-hover:text-brand-primary transition-colors">
@@ -54,7 +54,7 @@ export default function HomePage() {
                   AI agents that qualify leads, automate follow-ups, and deliver
                   real-time reporting dashboards for real estate agencies.
                 </p>
-                <span className="inline-block mt-6 text-brand-primary font-heading font-semibold text-sm">
+                <span className="inline-block mt-6 text-brand-primary font-heading font-semibold text-sm group-hover:translate-x-1 transition-transform">
                   Learn more &rarr;
                 </span>
               </Link>
@@ -63,7 +63,7 @@ export default function HomePage() {
             <AnimateIn delay={0.15}>
               <Link
                 href="/commercial"
-                className="group block glass-card p-8 md:p-10 transition-all duration-200 hover:shadow-xl"
+                className="group block glass-card p-8 md:p-10 shimmer-border"
               >
                 <div className="text-4xl mb-4">🏢</div>
                 <h2 className="font-heading font-bold text-2xl text-text-on-dark mb-3 group-hover:text-brand-primary transition-colors">
@@ -73,7 +73,7 @@ export default function HomePage() {
                   AI-powered distressed deal sourcing from SEC filings, county
                   records, and CRE news &mdash; delivered to your inbox weekly.
                 </p>
-                <span className="inline-block mt-6 text-brand-primary font-heading font-semibold text-sm">
+                <span className="inline-block mt-6 text-brand-primary font-heading font-semibold text-sm group-hover:translate-x-1 transition-transform">
                   Learn more &rarr;
                 </span>
               </Link>
@@ -90,7 +90,7 @@ export default function HomePage() {
       <div className="section-divider" />
 
       {/* ── 3-Column Value Prop ── */}
-      <section className="dark-section py-24 md:py-36 relative overflow-hidden">
+      <section className="bg-[#0A0A1A] py-24 md:py-36 relative overflow-hidden">
         <div className="gradient-blob gradient-blob-primary -bottom-40 -right-20" />
         <div className="gradient-blob gradient-blob-secondary -top-20 -left-40" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

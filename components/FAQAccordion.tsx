@@ -33,7 +33,9 @@ export default function FAQAccordion({
         >
           <button
             onClick={() => setOpenIndex(openIndex === index ? null : index)}
-            className="w-full flex items-center justify-between p-5 text-left hover:bg-light-secondary/50 transition-colors"
+            className={`w-full flex items-center justify-between p-5 text-left transition-colors ${
+              isDark ? "hover:bg-white/[0.06]" : "hover:bg-light-secondary/50"
+            }`}
           >
             <span
               className={`font-heading font-semibold pr-4 ${

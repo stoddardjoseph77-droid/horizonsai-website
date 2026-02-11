@@ -28,44 +28,45 @@ export default function TrustBar({
   const isDark = variant === "dark";
 
   return (
-    <section className={isDark ? "py-12 bg-transparent" : "py-12 bg-light-secondary"}>
+    <section
+      className={`py-14 ${
+        isDark ? "bg-transparent" : "bg-white border-y border-light-border"
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {heading && (
           <p
-            className={`text-center text-sm font-heading font-semibold uppercase tracking-wide mb-8 ${
-              isDark ? "text-white/40" : "text-text-muted"
+            className={`text-center text-xs font-heading font-semibold uppercase tracking-[0.2em] mb-10 ${
+              isDark ? "text-white/30" : "text-text-muted"
             }`}
           >
             {heading}
           </p>
         )}
         <Marquee
-          speed={40}
+          speed={30}
           gradient={true}
-          gradientColor={isDark ? "rgb(5, 5, 5)" : "rgb(249, 250, 251)"}
-          gradientWidth={100}
+          gradientColor={isDark ? "rgb(5, 5, 5)" : "rgb(255, 255, 255)"}
+          gradientWidth={80}
           pauseOnHover={true}
         >
           {LOGOS.map(({ name, src }) => (
             <div
               key={name}
-              className="px-8 flex items-center gap-3 opacity-70 hover:opacity-100 transition-opacity duration-200 select-none cursor-default"
+              className="mx-10 flex items-center justify-center"
               title={name}
             >
               <Image
                 src={src}
                 alt={name}
-                width={28}
-                height={28}
-                className={`shrink-0 ${isDark ? "grayscale brightness-[2]" : ""}`}
-              />
-              <span
-                className={`text-sm font-heading font-semibold whitespace-nowrap ${
-                  isDark ? "text-white/60" : "text-text-secondary"
+                width={40}
+                height={40}
+                className={`shrink-0 transition-all duration-300 ${
+                  isDark
+                    ? "brightness-0 invert opacity-40 hover:opacity-80"
+                    : "grayscale opacity-50 hover:grayscale-0 hover:opacity-100"
                 }`}
-              >
-                {name}
-              </span>
+              />
             </div>
           ))}
         </Marquee>
