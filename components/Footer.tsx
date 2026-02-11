@@ -63,9 +63,15 @@ export default function Footer() {
             </h4>
             <a
               href={`mailto:${SITE.email}`}
-              className="text-text-on-dark/70 hover:text-text-on-dark transition-colors duration-200 text-sm"
+              className="text-text-on-dark/70 hover:text-text-on-dark transition-colors duration-200 text-sm block"
             >
               {SITE.email}
+            </a>
+            <a
+              href={`tel:${SITE.phone}`}
+              className="text-text-on-dark/70 hover:text-text-on-dark transition-colors duration-200 text-sm block mt-1"
+            >
+              {SITE.phone}
             </a>
           </div>
         </div>

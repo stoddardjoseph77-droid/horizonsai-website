@@ -35,8 +35,8 @@ const pipelinePhases = [
   { label: "Data Sources", detail: "SEC, County, News, FDIC, mREITs, 8-K" },
   { label: "Enrichment", detail: "Clean, normalize, deduplicate" },
   { label: "Deal Finding", detail: "AI scoring & ranking" },
-  { label: "Report Generation", detail: "PDF digest & live sheet" },
-  { label: "Delivery", detail: "Weekly to your inbox" },
+  { label: "Report Generation", detail: "PDF digest & live dashboard" },
+  { label: "Delivery", detail: "Live dashboard + weekly PDF" },
 ];
 
 export default function CommercialPage() {
@@ -61,6 +61,11 @@ export default function CommercialPage() {
             <Button href="/book-a-call" size="lg">
               {CRE_HERO.cta}
             </Button>
+          </AnimateIn>
+          <AnimateIn delay={0.3}>
+            <p className="text-text-on-dark/50 text-sm mt-6">
+              {CRE_HERO.proofText}
+            </p>
           </AnimateIn>
         </div>
       </section>

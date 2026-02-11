@@ -3,7 +3,8 @@ export const SITE = {
   tagline: "AI Automation for Real Estate",
   description: "We build AI agents that qualify buyers, personalize follow-ups, and power reporting dashboards for real estate businesses.",
   calendlyUrl: "https://calendly.com/stoddardjoseph77/exploration-call",
-  email: "support@horizonsai.co",
+  email: "joey@horizonsai.co",
+  phone: "616-723-3848",
 };
 
 export const NAV_LINKS = [
@@ -178,8 +179,9 @@ export const ABOUT_TEXT =
 export const CRE_HERO = {
   headline: "Find Distressed Deals Before They Hit the Market",
   subtext:
-    "We monitor SEC filings, county records, and CRE news to surface distressed opportunities 1\u20133 months before your competitors see them \u2014 then use AI to score every deal against your specific acquisition criteria and run preliminary underwriting in seconds.",
+    "We monitor SEC filings, county records, and CRE news to surface distressed opportunities 1\u20133 months before your competitors see them \u2014 then score every deal against your specific acquisition criteria using AI.",
   cta: "Book a Call",
+  proofText: "20+ calls scheduled last month",
 };
 
 export const CRE_STATS = [
@@ -254,9 +256,9 @@ export const CRE_DELIVERABLES = [
     icon: "document",
   },
   {
-    title: "Google Sheet Pipeline",
+    title: "Live Custom Dashboard",
     description:
-      "A live, sortable pipeline updated weekly. Filter by market, asset class, distress level, or deal size. Share with your team instantly.",
+      "A real-time, sortable dashboard updated continuously. Filter by market, asset class, distress level, or deal size. Share with your team instantly.",
     icon: "table",
   },
 ];
@@ -293,7 +295,7 @@ export const CRE_PROCESS = [
     step: 3,
     title: "Get Weekly Reports",
     description:
-      "Scored, ranked opportunities delivered every Monday. A PDF digest plus a live Google Sheet pipeline you can filter and share.",
+      "Scored, ranked opportunities delivered to your live custom dashboard and via a weekly PDF digest every Monday.",
   },
 ];
 
@@ -306,7 +308,7 @@ export const CRE_FAQ = [
   {
     question: "How often do I receive reports?",
     answer:
-      "You receive a weekly PDF digest every Monday with scored and ranked opportunities, plus a live Google Sheet pipeline that\u2019s updated continuously.",
+      "You receive scored and ranked opportunities in a live custom dashboard that\u2019s updated continuously, plus a weekly PDF digest every Monday.",
   },
   {
     question: "Can the system be customized to my markets?",
