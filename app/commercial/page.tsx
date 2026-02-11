@@ -65,9 +65,12 @@ export default function CommercialPage() {
       {/* Trust Bar */}
       <TrustBar variant="light" />
 
+      <div className="section-divider-light" />
+
       {/* 3. Problem / Solution */}
-      <section className="py-20 md:py-28 bg-[#F9FAFB]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-24 md:py-32 bg-[#F8F7FF] relative overflow-hidden light-section-glow">
+        <div className="gradient-blob gradient-blob-light-primary absolute -top-40 -right-40" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <AnimateIn>
             <SectionHeading
               label="The Problem"
@@ -80,9 +83,12 @@ export default function CommercialPage() {
         </div>
       </section>
 
+      <div className="section-divider-light" />
+
       {/* 4. System Overview - Pipeline */}
-      <section className="py-20 md:py-28 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-24 md:py-32 bg-white relative overflow-hidden">
+        <div className="gradient-blob gradient-blob-light-secondary absolute -bottom-40 left-1/2 -translate-x-1/2" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <AnimateIn>
             <SectionHeading
               label="System Overview"
@@ -127,9 +133,13 @@ export default function CommercialPage() {
         </div>
       </section>
 
+      <div className="section-divider-light" />
+
       {/* 5. Data Sources */}
-      <section className="py-20 md:py-28 bg-[#F9FAFB]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-24 md:py-32 bg-[#F8F7FF] relative overflow-hidden grid-pattern-light">
+        <div className="gradient-blob gradient-blob-light-primary absolute -top-20 -left-40" />
+        <div className="gradient-blob gradient-blob-light-secondary absolute -bottom-20 -right-40" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <AnimateIn>
             <SectionHeading
               label="Data"
@@ -154,9 +164,11 @@ export default function CommercialPage() {
         </div>
       </section>
 
+      <div className="section-divider-light" />
+
       {/* 6. What You Receive */}
-      <section className="py-20 md:py-28 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-24 md:py-32 bg-white relative overflow-hidden light-section-glow">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <AnimateIn>
             <SectionHeading
               label="Deliverables"
@@ -180,9 +192,12 @@ export default function CommercialPage() {
         </div>
       </section>
 
+      <div className="section-divider-light" />
+
       {/* 7. Additional Services */}
-      <section className="py-20 md:py-28 bg-[#F9FAFB]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-24 md:py-32 bg-[#F8F7FF] relative overflow-hidden">
+        <div className="gradient-blob gradient-blob-light-primary absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <AnimateIn>
             <SectionHeading
               label="Add-Ons"
@@ -206,9 +221,12 @@ export default function CommercialPage() {
         </div>
       </section>
 
+      <div className="section-divider-light" />
+
       {/* 8. Process */}
-      <section className="py-20 md:py-28 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-24 md:py-32 bg-white relative overflow-hidden">
+        <div className="gradient-blob gradient-blob-light-secondary absolute -bottom-40 -right-40" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <AnimateIn>
             <SectionHeading
               label="Get Started"
@@ -233,9 +251,11 @@ export default function CommercialPage() {
         </div>
       </section>
 
+      <div className="section-divider-light" />
+
       {/* 9. FAQ */}
-      <section className="py-20 md:py-28 bg-[#F9FAFB]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-24 md:py-32 bg-[#F8F7FF] relative overflow-hidden light-section-glow">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <SectionHeading
             title="Frequently Asked Questions"
             dark={false}

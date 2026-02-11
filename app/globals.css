@@ -133,6 +133,35 @@ html {
   height: 500px;
 }
 
+/* ── Light-mode gradient blobs (subtle) ───── */
+.gradient-blob-light-primary {
+  background: rgba(109, 122, 255, 0.06);
+  width: 500px;
+  height: 500px;
+}
+
+.gradient-blob-light-secondary {
+  background: rgba(139, 92, 246, 0.05);
+  width: 400px;
+  height: 400px;
+}
+
+/* ── Light-mode grid pattern ──────────────── */
+.grid-pattern-light {
+  position: relative;
+}
+
+.grid-pattern-light::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(109, 122, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(109, 122, 255, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
 /* ── Section divider ──────────────────────── */
 .section-divider {
   height: 1px;
@@ -144,6 +173,40 @@ html {
     rgba(109, 122, 255, 0.3),
     transparent
   );
+}
+
+/* ── Light section divider ────────────────── */
+.section-divider-light {
+  height: 1px;
+  max-width: 700px;
+  margin: 0 auto;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(109, 122, 255, 0.15),
+    transparent
+  );
+}
+
+/* ── Light section radial glow ────────────── */
+.light-section-glow {
+  position: relative;
+}
+
+.light-section-glow::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 400px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(109, 122, 255, 0.04) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
 }
 
 /* ── Button glow ──────────────────────────── */
