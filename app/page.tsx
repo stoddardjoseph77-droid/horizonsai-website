@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { SITE } from "@/lib/constants";
 import Button from "@/components/Button";
 import TrustBar from "@/components/TrustBar";
@@ -9,7 +8,7 @@ import DashboardMockup from "@/components/DashboardMockup";
 import DealCard from "@/components/DealCard";
 
 export const metadata: Metadata = {
-  title: "HorizonsAI | AI Automation for Real Estate",
+  title: "HorizonsAI | AI-Powered Deal Sourcing & Lead Automation",
   description: SITE.description,
 };
 
@@ -23,7 +22,7 @@ export default function HomePage() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <AnimateIn>
             <h1 className="font-heading font-bold text-4xl md:text-5xl lg:text-6xl text-text-on-dark mb-6 leading-tight">
-              {SITE.tagline}
+              AI Systems That Find Deals<br />and Close Leads — Automatically
             </h1>
           </AnimateIn>
           <AnimateIn delay={0.1}>
@@ -38,68 +37,6 @@ export default function HomePage() {
           </AnimateIn>
         </div>
       </section>
-
-      {/* ── Two Service Cards ── */}
-      <section className="bg-dark-deep py-28 md:py-40 relative overflow-hidden">
-        <div className="gradient-blob gradient-blob-secondary -top-40 left-1/2 -translate-x-1/2" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <AnimateIn>
-            <div className="text-center mb-16">
-              <span className="inline-block px-4 py-1.5 rounded-full bg-brand-primary/10 text-brand-primary text-xs font-semibold tracking-wide uppercase mb-4">
-                Our Solutions
-              </span>
-              <h2 className="font-heading font-bold text-3xl md:text-4xl text-text-on-dark">
-                Choose Your Path
-              </h2>
-            </div>
-          </AnimateIn>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <AnimateIn delay={0}>
-              <Link
-                href="/real-estate"
-                className="group block glass-card p-8 md:p-10 glow-border card-accent h-full"
-              >
-                <div className="w-14 h-14 rounded-2xl bg-brand-primary/10 flex items-center justify-center text-3xl mb-5">
-                  🏠
-                </div>
-                <h2 className="font-heading font-bold text-2xl text-text-on-dark mb-3 group-hover:text-brand-primary transition-colors">
-                  For Real Estate Agencies
-                </h2>
-                <p className="text-white/60 leading-relaxed mb-6">
-                  AI agents that qualify leads, automate follow-ups, and deliver
-                  real-time reporting dashboards for real estate agencies.
-                </p>
-                <span className="inline-flex items-center gap-1 text-brand-primary font-heading font-semibold text-sm group-hover:translate-x-1 transition-transform">
-                  Learn more &rarr;
-                </span>
-              </Link>
-            </AnimateIn>
-
-            <AnimateIn delay={0.15}>
-              <Link
-                href="/commercial"
-                className="group block glass-card p-8 md:p-10 glow-border card-accent h-full"
-              >
-                <div className="w-14 h-14 rounded-2xl bg-brand-primary/10 flex items-center justify-center text-3xl mb-5">
-                  🏢
-                </div>
-                <h2 className="font-heading font-bold text-2xl text-text-on-dark mb-3 group-hover:text-brand-primary transition-colors">
-                  For Commercial Real Estate
-                </h2>
-                <p className="text-white/60 leading-relaxed mb-6">
-                  AI-powered distressed deal sourcing from SEC filings, county
-                  records, and CRE news &mdash; delivered to your inbox weekly.
-                </p>
-                <span className="inline-flex items-center gap-1 text-brand-primary font-heading font-semibold text-sm group-hover:translate-x-1 transition-transform">
-                  Learn more &rarr;
-                </span>
-              </Link>
-            </AnimateIn>
-          </div>
-        </div>
-      </section>
-
-      <div className="section-divider" />
 
       {/* ── Product Previews ── */}
       <section className="bg-[#0A0A1A] py-28 md:py-40 relative overflow-hidden">
