@@ -85,8 +85,8 @@ export default function CommercialPage() {
           <AnimateIn>
             <SectionHeading
               label="Problem / Solution"
-              title="What You\u2019re Doing vs. What We Do"
-              subtitle="Most CRE investors are still relying on outdated methods. Here\u2019s what changes when AI takes over."
+              title="What You're Doing vs. What We Do"
+              subtitle="Most CRE investors are still relying on outdated methods. Here's what changes when AI takes over."
               dark={true}
             />
           </AnimateIn>

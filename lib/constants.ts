@@ -198,12 +198,8 @@ export const CRE_STATS = [
 
 export const CRE_PROBLEMS = [
   {
-    problem: "Manually checking SEC EDGAR for distressed loans",
-    solution: "Automated monitoring of 900+ CMBS filings per month",
-  },
-  {
-    problem: "Missing deals buried in county foreclosure records",
-    solution: "Nationwide county record scanning for NODs and Lis Pendens",
+    problem: "Manually searching public records for distressed deals",
+    solution: "Automated monitoring of SEC filings, county records, and 4 other data sources",
   },
   {
     problem: "Broker emails piling up with no way to filter signal from noise",
