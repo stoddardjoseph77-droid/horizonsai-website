@@ -7,7 +7,7 @@ import {
   CRE_DELIVERABLES,
   CRE_PROCESS,
   CRE_FAQ,
-  ABOUT_TEXT,
+  ABOUT_TEXT_CRE,
 } from "@/lib/constants";
 import Button from "@/components/Button";
 import StatsBar from "@/components/StatsBar";
@@ -357,7 +357,7 @@ export default function CommercialPage() {
                 <h3 className="font-heading font-semibold text-xl text-text-on-dark mb-1">Joey Stoddard</h3>
                 <p className="text-brand-primary text-sm mb-6">Founder, HorizonsAI</p>
                 <p className="text-white/70 text-lg leading-relaxed mb-8">
-                  {ABOUT_TEXT}
+                  {ABOUT_TEXT_CRE}
                 </p>
                 <a
                   href="https://www.linkedin.com/in/joey-stoddard-8a2b78357"

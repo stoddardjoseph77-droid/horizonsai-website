@@ -7,7 +7,7 @@ import {
   RE_PROCESS,
   RE_TESTIMONIALS,
   RE_FAQ,
-  ABOUT_TEXT,
+  ABOUT_TEXT_RE,
 } from "@/lib/constants";
 import Button from "@/components/Button";
 import TrustBar from "@/components/TrustBar";
@@ -271,7 +271,7 @@ export default function RealEstatePage() {
                 <h3 className="font-heading font-semibold text-xl text-text-on-dark mb-1">Joey Stoddard</h3>
                 <p className="text-brand-primary text-sm mb-6">Founder, HorizonsAI</p>
                 <p className="text-white/70 text-lg leading-relaxed mb-8">
-                  {ABOUT_TEXT}
+                  {ABOUT_TEXT_RE}
                 </p>
                 <a
                   href="https://www.linkedin.com/in/joey-stoddard-8a2b78357"

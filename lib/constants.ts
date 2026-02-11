@@ -172,7 +172,13 @@ export const RE_FAQ = [
 ];
 
 export const ABOUT_TEXT =
-  "I\u2019m Joey, founder of Horizons AI. We design smart systems that transform how Real Estate Agencies capture, qualify, and follow up with leads. Instead of losing hours to manual tasks, scattered tools, and guesswork, we integrate AI agents and automation directly into the platforms you already use \u2014 making your operations seamless and stress-free.";
+  "I\u2019m Joey, founder of HorizonsAI. We build AI-powered systems that help real estate agencies and commercial investors work smarter \u2014 from capturing and qualifying leads to sourcing and scoring distressed deals. Instead of losing hours to manual tasks, scattered tools, and guesswork, we integrate AI agents and automation directly into your existing workflow \u2014 making your operations seamless and stress-free.";
+
+export const ABOUT_TEXT_RE =
+  "I\u2019m Joey, founder of HorizonsAI. We design smart systems that transform how real estate agencies capture, qualify, and follow up with leads. Instead of losing hours to manual tasks, scattered tools, and guesswork, we integrate AI agents and automation directly into the platforms you already use \u2014 making your operations seamless and stress-free.";
+
+export const ABOUT_TEXT_CRE =
+  "I\u2019m Joey, founder of HorizonsAI. We build AI systems that help commercial real estate investors find and evaluate distressed deals faster. Instead of manually combing through SEC filings, county records, and broker emails, our pipeline does the heavy lifting \u2014 surfacing scored opportunities matched to your specific acquisition criteria.";
 
 // ── Commercial Real Estate Page ─────────────────────────────────
 
