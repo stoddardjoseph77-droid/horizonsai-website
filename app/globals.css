@@ -441,3 +441,77 @@ html {
     --glow-angle: 360deg;
   }
 }
+
+/* ── Mobile performance optimizations ────── */
+/* Keeps the same look, just lighter on the GPU */
+@media (max-width: 768px) {
+  /* Reduce blur cost — still looks glassy on dark backgrounds */
+  .glass-card,
+  .glass-card-light {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  /* Pause infinite glow rotation — show a static glow instead */
+  .glow-border {
+    animation: none;
+    --glow-angle: 135deg;
+  }
+
+  /* Smaller blobs = less GPU compositing */
+  .gradient-blob-primary {
+    width: 300px;
+    height: 300px;
+    filter: blur(80px);
+  }
+
+  .gradient-blob-secondary {
+    width: 250px;
+    height: 250px;
+    filter: blur(80px);
+  }
+
+  /* Flatten 3D transforms on mobile (mockups are full-width stacked anyway) */
+  .mockup-float-left,
+  .mockup-float-right,
+  .mockup-float-center {
+    transform: none;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  }
+
+  .mockup-float-left:hover,
+  .mockup-float-right:hover,
+  .mockup-float-center:hover {
+    transform: none;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  }
+
+  /* Disable hover lift on touch devices — prevents sticky hover state */
+  .glass-card:hover,
+  .glass-card-light:hover {
+    transform: none;
+  }
+}
+
+/* ── Respect prefers-reduced-motion ──────── */
+@media (prefers-reduced-motion: reduce) {
+  .glow-border {
+    animation: none;
+    --glow-angle: 135deg;
+  }
+
+  .glass-card,
+  .glass-card-light,
+  .glass-card:hover,
+  .glass-card-light:hover {
+    transition: none;
+    transform: none;
+  }
+
+  .mockup-float-left,
+  .mockup-float-right,
+  .mockup-float-center {
+    transform: none;
+    transition: none;
+  }
+}

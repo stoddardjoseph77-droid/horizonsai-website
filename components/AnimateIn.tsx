@@ -10,10 +10,10 @@ interface AnimateInProps {
 }
 
 const directionOffsets: Record<string, { x: number; y: number }> = {
-  up: { x: 0, y: 40 },
-  down: { x: 0, y: -40 },
-  left: { x: 40, y: 0 },
-  right: { x: -40, y: 0 },
+  up: { x: 0, y: 24 },
+  down: { x: 0, y: -24 },
+  left: { x: 24, y: 0 },
+  right: { x: -24, y: 0 },
 };
 
 export default function AnimateIn({
@@ -23,13 +23,20 @@ export default function AnimateIn({
   className,
 }: AnimateInProps) {
   const offset = directionOffsets[direction];
+  // Cap delay so staggered items don't take forever to appear
+  const clampedDelay = Math.min(delay, 0.3);
 
   return (
     <motion.div
       initial={{ opacity: 0, x: offset.x, y: offset.y }}
       whileInView={{ opacity: 1, x: 0, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ type: "spring", duration: 0.6, delay }}
+      viewport={{ once: true, margin: "0px 0px -15% 0px" }}
+      transition={{
+        type: "tween",
+        ease: "easeOut",
+        duration: 0.4,
+        delay: clampedDelay,
+      }}
       className={className}
     >
       {children}
