@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 
 interface AnimateInProps {
   children: React.ReactNode;
@@ -18,15 +18,19 @@ const directionOffsets: Record<string, { x: number; y: number }> = {
 };
 
 const mobileOffsets: Record<string, { x: number; y: number }> = {
-  up: { x: 0, y: 10 },
-  down: { x: 0, y: -10 },
-  left: { x: 10, y: 0 },
-  right: { x: -10, y: 0 },
+  up: { x: 0, y: 8 },
+  down: { x: 0, y: -8 },
+  left: { x: 8, y: 0 },
+  right: { x: -8, y: 0 },
 };
+
+// useLayoutEffect on client (fires before paint), useEffect on server (no-op during SSR)
+const useIsomorphicLayoutEffect =
+  typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
 function useIsMobile() {
   const [mobile, setMobile] = useState(false);
-  useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     const mql = window.matchMedia("(max-width: 767px)");
     setMobile(mql.matches);
     const handler = (e: MediaQueryListEvent) => setMobile(e.matches);
@@ -45,11 +49,12 @@ export default function AnimateIn({
   const isMobile = useIsMobile();
   const offset = isMobile ? mobileOffsets[direction] : directionOffsets[direction];
 
-  // Mobile: 0.25s smooth fade, small stagger (half of desktop delay), trigger 100px early.
+  // Mobile: 0.15s fast fade, tiny stagger for hero cascade, trigger 30px early.
+  // Scroll content cascades naturally via vertical stacking.
   // Desktop: 0.4s smooth fade, full stagger delays, trigger at -15% from bottom.
-  const duration = isMobile ? 0.25 : 0.4;
-  const finalDelay = isMobile ? Math.min(delay * 0.5, 0.15) : Math.min(delay, 0.3);
-  const margin = isMobile ? "0px 0px 100px 0px" : "0px 0px -15% 0px";
+  const duration = isMobile ? 0.15 : 0.4;
+  const finalDelay = isMobile ? Math.min(delay * 0.4, 0.08) : Math.min(delay, 0.3);
+  const margin = isMobile ? "0px 0px 30px 0px" : "0px 0px -15% 0px";
 
   return (
     <motion.div
