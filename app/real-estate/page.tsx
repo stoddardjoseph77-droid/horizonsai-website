@@ -22,6 +22,8 @@ import AnimateIn from "@/components/AnimateIn";
 import Image from "next/image";
 import ChatMockup from "@/components/ChatMockup";
 import DashboardMockup from "@/components/DashboardMockup";
+import HeroSilhouette from "@/components/HeroSilhouette";
+import SectionAccent from "@/components/SectionAccent";
 
 export const metadata: Metadata = {
   title: "Real Estate Agencies | HorizonsAI",
@@ -35,11 +37,12 @@ export default function RealEstatePage() {
       <section className="hero-gradient py-20 md:py-40 relative overflow-hidden">
         <div className="gradient-blob gradient-blob-primary -top-40 -left-20" />
         <div className="gradient-blob gradient-blob-secondary top-20 -right-40" />
+        <HeroSilhouette variant="residential" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <AnimateIn>
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.06] border border-white/[0.08] mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-green-400" />
-              <span className="text-white/60 text-xs font-medium tracking-wide">Trusted by Founders Worldwide</span>
+              <span className="text-white/60 text-xs font-medium tracking-wide">Built for Real Estate Teams</span>
             </div>
             <h1 className="font-heading font-bold text-4xl md:text-5xl lg:text-6xl text-text-on-dark mb-6">
               {RE_HERO.headline}
@@ -70,6 +73,7 @@ export default function RealEstatePage() {
 
       {/* 3. Problem / Solution */}
       <section className="bg-dark-deep py-16 md:py-36 relative overflow-hidden">
+        <SectionAccent icon="search" position="top-right" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimateIn>
             <SectionHeading
@@ -85,7 +89,7 @@ export default function RealEstatePage() {
       <div className="section-divider" />
 
       {/* 3.5 AI Agent Chat Preview */}
-      <section className="bg-[#0A0A1A] py-16 md:py-36 relative overflow-hidden">
+      <section className="bg-[#0A0A1A] py-16 md:py-36 relative overflow-hidden dashboard-dots">
         <div className="gradient-blob gradient-blob-secondary -top-40 -right-20" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <AnimateIn>
@@ -143,6 +147,7 @@ export default function RealEstatePage() {
       <section className="bg-[#0A0A1A] py-16 md:py-36 relative overflow-hidden grid-pattern">
         <div className="gradient-blob gradient-blob-primary -top-20 -right-40" />
         <div className="gradient-blob gradient-blob-secondary bottom-0 -left-20" />
+        <SectionAccent icon="gear" position="bottom-left" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <AnimateIn>
             <SectionHeading
@@ -160,6 +165,7 @@ export default function RealEstatePage() {
                   title={service.title}
                   description={service.description}
                   variant="dark"
+                  accent
                 />
               </AnimateIn>
             ))}

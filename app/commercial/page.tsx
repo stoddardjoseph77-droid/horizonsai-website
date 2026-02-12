@@ -25,6 +25,8 @@ import PipelineTable from "@/components/PipelineTable";
 import EmailDigestMockup from "@/components/EmailDigestMockup";
 import InboxMonitorMockup from "@/components/InboxMonitorMockup";
 import UnderwritingMockup from "@/components/UnderwritingMockup";
+import HeroSilhouette from "@/components/HeroSilhouette";
+import SectionAccent from "@/components/SectionAccent";
 
 export const metadata: Metadata = {
   title: "Commercial Real Estate | HorizonsAI",
@@ -46,11 +48,12 @@ export default function CommercialPage() {
       <section className="hero-gradient py-20 md:py-44 relative overflow-hidden">
         <div className="gradient-blob gradient-blob-primary -top-40 -left-20" />
         <div className="gradient-blob gradient-blob-secondary top-20 -right-40" />
+        <HeroSilhouette variant="commercial" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <AnimateIn>
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.06] border border-white/[0.08] mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-green-400" />
-              <span className="text-white/60 text-xs font-medium tracking-wide">Trusted by Founders Worldwide</span>
+              <span className="text-white/60 text-xs font-medium tracking-wide">Built for CRE Investors</span>
             </div>
             <h1 className="font-heading font-bold text-4xl md:text-5xl lg:text-6xl text-text-on-dark mb-6 leading-tight">
               {CRE_HERO.headline}
@@ -101,7 +104,7 @@ export default function CommercialPage() {
       <div className="section-divider" />
 
       {/* 4. System Overview - Pipeline */}
-      <section className="bg-[#0A0A1A] py-16 md:py-36 relative overflow-hidden grid-pattern">
+      <section className="bg-[#0A0A1A] py-16 md:py-36 relative overflow-hidden blueprint-grid">
         <div className="gradient-blob gradient-blob-secondary absolute -bottom-40 left-1/2 -translate-x-1/2" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <AnimateIn>
@@ -154,6 +157,7 @@ export default function CommercialPage() {
       <section className="bg-dark-deep py-16 md:py-36 relative overflow-hidden">
         <div className="gradient-blob gradient-blob-primary absolute -top-20 -left-40" />
         <div className="gradient-blob gradient-blob-secondary absolute -bottom-20 -right-40" />
+        <SectionAccent icon="filing" position="top-right" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <AnimateIn>
             <SectionHeading
@@ -172,6 +176,7 @@ export default function CommercialPage() {
                   description={source.description}
                   timing={source.timing}
                   variant="dark"
+                  accent
                 />
               </AnimateIn>
             ))}
@@ -187,8 +192,9 @@ export default function CommercialPage() {
       <div className="section-divider" />
 
       {/* 6. What You Receive */}
-      <section className="bg-[#0A0A1A] py-16 md:py-36 relative overflow-hidden grid-pattern">
+      <section className="bg-[#0A0A1A] py-16 md:py-36 relative overflow-hidden blueprint-grid">
         <div className="gradient-blob gradient-blob-primary absolute -top-40 left-1/2 -translate-x-1/2" />
+        <SectionAccent icon="report" position="bottom-left" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <AnimateIn>
             <SectionHeading
@@ -206,6 +212,7 @@ export default function CommercialPage() {
                   title={item.title}
                   description={item.description}
                   variant="dark"
+                  accent
                 />
               </AnimateIn>
             ))}
@@ -216,7 +223,7 @@ export default function CommercialPage() {
       <div className="section-divider" />
 
       {/* 6.5 Deal Preview Snapshots */}
-      <section className="bg-dark-deep py-16 md:py-36 relative overflow-hidden">
+      <section className="bg-dark-deep py-16 md:py-36 relative overflow-hidden property-texture">
         <div className="gradient-blob gradient-blob-primary -top-40 -left-40" />
         <div className="gradient-blob gradient-blob-secondary -bottom-40 -right-40" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

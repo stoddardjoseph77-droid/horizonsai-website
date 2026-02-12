@@ -508,6 +508,59 @@ html {
   }
 }
 
+/* ── Blueprint grid pattern (CRE sections) ── */
+.blueprint-grid {
+  position: relative;
+}
+
+.blueprint-grid::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(109, 122, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(109, 122, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(rgba(109, 122, 255, 0.012) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(109, 122, 255, 0.012) 1px, transparent 1px);
+  background-size: 120px 120px, 120px 120px, 30px 30px, 30px 30px;
+  pointer-events: none;
+}
+
+/* ── Dashboard dots pattern (RE sections) ── */
+.dashboard-dots {
+  position: relative;
+}
+
+.dashboard-dots::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+    circle,
+    rgba(109, 122, 255, 0.04) 1px,
+    transparent 1px
+  );
+  background-size: 20px 20px;
+  pointer-events: none;
+}
+
+/* ── Property texture (CRE deal section) ─── */
+.property-texture {
+  position: relative;
+}
+
+.property-texture::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(109, 122, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(109, 122, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(45deg, rgba(139, 92, 246, 0.01) 1px, transparent 1px);
+  background-size: 80px 80px, 80px 80px, 40px 40px;
+  pointer-events: none;
+}
+
 /* ── Respect prefers-reduced-motion ──────── */
 @media (prefers-reduced-motion: reduce) {
   .glow-border {
