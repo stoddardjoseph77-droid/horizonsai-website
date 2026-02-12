@@ -13,6 +13,18 @@ interface StatsBarProps {
   variant?: "dark" | "light";
 }
 
+function useIsMobile() {
+  const [mobile, setMobile] = useState(false);
+  useEffect(() => {
+    const mql = window.matchMedia("(max-width: 767px)");
+    setMobile(mql.matches);
+    const handler = (e: MediaQueryListEvent) => setMobile(e.matches);
+    mql.addEventListener("change", handler);
+    return () => mql.removeEventListener("change", handler);
+  }, []);
+  return mobile;
+}
+
 function parseStatValue(value: string): { numeric: number; prefix: string; suffix: string } | null {
   const match = value.match(/^([^0-9]*)(\d+)(.*)$/);
   if (!match) return null;
@@ -29,21 +41,22 @@ function AnimatedStat({
   isDark,
 }: Stat & { isDark: boolean }) {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const isInView = useInView(ref, { once: true, margin: "50px" });
+  const isMobile = useIsMobile();
   const [displayValue, setDisplayValue] = useState(value);
   const parsed = useMemo(() => parseStatValue(value), [value]);
 
   useEffect(() => {
     if (!isInView || !parsed) return;
 
-    const duration = 2000;
+    // Mobile: 700ms count. Desktop: 2000ms count.
+    const duration = isMobile ? 700 : 2000;
     const startTime = performance.now();
     const target = parsed.numeric;
 
     function animate(currentTime: number) {
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      // easeOut curve
       const eased = 1 - Math.pow(1 - progress, 3);
       const current = Math.round(eased * target);
 
@@ -56,23 +69,34 @@ function AnimatedStat({
 
     setDisplayValue(`${parsed.prefix}0${parsed.suffix}`);
     requestAnimationFrame(animate);
-  }, [isInView, parsed]);
+  }, [isInView, parsed, isMobile]);
+
+  // Mobile: faster fade (200ms, no label delay). Desktop: 500ms fade, 300ms label delay.
+  const fadeDuration = isMobile ? 200 : 500;
+  const labelDelay = isMobile ? "0s" : "0.3s";
 
   return (
     <div ref={ref}>
       <div
-        className={`font-heading font-bold text-4xl mb-2 transition-opacity duration-500 ${
+        className={`font-heading font-bold text-4xl mb-2 ${
           isDark ? "text-gradient" : "text-brand-primary"
         }`}
-        style={{ opacity: isInView ? 1 : 0 }}
+        style={{
+          opacity: isInView ? 1 : 0,
+          transition: `opacity ${fadeDuration}ms ease`,
+        }}
       >
         {displayValue}
       </div>
       <div
-        className={`text-sm transition-opacity duration-500 ${
+        className={`text-sm ${
           isDark ? "text-white/60" : "text-text-secondary"
         }`}
-        style={{ opacity: isInView ? 1 : 0, transitionDelay: "0.3s" }}
+        style={{
+          opacity: isInView ? 1 : 0,
+          transition: `opacity ${fadeDuration}ms ease`,
+          transitionDelay: labelDelay,
+        }}
       >
         {label}
       </div>

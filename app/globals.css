@@ -20,12 +20,6 @@ html {
   scroll-behavior: smooth;
 }
 
-@media (max-width: 768px) {
-  html {
-    scroll-behavior: auto;
-  }
-}
-
 /* ── Dark section base ────────────────────── */
 .dark-section {
   background: #050505;
