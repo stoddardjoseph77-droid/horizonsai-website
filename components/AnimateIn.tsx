@@ -17,21 +17,23 @@ const directionOffsets: Record<string, { x: number; y: number }> = {
   right: { x: -24, y: 0 },
 };
 
-function useShouldSkipAnimation() {
-  const [skip, setSkip] = useState(false);
+const mobileOffsets: Record<string, { x: number; y: number }> = {
+  up: { x: 0, y: 12 },
+  down: { x: 0, y: -12 },
+  left: { x: 12, y: 0 },
+  right: { x: -12, y: 0 },
+};
+
+function useIsMobile() {
+  const [mobile, setMobile] = useState(false);
   useEffect(() => {
-    const mobile = window.matchMedia("(max-width: 767px)");
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const update = () => setSkip(mobile.matches || reducedMotion.matches);
-    update();
-    mobile.addEventListener("change", update);
-    reducedMotion.addEventListener("change", update);
-    return () => {
-      mobile.removeEventListener("change", update);
-      reducedMotion.removeEventListener("change", update);
-    };
+    const mql = window.matchMedia("(max-width: 767px)");
+    setMobile(mql.matches);
+    const handler = (e: MediaQueryListEvent) => setMobile(e.matches);
+    mql.addEventListener("change", handler);
+    return () => mql.removeEventListener("change", handler);
   }, []);
-  return skip;
+  return mobile;
 }
 
 export default function AnimateIn({
@@ -40,25 +42,23 @@ export default function AnimateIn({
   direction = "up",
   className,
 }: AnimateInProps) {
-  const skipAnimation = useShouldSkipAnimation();
-  const offset = directionOffsets[direction];
-  // Cap delay so staggered items don't take forever to appear
-  const clampedDelay = Math.min(delay, 0.3);
+  const isMobile = useIsMobile();
+  const offset = isMobile ? mobileOffsets[direction] : directionOffsets[direction];
 
-  if (skipAnimation) {
-    return <div className={className}>{children}</div>;
-  }
+  // Mobile: snappy (0.2s, no delay). Desktop: smooth (0.4s, staggered).
+  const duration = isMobile ? 0.2 : 0.4;
+  const finalDelay = isMobile ? 0 : Math.min(delay, 0.3);
 
   return (
     <motion.div
       initial={{ opacity: 0, x: offset.x, y: offset.y }}
       whileInView={{ opacity: 1, x: 0, y: 0 }}
-      viewport={{ once: true, margin: "0px 0px -15% 0px" }}
+      viewport={{ once: true, margin: "0px 0px -10% 0px" }}
       transition={{
         type: "tween",
         ease: "easeOut",
-        duration: 0.4,
-        delay: clampedDelay,
+        duration,
+        delay: finalDelay,
       }}
       className={className}
     >

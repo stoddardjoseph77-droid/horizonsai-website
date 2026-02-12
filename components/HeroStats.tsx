@@ -6,7 +6,7 @@ const stats = [
 
 export default function HeroStats() {
   return (
-    <div className="inline-flex items-center justify-center gap-5 sm:gap-8 md:gap-12 mt-8">
+    <div className="inline-flex items-center justify-center gap-5 sm:gap-8 md:gap-12 mt-4 md:mt-8">
       {stats.map((stat, index) => (
         <div
           key={stat.label}

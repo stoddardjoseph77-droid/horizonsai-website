@@ -70,7 +70,7 @@ export default function CommercialPage() {
             </Button>
           </AnimateIn>
           <AnimateIn delay={0.3}>
-            <p className="text-text-on-dark/50 text-sm mt-6">
+            <p className="text-text-on-dark/50 text-sm mt-3 md:mt-6">
               {CRE_HERO.proofText}
             </p>
           </AnimateIn>
