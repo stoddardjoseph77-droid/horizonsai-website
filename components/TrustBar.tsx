@@ -29,7 +29,7 @@ export default function TrustBar({
 
   return (
     <section
-      className={`py-14 ${
+      className={`py-8 md:py-14 ${
         isDark ? "bg-transparent" : "bg-white border-y border-light-border"
       }`}
     >

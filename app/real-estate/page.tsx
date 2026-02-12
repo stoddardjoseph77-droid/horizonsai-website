@@ -35,7 +35,7 @@ export default function RealEstatePage() {
   return (
     <>
       {/* 1. Hero */}
-      <section className="hero-gradient py-20 md:py-40 relative overflow-hidden">
+      <section className="hero-gradient py-12 md:py-40 relative overflow-hidden">
         <div className="gradient-blob gradient-blob-primary -top-40 -left-20" />
         <div className="gradient-blob gradient-blob-secondary top-20 -right-40" />
         <HeroSilhouette variant="residential" />

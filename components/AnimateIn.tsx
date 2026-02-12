@@ -18,10 +18,10 @@ const directionOffsets: Record<string, { x: number; y: number }> = {
 };
 
 const mobileOffsets: Record<string, { x: number; y: number }> = {
-  up: { x: 0, y: 8 },
-  down: { x: 0, y: -8 },
-  left: { x: 8, y: 0 },
-  right: { x: -8, y: 0 },
+  up: { x: 0, y: 10 },
+  down: { x: 0, y: -10 },
+  left: { x: 10, y: 0 },
+  right: { x: -10, y: 0 },
 };
 
 function useIsMobile() {
@@ -45,11 +45,11 @@ export default function AnimateIn({
   const isMobile = useIsMobile();
   const offset = isMobile ? mobileOffsets[direction] : directionOffsets[direction];
 
-  // Mobile: fast fade (0.15s), no delay, trigger early (50px before viewport).
-  // Desktop: smooth fade (0.4s), staggered delays, trigger at -15% from bottom.
-  const duration = isMobile ? 0.15 : 0.4;
-  const finalDelay = isMobile ? 0 : Math.min(delay, 0.3);
-  const margin = isMobile ? "0px 0px 50px 0px" : "0px 0px -15% 0px";
+  // Mobile: 0.25s smooth fade, small stagger (half of desktop delay), trigger 100px early.
+  // Desktop: 0.4s smooth fade, full stagger delays, trigger at -15% from bottom.
+  const duration = isMobile ? 0.25 : 0.4;
+  const finalDelay = isMobile ? Math.min(delay * 0.5, 0.15) : Math.min(delay, 0.3);
+  const margin = isMobile ? "0px 0px 100px 0px" : "0px 0px -15% 0px";
 
   return (
     <motion.div
