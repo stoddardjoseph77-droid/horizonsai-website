@@ -21,7 +21,7 @@ export default function BookACallPage() {
         </p>
 
         {/* Calendly Embed */}
-        <div className="glass-card overflow-hidden" style={{ minHeight: 700 }}>
+        <div className="glass-card overflow-hidden" style={{ minHeight: "min(700px, 80vh)" }}>
           <iframe
             src="https://calendly.com/stoddardjoseph77/exploration-call?background_color=0a0a1a&text_color=f9fafb&primary_color=6d7aff"
             width="100%"
@@ -29,6 +29,7 @@ export default function BookACallPage() {
             frameBorder="0"
             title="Schedule a call with HorizonsAI"
             className="rounded-3xl"
+            loading="lazy"
           />
         </div>
       </div>

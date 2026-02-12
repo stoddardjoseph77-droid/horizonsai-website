@@ -506,6 +506,23 @@ html {
   .glass-card-light:hover {
     transform: none;
   }
+
+  /* Disable pattern overlays — invisible on small screens */
+  .blueprint-grid::after,
+  .dashboard-dots::after,
+  .property-texture::after {
+    display: none;
+  }
+
+  /* Remove will-change since hover/animations disabled on mobile */
+  .glass-card,
+  .glass-card-light {
+    will-change: auto;
+  }
+
+  .gradient-blob {
+    will-change: auto;
+  }
 }
 
 /* ── Blueprint grid pattern (CRE sections) ── */

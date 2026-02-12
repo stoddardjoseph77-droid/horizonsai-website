@@ -4,7 +4,7 @@ interface HeroSilhouetteProps {
 
 export default function HeroSilhouette({ variant }: HeroSilhouetteProps) {
   return (
-    <div className="absolute bottom-0 left-0 right-0 overflow-hidden pointer-events-none z-0" aria-hidden="true">
+    <div className="absolute bottom-0 left-0 right-0 overflow-hidden pointer-events-none z-0 hidden md:block" aria-hidden="true">
       <svg
         viewBox="0 0 1440 300"
         className="w-full h-auto opacity-[0.07]"

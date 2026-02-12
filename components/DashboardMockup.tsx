@@ -101,8 +101,8 @@ export default function DashboardMockup() {
         ))}
       </div>
 
-      {/* Lead table */}
-      <div className="overflow-x-auto">
+      {/* Lead table — desktop */}
+      <div className="overflow-x-auto hidden md:block">
         {/* Table header */}
         <div className="grid grid-cols-[1fr_0.7fr_0.5fr_0.8fr_1.2fr_0.6fr] gap-3 pb-2.5 border-b border-white/[0.06] min-w-[650px]">
           {["Lead", "Source", "Score", "Status", "AI Notes", "Response"].map(
@@ -145,6 +145,39 @@ export default function DashboardMockup() {
             </div>
           ))}
         </div>
+      </div>
+
+      {/* Lead cards — mobile */}
+      <div className="space-y-3 md:hidden">
+        {leads.map((lead, i) => (
+          <div
+            key={i}
+            className="bg-white/[0.03] rounded-lg border border-white/[0.06] p-3"
+          >
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-white/80 text-sm font-medium">
+                {lead.name}
+              </span>
+              <span
+                className={`px-2 py-0.5 rounded-full text-[10px] font-medium ${
+                  scorePillClasses[lead.scoreColor]
+                }`}
+              >
+                {lead.score}
+              </span>
+            </div>
+            <div className="flex items-center gap-2 text-[10px] text-white/40 mb-1">
+              <span>{lead.source}</span>
+              <span>&middot;</span>
+              <span>{lead.status}</span>
+              <span>&middot;</span>
+              <span className="font-mono">{lead.response}</span>
+            </div>
+            <p className="text-brand-primary/70 text-[10px] italic">
+              {lead.aiNote}
+            </p>
+          </div>
+        ))}
       </div>
 
       {/* Footer */}
