@@ -47,28 +47,24 @@ export const RE_SERVICES = [
     description:
       "We analyze your processes and implement tailored workflows to automate tasks and optimize operations efficiently.",
     icon: "workflow",
-    tags: ["Residential", "Multi-family"],
   },
   {
     title: "Inbound SMS, WhatsApp & Email Agents",
     description:
       "Our multi-channel AI agent greets every buyer instantly, qualifies them with on-brand questions, and syncs clean data to your CRM.",
     icon: "message",
-    tags: ["All Property Types"],
   },
   {
     title: "AI-Driven Reporting",
     description:
       "Real-time dashboards turn raw ad or CRM data into clear insights, pipeline health, and more. Get automatic alerts and weekly summaries.",
     icon: "chart",
-    tags: ["Residential", "Commercial"],
   },
   {
     title: "Outbound Calling Agents",
     description:
       "Our outbound calling system reaches new buyers within 60 seconds of enquiry, confirming timeline, budget, and area before interest fades.",
     icon: "phone",
-    tags: ["Residential", "Luxury"],
   },
 ];
 

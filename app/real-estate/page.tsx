@@ -168,7 +168,6 @@ export default function RealEstatePage() {
                   description={service.description}
                   variant="dark"
                   accent
-                  tags={service.tags}
                 />
               </AnimateIn>
             ))}
