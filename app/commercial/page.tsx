@@ -53,7 +53,7 @@ export default function CommercialPage() {
           <AnimateIn>
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.06] border border-white/[0.08] mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-green-400" />
-              <span className="text-white/60 text-xs font-medium tracking-wide">Built for CRE Investors</span>
+              <span className="text-white/60 text-xs font-medium tracking-wide">Trusted by Founders Worldwide</span>
             </div>
             <h1 className="font-heading font-bold text-4xl md:text-5xl lg:text-6xl text-text-on-dark mb-6 leading-tight">
               {CRE_HERO.headline}
@@ -157,7 +157,7 @@ export default function CommercialPage() {
       <section className="bg-dark-deep py-16 md:py-36 relative overflow-hidden">
         <div className="gradient-blob gradient-blob-primary absolute -top-20 -left-40" />
         <div className="gradient-blob gradient-blob-secondary absolute -bottom-20 -right-40" />
-        <SectionAccent icon="filing" position="top-right" />
+        <SectionAccent icon="building" position="top-right" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <AnimateIn>
             <SectionHeading
@@ -177,6 +177,7 @@ export default function CommercialPage() {
                   timing={source.timing}
                   variant="dark"
                   accent
+                  tags={source.tags}
                 />
               </AnimateIn>
             ))}

@@ -67,7 +67,7 @@ export default function SectionAccent({
 
   return (
     <div
-      className={`absolute ${positionClasses} w-48 h-48 md:w-64 md:h-64 text-white opacity-[0.03] pointer-events-none hidden md:block`}
+      className={`absolute ${positionClasses} w-64 h-64 md:w-80 md:h-80 text-white opacity-[0.06] pointer-events-none hidden md:block`}
       aria-hidden="true"
     >
       {renderIcon()}

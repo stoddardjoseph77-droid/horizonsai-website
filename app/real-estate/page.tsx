@@ -24,6 +24,7 @@ import ChatMockup from "@/components/ChatMockup";
 import DashboardMockup from "@/components/DashboardMockup";
 import HeroSilhouette from "@/components/HeroSilhouette";
 import SectionAccent from "@/components/SectionAccent";
+import HeroStats from "@/components/HeroStats";
 
 export const metadata: Metadata = {
   title: "Real Estate Agencies | HorizonsAI",
@@ -42,7 +43,7 @@ export default function RealEstatePage() {
           <AnimateIn>
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.06] border border-white/[0.08] mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-green-400" />
-              <span className="text-white/60 text-xs font-medium tracking-wide">Built for Real Estate Teams</span>
+              <span className="text-white/60 text-xs font-medium tracking-wide">Trusted by Founders Worldwide</span>
             </div>
             <h1 className="font-heading font-bold text-4xl md:text-5xl lg:text-6xl text-text-on-dark mb-6">
               {RE_HERO.headline}
@@ -57,11 +58,12 @@ export default function RealEstatePage() {
             <Button href="/book-a-call" size="lg">
               {RE_HERO.cta}
             </Button>
-          </AnimateIn>
-          <AnimateIn delay={0.3}>
-            <p className="text-text-on-dark/50 text-sm mt-6">
+            <p className="text-text-on-dark/50 text-sm mt-4">
               {RE_HERO.proofText}
             </p>
+          </AnimateIn>
+          <AnimateIn delay={0.3}>
+            <HeroStats />
           </AnimateIn>
         </div>
       </section>
@@ -110,7 +112,7 @@ export default function RealEstatePage() {
               <div className="space-y-6">
                 <div className="glass-card p-5 flex items-center gap-4">
                   <div className="w-10 h-10 rounded-xl bg-green-500/15 flex items-center justify-center shrink-0">
-                    <span className="text-green-400 text-lg">⚡</span>
+                    <svg className="w-5 h-5 text-green-400" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" /></svg>
                   </div>
                   <div>
                     <p className="text-text-on-dark font-heading font-semibold text-sm">Qualified in 47 Seconds</p>
@@ -119,7 +121,7 @@ export default function RealEstatePage() {
                 </div>
                 <div className="glass-card p-5 flex items-center gap-4">
                   <div className="w-10 h-10 rounded-xl bg-brand-primary/15 flex items-center justify-center shrink-0">
-                    <span className="text-brand-primary text-lg">🔄</span>
+                    <svg className="w-5 h-5 text-brand-primary" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><path d="M4 4v5h5M20 20v-5h-5" /><path d="M20.49 9A9 9 0 005.64 5.64L4 4m16 16l-1.64-1.64A9 9 0 013.51 15" /></svg>
                   </div>
                   <div>
                     <p className="text-text-on-dark font-heading font-semibold text-sm">Auto-Synced to CRM</p>
@@ -128,7 +130,7 @@ export default function RealEstatePage() {
                 </div>
                 <div className="glass-card p-5 flex items-center gap-4">
                   <div className="w-10 h-10 rounded-xl bg-purple-500/15 flex items-center justify-center shrink-0">
-                    <span className="text-purple-400 text-lg">📞</span>
+                    <svg className="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
                   </div>
                   <div>
                     <p className="text-text-on-dark font-heading font-semibold text-sm">Agent Notified Instantly</p>
@@ -166,6 +168,7 @@ export default function RealEstatePage() {
                   description={service.description}
                   variant="dark"
                   accent
+                  tags={service.tags}
                 />
               </AnimateIn>
             ))}

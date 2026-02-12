@@ -5,6 +5,7 @@ interface CardProps {
   variant?: "light" | "dark";
   timing?: string;
   accent?: boolean;
+  tags?: string[];
 }
 
 function IconSvg({ name }: { name: string }) {
@@ -123,6 +124,7 @@ export default function Card({
   variant = "light",
   timing,
   accent,
+  tags,
 }: CardProps) {
   const isDark = variant === "dark";
 
@@ -155,6 +157,18 @@ export default function Card({
         <span className="inline-block mt-4 text-xs font-semibold text-brand-primary bg-brand-primary/10 px-3 py-1 rounded-full">
           {timing}
         </span>
+      )}
+      {tags && tags.length > 0 && isDark && (
+        <div className="flex flex-wrap gap-2 mt-4">
+          {tags.map((tag) => (
+            <span
+              key={tag}
+              className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-white/[0.06] text-white/40 border border-white/[0.06]"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
       )}
     </div>
   );

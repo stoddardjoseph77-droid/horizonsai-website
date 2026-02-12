@@ -47,24 +47,28 @@ export const RE_SERVICES = [
     description:
       "We analyze your processes and implement tailored workflows to automate tasks and optimize operations efficiently.",
     icon: "workflow",
+    tags: ["Residential", "Multi-family"],
   },
   {
     title: "Inbound SMS, WhatsApp & Email Agents",
     description:
       "Our multi-channel AI agent greets every buyer instantly, qualifies them with on-brand questions, and syncs clean data to your CRM.",
     icon: "message",
+    tags: ["All Property Types"],
   },
   {
     title: "AI-Driven Reporting",
     description:
       "Real-time dashboards turn raw ad or CRM data into clear insights, pipeline health, and more. Get automatic alerts and weekly summaries.",
     icon: "chart",
+    tags: ["Residential", "Commercial"],
   },
   {
     title: "Outbound Calling Agents",
     description:
       "Our outbound calling system reaches new buyers within 60 seconds of enquiry, confirming timeline, budget, and area before interest fades.",
     icon: "phone",
+    tags: ["Residential", "Luxury"],
   },
 ];
 
@@ -225,36 +229,42 @@ export const CRE_DATA_SOURCES = [
     description: "Monthly 10-D reports with loan-level distress data. Special servicing, foreclosures, REO, maturity defaults.",
     timing: "1\u20133 month lead time",
     icon: "file",
+    tags: ["Office", "Retail", "Multi-family"],
   },
   {
     title: "County Foreclosure Records",
     description: "Notice of Default, Lis Pendens, and Trustee Sale filings from county courthouses nationwide.",
     timing: "Real-time filings",
     icon: "building",
+    tags: ["All Asset Classes"],
   },
   {
     title: "CRE News Monitoring",
     description: "Aggregated distress signals from Commercial Observer, Bisnow, The Real Deal, and more.",
     timing: "Daily coverage",
     icon: "newspaper",
+    tags: ["Office", "Retail", "Industrial"],
   },
   {
     title: "FDIC Failed Bank Data",
     description: "CRE assets from failed bank portfolios, often available at significant discounts.",
     timing: "As bank failures occur",
     icon: "bank",
+    tags: ["Bank-owned CRE"],
   },
   {
     title: "Mortgage REIT Reports",
     description: "Quarterly filings from publicly traded mREITs showing impaired loans and risk ratings.",
     timing: "Quarterly updates",
     icon: "trending",
+    tags: ["CMBS", "CRE Loans"],
   },
   {
     title: "8-K Event Filings",
     description: "Near-real-time SEC notifications of loan defaults, bankruptcies, and material impairments.",
     timing: "Within 4 business days",
     icon: "alert",
+    tags: ["Distressed", "Default"],
   },
 ];
 
