@@ -60,12 +60,13 @@ html {
 /* ── Glassmorphism card (dark mode) ───────── */
 .glass-card {
   background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 24px;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  will-change: transform;
 }
 
 .glass-card:hover {
@@ -81,11 +82,12 @@ html {
 /* ── Glassmorphism card (light mode) ──────── */
 .glass-card-light {
   background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(229, 231, 235, 0.8);
   border-radius: 24px;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
 }
 
 .glass-card-light:hover {
@@ -123,9 +125,10 @@ html {
 .gradient-blob {
   position: absolute;
   border-radius: 50%;
-  filter: blur(120px);
+  filter: blur(100px);
   pointer-events: none;
   z-index: 0;
+  will-change: filter;
 }
 
 .gradient-blob-primary {
@@ -235,9 +238,14 @@ html {
 
 /* ── Animated glowing border ─────────────── */
 .glow-border {
-  --glow-angle: 0deg;
+  --glow-angle: 135deg;
   position: relative;
   animation: glow-rotate 4s linear infinite;
+  animation-play-state: paused;
+}
+
+.glow-border:hover {
+  animation-play-state: running;
 }
 
 .glow-border::before {
