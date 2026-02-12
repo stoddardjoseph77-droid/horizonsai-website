@@ -339,6 +339,6 @@ export const CRE_FAQ = [
   {
     question: "How do I get started?",
     answer:
-      "Book a call and we\u2019ll walk through your criteria in 30 minutes. From there, we typically have your pipeline live within 1\u20132 weeks.",
+      "Book a call and we\u2019ll walk through your criteria in 20 minutes. From there, we typically have your pipeline live within 1\u20132 weeks.",
   },
 ];

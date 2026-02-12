@@ -347,7 +347,7 @@ export default function RealEstatePage() {
       {/* 10. CTA Banner */}
       <CTABanner
         headline="Book a free consultation with Joey"
-        subtext="30 minutes. No commitment. Let's talk about how AI can transform your agency."
+        subtext="20 minutes. No commitment. Let's talk about how AI can transform your agency."
         ctaText="Book a Call"
         ctaHref="/book-a-call"
       />

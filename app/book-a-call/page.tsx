@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Book a Call | HorizonsAI",
   description:
-    "Book a 30-minute discovery call with HorizonsAI. No commitment required.",
+    "Book a 20-minute discovery call with HorizonsAI. No commitment required.",
 };
 
 export default function BookACallPage() {
@@ -16,7 +16,7 @@ export default function BookACallPage() {
           Book a Discovery Call
         </h1>
         <p className="text-white/60 text-lg mb-12 max-w-xl mx-auto">
-          30 minutes. No commitment. We&apos;ll discuss your current workflow
+          20 minutes. No commitment. We&apos;ll discuss your current workflow
           and where AI can help.
         </p>
 
