@@ -1,5 +1,3 @@
-"use client";
-
 import AnimateIn from "./AnimateIn";
 
 interface ProblemSolutionItem {

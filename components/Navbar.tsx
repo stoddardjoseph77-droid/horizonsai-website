@@ -40,17 +40,9 @@ export default function Navbar() {
           className={cn(
             "max-w-7xl mx-auto transition-all duration-500 mt-4 rounded-2xl",
             scrolled
-              ? "bg-white/[0.06] border border-white/[0.08] shadow-lg shadow-black/20"
+              ? "bg-white/[0.06] border border-white/[0.08] shadow-lg shadow-black/20 nav-blur"
               : "bg-transparent border border-transparent"
           )}
-          style={
-            scrolled
-              ? {
-                  backdropFilter: "blur(24px)",
-                  WebkitBackdropFilter: "blur(24px)",
-                }
-              : undefined
-          }
         >
           <div className="flex items-center justify-between h-14 md:h-16 px-5 md:px-6">
             {/* -- Logo ----------------------------------- */}
@@ -126,17 +118,9 @@ export default function Navbar() {
         className={cn(
           "fixed inset-0 z-40 flex flex-col items-center justify-center transition-all duration-300 md:hidden bg-dark-deep/95",
           mobileOpen
-            ? "opacity-100 pointer-events-auto"
+            ? "opacity-100 pointer-events-auto nav-blur"
             : "opacity-0 pointer-events-none"
         )}
-        style={
-          mobileOpen
-            ? {
-                backdropFilter: "blur(24px)",
-                WebkitBackdropFilter: "blur(24px)",
-              }
-            : undefined
-        }
       >
         <nav className="flex flex-col items-center gap-6">
           {NAV_LINKS.map((link) => (

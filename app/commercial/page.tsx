@@ -43,7 +43,7 @@ export default function CommercialPage() {
   return (
     <>
       {/* 1. Hero */}
-      <section className="hero-gradient py-28 md:py-44 relative overflow-hidden">
+      <section className="hero-gradient py-20 md:py-44 relative overflow-hidden">
         <div className="gradient-blob gradient-blob-primary -top-40 -left-20" />
         <div className="gradient-blob gradient-blob-secondary top-20 -right-40" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -79,7 +79,7 @@ export default function CommercialPage() {
       <div className="section-divider" />
 
       {/* 3. Problem / Solution */}
-      <section className="bg-dark-deep py-24 md:py-36 relative overflow-hidden">
+      <section className="bg-dark-deep py-16 md:py-36 relative overflow-hidden">
         <div className="gradient-blob gradient-blob-primary absolute -top-40 -right-40" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <AnimateIn>
@@ -97,7 +97,7 @@ export default function CommercialPage() {
       <div className="section-divider" />
 
       {/* 4. System Overview - Pipeline */}
-      <section className="bg-[#0A0A1A] py-24 md:py-36 relative overflow-hidden grid-pattern">
+      <section className="bg-[#0A0A1A] py-16 md:py-36 relative overflow-hidden grid-pattern">
         <div className="gradient-blob gradient-blob-secondary absolute -bottom-40 left-1/2 -translate-x-1/2" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <AnimateIn>
@@ -147,7 +147,7 @@ export default function CommercialPage() {
       <div className="section-divider" />
 
       {/* 5. Data Sources */}
-      <section className="bg-dark-deep py-24 md:py-36 relative overflow-hidden">
+      <section className="bg-dark-deep py-16 md:py-36 relative overflow-hidden">
         <div className="gradient-blob gradient-blob-primary absolute -top-20 -left-40" />
         <div className="gradient-blob gradient-blob-secondary absolute -bottom-20 -right-40" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -183,7 +183,7 @@ export default function CommercialPage() {
       <div className="section-divider" />
 
       {/* 6. What You Receive */}
-      <section className="bg-[#0A0A1A] py-24 md:py-36 relative overflow-hidden grid-pattern">
+      <section className="bg-[#0A0A1A] py-16 md:py-36 relative overflow-hidden grid-pattern">
         <div className="gradient-blob gradient-blob-primary absolute -top-40 left-1/2 -translate-x-1/2" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <AnimateIn>
@@ -212,7 +212,7 @@ export default function CommercialPage() {
       <div className="section-divider" />
 
       {/* 6.5 Deal Preview Snapshots */}
-      <section className="bg-dark-deep py-24 md:py-36 relative overflow-hidden">
+      <section className="bg-dark-deep py-16 md:py-36 relative overflow-hidden">
         <div className="gradient-blob gradient-blob-primary -top-40 -left-40" />
         <div className="gradient-blob gradient-blob-secondary -bottom-40 -right-40" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -242,7 +242,7 @@ export default function CommercialPage() {
       <div className="section-divider" />
 
       {/* 7. Additional Services — Visual Mockups */}
-      <section className="bg-[#0A0A1A] py-24 md:py-36 relative overflow-hidden grid-pattern">
+      <section className="bg-[#0A0A1A] py-16 md:py-36 relative overflow-hidden grid-pattern">
         <div className="gradient-blob gradient-blob-secondary absolute top-1/2 -right-40 -translate-y-1/2" />
         <div className="gradient-blob gradient-blob-primary absolute -top-40 -left-20" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -280,7 +280,7 @@ export default function CommercialPage() {
       <div className="section-divider" />
 
       {/* 8. Process */}
-      <section className="bg-[#0A0A1A] py-24 md:py-36 relative overflow-hidden">
+      <section className="bg-[#0A0A1A] py-16 md:py-36 relative overflow-hidden">
         <div className="gradient-blob gradient-blob-primary absolute -bottom-40 -left-40" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <AnimateIn>
@@ -310,7 +310,7 @@ export default function CommercialPage() {
       <div className="section-divider" />
 
       {/* 8.5 Weekly Email Preview */}
-      <section className="bg-dark-deep py-24 md:py-36 relative overflow-hidden">
+      <section className="bg-dark-deep py-16 md:py-36 relative overflow-hidden">
         <div className="gradient-blob gradient-blob-primary -top-40 left-1/2 -translate-x-1/2" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <AnimateIn>
@@ -332,7 +332,7 @@ export default function CommercialPage() {
       <div className="section-divider" />
 
       {/* 9. About */}
-      <section className="bg-dark-deep py-24 md:py-36 relative overflow-hidden">
+      <section className="bg-dark-deep py-16 md:py-36 relative overflow-hidden">
         <div className="gradient-blob gradient-blob-primary -top-40 left-1/2 -translate-x-1/2" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
@@ -379,7 +379,7 @@ export default function CommercialPage() {
       <div className="section-divider" />
 
       {/* 10. FAQ */}
-      <section className="bg-[#0A0A1A] py-24 md:py-36">
+      <section className="bg-[#0A0A1A] py-16 md:py-36">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             title="Frequently Asked Questions"

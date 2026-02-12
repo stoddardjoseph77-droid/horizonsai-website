@@ -442,12 +442,19 @@ html {
   }
 }
 
+/* ── Navbar glass blur ────────────────────── */
+.nav-blur {
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
 /* ── Mobile performance optimizations ────── */
 /* Keeps the same look, just lighter on the GPU */
 @media (max-width: 768px) {
   /* Reduce blur cost — still looks glassy on dark backgrounds */
   .glass-card,
-  .glass-card-light {
+  .glass-card-light,
+  .nav-blur {
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
   }

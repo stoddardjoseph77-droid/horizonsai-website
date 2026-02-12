@@ -32,7 +32,7 @@ export default function RealEstatePage() {
   return (
     <>
       {/* 1. Hero */}
-      <section className="hero-gradient py-24 md:py-40 relative overflow-hidden">
+      <section className="hero-gradient py-20 md:py-40 relative overflow-hidden">
         <div className="gradient-blob gradient-blob-primary -top-40 -left-20" />
         <div className="gradient-blob gradient-blob-secondary top-20 -right-40" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -65,7 +65,7 @@ export default function RealEstatePage() {
       <div className="section-divider" />
 
       {/* 3. Problem / Solution */}
-      <section className="bg-dark-deep py-24 md:py-36 relative overflow-hidden">
+      <section className="bg-dark-deep py-16 md:py-36 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimateIn>
             <SectionHeading
@@ -81,7 +81,7 @@ export default function RealEstatePage() {
       <div className="section-divider" />
 
       {/* 3.5 AI Agent Chat Preview */}
-      <section className="bg-[#0A0A1A] py-24 md:py-36 relative overflow-hidden">
+      <section className="bg-[#0A0A1A] py-16 md:py-36 relative overflow-hidden">
         <div className="gradient-blob gradient-blob-secondary -top-40 -right-20" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <AnimateIn>
@@ -136,7 +136,7 @@ export default function RealEstatePage() {
       <div className="section-divider" />
 
       {/* 4. Services */}
-      <section className="bg-[#0A0A1A] py-24 md:py-36 relative overflow-hidden grid-pattern">
+      <section className="bg-[#0A0A1A] py-16 md:py-36 relative overflow-hidden grid-pattern">
         <div className="gradient-blob gradient-blob-primary -top-20 -right-40" />
         <div className="gradient-blob gradient-blob-secondary bottom-0 -left-20" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -166,7 +166,7 @@ export default function RealEstatePage() {
       <div className="section-divider" />
 
       {/* 4.5 Dashboard Preview */}
-      <section className="bg-dark-deep py-24 md:py-36 relative overflow-hidden">
+      <section className="bg-dark-deep py-16 md:py-36 relative overflow-hidden">
         <div className="gradient-blob gradient-blob-primary -bottom-40 left-1/2 -translate-x-1/2" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <AnimateIn>
@@ -188,7 +188,7 @@ export default function RealEstatePage() {
       <div className="section-divider" />
 
       {/* 5. Benefits */}
-      <section className="bg-dark-deep py-24 md:py-36">
+      <section className="bg-dark-deep py-16 md:py-36">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimateIn>
             <SectionHeading
@@ -217,7 +217,7 @@ export default function RealEstatePage() {
       <div className="section-divider" />
 
       {/* 6. Process */}
-      <section className="bg-[#0A0A1A] py-24 md:py-36 relative overflow-hidden">
+      <section className="bg-[#0A0A1A] py-16 md:py-36 relative overflow-hidden">
         <div className="gradient-blob gradient-blob-secondary -bottom-40 -left-40" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <AnimateIn>
@@ -246,7 +246,7 @@ export default function RealEstatePage() {
       <div className="section-divider" />
 
       {/* 7. About */}
-      <section className="bg-dark-deep py-24 md:py-36 relative overflow-hidden">
+      <section className="bg-dark-deep py-16 md:py-36 relative overflow-hidden">
         <div className="gradient-blob gradient-blob-primary -top-40 left-1/2 -translate-x-1/2" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
@@ -293,7 +293,7 @@ export default function RealEstatePage() {
       <div className="section-divider" />
 
       {/* 8. Testimonials */}
-      <section className="bg-[#0A0A1A] py-24 md:py-36 relative overflow-hidden grid-pattern">
+      <section className="bg-[#0A0A1A] py-16 md:py-36 relative overflow-hidden grid-pattern">
         <div className="gradient-blob gradient-blob-primary -top-40 -right-20" />
         <div className="gradient-blob gradient-blob-secondary -bottom-40 -left-20" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -322,7 +322,7 @@ export default function RealEstatePage() {
       <div className="section-divider" />
 
       {/* 9. FAQ */}
-      <section className="bg-dark-deep py-24 md:py-36">
+      <section className="bg-dark-deep py-16 md:py-36">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             title="Frequently Asked Questions"
