@@ -8,7 +8,7 @@ export const SITE = {
 };
 
 export const NAV_LINKS = [
-  { label: "Real Estate Agencies", href: "/real-estate" },
+  // { label: "Real Estate Agencies", href: "/real-estate" },
   { label: "Commercial Real Estate", href: "/commercial" },
 ];
 
