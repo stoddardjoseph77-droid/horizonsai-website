@@ -148,7 +148,7 @@ const SearchTypewriter = memo(function SearchTypewriter() {
   }, [phase]);
 
   return (
-    <div ref={ref} className="relative h-full flex flex-col">
+    <div ref={ref} className="space-y-6">
       {/* Search bar */}
       <div className={`flex items-center gap-3 px-4 py-3 rounded-xl border bg-white/[0.02] transition-colors duration-300 ${
         phase === "loading" ? "border-accent/30 shadow-[0_0_20px_rgba(16,185,129,0.06)]" : "border-white/[0.08]"
@@ -169,91 +169,87 @@ const SearchTypewriter = memo(function SearchTypewriter() {
         </span>
       </div>
 
-      {/* Content area — fixed height, content positioned absolutely to prevent shifts */}
-      <div className="relative flex-1 mt-4">
-        {/* Loading shimmer */}
-        <AnimatePresence>
-          {phase === "loading" && (
+      {/* Loading shimmer */}
+      <AnimatePresence>
+        {phase === "loading" && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="h-1 rounded-full overflow-hidden bg-white/[0.03]"
+          >
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="absolute top-0 left-0 right-0 h-1 rounded-full overflow-hidden bg-white/[0.03]"
-            >
-              <motion.div
-                className="h-full bg-accent/40 rounded-full"
-                animate={{ x: ["-100%", "200%"] }}
-                transition={{ duration: 1, repeat: Infinity, ease: "easeInOut" }}
-                style={{ width: "40%" }}
-              />
-            </motion.div>
-          )}
-        </AnimatePresence>
+              className="h-full bg-accent/40 rounded-full"
+              animate={{ x: ["-100%", "200%"] }}
+              transition={{ duration: 1, repeat: Infinity, ease: "easeInOut" }}
+              style={{ width: "40%" }}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
 
-        {/* Prompt pills — visible before results */}
-        <AnimatePresence>
-          {phase !== "results" && (
-            <motion.div
-              initial={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="absolute inset-0 text-center flex flex-col items-center justify-center"
-            >
-              <svg className="w-8 h-8 text-muted/20 mb-2" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+      {/* Prompt pills — visible before results */}
+      <AnimatePresence mode="wait">
+        {phase !== "results" ? (
+          <motion.div
+            key="pills"
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="text-center space-y-4"
+          >
+            <div className="flex flex-col items-center gap-2 mb-4">
+              <svg className="w-8 h-8 text-muted/20" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
                 <circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" />
               </svg>
-              <p className="text-[#E8EAED] text-sm font-medium mb-1">Ask anything about the pipeline</p>
-              <p className="text-muted/40 text-xs mb-4">Search uses AI embeddings to find semantically relevant opportunities</p>
-              <div className="flex flex-wrap justify-center gap-2">
-                {PROMPT_PILLS.map((pill) => (
-                  <span
-                    key={pill}
-                    className="px-3 py-1.5 rounded-lg text-[11px] text-muted/50 border border-white/[0.06] bg-white/[0.02] hover:border-white/[0.12] hover:text-muted transition-colors"
-                  >
-                    {pill}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-
-        {/* Results */}
-        <AnimatePresence>
-          {phase === "results" && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ type: "spring" as const, stiffness: 100, damping: 26 }}
-              className="absolute inset-0 overflow-y-auto space-y-3"
-            >
-              <p className="text-muted/40 text-xs font-mono">3 results found</p>
-              {SEARCH_RESULTS.map((r, i) => (
-                <motion.div
-                  key={r.property}
-                  className="flex items-start gap-3 p-3.5 rounded-xl border border-white/[0.06] bg-white/[0.02] hover:border-white/[0.1] transition-colors"
-                  initial={{ opacity: 0, y: 12 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ type: "spring" as const, stiffness: 100, damping: 26, delay: i * 0.15 }}
+              <p className="text-[#E8EAED] text-sm font-medium">Ask anything about the pipeline</p>
+              <p className="text-muted/40 text-xs">Search uses AI embeddings to find semantically relevant opportunities</p>
+            </div>
+            <div className="flex flex-wrap justify-center gap-2">
+              {PROMPT_PILLS.map((pill) => (
+                <span
+                  key={pill}
+                  className="px-3 py-1.5 rounded-lg text-[11px] text-muted/50 border border-white/[0.06] bg-white/[0.02] hover:border-white/[0.12] hover:text-muted transition-colors"
                 >
-                  <ScoreBadge score={r.score} />
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2 mb-1">
-                      <span className="text-[#E8EAED] text-sm font-medium">{r.property}</span>
-                      <span className="text-gold bg-gold/10 px-1.5 py-0.5 rounded text-[9px] font-medium">{r.source}</span>
-                    </div>
-                    <div className="flex items-center gap-3 text-[11px] text-muted/40 mb-1.5">
-                      <span>{r.market}</span>
-                      <span className="font-mono">{r.balance}</span>
-                    </div>
-                    <p className="text-muted text-[11px] leading-relaxed">{r.reason}</p>
-                  </div>
-                </motion.div>
+                  {pill}
+                </span>
               ))}
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
+            </div>
+          </motion.div>
+        ) : (
+          <motion.div
+            key="results"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ type: "spring" as const, stiffness: 100, damping: 26 }}
+            className="space-y-3"
+          >
+            <p className="text-muted/40 text-xs font-mono">3 results found</p>
+            {SEARCH_RESULTS.map((r, i) => (
+              <motion.div
+                key={r.property}
+                className="flex items-start gap-3 p-3.5 rounded-xl border border-white/[0.06] bg-white/[0.02] hover:border-white/[0.1] transition-colors"
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ type: "spring" as const, stiffness: 100, damping: 26, delay: i * 0.15 }}
+              >
+                <ScoreBadge score={r.score} />
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="text-[#E8EAED] text-sm font-medium">{r.property}</span>
+                    <span className="text-gold bg-gold/10 px-1.5 py-0.5 rounded text-[9px] font-medium">{r.source}</span>
+                  </div>
+                  <div className="flex items-center gap-3 text-[11px] text-muted/40 mb-1.5">
+                    <span>{r.market}</span>
+                    <span className="font-mono">{r.balance}</span>
+                  </div>
+                  <p className="text-muted text-[11px] leading-relaxed">{r.reason}</p>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 });
@@ -379,19 +375,22 @@ export default function PlatformViewer() {
     setProgressKey((k) => k + 1);
   }, []);
 
-  // Auto-advance timer
+  // Only start auto-advance when section is in view
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const sectionInView = useInView(sectionRef, { once: false, margin: "0px 0px -10% 0px" });
+
   useEffect(() => {
-    if (isMobile) return;
+    if (isMobile || !sectionInView) return;
     timerRef.current = setTimeout(advanceTab, CYCLE_DURATION * 1000);
     return () => {
       if (timerRef.current) clearTimeout(timerRef.current);
     };
-  }, [activeTab, progressKey, advanceTab, isMobile]);
+  }, [activeTab, progressKey, advanceTab, isMobile, sectionInView]);
 
   const springTransition = { type: "spring" as const, stiffness: 100, damping: 20 };
 
   return (
-    <div className={`${isMobile ? "space-y-6" : "grid grid-cols-[280px_1fr] gap-8"}`}>
+    <div ref={sectionRef} className={`${isMobile ? "space-y-6" : "grid grid-cols-[280px_1fr] gap-8"}`}>
       {/* Left column — tab selectors */}
       <div className={`${isMobile ? "flex gap-2 overflow-x-auto pb-2" : "space-y-1"}`}>
         {TABS.map((tab) => (

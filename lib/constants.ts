@@ -198,20 +198,20 @@ export const CRE_STATS = [
 
 export const CRE_PROBLEMS = [
   {
-    problem: "Manually searching public records for distressed deals",
-    solution: "Automated monitoring of SEC filings, county records, and 4 other data sources",
-  },
-  {
     problem: "Relying solely on broker networks for deal flow",
-    solution: "6 independent public data sources feeding a centralized pipeline",
+    solution: "6 independent data sources feeding one pipeline",
   },
   {
-    problem: "Spending hours on spreadsheets just to screen a single deal",
-    solution: "AI-powered underwriting runs preliminary analysis in seconds",
+    problem: "Hours on spreadsheets to screen a single deal",
+    solution: "AI runs preliminary analysis in seconds",
   },
   {
-    problem: "No consistent scoring — every deal evaluated differently",
-    solution: "Every opportunity scored against your specific acquisition criteria",
+    problem: "No consistent scoring across deals",
+    solution: "Every opportunity scored against your criteria",
+  },
+  {
+    problem: "Manually searching public records for deals",
+    solution: "Automated monitoring across 50+ sources",
   },
 ];
 
