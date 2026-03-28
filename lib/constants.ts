@@ -183,17 +183,17 @@ export const ABOUT_TEXT_CRE =
 // ── Commercial Real Estate Page ─────────────────────────────────
 
 export const CRE_HERO = {
-  headline: "Source Off-Market Deals Before They Hit the Market",
+  headline: "Stop Chasing Deals. Start Scoring Them.",
   subtext:
-    "We monitor SEC filings, county records, and CRE news to surface distressed opportunities 1\u20133 months before your competitors see them \u2014 then score every deal against your specific acquisition criteria using AI.",
+    "We monitor $5T+ in commercial real estate debt and surface distressed opportunities months before your competition — then score every deal against your acquisition criteria using AI.",
   cta: "Book a Call",
   proofText: "20+ calls scheduled last month",
 };
 
 export const CRE_STATS = [
-  { value: "50+", label: "Data Sources Monitored" },
+  { value: "$5T+", label: "CRE Debt Monitored" },
   { value: "2,800+", label: "Opportunities Surfaced" },
-  { value: "Live", label: "Delivered to Your Dashboard" },
+  { value: "50+", label: "Data Sources" },
 ];
 
 export const CRE_PROBLEMS = [

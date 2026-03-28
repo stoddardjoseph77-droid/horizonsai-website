@@ -15,13 +15,13 @@ export default function ProblemSolution({ items }: ProblemSolutionProps) {
           <AnimateIn direction="left" delay={index * 0.08}>
             <div className="glass p-5 flex items-start gap-3 h-full">
               <span className="text-severity-critical text-sm shrink-0 mt-0.5">&#x2717;</span>
-              <p className="text-[#E8EAED]/80 text-sm leading-relaxed">{item.problem}</p>
+              <p className="text-[#E8EAED]/80 text-sm md:text-base leading-relaxed">{item.problem}</p>
             </div>
           </AnimateIn>
           <AnimateIn direction="right" delay={index * 0.08}>
             <div className="glass p-5 flex items-start gap-3 h-full">
               <span className="text-accent text-sm shrink-0 mt-0.5">&#x2713;</span>
-              <p className="text-[#E8EAED]/80 text-sm leading-relaxed">{item.solution}</p>
+              <p className="text-[#E8EAED]/80 text-sm md:text-base leading-relaxed">{item.solution}</p>
             </div>
           </AnimateIn>
         </div>

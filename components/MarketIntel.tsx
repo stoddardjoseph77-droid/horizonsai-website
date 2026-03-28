@@ -50,7 +50,7 @@ function CountUpDollar({ target, delay }: { target: number; delay: number }) {
     return () => clearTimeout(timer);
   }, [inView, target, delay]);
 
-  return <span ref={ref}>${count}B</span>;
+  return <span ref={ref} className="inline-block tabular-nums" style={{ minWidth: `${String(target).length + 2}ch` }}>${count}B</span>;
 }
 
 export default function MarketIntel() {

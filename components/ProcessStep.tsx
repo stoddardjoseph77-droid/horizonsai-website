@@ -16,7 +16,7 @@ export default function ProcessStep({ step, title, description, isLast = false }
       </div>
       <div className={isLast ? "pb-0" : "pb-12"}>
         <h3 className="font-semibold text-xl tracking-tight text-[#E8EAED] mb-2">{title}</h3>
-        <p className="text-muted leading-relaxed">{description}</p>
+        <p className="text-muted text-base md:text-lg leading-relaxed">{description}</p>
       </div>
     </div>
   );

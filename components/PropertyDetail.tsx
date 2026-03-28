@@ -20,27 +20,38 @@ function Typewriter({ text, delay, isStatic }: { text: string; delay: number; is
   const [displayed, setDisplayed] = useState(isStatic ? text : "");
   const [started, setStarted] = useState(!!isStatic);
   const ref = useRef<HTMLParagraphElement>(null);
-  const inView = useInView(ref, { once: true });
+  const hasTriggered = useRef(false);
+  // Continuous check — not once: true — so we know when it leaves view
+  const inView = useInView(ref, { once: false });
 
   useEffect(() => {
-    if (isStatic || !inView) return;
+    if (isStatic || hasTriggered.current || !inView) return;
+    hasTriggered.current = true;
     const timer = setTimeout(() => setStarted(true), delay * 1000);
     return () => clearTimeout(timer);
   }, [inView, delay, isStatic]);
 
   useEffect(() => {
     if (isStatic || !started) return;
-    let i = 0;
+    // If scrolled out of view, instantly fill remaining text
+    if (!inView && displayed.length < text.length) {
+      setDisplayed(text);
+      return;
+    }
+    let i = displayed.length;
+    if (i >= text.length) return;
     const interval = setInterval(() => {
       i++;
       setDisplayed(text.slice(0, i));
       if (i >= text.length) clearInterval(interval);
     }, 12);
     return () => clearInterval(interval);
-  }, [started, text, isStatic]);
+  }, [started, text, isStatic, inView, displayed.length]);
 
   return (
-    <p ref={ref} className="text-muted text-xs leading-relaxed min-h-[3.5rem]">
+    <p ref={ref} className="text-muted text-xs leading-relaxed">
+      {/* Invisible full text to reserve space — prevents layout shift */}
+      <span className="invisible block h-0 overflow-hidden" aria-hidden="true">{text}</span>
       {displayed}
       {!isStatic && started && displayed.length < text.length && (
         <span className="inline-block w-[1px] h-3 bg-accent/70 ml-0.5 animate-pulse" />

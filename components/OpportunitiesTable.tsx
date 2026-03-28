@@ -96,7 +96,7 @@ function OpportunityCount() {
     return () => clearTimeout(timer);
   }, [done]);
 
-  return <span ref={ref}>{count.toLocaleString()}</span>;
+  return <span ref={ref} className="inline-block tabular-nums" style={{ minWidth: "3.2em" }}>{count.toLocaleString()}</span>;
 }
 
 export default function OpportunitiesTable() {
@@ -137,8 +137,8 @@ export default function OpportunitiesTable() {
         </div>
       </div>
 
-      {/* Table */}
-      <div className="overflow-x-auto">
+      {/* Table — fixed height prevents layout shift when new row appears */}
+      <div className="overflow-x-auto overflow-y-hidden" style={{ maxHeight: "320px" }}>
         <table className="w-full">
           <thead>
             <tr className="border-b border-white/[0.04]">

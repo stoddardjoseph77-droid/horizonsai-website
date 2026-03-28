@@ -57,7 +57,13 @@ function CountUp({ target, format }: { target: number; format?: boolean }) {
     return () => cancelAnimationFrame(raf);
   }, [inView, target]);
 
-  return <span ref={ref}>{format ? count.toLocaleString() : count}</span>;
+  const displayValue = format ? count.toLocaleString() : count;
+  const maxValue = format ? target.toLocaleString() : target;
+  return (
+    <span ref={ref} className="inline-block tabular-nums" style={{ minWidth: `${String(maxValue).length * 0.6}em` }}>
+      {displayValue}
+    </span>
+  );
 }
 
 function ScoreRing({ score, delay }: { score: number; delay: number }) {
@@ -130,6 +136,8 @@ function TickingCount({ base, format }: { base: number; format?: boolean }) {
   const [done, setDone] = useState(false);
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true });
+  // Continuous view check for the ticking interval
+  const stillInView = useInView(ref, { once: false });
 
   useEffect(() => {
     if (!inView) return;
@@ -150,16 +158,23 @@ function TickingCount({ base, format }: { base: number; format?: boolean }) {
     return () => cancelAnimationFrame(raf);
   }, [inView, base]);
 
-  // After count-up, slowly tick up by 1 every few seconds
+  // After count-up, slowly tick up — only when visible
   useEffect(() => {
-    if (!done) return;
+    if (!done || !stillInView) return;
     const interval = setInterval(() => {
       setCount((c) => c + 1);
     }, 4000);
     return () => clearInterval(interval);
-  }, [done]);
+  }, [done, stillInView]);
 
-  return <span ref={ref}>{format ? count.toLocaleString() : count}</span>;
+  // Reserve width for the final formatted value
+  const displayValue = format ? count.toLocaleString() : count;
+  const maxValue = format ? (base + 10).toLocaleString() : base + 10;
+  return (
+    <span ref={ref} className="inline-block" style={{ minWidth: `${String(maxValue).length * 0.6}em` }}>
+      {displayValue}
+    </span>
+  );
 }
 
 const row = {

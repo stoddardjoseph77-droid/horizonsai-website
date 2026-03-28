@@ -20,11 +20,10 @@ import TrustBar from "@/components/TrustBar";
 import AnimateIn from "@/components/AnimateIn";
 import Image from "next/image";
 import BriefingDashboard from "@/components/BriefingDashboard";
-import PropertyDetail from "@/components/PropertyDetail";
-import OpportunitiesTable from "@/components/OpportunitiesTable";
 import MarketIntel from "@/components/MarketIntel";
 import OpportunityMapView from "@/components/OpportunityMapView";
 import OpportunityMapViewMobile from "@/components/OpportunityMapViewMobile";
+import PlatformViewer from "@/components/PlatformViewer";
 
 export const metadata: Metadata = {
   title: "HorizonsAI | AI Deal Intelligence for Commercial Real Estate",
@@ -57,19 +56,20 @@ export default function CommercialPage() {
                 </div>
               </AnimateIn>
               <AnimateIn delay={0.05}>
+                <p className="text-muted/60 text-sm md:text-base mb-4">Built for CRE investors and acquisitions teams.</p>
                 <h1 className="font-semibold text-4xl md:text-5xl lg:text-6xl tracking-tighter leading-none text-[#E8EAED] mb-6">
                   {CRE_HERO.headline}
                 </h1>
               </AnimateIn>
               <AnimateIn delay={0.1}>
-                <p className="text-muted text-lg leading-relaxed max-w-[55ch] mb-8">
+                <p className="text-muted text-lg md:text-xl leading-relaxed max-w-[55ch] mb-8">
                   {CRE_HERO.subtext}
                 </p>
               </AnimateIn>
               <AnimateIn delay={0.15}>
                 <div className="flex flex-wrap items-center gap-4">
                   <Button href="/book-a-call" size="lg">{CRE_HERO.cta}</Button>
-                  <span className="text-muted/50 text-sm">{CRE_HERO.proofText}</span>
+                  <span className="text-muted/50 text-sm md:text-base">{CRE_HERO.proofText}</span>
                 </div>
               </AnimateIn>
             </div>
@@ -90,26 +90,19 @@ export default function CommercialPage() {
 
       <div className="divider" />
 
-      {/* ── 4. Product Showcase ── Moved UP — this is the core sell */}
+      {/* ── 4. Platform Viewer ── */}
       <section className="py-24 md:py-36 relative overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <AnimateIn>
             <SectionHeading
-              label="The Platform"
-              title="Your deal pipeline, scored and ranked"
-              subtitle="Every opportunity is enriched with AI analysis, financial metrics, and distress scoring. Filter, track, and pursue from a single view."
+              label="See the Platform"
+              title="Three ways to find your next deal"
+              subtitle="Search with AI, track your pipeline, or browse every scored opportunity."
             />
           </AnimateIn>
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-8 items-start">
-            <AnimateIn delay={0.1}>
-              <PropertyDetail />
-            </AnimateIn>
-            <AnimateIn delay={0.2}>
-              <div className="hidden lg:block">
-                <OpportunitiesTable />
-              </div>
-            </AnimateIn>
-          </div>
+          <AnimateIn delay={0.1}>
+            <PlatformViewer />
+          </AnimateIn>
         </div>
       </section>
 

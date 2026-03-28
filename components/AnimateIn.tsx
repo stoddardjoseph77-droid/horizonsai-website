@@ -26,21 +26,16 @@ export default function AnimateIn({
   const isMobile = useIsMobile();
   const offset = offsets[direction];
 
-  if (isMobile) {
-    return <div className={className}>{children}</div>;
-  }
-
   return (
     <motion.div
-      initial={{ opacity: 0, x: offset.x, y: offset.y }}
+      initial={isMobile ? { opacity: 1 } : { opacity: 0, x: offset.x, y: offset.y }}
       whileInView={{ opacity: 1, x: 0, y: 0 }}
       viewport={{ once: true, margin: "0px 0px -12% 0px" }}
-      transition={{
-        type: "spring",
-        stiffness: 100,
-        damping: 20,
-        delay: Math.min(delay, 0.4),
-      }}
+      transition={
+        isMobile
+          ? { duration: 0 }
+          : { type: "spring", stiffness: 100, damping: 20, delay: Math.min(delay, 0.4) }
+      }
       className={className}
     >
       {children}
