@@ -18,11 +18,11 @@ function AnimatedValue({ value, isMobile }: { value: string; isMobile: boolean }
 
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: isMobile ? "0px" : undefined });
+  const inView = useInView(ref, { once: true, margin: isMobile ? "0px 0px 150px 0px" : undefined });
 
   useEffect(() => {
     if (!inView || !isNumeric) return;
-    const duration = isMobile ? 1000 : 1800;
+    const duration = isMobile ? 700 : 1800;
     let start: number | null = null;
     let raf: number;
     const tick = (ts: number) => {
