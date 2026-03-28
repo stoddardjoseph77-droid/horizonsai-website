@@ -2,35 +2,29 @@ interface SectionHeadingProps {
   label?: string;
   title: string;
   subtitle?: string;
-  dark?: boolean;
+  align?: "left" | "center";
 }
 
 export default function SectionHeading({
   label,
   title,
   subtitle,
-  dark = true,
+  align = "left",
 }: SectionHeadingProps) {
+  const alignClass = align === "center" ? "text-center mx-auto" : "";
+
   return (
-    <div className="text-center max-w-3xl mx-auto mb-16">
+    <div className={`max-w-2xl mb-16 ${alignClass}`}>
       {label && (
-        <span className="inline-block px-4 py-1.5 rounded-full bg-brand-primary/10 text-brand-primary text-xs font-semibold tracking-wide uppercase mb-4">
+        <span className="inline-block text-gold text-xs font-medium tracking-widest uppercase mb-4">
           {label}
         </span>
       )}
-      <h2
-        className={`font-heading font-bold text-3xl md:text-4xl mb-4 ${
-          dark ? "text-text-on-dark" : "text-text-primary"
-        }`}
-      >
+      <h2 className="font-semibold text-3xl md:text-4xl tracking-tighter leading-none text-[#E8EAED] mb-4">
         {title}
       </h2>
       {subtitle && (
-        <p
-          className={`text-lg ${
-            dark ? "text-white/60" : "text-text-secondary"
-          }`}
-        >
+        <p className="text-base text-muted leading-relaxed max-w-[65ch]">
           {subtitle}
         </p>
       )}

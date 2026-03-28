@@ -2,16 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ── Animatable custom property for border rotation ── */
-@property --glow-angle {
-  syntax: "<angle>";
-  initial-value: 0deg;
-  inherits: false;
-}
-
+/* ── Base ──────────────────────────────── */
 body {
-  color: #F9FAFB;
-  background: #050505;
+  color: #E8EAED;
+  background: #0B1622;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -20,573 +14,106 @@ html {
   scroll-behavior: smooth;
 }
 
-/* ── Dark section base ────────────────────── */
-.dark-section {
-  background: #050505;
-  color: #F9FAFB;
-  position: relative;
-  overflow: hidden;
+/* ── Selection ─────────────────────────── */
+::selection {
+  background: rgba(201, 168, 76, 0.25);
+  color: #E8EAED;
 }
 
-/* ── Hero gradient background ─────────────── */
-.hero-gradient {
-  background: linear-gradient(
-    180deg,
-    #050505 0%,
-    #080618 15%,
-    #0d0a20 30%,
-    #1a1040 50%,
-    #0d0a20 70%,
-    #080618 85%,
-    #050505 100%
-  );
-  background-color: #050505;
+/* ── Noise overlay (performance-safe) ──── */
+.noise-overlay::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ── Subtle grid pattern ───────────────── */
+.grid-bg {
   position: relative;
 }
 
-.hero-gradient::before {
+.grid-bg::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(
-    ellipse 80% 60% at 50% 30%,
-    rgba(109, 122, 255, 0.25) 0%,
-    rgba(139, 92, 246, 0.12) 30%,
-    transparent 60%
-  );
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 64px 64px;
   pointer-events: none;
 }
 
-/* ── Glassmorphism card (dark mode) ───────── */
-.glass-card {
-  background: rgba(255, 255, 255, 0.03);
+/* ── Glass surface ─────────────────────── */
+.glass {
+  background: rgba(19, 33, 54, 0.6);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 24px;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 1.25rem;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
-  will-change: transform;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.glass-card:hover {
-  background: rgba(255, 255, 255, 0.07);
-  border-color: rgba(255, 255, 255, 0.15);
-  transform: translateY(-6px);
-  box-shadow:
-    0 25px 60px rgba(0, 0, 0, 0.4),
-    0 0 40px rgba(109, 122, 255, 0.06),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+.glass:hover {
+  background: rgba(26, 43, 69, 0.7);
+  border-color: rgba(255, 255, 255, 0.1);
 }
 
-/* ── Glassmorphism card (light mode) ──────── */
-.glass-card-light {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(229, 231, 235, 0.8);
-  border-radius: 24px;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: transform;
-}
-
-.glass-card-light:hover {
-  background: rgba(255, 255, 255, 1);
-  border-color: rgba(109, 122, 255, 0.25);
-  transform: translateY(-6px);
-  box-shadow:
-    0 25px 60px rgba(0, 0, 0, 0.06),
-    0 0 40px rgba(109, 122, 255, 0.04);
-}
-
-/* ── Card accent line (gradient top border) ── */
-.card-accent {
-  position: relative;
-  overflow: hidden;
-}
-
-.card-accent::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, #6D7AFF, #8B5CF6, #6D7AFF);
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-
-.card-accent:hover::after {
-  opacity: 1;
-}
-
-/* ── Gradient blob decorations ────────────── */
-.gradient-blob {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(100px);
-  pointer-events: none;
-  z-index: 0;
-  will-change: filter;
-}
-
-.gradient-blob-primary {
-  background: rgba(109, 122, 255, 0.12);
-  width: 600px;
-  height: 600px;
-}
-
-.gradient-blob-secondary {
-  background: rgba(139, 92, 246, 0.10);
-  width: 500px;
-  height: 500px;
-}
-
-/* ── Light-mode gradient blobs (subtle) ───── */
-.gradient-blob-light-primary {
-  background: rgba(109, 122, 255, 0.06);
-  width: 500px;
-  height: 500px;
-}
-
-.gradient-blob-light-secondary {
-  background: rgba(139, 92, 246, 0.05);
-  width: 400px;
-  height: 400px;
-}
-
-/* ── Light-mode grid pattern ──────────────── */
-.grid-pattern-light {
-  position: relative;
-}
-
-.grid-pattern-light::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(109, 122, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(109, 122, 255, 0.03) 1px, transparent 1px);
-  background-size: 60px 60px;
-  pointer-events: none;
-}
-
-/* ── Section divider ──────────────────────── */
-.section-divider {
+/* ── Section divider ───────────────────── */
+.divider {
   height: 1px;
-  max-width: 700px;
+  max-width: 600px;
   margin: 0 auto;
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(109, 122, 255, 0.3),
+    rgba(201, 168, 76, 0.2),
     transparent
   );
 }
 
-/* ── Light section divider ────────────────── */
-.section-divider-light {
-  height: 1px;
-  max-width: 700px;
-  margin: 0 auto;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(109, 122, 255, 0.15),
-    transparent
-  );
-}
-
-/* ── Light section radial glow ────────────── */
-.light-section-glow {
-  position: relative;
-}
-
-.light-section-glow::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 800px;
-  height: 400px;
-  background: radial-gradient(
-    ellipse at center,
-    rgba(109, 122, 255, 0.04) 0%,
-    transparent 70%
-  );
-  pointer-events: none;
-}
-
-/* ── Button glow ──────────────────────────── */
-.btn-glow {
-  box-shadow: 0 0 20px rgba(109, 122, 255, 0.25);
-}
-
-.btn-glow:hover {
-  box-shadow: 0 0 40px rgba(109, 122, 255, 0.45);
-}
-
-/* ── Text gradient ────────────────────────── */
-.text-gradient {
-  background: linear-gradient(135deg, #6D7AFF, #8B5CF6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* ── Animated glowing border ─────────────── */
-.glow-border {
-  --glow-angle: 135deg;
-  position: relative;
-  animation: glow-rotate 4s linear infinite;
-  animation-play-state: paused;
-}
-
-.glow-border:hover {
-  animation-play-state: running;
-}
-
-.glow-border::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 1px;
-  background: conic-gradient(
-    from var(--glow-angle),
-    transparent 25%,
-    rgba(109, 122, 255, 0.35) 30%,
-    rgba(139, 92, 246, 0.25) 36%,
-    transparent 41%,
-    transparent 75%,
-    rgba(109, 122, 255, 0.2) 80%,
-    rgba(139, 92, 246, 0.12) 86%,
-    transparent 91%
-  );
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.glow-border:hover::before {
-  background: conic-gradient(
-    from var(--glow-angle),
-    transparent 20%,
-    rgba(109, 122, 255, 0.6) 26%,
-    rgba(139, 92, 246, 0.5) 34%,
-    transparent 40%,
-    transparent 70%,
-    rgba(109, 122, 255, 0.4) 76%,
-    rgba(139, 92, 246, 0.3) 84%,
-    transparent 90%
-  );
-}
-
-/* ── Shimmer border effect (hover only) ──── */
-.shimmer-border {
-  position: relative;
-}
-
-.shimmer-border::before {
-  content: "";
-  position: absolute;
-  inset: -1px;
-  border-radius: inherit;
-  background: linear-gradient(
-    135deg,
-    rgba(109, 122, 255, 0.4),
-    rgba(139, 92, 246, 0.25),
-    transparent,
-    rgba(109, 122, 255, 0.25)
-  );
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-
-.shimmer-border:hover::before {
-  opacity: 1;
-}
-
-/* ── Dot pattern overlay ──────────────────── */
-.dot-pattern {
-  position: relative;
-}
-
-.dot-pattern::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(
-    circle,
-    rgba(255, 255, 255, 0.03) 1px,
-    transparent 1px
-  );
-  background-size: 30px 30px;
-  pointer-events: none;
-}
-
-/* ── Grid pattern overlay ─────────────────── */
-.grid-pattern {
-  position: relative;
-}
-
-.grid-pattern::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
-  background-size: 60px 60px;
-  pointer-events: none;
-}
-
-/* ── Gradient border on hover ─────────────── */
-.gradient-border {
-  position: relative;
-}
-
-.gradient-border::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 1px;
-  background: linear-gradient(135deg, #6D7AFF, #8B5CF6);
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  pointer-events: none;
-}
-
-.gradient-border:hover::before {
-  opacity: 1;
-}
-
-/* ── Floating snapshot mockups ────────────── */
-.mockup-float-left {
-  transform: perspective(1200px) rotateY(3deg) rotateX(1deg) rotate(-1deg);
-  box-shadow:
-    0 30px 80px rgba(0, 0, 0, 0.5),
-    0 0 40px rgba(109, 122, 255, 0.06);
-  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-              box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.mockup-float-left:hover {
-  transform: perspective(1200px) rotateY(1deg) rotateX(0deg) rotate(0deg) translateY(-8px);
-  box-shadow:
-    0 40px 100px rgba(0, 0, 0, 0.6),
-    0 0 60px rgba(109, 122, 255, 0.1);
-}
-
-.mockup-float-right {
-  transform: perspective(1200px) rotateY(-3deg) rotateX(1deg) rotate(1deg);
-  box-shadow:
-    0 30px 80px rgba(0, 0, 0, 0.5),
-    0 0 40px rgba(109, 122, 255, 0.06);
-  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-              box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.mockup-float-right:hover {
-  transform: perspective(1200px) rotateY(-1deg) rotateX(0deg) rotate(0deg) translateY(-8px);
-  box-shadow:
-    0 40px 100px rgba(0, 0, 0, 0.6),
-    0 0 60px rgba(109, 122, 255, 0.1);
-}
-
-.mockup-float-center {
-  transform: perspective(1200px) rotateX(2deg);
-  box-shadow:
-    0 30px 80px rgba(0, 0, 0, 0.5),
-    0 0 40px rgba(109, 122, 255, 0.06);
-  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-              box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.mockup-float-center:hover {
-  transform: perspective(1200px) rotateX(0deg) translateY(-8px);
-  box-shadow:
-    0 40px 100px rgba(0, 0, 0, 0.6),
-    0 0 60px rgba(109, 122, 255, 0.1);
-}
-
-/* ── Keyframe animations ──────────────────── */
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-5px);
-  }
-}
-
-@keyframes glow-pulse {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
-}
-
-@keyframes glow-rotate {
-  to {
-    --glow-angle: 360deg;
-  }
-}
-
-/* ── Navbar glass blur ────────────────────── */
+/* ── Navbar glass ──────────────────────── */
 .nav-blur {
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
 }
 
-/* ── Mobile performance optimizations ────── */
-/* Keeps the same look, just lighter on the GPU */
-@media (max-width: 768px) {
-  /* Keep all visual effects — just optimize how the browser composites them */
+/* ── CTA glow ──────────────── */
+.gold-glow {
+  box-shadow: 0 0 20px rgba(232, 234, 237, 0.15), 0 0 60px rgba(232, 234, 237, 0.06);
+}
 
-  /* Reduced blur (8px vs 16px) — still looks glassy, composites faster */
-  .glass-card,
-  .glass-card-light {
+.gold-glow:hover {
+  box-shadow: 0 0 30px rgba(232, 234, 237, 0.25), 0 0 80px rgba(232, 234, 237, 0.1);
+}
+
+/* ── Score glow (for AI scores) ────────── */
+.score-glow {
+  box-shadow: 0 0 16px rgba(16, 185, 129, 0.15);
+}
+
+/* ── Mobile optimizations ──────────────── */
+@media (max-width: 768px) {
+  .glass {
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    contain: layout style paint;
   }
 
   .nav-blur {
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
   }
-
-  /* Keep glow border but stop the animation — static glow is free */
-  .glow-border {
-    animation: none;
-    --glow-angle: 135deg;
-  }
-
-  /* Smaller blobs — same look, less GPU area to composite */
-  .gradient-blob-primary {
-    width: 300px;
-    height: 300px;
-    filter: blur(60px);
-  }
-
-  .gradient-blob-secondary {
-    width: 250px;
-    height: 250px;
-    filter: blur(60px);
-  }
-
-  /* Flatten 3D transforms (mockups stack on mobile anyway) */
-  .mockup-float-left,
-  .mockup-float-right,
-  .mockup-float-center {
-    transform: none;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
-  }
-
-  .mockup-float-left:hover,
-  .mockup-float-right:hover,
-  .mockup-float-center:hover {
-    transform: none;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
-  }
-
-  /* Disable hover lift on touch — prevents sticky hover */
-  .glass-card:hover,
-  .glass-card-light:hover {
-    transform: none;
-  }
 }
 
-/* ── Blueprint grid pattern (CRE sections) ── */
-.blueprint-grid {
-  position: relative;
-}
-
-.blueprint-grid::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(109, 122, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(109, 122, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(rgba(109, 122, 255, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(109, 122, 255, 0.025) 1px, transparent 1px);
-  background-size: 120px 120px, 120px 120px, 30px 30px, 30px 30px;
-  pointer-events: none;
-}
-
-/* ── Dashboard dots pattern (RE sections) ── */
-.dashboard-dots {
-  position: relative;
-}
-
-.dashboard-dots::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(
-    circle,
-    rgba(109, 122, 255, 0.07) 1px,
-    transparent 1px
-  );
-  background-size: 20px 20px;
-  pointer-events: none;
-}
-
-/* ── Property texture (CRE deal section) ─── */
-.property-texture {
-  position: relative;
-}
-
-.property-texture::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(109, 122, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(109, 122, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(45deg, rgba(139, 92, 246, 0.025) 1px, transparent 1px);
-  background-size: 80px 80px, 80px 80px, 40px 40px;
-  pointer-events: none;
-}
-
-/* ── Respect prefers-reduced-motion ──────── */
+/* ── Reduced motion ────────────────────── */
 @media (prefers-reduced-motion: reduce) {
-  .glow-border {
-    animation: none;
-    --glow-angle: 135deg;
-  }
-
-  .glass-card,
-  .glass-card-light,
-  .glass-card:hover,
-  .glass-card-light:hover {
+  .glass,
+  .glass:hover {
     transition: none;
     transform: none;
-  }
-
-  .mockup-float-left,
-  .mockup-float-right,
-  .mockup-float-center {
-    transform: none;
-    transition: none;
   }
 }

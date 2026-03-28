@@ -3,11 +3,6 @@
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
 
-interface TrustBarProps {
-  heading?: string;
-  variant?: "dark" | "light";
-}
-
 const LOGOS = [
   { name: "OpenAI", src: "/logos/openai.svg" },
   { name: "Anthropic", src: "/logos/anthropic.svg" },
@@ -21,52 +16,15 @@ const LOGOS = [
   { name: "Airtable", src: "/logos/airtable.svg" },
 ];
 
-export default function TrustBar({
-  heading = "Partners We Work With",
-  variant = "dark",
-}: TrustBarProps) {
-  const isDark = variant === "dark";
-
+export default function TrustBar() {
   return (
-    <section
-      className={`py-8 md:py-14 ${
-        isDark ? "bg-transparent" : "bg-white border-y border-light-border"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {heading && (
-          <p
-            className={`text-center text-xs font-heading font-semibold uppercase tracking-[0.2em] mb-10 ${
-              isDark ? "text-white/30" : "text-text-muted"
-            }`}
-          >
-            {heading}
-          </p>
-        )}
-        <Marquee
-          speed={30}
-          gradient={true}
-          gradientColor={isDark ? "rgb(5, 5, 5)" : "rgb(255, 255, 255)"}
-          gradientWidth={80}
-          pauseOnHover={true}
-        >
-          {LOGOS.map(({ name, src }) => (
-            <div
-              key={name}
-              className="mx-10 flex items-center justify-center"
-              title={name}
-            >
-              <Image
-                src={src}
-                alt={name}
-                width={40}
-                height={40}
-                className={`shrink-0 transition-all duration-300 ${
-                  isDark
-                    ? "brightness-0 invert opacity-40 hover:opacity-80"
-                    : "grayscale opacity-50 hover:grayscale-0 hover:opacity-100"
-                }`}
-              />
+    <section className="py-8 md:py-14 bg-transparent">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+        <p className="text-center text-xs font-medium uppercase tracking-[0.2em] mb-10 text-muted/40">Our Partners</p>
+        <Marquee speed={30} gradient={true} gradientColor="rgb(11, 22, 34)" gradientWidth={80} pauseOnHover={true}>
+          {[...LOGOS, ...LOGOS].map(({ name, src }, i) => (
+            <div key={`${name}-${i}`} className="mx-10 flex items-center justify-center" title={name}>
+              <Image src={src} alt={name} width={36} height={36} className="shrink-0 brightness-0 invert opacity-25 hover:opacity-50 transition-opacity duration-300" />
             </div>
           ))}
         </Marquee>

@@ -9,16 +9,17 @@ interface ButtonProps {
 
 const variantStyles = {
   primary:
-    "bg-brand-primary text-white hover:bg-brand-primary/90 shadow-lg shadow-brand-primary/25 hover:shadow-xl hover:shadow-brand-primary/30 btn-glow",
+    "bg-[#E8EAED] text-[#0B1622] font-semibold hover:bg-white shadow-lg shadow-white/20",
   secondary:
-    "bg-white text-brand-primary border border-brand-primary hover:bg-brand-primary/5",
-  ghost: "bg-transparent text-brand-primary hover:bg-brand-primary/5",
+    "bg-[#E8EAED] text-[#0B1622] hover:bg-white",
+  ghost:
+    "bg-transparent text-[#7B8FA3] border border-white/[0.07] hover:border-white/[0.12] hover:text-[#E8EAED]",
 };
 
 const sizeStyles = {
   sm: "px-4 py-2 text-sm",
   md: "px-6 py-3 text-base",
-  lg: "px-10 py-5 text-lg",
+  lg: "px-10 py-4 text-lg",
 };
 
 export default function Button({
@@ -27,7 +28,7 @@ export default function Button({
   href,
   children,
 }: ButtonProps) {
-  const className = `inline-flex items-center justify-center rounded-xl font-heading font-semibold transition-all duration-200 hover:scale-105 active:scale-95 ${variantStyles[variant]} ${sizeStyles[size]}`;
+  const className = `inline-flex items-center justify-center rounded-xl font-medium transition-all duration-200 active:scale-[0.98] ${variantStyles[variant]} ${sizeStyles[size]}`;
 
   if (href) {
     return (

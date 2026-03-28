@@ -183,7 +183,7 @@ export const ABOUT_TEXT_CRE =
 // ── Commercial Real Estate Page ─────────────────────────────────
 
 export const CRE_HERO = {
-  headline: "Find Distressed Deals Before They Hit the Market",
+  headline: "Source Off-Market Deals Before They Hit the Market",
   subtext:
     "We monitor SEC filings, county records, and CRE news to surface distressed opportunities 1\u20133 months before your competitors see them \u2014 then score every deal against your specific acquisition criteria using AI.",
   cta: "Book a Call",
@@ -191,8 +191,8 @@ export const CRE_HERO = {
 };
 
 export const CRE_STATS = [
-  { value: "6", label: "Public Data Sources Monitored" },
-  { value: "2,800+", label: "Reports Generated" },
+  { value: "50+", label: "Data Sources Monitored" },
+  { value: "2,800+", label: "Opportunities Surfaced" },
   { value: "Live", label: "Delivered to Your Dashboard" },
 ];
 
@@ -200,10 +200,6 @@ export const CRE_PROBLEMS = [
   {
     problem: "Manually searching public records for distressed deals",
     solution: "Automated monitoring of SEC filings, county records, and 4 other data sources",
-  },
-  {
-    problem: "Broker emails piling up with no way to filter signal from noise",
-    solution: "AI scans your inbox, matches deals to your criteria, and flags what matters",
   },
   {
     problem: "Relying solely on broker networks for deal flow",
@@ -221,46 +217,39 @@ export const CRE_PROBLEMS = [
 
 export const CRE_DATA_SOURCES = [
   {
-    title: "SEC CMBS Filings",
-    description: "Monthly 10-D reports with loan-level distress data. Special servicing, foreclosures, REO, maturity defaults.",
-    timing: "1\u20133 month lead time",
+    title: "CMBS Loan Data",
+    description: "Loan-level data from CMBS trusts — special servicing transfers, maturity defaults, foreclosures, and REO status.",
+    timing: "1–3 month lead time",
     icon: "file",
     tags: ["Office", "Retail", "Multi-family"],
   },
   {
-    title: "County Foreclosure Records",
-    description: "Notice of Default, Lis Pendens, and Trustee Sale filings from county courthouses nationwide.",
+    title: "County Records",
+    description: "Notice of Default, Lis Pendens, and Trustee Sale filings sourced directly from county courthouses nationwide.",
     timing: "Real-time filings",
     icon: "building",
     tags: ["All Asset Classes"],
   },
   {
-    title: "CRE News Monitoring",
-    description: "Aggregated distress signals from Commercial Observer, Bisnow, The Real Deal, and more.",
+    title: "Broker Sites",
+    description: "Listings and deal flow from major CRE brokerage platforms, aggregated and matched against your acquisition criteria.",
+    timing: "Continuous monitoring",
+    icon: "globe",
+    tags: ["All Asset Classes"],
+  },
+  {
+    title: "CRE News",
+    description: "Distress signals and market intel from Commercial Observer, Bisnow, The Real Deal, GlobeSt, and more.",
     timing: "Daily coverage",
     icon: "newspaper",
     tags: ["Office", "Retail", "Industrial"],
   },
   {
-    title: "FDIC Failed Bank Data",
-    description: "CRE assets from failed bank portfolios, often available at significant discounts.",
-    timing: "As bank failures occur",
-    icon: "bank",
-    tags: ["Bank-owned CRE"],
-  },
-  {
-    title: "Mortgage REIT Reports",
-    description: "Quarterly filings from publicly traded mREITs showing impaired loans and risk ratings.",
+    title: "Major REITs",
+    description: "Quarterly filings from publicly traded REITs and mREITs showing impaired loans, dispositions, and risk ratings.",
     timing: "Quarterly updates",
     icon: "trending",
     tags: ["CMBS", "CRE Loans"],
-  },
-  {
-    title: "8-K Event Filings",
-    description: "Near-real-time SEC notifications of loan defaults, bankruptcies, and material impairments.",
-    timing: "Within 4 business days",
-    icon: "alert",
-    tags: ["Distressed", "Default"],
   },
 ];
 
@@ -309,9 +298,9 @@ export const CRE_PROCESS = [
   },
   {
     step: 3,
-    title: "Get Weekly Reports",
+    title: "Get Opportunities Live",
     description:
-      "Scored, ranked opportunities delivered to your live custom dashboard and via a weekly PDF digest every Monday.",
+      "Scored, ranked opportunities delivered straight to your live dashboard as they surface — no waiting, no delays.",
   },
 ];
 

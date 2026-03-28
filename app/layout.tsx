@@ -1,31 +1,18 @@
 import type { Metadata } from "next";
-import { Poppins, Inter } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-poppins",
-  display: "swap",
-});
-
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
 export const metadata: Metadata = {
-  title: "HorizonsAI | AI Automation for Real Estate",
+  title: "HorizonsAI | Distressed CRE Deal Intelligence",
   description:
-    "We build AI agents that qualify buyers, personalize follow-ups, and power reporting dashboards for real estate businesses.",
+    "We monitor SEC filings, county records, and CRE news to surface distressed opportunities before your competitors find them.",
   openGraph: {
-    title: "HorizonsAI | AI Automation for Real Estate",
+    title: "HorizonsAI | Distressed CRE Deal Intelligence",
     description:
-      "We build AI agents that qualify buyers, personalize follow-ups, and power reporting dashboards for real estate businesses.",
+      "We monitor SEC filings, county records, and CRE news to surface distressed opportunities before your competitors find them.",
     type: "website",
   },
 };
@@ -36,8 +23,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${poppins.variable} ${inter.variable}`}>
-      <body className="font-body antialiased bg-dark-deep text-text-on-dark">
+    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
+      <body className="noise-overlay font-sans antialiased bg-surface text-[#E8EAED]">
         <Navbar />
         <main>{children}</main>
         <Footer />

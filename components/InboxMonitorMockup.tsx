@@ -1,9 +1,9 @@
 const emails = [
   { sender: "CBRE Research", subject: "Q4 Office Distress Report", matched: true, score: 82 },
   { sender: "Marcus & Millichap", subject: "New Retail Listings — FL", matched: true, score: 71 },
-  { sender: "JLL Capital Markets", subject: "Rate Update Newsletter", matched: false, reason: "No deals" },
+  { sender: "JLL Capital Markets", subject: "Rate Update Newsletter", matched: false },
   { sender: "Eastdil Secured", subject: "Loan Sale Portfolio — SE", matched: true, score: 89 },
-  { sender: "Newmark", subject: "Weekly Market Wrap", matched: false, reason: "No deals" },
+  { sender: "Newmark", subject: "Weekly Market Wrap", matched: false },
   { sender: "Cushman & Wakefield", subject: "Distressed Asset Alert", matched: true, score: 94 },
 ] as const;
 
@@ -12,77 +12,35 @@ export default function InboxMonitorMockup() {
   const filteredCount = emails.length - matchedCount;
 
   return (
-    <div className="glass-card glow-border rounded-3xl overflow-hidden">
-      {/* Top bar — email client chrome */}
-      <div className="bg-white/[0.04] px-5 py-3 border-b border-white/[0.06] flex items-center justify-between">
-        <span className="font-heading font-semibold text-text-on-dark text-sm">
-          Broker Email Monitor
-        </span>
-        <span className="flex items-center text-green-400 text-xs">
-          <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse inline-block mr-1.5" />
-          AI Scanning Active
+    <div className="glass rounded-2xl overflow-hidden">
+      <div className="bg-surface-raised/50 px-5 py-3 border-b border-white/[0.05] flex items-center justify-between">
+        <span className="font-medium text-[#E8EAED] text-sm">Broker Email Monitor</span>
+        <span className="flex items-center text-accent text-xs">
+          <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse inline-block mr-1.5" />
+          Scanning
         </span>
       </div>
-
-      {/* Email list */}
-      <div className="divide-y divide-white/[0.04]">
+      <div className="divide-y divide-white/[0.03]">
         {emails.map((email, i) => (
-          <div key={i} className="flex items-center px-5 py-3.5 gap-4">
-            {/* Indicator dot */}
-            <span
-              className={`w-2 h-2 rounded-full shrink-0 ${
-                email.matched ? "bg-green-400" : "bg-white/20"
-              }`}
-            />
-
-            {/* Sender */}
-            <span className="text-text-on-dark text-sm font-medium w-40 shrink-0 truncate">
-              {email.sender}
-            </span>
-
-            {/* Subject */}
-            <span className="text-white/50 text-sm truncate flex-1">
-              {email.subject}
-            </span>
-
-            {/* Result */}
+          <div key={i} className="flex items-center px-5 py-3 gap-4 hover:bg-surface-overlay/30 transition-colors">
+            <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${email.matched ? "bg-accent" : "bg-muted/30"}`} />
+            <span className="text-[#E8EAED] text-sm font-medium w-40 shrink-0 truncate">{email.sender}</span>
+            <span className="text-muted text-sm truncate flex-1">{email.subject}</span>
             {email.matched ? (
               <span className="flex items-center gap-2 shrink-0">
-                <svg
-                  className="w-3.5 h-3.5 text-green-400"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={3}
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                </svg>
-                <span className="text-green-400 text-xs font-medium">Matched</span>
-                <span className="bg-green-500/20 text-green-400 px-2 py-0.5 rounded-full text-xs font-bold">
-                  {email.score}
-                </span>
+                <span className="text-accent text-xs font-medium">Match</span>
+                <span className="bg-accent/15 text-accent px-2 py-0.5 rounded-full text-xs font-bold font-mono">{email.score}</span>
               </span>
             ) : (
-              <span className="flex items-center gap-2 shrink-0">
-                <span className="text-white/30">&#10005;</span>
-                <span className="text-white/30 text-xs">Filtered</span>
-              </span>
+              <span className="text-muted/40 text-xs shrink-0">Filtered</span>
             )}
           </div>
         ))}
       </div>
-
-      {/* Status bar */}
-      <div className="bg-white/[0.03] px-5 py-3 border-t border-white/[0.06] flex items-center justify-between">
-        <span className="text-white/40 text-xs">
-          {emails.length} emails scanned
-        </span>
-        <span className="text-green-400 text-xs">
-          {matchedCount} matched your criteria
-        </span>
-        <span className="text-white/30 text-xs">
-          {filteredCount} filtered
-        </span>
+      <div className="bg-surface-raised/30 px-5 py-3 border-t border-white/[0.04] flex items-center justify-between text-xs">
+        <span className="text-muted/50">{emails.length} scanned</span>
+        <span className="text-accent">{matchedCount} matched</span>
+        <span className="text-muted/40">{filteredCount} filtered</span>
       </div>
     </div>
   );

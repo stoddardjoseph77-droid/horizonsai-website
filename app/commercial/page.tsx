@@ -4,7 +4,6 @@ import {
   CRE_STATS,
   CRE_PROBLEMS,
   CRE_DATA_SOURCES,
-  CRE_DELIVERABLES,
   CRE_PROCESS,
   CRE_FAQ,
   ABOUT_TEXT_CRE,
@@ -20,129 +19,170 @@ import CTABanner from "@/components/CTABanner";
 import TrustBar from "@/components/TrustBar";
 import AnimateIn from "@/components/AnimateIn";
 import Image from "next/image";
-import DealCard from "@/components/DealCard";
-import PipelineTable from "@/components/PipelineTable";
-import EmailDigestMockup from "@/components/EmailDigestMockup";
-import InboxMonitorMockup from "@/components/InboxMonitorMockup";
-import UnderwritingMockup from "@/components/UnderwritingMockup";
-import HeroSilhouette from "@/components/HeroSilhouette";
-import SectionAccent from "@/components/SectionAccent";
+import BriefingDashboard from "@/components/BriefingDashboard";
+import PropertyDetail from "@/components/PropertyDetail";
+import OpportunitiesTable from "@/components/OpportunitiesTable";
+import MarketIntel from "@/components/MarketIntel";
+import OpportunityMapView from "@/components/OpportunityMapView";
 
 export const metadata: Metadata = {
-  title: "Commercial Real Estate | HorizonsAI",
+  title: "HorizonsAI | AI Deal Intelligence for Commercial Real Estate",
   description: CRE_HERO.subtext,
 };
 
 const pipelinePhases = [
-  { label: "Data Sources", detail: "SEC, County, News, FDIC, mREITs, 8-K" },
+  { label: "Data Sources", detail: "CMBS, County, Brokers, News, REITs" },
   { label: "Enrichment", detail: "Clean, normalize, deduplicate" },
-  { label: "Deal Finding", detail: "AI scoring & ranking" },
-  { label: "Report Generation", detail: "PDF digest & live dashboard" },
-  { label: "Delivery", detail: "Live dashboard + weekly PDF" },
+  { label: "AI Scoring", detail: "AI scoring & ranking" },
+  { label: "Delivery", detail: "Live dashboard + weekly digest" },
 ];
 
 export default function CommercialPage() {
   return (
     <>
-      {/* 1. Hero */}
-      <section className="hero-gradient py-20 md:py-44 relative overflow-hidden">
-        <div className="gradient-blob gradient-blob-primary -top-40 -left-20" />
-        <div className="gradient-blob gradient-blob-secondary top-20 -right-40" />
-        <HeroSilhouette variant="commercial" />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <AnimateIn>
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.06] border border-white/[0.08] mb-6">
-              <span className="w-1.5 h-1.5 rounded-full bg-green-400" />
-              <span className="text-white/60 text-xs font-medium tracking-wide">Trusted by Founders Worldwide</span>
+      {/* ── 1. Hero ── Asymmetric split: text left, product right */}
+      <section className="min-h-[100dvh] flex items-center relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+          <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-gold/[0.04] rounded-full blur-[120px]" />
+          <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-cyan-900/[0.06] rounded-full blur-[100px]" />
+        </div>
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div className="max-w-xl">
+              <AnimateIn>
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.06] mb-6">
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+                  <span className="text-muted text-xs font-medium tracking-wide">AI Deal Intelligence</span>
+                </div>
+              </AnimateIn>
+              <AnimateIn delay={0.05}>
+                <h1 className="font-semibold text-4xl md:text-5xl lg:text-6xl tracking-tighter leading-none text-[#E8EAED] mb-6">
+                  {CRE_HERO.headline}
+                </h1>
+              </AnimateIn>
+              <AnimateIn delay={0.1}>
+                <p className="text-muted text-lg leading-relaxed max-w-[55ch] mb-8">
+                  {CRE_HERO.subtext}
+                </p>
+              </AnimateIn>
+              <AnimateIn delay={0.15}>
+                <div className="flex flex-wrap items-center gap-4">
+                  <Button href="/book-a-call" size="lg">{CRE_HERO.cta}</Button>
+                  <span className="text-muted/50 text-sm">{CRE_HERO.proofText}</span>
+                </div>
+              </AnimateIn>
             </div>
-            <h1 className="font-heading font-bold text-4xl md:text-5xl lg:text-6xl text-text-on-dark mb-6 leading-tight">
-              {CRE_HERO.headline}
-            </h1>
+            <AnimateIn delay={0.2} direction="right">
+              <div className="hidden lg:block">
+                <BriefingDashboard />
+              </div>
+            </AnimateIn>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 2. Stats ── */}
+      <StatsBar stats={CRE_STATS} />
+
+      {/* ── 3. Trust Bar ── */}
+      <TrustBar />
+
+      <div className="divider" />
+
+      {/* ── 4. Product Showcase ── Moved UP — this is the core sell */}
+      <section className="py-24 md:py-36 relative overflow-hidden">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <AnimateIn>
+            <SectionHeading
+              label="The Platform"
+              title="Your deal pipeline, scored and ranked"
+              subtitle="Every opportunity is enriched with AI analysis, financial metrics, and distress scoring. Filter, track, and pursue from a single view."
+            />
+          </AnimateIn>
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-8 items-start">
+            <AnimateIn delay={0.1}>
+              <PropertyDetail />
+            </AnimateIn>
+            <AnimateIn delay={0.2}>
+              <OpportunitiesTable />
+            </AnimateIn>
+          </div>
+        </div>
+      </section>
+
+      <div className="divider" />
+
+      {/* ── 5. Full Opportunity View ── */}
+      <section className="py-24 md:py-36 relative overflow-hidden">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <AnimateIn>
+            <SectionHeading
+              label="Deep Dive"
+              title="Full opportunity intelligence at a glance"
+              subtitle="Every property comes with AI analysis, financial metrics, distress timeline, and an interactive satellite view — all in one panel."
+            />
           </AnimateIn>
           <AnimateIn delay={0.1}>
-            <p className="text-text-on-dark/70 text-lg md:text-xl max-w-3xl mx-auto mb-10">
-              {CRE_HERO.subtext}
-            </p>
-          </AnimateIn>
-          <AnimateIn delay={0.2}>
-            <Button href="/book-a-call" size="lg">
-              {CRE_HERO.cta}
-            </Button>
-          </AnimateIn>
-          <AnimateIn delay={0.3}>
-            <p className="text-text-on-dark/50 text-sm mt-3 md:mt-6">
-              {CRE_HERO.proofText}
-            </p>
+            <OpportunityMapView />
           </AnimateIn>
         </div>
       </section>
 
-      {/* 2. Stats Bar */}
-      <StatsBar stats={CRE_STATS} variant="dark" />
+      <div className="divider" />
 
-      {/* Trust Bar */}
-      <TrustBar variant="dark" />
-
-      <div className="section-divider" />
-
-      {/* 3. Problem / Solution */}
-      <section className="bg-dark-deep py-16 md:py-36 relative overflow-hidden">
-        <div className="gradient-blob gradient-blob-primary absolute -top-40 -right-40" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      {/* ── 6. Problem / Solution ── */}
+      <section className="py-24 md:py-36 relative overflow-hidden">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <AnimateIn>
             <SectionHeading
               label="Problem / Solution"
-              title="What You're Doing vs. What We Do"
-              subtitle="Most CRE investors are still relying on outdated methods. Here's what changes when AI takes over."
-              dark={true}
+              title="What changes when AI takes over"
+              subtitle="Most CRE investors rely on outdated, manual methods. Here is what your workflow looks like with an automated pipeline."
             />
           </AnimateIn>
-          <ProblemSolution items={CRE_PROBLEMS} variant="dark" />
+          <ProblemSolution items={CRE_PROBLEMS} />
         </div>
       </section>
 
-      <div className="section-divider" />
+      <div className="divider" />
 
-      {/* 4. System Overview - Pipeline */}
-      <section className="bg-[#0A0A1A] py-16 md:py-36 relative overflow-hidden blueprint-grid">
-        <div className="gradient-blob gradient-blob-secondary absolute -bottom-40 left-1/2 -translate-x-1/2" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      {/* ── 6. Pipeline Overview ── */}
+      <section className="py-24 md:py-36 relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-accent/[0.04] rounded-full blur-[140px]" />
+        </div>
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <AnimateIn>
             <SectionHeading
               label="System Overview"
-              title="How It Works"
-              subtitle="A fully automated pipeline from public data to actionable deal reports."
-              dark={true}
+              title="From public data to actionable deals"
+              subtitle="A fully automated pipeline monitors, enriches, scores, and delivers distressed opportunities."
             />
           </AnimateIn>
           <div className="flex flex-col md:flex-row items-stretch justify-center gap-0">
             {pipelinePhases.map((phase, index) => (
               <AnimateIn key={phase.label} delay={index * 0.12}>
                 <div className="flex flex-col md:flex-row items-center">
-                  <div className="glass-card p-5 text-center min-w-[150px] glow-border card-accent">
-                    <div className="w-8 h-8 rounded-lg bg-brand-primary/10 flex items-center justify-center mx-auto mb-2">
-                      <span className="text-brand-primary font-heading font-bold text-sm">{index + 1}</span>
+                  <div className="relative p-6 md:p-8 text-center min-w-[180px] rounded-2xl border border-white/[0.08] bg-surface-raised/60 backdrop-blur-sm hover:border-accent/20 transition-all duration-300 group">
+                    <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center mx-auto mb-3 group-hover:bg-accent/20 transition-colors duration-300">
+                      <span className="text-accent font-bold text-base font-mono">{index + 1}</span>
                     </div>
-                    <div className="font-heading font-semibold text-text-on-dark text-sm mb-1">
-                      {phase.label}
-                    </div>
-                    <div className="text-white/50 text-xs">
-                      {phase.detail}
-                    </div>
+                    <div className="font-semibold text-[#E8EAED] text-sm mb-1">{phase.label}</div>
+                    <div className="text-muted/50 text-xs">{phase.detail}</div>
                   </div>
                   {index < pipelinePhases.length - 1 && (
-                    <div className="hidden md:flex items-center px-2">
-                      <svg className="w-5 h-5 text-brand-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </div>
-                  )}
-                  {index < pipelinePhases.length - 1 && (
-                    <div className="flex md:hidden items-center justify-center py-2">
-                      <svg className="w-5 h-5 text-brand-primary rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </div>
+                    <>
+                      <div className="hidden md:flex items-center px-3">
+                        <svg className="w-5 h-5 text-accent/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </div>
+                      <div className="flex md:hidden items-center justify-center py-3">
+                        <svg className="w-5 h-5 text-accent/30 rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </div>
+                    </>
                   )}
                 </div>
               </AnimateIn>
@@ -151,236 +191,98 @@ export default function CommercialPage() {
         </div>
       </section>
 
-      <div className="section-divider" />
+      <div className="divider" />
 
-      {/* 5. Data Sources */}
-      <section className="bg-dark-deep py-16 md:py-36 relative overflow-hidden">
-        <div className="gradient-blob gradient-blob-primary absolute -top-20 -left-40" />
-        <div className="gradient-blob gradient-blob-secondary absolute -bottom-20 -right-40" />
-        <SectionAccent icon="building" position="top-right" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      {/* ── 7. Data Sources ── */}
+      <section className="py-24 md:py-36 relative overflow-hidden">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <AnimateIn>
             <SectionHeading
               label="Data"
-              title="Core Data Sources"
-              subtitle="We aggregate and analyze data from the most reliable public sources in commercial real estate."
-              dark={true}
+              title="Five core sources, one pipeline"
+              subtitle="CMBS filings, county records, broker sites, CRE news, and major REITs — aggregated, cleaned, and scored automatically."
             />
           </AnimateIn>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {CRE_DATA_SOURCES.map((source, index) => (
-              <AnimateIn key={source.title} delay={index * 0.1}>
-                <Card
-                  icon={source.icon}
-                  title={source.title}
-                  description={source.description}
-                  timing={source.timing}
-                  variant="dark"
-                  accent
-                  tags={source.tags}
-                />
+              <AnimateIn key={source.title} delay={index * 0.08}>
+                <Card icon={source.icon} title={source.title} description={source.description} timing={source.timing} tags={source.tags} />
               </AnimateIn>
             ))}
           </div>
-          <AnimateIn delay={0.7}>
-            <p className="text-center text-white/40 text-sm mt-8 max-w-2xl mx-auto">
-              These are just the starting point. Our pipeline is fully customizable — we can add additional data sources based on your target market, asset class, and investment criteria.
+          <AnimateIn delay={0.5}>
+            <p className="text-muted/50 text-sm mt-8 max-w-xl">
+              These are the starting point. Our pipeline is customizable — we add data sources based on your target market, asset class, and criteria.
             </p>
           </AnimateIn>
         </div>
       </section>
 
-      <div className="section-divider" />
+      <div className="divider" />
 
-      {/* 6. What You Receive */}
-      <section className="bg-[#0A0A1A] py-16 md:py-36 relative overflow-hidden blueprint-grid">
-        <div className="gradient-blob gradient-blob-primary absolute -top-40 left-1/2 -translate-x-1/2" />
-        <SectionAccent icon="report" position="bottom-left" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      {/* ── 8. Market Intelligence ── */}
+      <section className="py-24 md:py-36 relative overflow-hidden grid-bg">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <AnimateIn>
             <SectionHeading
-              label="Deliverables"
-              title="What You Receive"
-              subtitle="Professional reports and a live pipeline, delivered weekly."
-              dark={true}
+              label="Market Intelligence"
+              title="Analytics that drive decisions"
+              subtitle="Track maturity walls, severity distributions, deal flow trends, and vacancy rates across every market you care about."
             />
           </AnimateIn>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {CRE_DELIVERABLES.map((item, index) => (
-              <AnimateIn key={item.title} delay={index * 0.1}>
-                <Card
-                  icon={item.icon}
-                  title={item.title}
-                  description={item.description}
-                  variant="dark"
-                  accent
-                />
-              </AnimateIn>
-            ))}
-          </div>
+          <AnimateIn delay={0.1}>
+            <MarketIntel />
+          </AnimateIn>
         </div>
       </section>
 
-      <div className="section-divider" />
+      <div className="divider" />
 
-      {/* 6.5 Deal Preview Snapshots */}
-      <section className="bg-dark-deep py-16 md:py-36 relative overflow-hidden property-texture">
-        <div className="gradient-blob gradient-blob-primary -top-40 -left-40" />
-        <div className="gradient-blob gradient-blob-secondary -bottom-40 -right-40" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <AnimateIn>
-            <SectionHeading
-              label="Example Output"
-              title="What a Scored Deal Looks Like"
-              subtitle="Every opportunity is ranked, annotated, and delivered with actionable commentary."
-              dark={true}
-            />
-          </AnimateIn>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
-            <AnimateIn delay={0.1}>
-              <div className="mockup-float-left rounded-3xl">
-                <DealCard />
-              </div>
-            </AnimateIn>
-            <AnimateIn delay={0.2}>
-              <div className="mockup-float-right rounded-3xl">
-                <PipelineTable />
-              </div>
-            </AnimateIn>
-          </div>
-        </div>
-      </section>
 
-      <div className="section-divider" />
-
-      {/* 7. Additional Services — Visual Mockups */}
-      <section className="bg-[#0A0A1A] py-16 md:py-36 relative overflow-hidden grid-pattern">
-        <div className="gradient-blob gradient-blob-secondary absolute top-1/2 -right-40 -translate-y-1/2" />
-        <div className="gradient-blob gradient-blob-primary absolute -top-40 -left-20" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <AnimateIn>
-            <SectionHeading
-              label="Add-On Systems"
-              title="Extend Your Pipeline"
-              subtitle="Optional AI-powered capabilities that take your deal sourcing further."
-              dark={true}
-            />
-          </AnimateIn>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-            <AnimateIn delay={0.1}>
-              <div>
-                <h3 className="font-heading font-semibold text-lg text-text-on-dark mb-4">Broker Email Intelligence</h3>
-                <p className="text-white/50 text-sm mb-6">We scan your inbox so you never miss a deal from your broker network.</p>
-                <div className="mockup-float-left rounded-3xl">
-                  <InboxMonitorMockup />
-                </div>
-              </div>
-            </AnimateIn>
-            <AnimateIn delay={0.2}>
-              <div>
-                <h3 className="font-heading font-semibold text-lg text-text-on-dark mb-4">AI-Powered Underwriting</h3>
-                <p className="text-white/50 text-sm mb-6">Preliminary analysis in seconds, not hours. Screen deals against your criteria instantly.</p>
-                <div className="mockup-float-right rounded-3xl">
-                  <UnderwritingMockup />
-                </div>
-              </div>
-            </AnimateIn>
-          </div>
-        </div>
-      </section>
-
-      <div className="section-divider" />
-
-      {/* 8. Process */}
-      <section className="bg-[#0A0A1A] py-16 md:py-36 relative overflow-hidden">
-        <div className="gradient-blob gradient-blob-primary absolute -bottom-40 -left-40" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      {/* ── 10. Process ── */}
+      <section className="py-24 md:py-36 relative overflow-hidden">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <AnimateIn>
             <SectionHeading
               label="Get Started"
-              title="Getting Started"
-              subtitle="Three simple steps to a fully automated deal pipeline."
-              dark={true}
+              title="Three steps to a live pipeline"
+              subtitle="From criteria to scored deals in under two weeks."
             />
           </AnimateIn>
-          <div className="max-w-2xl mx-auto">
+          <div className="max-w-xl">
             {CRE_PROCESS.map((proc, index) => (
               <AnimateIn key={proc.step} delay={index * 0.1}>
-                <ProcessStep
-                  step={proc.step}
-                  title={proc.title}
-                  description={proc.description}
-                  isLast={index === CRE_PROCESS.length - 1}
-                  variant="dark"
-                />
+                <ProcessStep step={proc.step} title={proc.title} description={proc.description} isLast={index === CRE_PROCESS.length - 1} />
               </AnimateIn>
             ))}
           </div>
         </div>
       </section>
 
-      <div className="section-divider" />
+      <div className="divider" />
 
-      {/* 8.5 Weekly Email Preview */}
-      <section className="bg-dark-deep py-16 md:py-36 relative overflow-hidden">
-        <div className="gradient-blob gradient-blob-primary -top-40 left-1/2 -translate-x-1/2" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <AnimateIn>
-            <SectionHeading
-              label="Delivery"
-              title="Delivered Every Monday"
-              subtitle="No searching. No manual work. Just open your inbox."
-              dark={true}
-            />
-          </AnimateIn>
-          <AnimateIn delay={0.15}>
-            <div className="mockup-float-center rounded-3xl max-w-2xl mx-auto">
-              <EmailDigestMockup />
-            </div>
-          </AnimateIn>
-        </div>
-      </section>
-
-      <div className="section-divider" />
-
-      {/* 9. About */}
-      <section className="bg-dark-deep py-16 md:py-36 relative overflow-hidden">
-        <div className="gradient-blob gradient-blob-primary -top-40 left-1/2 -translate-x-1/2" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-3xl mx-auto text-center">
+      {/* ── 11. About ── */}
+      <section className="py-24 md:py-36 relative overflow-hidden">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-12 lg:gap-20 items-start">
             <AnimateIn>
-              <SectionHeading
-                label="About"
-                title="Meet the Founder"
-                dark={true}
-              />
+              <div className="flex flex-col items-center lg:items-start">
+                <div className="w-36 h-36 md:w-44 md:h-44 rounded-2xl overflow-hidden border border-white/[0.06] ring-1 ring-gold/10">
+                  <Image src="/joey.jpg" alt="Joey Stoddard" width={176} height={176} className="object-cover object-top w-full h-full scale-[1.3]" />
+                </div>
+              </div>
             </AnimateIn>
             <AnimateIn delay={0.1}>
-              <div className="glass-card p-10 md:p-14 flex flex-col items-center">
-                <div className="w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden border-2 border-white/10 mb-8 ring-2 ring-brand-primary/20 ring-offset-4 ring-offset-transparent">
-                  <Image
-                    src="/joey.jpg"
-                    alt="Joey Stoddard"
-                    width={192}
-                    height={192}
-                    className="object-cover object-top w-full h-full scale-[1.3]"
-                  />
-                </div>
-                <h3 className="font-heading font-semibold text-xl text-text-on-dark mb-1">Joey Stoddard</h3>
-                <p className="text-brand-primary text-sm mb-6">Founder, HorizonsAI</p>
-                <p className="text-white/70 text-lg leading-relaxed mb-8">
-                  {ABOUT_TEXT_CRE}
-                </p>
-                <a
-                  href="https://www.linkedin.com/in/joey-stoddard-8a2b78357"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.06] border border-white/[0.08] text-white/60 hover:text-brand-primary hover:border-brand-primary/30 hover:bg-brand-primary/[0.06] transition-all duration-300"
-                >
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <div>
+                <span className="text-gold text-xs font-medium uppercase tracking-widest mb-4 block">About</span>
+                <h3 className="font-semibold text-2xl tracking-tight text-[#E8EAED] mb-1">Joey Stoddard</h3>
+                <p className="text-gold text-sm mb-6">Founder, HorizonsAI</p>
+                <p className="text-muted text-base leading-relaxed max-w-[55ch] mb-6">{ABOUT_TEXT_CRE}</p>
+                <a href="https://www.linkedin.com/in/joey-stoddard-8a2b78357" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/[0.04] border border-white/[0.06] text-muted hover:text-gold hover:border-gold/20 transition-all duration-200">
+                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                   </svg>
-                  <span className="text-sm font-medium">Connect on LinkedIn</span>
+                  <span className="text-sm font-medium">LinkedIn</span>
                 </a>
               </div>
             </AnimateIn>
@@ -388,22 +290,19 @@ export default function CommercialPage() {
         </div>
       </section>
 
-      <div className="section-divider" />
+      <div className="divider" />
 
-      {/* 10. FAQ */}
-      <section className="bg-[#0A0A1A] py-16 md:py-36">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            title="Frequently Asked Questions"
-            dark={true}
-          />
-          <FAQAccordion items={CRE_FAQ} variant="dark" />
+      {/* ── 12. FAQ ── */}
+      <section className="py-24 md:py-36">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading title="Frequently asked questions" />
+          <FAQAccordion items={CRE_FAQ} />
         </div>
       </section>
 
-      {/* 10. CTA Banner */}
+      {/* ── 13. CTA ── */}
       <CTABanner
-        headline="Get Ahead of the Market"
+        headline="Get ahead of the market"
         subtext="Start receiving scored distressed opportunities before your competitors find them."
         ctaText="Book a Call"
         ctaHref="/book-a-call"

@@ -9,50 +9,49 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        brand: {
-          primary: "#6D7AFF",
-          secondary: "#8B5CF6",
+        gold: {
+          DEFAULT: "#E8EAED",
+          light: "#FFFFFF",
+          dim: "#B0B8C1",
         },
-        dark: {
-          deep: "#050505",
-          bg: "#0F0F1A",
-          surface: "#1A1A2E",
-          border: "#2D2D3F",
+        accent: {
+          DEFAULT: "#10B981",
+          light: "#34D399",
+          dim: "#059669",
         },
-        light: {
-          bg: "#FFFFFF",
-          secondary: "#F9FAFB",
-          border: "#E5E7EB",
+        surface: {
+          DEFAULT: "#0B1622",
+          raised: "#132136",
+          overlay: "#1A2B45",
         },
-        text: {
-          primary: "#111827",
-          secondary: "#6B7280",
-          muted: "#9CA3AF",
-          "on-dark": "#F9FAFB",
-          accent: "#6D7AFF",
-        },
-        status: {
-          success: "#10B981",
-          warning: "#F59E0B",
-          danger: "#EF4444",
+        muted: "#7B8FA3",
+        severity: {
+          critical: "#EF4444",
+          high: "#F59E0B",
+          medium: "#EAB308",
+          low: "#10B981",
         },
       },
       fontFamily: {
-        heading: ["var(--font-poppins)", "sans-serif"],
-        body: ["var(--font-inter)", "sans-serif"],
+        sans: ["var(--font-geist-sans)", "system-ui", "sans-serif"],
+        mono: ["var(--font-geist-mono)", "monospace"],
+      },
+      borderRadius: {
+        "4xl": "2rem",
+        "5xl": "2.5rem",
       },
       animation: {
-        float: "float 3s ease-in-out infinite",
-        "glow-pulse": "glow-pulse 2s ease-in-out infinite",
+        "fade-in": "fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards",
+        "slide-up": "slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards",
       },
       keyframes: {
-        float: {
-          "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-5px)" },
+        fadeIn: {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
         },
-        "glow-pulse": {
-          "0%, 100%": { opacity: "1" },
-          "50%": { opacity: "0.5" },
+        slideUp: {
+          "0%": { opacity: "0", transform: "translateY(20px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
         },
       },
     },
