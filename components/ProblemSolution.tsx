@@ -1,14 +1,9 @@
-"use client";
-
 import AnimateIn from "./AnimateIn";
-import { useIsMobile } from "@/hooks/useIsMobile";
 
 interface ProblemSolutionItem { problem: string; solution: string; }
 interface ProblemSolutionProps { items: ProblemSolutionItem[]; }
 
 export default function ProblemSolution({ items }: ProblemSolutionProps) {
-  const isMobile = useIsMobile();
-
   return (
     <div className="space-y-3 md:space-y-4">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-2">
@@ -17,13 +12,13 @@ export default function ProblemSolution({ items }: ProblemSolutionProps) {
       </div>
       {items.map((item, index) => (
         <div key={index} className="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch">
-          <AnimateIn direction={isMobile ? "up" : "left"} delay={isMobile ? index * 0.06 : index * 0.08}>
+          <AnimateIn direction="left" delay={index * 0.06}>
             <div className="glass p-5 flex items-start gap-3 h-full">
               <span className="text-severity-critical text-sm shrink-0 mt-0.5">&#x2717;</span>
               <p className="text-[#E8EAED]/80 text-sm md:text-base leading-relaxed">{item.problem}</p>
             </div>
           </AnimateIn>
-          <AnimateIn direction={isMobile ? "up" : "right"} delay={isMobile ? index * 0.06 + 0.04 : index * 0.08}>
+          <AnimateIn direction="right" delay={index * 0.06 + 0.03}>
             <div className="glass p-5 flex items-start gap-3 h-full">
               <span className="text-accent text-sm shrink-0 mt-0.5">&#x2713;</span>
               <p className="text-[#E8EAED]/80 text-sm md:text-base leading-relaxed">{item.solution}</p>

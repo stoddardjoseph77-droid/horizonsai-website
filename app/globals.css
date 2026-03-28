@@ -109,11 +109,50 @@ html {
   }
 }
 
+/* ── Mobile reveal system ─────────────── */
+/* Override Framer Motion inline opacity:0 during SSR→hydration on mobile */
+@media (max-width: 1023px) {
+  [data-animate-in] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* Below-fold elements: hidden by JS, revealed by CSS animation */
+.mobile-reveal.mobile-animate {
+  opacity: 0;
+  transform: translateY(8px);
+  will-change: opacity, transform;
+}
+
+.mobile-reveal.mobile-animate.in-view {
+  animation: mobileReveal 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.mobile-reveal.in-view {
+  will-change: auto;
+}
+
+@keyframes mobileReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* ── Reduced motion ────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .glass,
   .glass:hover {
     transition: none;
     transform: none;
+  }
+
+  .mobile-reveal.mobile-animate {
+    opacity: 1;
+    transform: none;
+    animation: none;
   }
 }

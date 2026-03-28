@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef, useMemo } from "react";
 import { useInView } from "framer-motion";
 import AnimateIn from "@/components/AnimateIn";
 import { useIsMobile } from "@/hooks/useIsMobile";
@@ -16,31 +16,35 @@ function AnimatedValue({ value, isMobile }: { value: string; isMobile: boolean }
   const hasComma = match ? match[1].includes(",") : false;
   const isNumeric = !!match;
 
-  const [count, setCount] = useState(0);
   const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: isMobile ? "0px 0px 150px 0px" : undefined });
+  const fmt = useMemo(() => new Intl.NumberFormat("en-US"), []);
+  const inView = useInView(ref, {
+    once: true,
+    margin: isMobile ? "0px 0px 100px 0px" : undefined,
+  });
 
   useEffect(() => {
-    if (!inView || !isNumeric) return;
+    if (!inView || !isNumeric || !ref.current) return;
+    const el = ref.current;
     const duration = isMobile ? 700 : 1800;
     let start: number | null = null;
     let raf: number;
     const tick = (ts: number) => {
       if (!start) start = ts;
       const progress = Math.min((ts - start) / duration, 1);
-      setCount(Math.round(easeOutCubic(progress) * numericTarget));
+      const val = Math.round(easeOutCubic(progress) * numericTarget);
+      el.textContent = `${hasComma ? fmt.format(val) : val}${suffix}`;
       if (progress < 1) raf = requestAnimationFrame(tick);
     };
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
-  }, [inView, numericTarget, isNumeric, isMobile]);
+  }, [inView, numericTarget, isNumeric, isMobile, hasComma, suffix, fmt]);
 
   if (!isNumeric) return <>{value}</>;
 
   return (
-    <span ref={ref}>
-      {hasComma ? count.toLocaleString() : count}
-      {suffix}
+    <span ref={ref} style={{ fontVariantNumeric: "tabular-nums" }}>
+      0{suffix}
     </span>
   );
 }
