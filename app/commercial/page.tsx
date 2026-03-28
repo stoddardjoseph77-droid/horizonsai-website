@@ -24,6 +24,7 @@ import PropertyDetail from "@/components/PropertyDetail";
 import OpportunitiesTable from "@/components/OpportunitiesTable";
 import MarketIntel from "@/components/MarketIntel";
 import OpportunityMapView from "@/components/OpportunityMapView";
+import OpportunityMapViewMobile from "@/components/OpportunityMapViewMobile";
 
 export const metadata: Metadata = {
   title: "HorizonsAI | AI Deal Intelligence for Commercial Real Estate",
@@ -104,7 +105,9 @@ export default function CommercialPage() {
               <PropertyDetail />
             </AnimateIn>
             <AnimateIn delay={0.2}>
-              <OpportunitiesTable />
+              <div className="hidden lg:block">
+                <OpportunitiesTable />
+              </div>
             </AnimateIn>
           </div>
         </div>
@@ -122,9 +125,14 @@ export default function CommercialPage() {
               subtitle="Every property comes with AI analysis, financial metrics, distress timeline, and an interactive satellite view — all in one panel."
             />
           </AnimateIn>
-          <AnimateIn delay={0.1}>
-            <OpportunityMapView />
-          </AnimateIn>
+          <div className="hidden lg:block">
+            <AnimateIn delay={0.1}>
+              <OpportunityMapView />
+            </AnimateIn>
+          </div>
+          <div className="lg:hidden">
+            <OpportunityMapViewMobile />
+          </div>
         </div>
       </section>
 
@@ -218,10 +226,10 @@ export default function CommercialPage() {
         </div>
       </section>
 
-      <div className="divider" />
+      <div className="divider hidden lg:block" />
 
       {/* ── 8. Market Intelligence ── */}
-      <section className="py-24 md:py-36 relative overflow-hidden grid-bg">
+      <section className="hidden lg:block py-24 md:py-36 relative overflow-hidden grid-bg">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <AnimateIn>
             <SectionHeading
@@ -236,7 +244,7 @@ export default function CommercialPage() {
         </div>
       </section>
 
-      <div className="divider" />
+      <div className="divider hidden lg:block" />
 
 
       {/* ── 10. Process ── */}

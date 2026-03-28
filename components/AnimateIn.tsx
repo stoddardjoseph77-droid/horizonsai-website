@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 interface AnimateInProps {
   children: React.ReactNode;
@@ -22,7 +23,12 @@ export default function AnimateIn({
   direction = "up",
   className,
 }: AnimateInProps) {
+  const isMobile = useIsMobile();
   const offset = offsets[direction];
+
+  if (isMobile) {
+    return <div className={className}>{children}</div>;
+  }
 
   return (
     <motion.div
