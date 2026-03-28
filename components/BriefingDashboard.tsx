@@ -106,13 +106,13 @@ function NewDealNotification() {
   }, [inView]);
 
   return (
-    <div ref={ref}>
+    <div ref={ref} style={{ minHeight: 36 }}>
       <AnimatePresence>
         {show && (
           <motion.div
-            initial={{ opacity: 0, y: -8, height: 0 }}
-            animate={{ opacity: 1, y: 0, height: "auto" }}
-            transition={{ type: "spring", stiffness: 120, damping: 18 }}
+            initial={{ opacity: 0, y: -4 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ type: "spring", stiffness: 120, damping: 26 }}
             className="mb-2"
           >
             <div className="flex items-center gap-2 px-2.5 py-1.5 rounded-lg bg-accent/[0.08] border border-accent/20">

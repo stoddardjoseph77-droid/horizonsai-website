@@ -11,10 +11,10 @@ interface AnimateInProps {
 }
 
 const offsets: Record<string, { x: number; y: number }> = {
-  up: { x: 0, y: 20 },
-  down: { x: 0, y: -20 },
-  left: { x: 20, y: 0 },
-  right: { x: -20, y: 0 },
+  up: { x: 0, y: 12 },
+  down: { x: 0, y: -12 },
+  left: { x: 12, y: 0 },
+  right: { x: -12, y: 0 },
 };
 
 export default function AnimateIn({
@@ -34,7 +34,7 @@ export default function AnimateIn({
       transition={
         isMobile
           ? { duration: 0 }
-          : { type: "spring", stiffness: 100, damping: 20, delay: Math.min(delay, 0.4) }
+          : { type: "spring", stiffness: 100, damping: 26, delay: Math.min(delay, 0.4) }
       }
       className={className}
     >

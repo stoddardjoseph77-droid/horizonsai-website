@@ -49,14 +49,17 @@ function Typewriter({ text, delay, isStatic }: { text: string; delay: number; is
   }, [started, text, isStatic, inView, displayed.length]);
 
   return (
-    <p ref={ref} className="text-muted text-xs leading-relaxed">
-      {/* Invisible full text to reserve space — prevents layout shift */}
-      <span className="invisible block h-0 overflow-hidden" aria-hidden="true">{text}</span>
-      {displayed}
-      {!isStatic && started && displayed.length < text.length && (
-        <span className="inline-block w-[1px] h-3 bg-accent/70 ml-0.5 animate-pulse" />
-      )}
-    </p>
+    <div ref={ref} className="relative text-muted text-xs leading-relaxed">
+      {/* Invisible full text to reserve exact height */}
+      <p className="invisible" aria-hidden="true">{text}</p>
+      {/* Visible typed text overlaid */}
+      <p className="absolute inset-0">
+        {displayed}
+        {!isStatic && started && displayed.length < text.length && (
+          <span className="inline-block w-[1px] h-3 bg-accent/70 ml-0.5 animate-pulse" />
+        )}
+      </p>
+    </div>
   );
 }
 
