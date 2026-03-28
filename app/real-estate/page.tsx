@@ -69,7 +69,7 @@ export default function RealEstatePage() {
       </section>
 
       {/* 2. Trust Bar */}
-      <TrustBar variant="dark" />
+      <TrustBar />
 
       <div className="section-divider" />
 
@@ -81,10 +81,10 @@ export default function RealEstatePage() {
             <SectionHeading
               label="Problem / Solution"
               title="Where Most Agencies Get Stuck — And How We Fix It"
-              dark={true}
+
             />
           </AnimateIn>
-          <ProblemSolution items={RE_PROBLEMS} variant="dark" />
+          <ProblemSolution items={RE_PROBLEMS} />
         </div>
       </section>
 
@@ -99,7 +99,7 @@ export default function RealEstatePage() {
               label="See It In Action"
               title="AI That Qualifies Leads Instantly"
               subtitle="Our AI agent responds in under 60 seconds — qualifying buyers and routing warm leads to your team."
-              dark={true}
+
             />
           </AnimateIn>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -156,7 +156,7 @@ export default function RealEstatePage() {
               label="What We Build"
               title="Next-Gen AI Solutions"
               subtitle="Tailored automation systems designed specifically for real estate workflows."
-              dark={true}
+
             />
           </AnimateIn>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -166,8 +166,7 @@ export default function RealEstatePage() {
                   icon={service.icon}
                   title={service.title}
                   description={service.description}
-                  variant="dark"
-                  accent
+                 
                 />
               </AnimateIn>
             ))}
@@ -186,7 +185,7 @@ export default function RealEstatePage() {
               label="CRM Integration"
               title="Your CRM, Supercharged by AI"
               subtitle="Lead scores, qualification notes, and follow-up status — synced directly into your existing CRM in real time."
-              dark={true}
+
             />
           </AnimateIn>
           <AnimateIn delay={0.15}>
@@ -206,7 +205,7 @@ export default function RealEstatePage() {
             <SectionHeading
               label="Results"
               title="Experience the AI Advantage"
-              dark={true}
+
             />
           </AnimateIn>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -236,7 +235,7 @@ export default function RealEstatePage() {
             <SectionHeading
               label="How It Works"
               title="Our Proven Process"
-              dark={true}
+
             />
           </AnimateIn>
           <div className="max-w-2xl mx-auto">
@@ -247,8 +246,7 @@ export default function RealEstatePage() {
                   title={proc.title}
                   description={proc.description}
                   isLast={index === RE_PROCESS.length - 1}
-                  variant="dark"
-                />
+                                 />
               </AnimateIn>
             ))}
           </div>
@@ -266,7 +264,7 @@ export default function RealEstatePage() {
               <SectionHeading
                 label="About"
                 title="Meet the Founder"
-                dark={true}
+  
               />
             </AnimateIn>
             <AnimateIn delay={0.1}>
@@ -313,7 +311,7 @@ export default function RealEstatePage() {
             <SectionHeading
               label="Social Proof"
               title="What Our Clients Say"
-              dark={true}
+
             />
           </AnimateIn>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -323,8 +321,7 @@ export default function RealEstatePage() {
                   quote={testimonial.quote}
                   name={testimonial.name}
                   role={testimonial.role}
-                  variant="dark"
-                />
+                                 />
               </AnimateIn>
             ))}
           </div>
@@ -338,9 +335,8 @@ export default function RealEstatePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             title="Frequently Asked Questions"
-            dark={true}
           />
-          <FAQAccordion items={RE_FAQ} variant="dark" />
+          <FAQAccordion items={RE_FAQ} />
         </div>
       </section>
 

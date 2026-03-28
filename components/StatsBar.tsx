@@ -9,20 +9,18 @@ function easeOutCubic(t: number) {
 }
 
 function AnimatedValue({ value }: { value: string }) {
-  // Extract leading number and suffix (e.g. "2,800+" → 2800, "+")
   const match = value.match(/^([\d,]+)(.*)/);
-  if (!match) return <>{value}</>;
-
-  const numericTarget = parseInt(match[1].replace(/,/g, ""), 10);
-  const suffix = match[2]; // e.g. "+" or ""
-  const hasComma = match[1].includes(",");
+  const numericTarget = match ? parseInt(match[1].replace(/,/g, ""), 10) : 0;
+  const suffix = match ? match[2] : "";
+  const hasComma = match ? match[1].includes(",") : false;
+  const isNumeric = !!match;
 
   const [count, setCount] = useState(0);
-  const ref = useRef<span>(null);
+  const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true });
 
   useEffect(() => {
-    if (!inView) return;
+    if (!inView || !isNumeric) return;
     const duration = 1800;
     let start: number | null = null;
     let raf: number;
@@ -34,7 +32,9 @@ function AnimatedValue({ value }: { value: string }) {
     };
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
-  }, [inView, numericTarget]);
+  }, [inView, numericTarget, isNumeric]);
+
+  if (!isNumeric) return <>{value}</>;
 
   return (
     <span ref={ref}>
