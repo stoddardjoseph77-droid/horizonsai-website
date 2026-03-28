@@ -375,9 +375,9 @@ export default function PlatformViewer() {
     setProgressKey((k) => k + 1);
   }, []);
 
-  // Only start auto-advance when section is in view
+  // Only start auto-advance once the section has scrolled into view
   const sectionRef = useRef<HTMLDivElement>(null);
-  const sectionInView = useInView(sectionRef, { once: false, margin: "0px 0px -10% 0px" });
+  const sectionInView = useInView(sectionRef, { once: true, margin: "0px 0px -10% 0px" });
 
   useEffect(() => {
     if (isMobile || !sectionInView) return;
