@@ -10,8 +10,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-html {
-  scroll-behavior: smooth;
+@media (min-width: 1024px) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 /* ── Selection ─────────────────────────── */
@@ -123,12 +125,12 @@ html {
 /* Below-fold elements: hidden by JS, revealed by CSS animation */
 .mobile-reveal.mobile-animate {
   opacity: 0;
-  transform: translateY(8px);
+  transform: translateY(16px);
   will-change: opacity, transform;
 }
 
 .mobile-reveal.mobile-animate.in-view {
-  animation: mobileReveal 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: mobileReveal 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .mobile-reveal.in-view {
@@ -138,7 +140,7 @@ html {
 @keyframes mobileReveal {
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) translateZ(0);
   }
 }
 

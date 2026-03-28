@@ -20,13 +20,13 @@ function AnimatedValue({ value, isMobile }: { value: string; isMobile: boolean }
   const fmt = useMemo(() => new Intl.NumberFormat("en-US"), []);
   const inView = useInView(ref, {
     once: true,
-    margin: isMobile ? "0px 0px 100px 0px" : undefined,
+    margin: isMobile ? "0px 0px 300px 0px" : undefined,
   });
 
   useEffect(() => {
     if (!inView || !isNumeric || !ref.current) return;
     const el = ref.current;
-    const duration = isMobile ? 700 : 1800;
+    const duration = isMobile ? 1200 : 1800;
     let start: number | null = null;
     let raf: number;
     const tick = (ts: number) => {
