@@ -132,7 +132,7 @@ export default function CommercialPage() {
       <div className="divider" />
 
       {/* ── 6. Problem / Solution ── */}
-      <section className="py-24 md:py-36 relative overflow-hidden">
+      <section className="py-16 md:py-36 relative overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <AnimateIn>
             <SectionHeading
@@ -148,7 +148,7 @@ export default function CommercialPage() {
       <div className="divider" />
 
       {/* ── 6. Pipeline Overview ── */}
-      <section className="py-24 md:py-36 relative overflow-hidden">
+      <section className="py-16 md:py-36 relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-accent/[0.04] rounded-full blur-[140px]" />
         </div>
@@ -178,7 +178,7 @@ export default function CommercialPage() {
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                         </svg>
                       </div>
-                      <div className="flex md:hidden items-center justify-center py-3">
+                      <div className="flex md:hidden items-center justify-center py-2">
                         <svg className="w-5 h-5 text-accent/30 rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                         </svg>
@@ -195,7 +195,7 @@ export default function CommercialPage() {
       <div className="divider" />
 
       {/* ── 7. Data Sources ── */}
-      <section className="py-24 md:py-36 relative overflow-hidden">
+      <section className="py-16 md:py-36 relative overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <AnimateIn>
             <SectionHeading
@@ -241,7 +241,7 @@ export default function CommercialPage() {
 
 
       {/* ── 10. Process ── */}
-      <section className="py-24 md:py-36 relative overflow-hidden">
+      <section className="py-16 md:py-36 relative overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <AnimateIn>
             <SectionHeading
@@ -263,7 +263,7 @@ export default function CommercialPage() {
       <div className="divider" />
 
       {/* ── 11. About ── */}
-      <section className="py-24 md:py-36 relative overflow-hidden">
+      <section className="py-16 md:py-36 relative overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-12 lg:gap-20 items-start">
             <AnimateIn>
@@ -294,7 +294,7 @@ export default function CommercialPage() {
       <div className="divider" />
 
       {/* ── 12. FAQ ── */}
-      <section className="py-24 md:py-36">
+      <section className="py-16 md:py-36">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading title="Frequently asked questions" />
           <FAQAccordion items={CRE_FAQ} />

@@ -5,7 +5,7 @@ interface ProblemSolutionProps { items: ProblemSolutionItem[]; }
 
 export default function ProblemSolution({ items }: ProblemSolutionProps) {
   return (
-    <div className="space-y-4">
+    <div className="space-y-3 md:space-y-4">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-2">
         <p className="text-xs font-medium uppercase tracking-wider text-severity-critical/70">Problem</p>
         <p className="text-xs font-medium uppercase tracking-wider hidden md:block text-accent/70">Solution</p>

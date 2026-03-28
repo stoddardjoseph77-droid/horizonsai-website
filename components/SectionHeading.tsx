@@ -14,7 +14,7 @@ export default function SectionHeading({
   const alignClass = align === "center" ? "text-center mx-auto" : "";
 
   return (
-    <div className={`max-w-2xl mb-16 ${alignClass}`}>
+    <div className={`max-w-2xl mb-10 md:mb-16 ${alignClass}`}>
       {label && (
         <span className="inline-block text-gold text-xs font-medium tracking-widest uppercase mb-4">
           {label}

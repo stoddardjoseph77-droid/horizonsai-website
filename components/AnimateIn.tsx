@@ -28,12 +28,12 @@ export default function AnimateIn({
 
   return (
     <motion.div
-      initial={isMobile ? { opacity: 1 } : { opacity: 0, x: offset.x, y: offset.y }}
+      initial={isMobile ? { opacity: 0 } : { opacity: 0, x: offset.x, y: offset.y }}
       whileInView={{ opacity: 1, x: 0, y: 0 }}
-      viewport={{ once: true, margin: "0px 0px -12% 0px" }}
+      viewport={{ once: true, margin: isMobile ? "0px 0px -5% 0px" : "0px 0px -12% 0px" }}
       transition={
         isMobile
-          ? { duration: 0 }
+          ? { duration: 0.3, ease: "easeOut" }
           : { type: "spring", stiffness: 100, damping: 26, delay: Math.min(delay, 0.4) }
       }
       className={className}

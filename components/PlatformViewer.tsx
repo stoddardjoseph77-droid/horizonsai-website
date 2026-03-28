@@ -290,8 +290,52 @@ function SearchStatic() {
 /* ──────────────────── PIPELINE / KANBAN ────────────────────── */
 
 const PipelineView = memo(function PipelineView({ isMobile }: { isMobile: boolean }) {
+  if (isMobile) {
+    return (
+      <div className="space-y-4">
+        {/* Compact 2x2 summary grid */}
+        <div className="grid grid-cols-2 gap-3">
+          {PIPELINE_COLUMNS.map((col) => (
+            <div key={col.label} className="p-4 rounded-xl border border-white/[0.06] bg-white/[0.02]">
+              <div className="flex items-center gap-2 mb-1">
+                <span className={`w-2 h-2 rounded-full ${col.color}`} />
+                <span className={`text-xs font-semibold uppercase tracking-wider ${col.textColor}`}>{col.label}</span>
+              </div>
+              <span className="text-[#E8EAED] font-mono text-2xl font-bold">{col.count.toLocaleString()}</span>
+              {col.subtitle && <p className="text-muted/30 text-[10px] font-mono mt-1">{col.subtitle}</p>}
+            </div>
+          ))}
+        </div>
+        {/* Show top deal from first column as preview */}
+        {PIPELINE_COLUMNS[0].deals.length > 0 && (
+          <div className="space-y-2">
+            <p className="text-muted/40 text-[10px] font-mono uppercase tracking-wider">Latest opportunity</p>
+            {(() => {
+              const deal = PIPELINE_COLUMNS[0].deals[0];
+              return (
+                <div className="p-3 rounded-xl border border-white/[0.06] bg-white/[0.02] space-y-2">
+                  <div className="flex items-center gap-2">
+                    <ScoreBadge score={deal.score} />
+                    <div className="flex-1 min-w-0">
+                      <p className="text-[#E8EAED] text-xs font-medium truncate">{deal.property}</p>
+                      <p className="text-muted/40 text-[10px]">{deal.market}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-between text-[10px]">
+                    <span className="text-muted/40 font-mono">{deal.balance}</span>
+                  </div>
+                  <p className="text-muted/50 text-[10px] leading-relaxed">{deal.snippet}</p>
+                </div>
+              );
+            })()}
+          </div>
+        )}
+      </div>
+    );
+  }
+
   return (
-    <div className={`${isMobile ? "space-y-4" : "grid grid-cols-4 gap-3"}`}>
+    <div className="grid grid-cols-4 gap-3">
       {PIPELINE_COLUMNS.map((col) => (
         <div key={col.label} className="space-y-2">
           {/* Column header */}
