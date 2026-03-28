@@ -183,7 +183,7 @@ export const ABOUT_TEXT_CRE =
 // ── Commercial Real Estate Page ─────────────────────────────────
 
 export const CRE_HERO = {
-  headline: "Stop Chasing Deals. Start Scoring Them.",
+  headline: "Source Off-Market Deals Before They Hit the Market",
   subtext:
     "We monitor $5T+ in commercial real estate debt and surface distressed opportunities months before your competition — then score every deal against your acquisition criteria using AI.",
   cta: "Book a Call",
