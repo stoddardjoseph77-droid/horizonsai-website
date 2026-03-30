@@ -20,10 +20,10 @@ export default function BookACallPage() {
           and where AI can help.
         </p>
 
-        {/* Calendly Embed */}
+        {/* Cal.com Embed */}
         <div className="glass-card overflow-hidden" style={{ minHeight: "min(700px, 80vh)" }}>
           <iframe
-            src="https://calendly.com/stoddardjoseph77/exploration-call?background_color=0a0a1a&text_color=f9fafb&primary_color=6d7aff"
+            src="https://cal.com/joey-stoddard-iy7cjz/20-minute-exploration-call?theme=dark"
             width="100%"
             height="700"
             frameBorder="0"
