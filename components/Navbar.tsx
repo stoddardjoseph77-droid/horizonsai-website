@@ -36,9 +36,12 @@ export default function Navbar() {
         >
           <div className="flex items-center justify-between h-14 md:h-16 px-5 md:px-6">
             <Link href="/" className="flex items-center gap-2.5 shrink-0">
-              <div className="w-8 h-8 rounded-lg bg-gold flex items-center justify-center">
-                <span className="text-[#0B1622] font-bold text-sm">H</span>
-              </div>
+              <svg viewBox="0 0 120 120" width="32" height="32" className="shrink-0">
+                <rect width="120" height="120" rx="22" fill="#0B1622"/>
+                <polyline points="30,32 60,52 30,72" fill="none" stroke="#E8EAED" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" opacity="0.18"/>
+                <polyline points="43,32 73,52 43,72" fill="none" stroke="#E8EAED" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" opacity="0.48"/>
+                <polyline points="56,32 86,52 56,72" fill="none" stroke="#E8EAED" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
               <span className="font-semibold text-lg tracking-tight text-[#E8EAED]">
                 {SITE.name}
               </span>
