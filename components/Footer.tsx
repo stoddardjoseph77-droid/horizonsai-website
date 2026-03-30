@@ -9,11 +9,10 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div>
             <Link href="/" className="flex items-center gap-2">
-              <svg viewBox="0 0 120 120" width="32" height="32" className="shrink-0">
-                <rect width="120" height="120" rx="22" fill="#0B1622"/>
-                <polyline points="30,32 60,52 30,72" fill="none" stroke="#E8EAED" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" opacity="0.18"/>
-                <polyline points="43,32 73,52 43,72" fill="none" stroke="#E8EAED" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" opacity="0.48"/>
-                <polyline points="56,32 86,52 56,72" fill="none" stroke="#E8EAED" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+              <svg viewBox="0 0 40 28" width="48" height="34" className="shrink-0">
+                <polyline points="2,2 14,14 2,26" fill="none" stroke="#E8EAED" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" opacity="0.3"/>
+                <polyline points="13,2 25,14 13,26" fill="none" stroke="#E8EAED" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" opacity="0.6"/>
+                <polyline points="24,2 36,14 24,26" fill="none" stroke="#E8EAED" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
               <span className="font-semibold text-xl tracking-tight text-[#E8EAED]">
                 {SITE.name}
