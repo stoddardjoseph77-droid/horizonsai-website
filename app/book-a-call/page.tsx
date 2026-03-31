@@ -8,17 +8,13 @@ export const metadata: Metadata = {
 
 export default function BookACallPage() {
   return (
-    <section className="dark-section py-24 md:py-40 relative overflow-hidden">
+    <section className="dark-section py-16 md:py-24 relative overflow-hidden">
       <div className="gradient-blob gradient-blob-primary -top-40 -left-20" />
       <div className="gradient-blob gradient-blob-secondary bottom-0 -right-40" />
       <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 className="font-heading font-bold text-4xl md:text-5xl text-text-on-dark mb-4">
+        <h1 className="font-heading font-bold text-4xl md:text-5xl text-text-on-dark mb-12">
           Book a Discovery Call
         </h1>
-        <p className="text-white/60 text-lg mb-12 max-w-xl mx-auto">
-          20 minutes. No commitment. We&apos;ll discuss your current workflow
-          and where AI can help.
-        </p>
 
         {/* Cal.com Embed */}
         <div className="glass-card overflow-hidden" style={{ minHeight: "min(700px, 80vh)" }}>
