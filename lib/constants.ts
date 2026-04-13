@@ -308,7 +308,7 @@ export const CRE_FAQ = [
   {
     question: "What data sources do you monitor?",
     answer:
-      "We monitor SEC CMBS filings (10-D reports), county foreclosure records, CRE news publications (Bisnow, The Real Deal, Commercial Observer), FDIC failed bank data, mortgage REIT quarterly reports, and 8-K event filings. All sources are public and free.",
+      "We monitor county records (NODs, lis pendens, trustee sales), CMBS filings and servicer reports, CRE news publications (Bisnow, The Real Deal, Commercial Observer), broker listing sites, REIT quarterly filings, and your own network via email ingestion. Sources are added and customized based on your target markets.",
   },
   {
     question: "How often do I receive reports?",
@@ -321,13 +321,13 @@ export const CRE_FAQ = [
       "Absolutely. You tell us your target markets, asset classes, deal size range, and investment strategy. We configure every data source to filter for exactly what you\u2019re looking for.",
   },
   {
-    question: "What does a typical report look like?",
+    question: "How is this different from CoStar or Reonomy?",
     answer:
-      "Each opportunity includes property details, loan balance, distress severity rating, servicer commentary, source attribution, and a fit score against your criteria. Reports are professional and ready to share with your team.",
+      "Those platforms list what\u2019s already on the market. We surface distressed opportunities before they\u2019re listed \u2014 from CMBS servicer reports, county filings, and news signals \u2014 then score every deal against your specific acquisition criteria so you only see what fits.",
   },
   {
     question: "How do I get started?",
     answer:
-      "Book a call and we\u2019ll walk through your criteria in 20 minutes. From there, we typically have your pipeline live within 1\u20132 weeks.",
+      "Book a call and we\u2019ll walk through your criteria in 20 minutes. From there, we typically have your pipeline live within 3\u20134 weeks.",
   },
 ];
