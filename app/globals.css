@@ -16,16 +16,15 @@ body {
   }
 }
 
-/* Mobile page-in: masks hydration transition */
+/* Mobile hydration gate: content hidden until React settles */
 @media (max-width: 1023px) {
-  main {
-    animation: pageIn 0.3s ease both;
+  #main-content {
+    opacity: 0;
+    transition: opacity 0.3s ease;
   }
-}
-
-@keyframes pageIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  #main-content.hydrated {
+    opacity: 1;
+  }
 }
 
 /* ── Selection ─────────────────────────── */

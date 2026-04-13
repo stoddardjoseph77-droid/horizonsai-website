@@ -42,7 +42,7 @@ export default function CommercialPage() {
     <>
       {/* ── 1. Hero ── Asymmetric split: text left, product right */}
       <section className="min-h-[100dvh] flex items-end lg:items-center relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div className="absolute inset-0 pointer-events-none hidden lg:block" aria-hidden="true">
           <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-gold/[0.04] rounded-full blur-[120px]" />
           <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-cyan-900/[0.06] rounded-full blur-[100px]" />
         </div>
@@ -151,7 +151,7 @@ export default function CommercialPage() {
 
       {/* ── 6. Pipeline Overview ── */}
       <section className="py-16 md:py-36 relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div className="absolute inset-0 pointer-events-none hidden lg:block" aria-hidden="true">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-accent/[0.04] rounded-full blur-[140px]" />
         </div>
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

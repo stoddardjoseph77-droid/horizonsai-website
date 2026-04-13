@@ -4,6 +4,7 @@ import { GeistMono } from "geist/font/mono";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import HydrationGate from "@/components/HydrationGate";
 
 export const metadata: Metadata = {
   title: "HorizonsAI | Distressed CRE Deal Intelligence",
@@ -27,7 +28,8 @@ export default function RootLayout({
       <body className="noise-overlay font-sans antialiased bg-surface text-[#E8EAED]">
         <script dangerouslySetInnerHTML={{ __html: "history.scrollRestoration='manual'" }} />
         <Navbar />
-        <main>{children}</main>
+        <HydrationGate />
+        <main id="main-content">{children}</main>
         <Footer />
       </body>
     </html>
