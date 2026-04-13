@@ -164,9 +164,9 @@ export default function CommercialPage() {
           </AnimateIn>
           <div className="flex flex-col md:flex-row items-stretch justify-center gap-0">
             {pipelinePhases.map((phase, index) => (
-              <AnimateIn key={phase.label} delay={index * 0.12}>
+              <AnimateIn key={phase.label} delay={index * 0.15}>
                 <div className="flex flex-col md:flex-row items-center">
-                  <div className="relative p-6 md:p-8 text-center min-w-[180px] rounded-2xl border border-white/[0.08] bg-surface-raised/60 backdrop-blur-sm hover:border-accent/20 transition-all duration-300 group">
+                  <div className="relative p-6 md:p-8 text-center min-w-[180px] rounded-2xl border border-white/[0.08] bg-surface-raised/60 md:backdrop-blur-sm hover:border-accent/20 transition-colors duration-300 group">
                     <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center mx-auto mb-3 group-hover:bg-accent/20 transition-colors duration-300">
                       <span className="text-accent font-bold text-base font-mono">{index + 1}</span>
                     </div>
