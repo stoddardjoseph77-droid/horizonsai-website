@@ -124,7 +124,9 @@ export default function CommercialPage() {
             </AnimateIn>
           </div>
           <div className="lg:hidden">
-            <OpportunityMapViewMobile />
+            <AnimateIn delay={0.1}>
+              <OpportunityMapViewMobile />
+            </AnimateIn>
           </div>
         </div>
       </section>

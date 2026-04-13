@@ -72,7 +72,7 @@ export default function AnimateIn({
       <div
         ref={ref}
         className={`mobile-reveal ${className || ""}`}
-        style={delay > 0 ? { animationDelay: `${Math.min(delay, 0.12)}s` } : undefined}
+        style={delay > 0 ? { animationDelay: `${Math.min(delay, 0.3)}s` } : undefined}
       >
         {children}
       </div>
