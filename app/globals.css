@@ -112,35 +112,38 @@ body {
 }
 
 /* ── Mobile reveal system ─────────────── */
-/* Override Framer Motion inline opacity:0 during SSR→hydration on mobile */
+/* SSR guard: suppress Framer Motion inline styles on mobile */
 @media (max-width: 1023px) {
   [data-animate-in] {
-    opacity: 1 !important;
     transform: none !important;
     transition: none !important;
     animation: none !important;
   }
+  section:first-of-type [data-animate-in] {
+    opacity: 1 !important;
+  }
 }
 
-/* Below-fold elements: hidden by JS, revealed by CSS animation */
-.mobile-reveal.mobile-animate {
+/* Post-hydration: mobile-reveal elements start hidden, revealed by JS */
+.mobile-reveal {
   opacity: 0;
-  transform: translateY(10px);
 }
 
-.mobile-reveal.mobile-animate.in-view {
-  will-change: opacity, transform;
-  animation: mobileReveal 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+section:first-of-type .mobile-reveal {
+  opacity: 1;
+}
+
+.mobile-reveal.above-fold {
+  opacity: 1;
 }
 
 .mobile-reveal.in-view {
-  will-change: auto;
+  animation: mobileReveal 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 @keyframes mobileReveal {
   to {
     opacity: 1;
-    transform: translateY(0) translateZ(0);
   }
 }
 
@@ -152,9 +155,8 @@ body {
     transform: none;
   }
 
-  .mobile-reveal.mobile-animate {
+  .mobile-reveal {
     opacity: 1;
-    transform: none;
     animation: none;
   }
 }

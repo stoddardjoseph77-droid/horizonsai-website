@@ -53,13 +53,11 @@ export default function AnimateIn({
     const el = ref.current;
     const rect = el.getBoundingClientRect();
 
-    if (rect.top < window.innerHeight) {
-      // Above fold — already visible, skip animation
+    if (rect.top < window.innerHeight + 200) {
+      el.classList.add("above-fold");
       return;
     }
 
-    // Below fold — hide with CSS class + observe for reveal
-    el.classList.add("mobile-animate");
     const obs = getSharedObserver();
     obs.observe(el);
     return () => {
