@@ -20,13 +20,13 @@ function AnimatedValue({ value, isMobile }: { value: string; isMobile: boolean }
   const fmt = useMemo(() => new Intl.NumberFormat("en-US"), []);
   const inView = useInView(ref, {
     once: true,
-    margin: isMobile ? "0px 0px 300px 0px" : undefined,
+    margin: undefined,
   });
 
   useEffect(() => {
-    if (!inView || !isNumeric || !ref.current) return;
+    if (!inView || !isNumeric || !ref.current || isMobile) return;
     const el = ref.current;
-    const duration = isMobile ? 1200 : 1800;
+    const duration = 1800;
     let start: number | null = null;
     let raf: number;
     const tick = (ts: number) => {
@@ -42,6 +42,10 @@ function AnimatedValue({ value, isMobile }: { value: string; isMobile: boolean }
 
   if (!isNumeric) return <>{value}</>;
 
+  if (isMobile) {
+    return <span style={{ fontVariantNumeric: "tabular-nums" }}>{value}</span>;
+  }
+
   return (
     <span ref={ref} style={{ fontVariantNumeric: "tabular-nums" }}>
       0{suffix}
@@ -55,16 +59,16 @@ interface StatsBarProps { stats: Stat[]; }
 export default function StatsBar({ stats }: StatsBarProps) {
   const isMobile = useIsMobile();
   return (
-    <div className="py-8 md:py-16">
+    <div className="pt-4 pb-6 md:py-16">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
+        <div className="grid grid-cols-3 gap-2 md:gap-8">
           {stats.map((stat, index) => (
             <AnimateIn key={index} delay={index * 0.1}>
               <div className="text-center md:text-left">
-                <div className="font-bold text-4xl tracking-tighter text-gold font-mono mb-1">
+                <div className="font-bold text-2xl md:text-4xl tracking-tighter text-gold font-mono mb-1">
                   {/^\d/.test(stat.value) ? <AnimatedValue value={stat.value} isMobile={isMobile} /> : stat.value}
                 </div>
-                <div className="text-sm text-muted">{stat.label}</div>
+                <div className="text-xs md:text-sm text-muted">{stat.label}</div>
               </div>
             </AnimateIn>
           ))}

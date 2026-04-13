@@ -125,12 +125,12 @@ body {
 /* Below-fold elements: hidden by JS, revealed by CSS animation */
 .mobile-reveal.mobile-animate {
   opacity: 0;
-  transform: translateY(16px);
-  will-change: opacity, transform;
+  transform: translateY(10px);
 }
 
 .mobile-reveal.mobile-animate.in-view {
-  animation: mobileReveal 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: opacity, transform;
+  animation: mobileReveal 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 .mobile-reveal.in-view {

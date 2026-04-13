@@ -41,12 +41,12 @@ export default function CommercialPage() {
   return (
     <>
       {/* ── 1. Hero ── Asymmetric split: text left, product right */}
-      <section className="min-h-[100dvh] flex items-center relative overflow-hidden">
+      <section className="min-h-[100dvh] flex items-end lg:items-center relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
           <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-gold/[0.04] rounded-full blur-[120px]" />
           <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-cyan-900/[0.06] rounded-full blur-[100px]" />
         </div>
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full pb-12 lg:pb-0">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="max-w-xl">
               <AnimateIn>
