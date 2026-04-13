@@ -16,6 +16,18 @@ body {
   }
 }
 
+/* Mobile page-in: masks hydration transition */
+@media (max-width: 1023px) {
+  main {
+    animation: pageIn 0.3s ease both;
+  }
+}
+
+@keyframes pageIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 /* ── Selection ─────────────────────────── */
 ::selection {
   background: rgba(201, 168, 76, 0.25);
@@ -138,7 +150,7 @@ section:first-of-type .mobile-reveal {
 }
 
 .mobile-reveal.in-view {
-  animation: mobileReveal 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: mobileReveal 1s ease forwards;
 }
 
 @keyframes mobileReveal {

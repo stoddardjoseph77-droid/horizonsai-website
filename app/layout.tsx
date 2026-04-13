@@ -25,6 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
       <body className="noise-overlay font-sans antialiased bg-surface text-[#E8EAED]">
+        <script dangerouslySetInnerHTML={{ __html: "history.scrollRestoration='manual'" }} />
         <Navbar />
         <main>{children}</main>
         <Footer />
