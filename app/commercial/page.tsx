@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import {
   CRE_HERO,
-  CRE_STATS,
   CRE_PROBLEMS,
   CRE_DATA_SOURCES,
   CRE_PROCESS,
@@ -9,7 +8,6 @@ import {
   ABOUT_TEXT_CRE,
 } from "@/lib/constants";
 import Button from "@/components/Button";
-import StatsBar from "@/components/StatsBar";
 import ProblemSolution from "@/components/ProblemSolution";
 import SectionHeading from "@/components/SectionHeading";
 import Card from "@/components/Card";
@@ -24,6 +22,7 @@ import MarketIntel from "@/components/MarketIntel";
 import OpportunityMapView from "@/components/OpportunityMapView";
 import OpportunityMapViewMobile from "@/components/OpportunityMapViewMobile";
 import PlatformViewer from "@/components/PlatformViewer";
+import PioneerFeatured from "@/components/PioneerFeatured";
 
 export const metadata: Metadata = {
   title: "HorizonsAI | AI Deal Intelligence for Commercial Real Estate",
@@ -82,8 +81,8 @@ export default function CommercialPage() {
         </div>
       </section>
 
-      {/* ── 2. Stats ── */}
-      <StatsBar stats={CRE_STATS} />
+      {/* ── 2. Pioneer Featured Quote + Stats (unified proof band) ── */}
+      <PioneerFeatured />
 
       {/* ── 3. Trust Bar ── */}
       <TrustBar />
