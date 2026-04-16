@@ -70,7 +70,14 @@ async function main() {
   const date = targetDate();
   const start = `${date} 00:00:00`;
   const end = `${nextDay(date)} 00:00:00`;
-  const range = `timestamp >= toDateTime('${start}') AND timestamp < toDateTime('${end}')`;
+  const baseRange = `timestamp >= toDateTime('${start}') AND timestamp < toDateTime('${end}')`;
+  const botMatch = `(
+    properties.$browser IN ('HeadlessChrome', 'PhantomJS', 'PhantomJS-prerender')
+    OR properties.$lib IN ('posthog-node', 'posthog-python', 'curl')
+    OR distinct_id LIKE 'claude-%'
+    OR event IN ('claude_e2e_verification', 'e2e_final_verification', 'calendly_event')
+  )`;
+  const range = `${baseRange} AND NOT ${botMatch}`;
 
   const queries = {
     overview: `
@@ -80,6 +87,13 @@ async function main() {
         countIf(event = '$pageview') AS pageviews,
         countIf(event = '$rageclick') AS rageclicks
       FROM events WHERE ${range}
+    `,
+    bots_excluded: `
+      SELECT
+        count() AS filtered_events,
+        count(DISTINCT distinct_id) AS filtered_visitors
+      FROM events
+      WHERE ${baseRange} AND ${botMatch}
     `,
     top_pages: `
       SELECT properties.$pathname AS path, count() AS views, count(DISTINCT distinct_id) AS visitors
@@ -159,11 +173,6 @@ async function main() {
         count(DISTINCT if(event = 'calendly_booking_completed', distinct_id, NULL)) AS step5_booked
       FROM events WHERE ${range}
     `,
-    bot_visits: `
-      SELECT properties.$browser AS browser, count() AS hits
-      FROM events WHERE event = '$pageview' AND (properties.$browser IN ('HeadlessChrome','PhantomJS') OR properties.$is_bot = true) AND ${range}
-      GROUP BY browser ORDER BY hits DESC
-    `,
   };
 
   const data = {};
@@ -180,11 +189,12 @@ async function main() {
   const ov = data.overview.rows?.[0] || [];
   const cv = data.conversions.rows?.[0] || [];
   const fn = data.funnel_step_users.rows?.[0] || [];
+  const bx = data.bots_excluded.rows?.[0] || [];
   const md = `# Analytics — ${date}
 
-_Generated ${new Date().toISOString()} · Source: PostHog project ${PROJECT_ID}_
+_Generated ${new Date().toISOString()} · Source: PostHog project ${PROJECT_ID} · Bots and test traffic excluded._
 
-## Snapshot
+## Snapshot (real traffic only)
 
 | Metric | Value |
 | --- | --- |
@@ -195,6 +205,7 @@ _Generated ${new Date().toISOString()} · Source: PostHog project ${PROJECT_ID}_
 | Calendly loads | ${cv[0] ?? 0} |
 | Unique users reaching Calendly | ${cv[1] ?? 0} |
 | **Bookings completed** | **${cv[2] ?? 0}** |
+| _(excluded) Bot / test events_ | _${bx[0] ?? 0} events, ${bx[1] ?? 0} visitors_ |
 
 ## Conversion funnel (unique users)
 
@@ -251,13 +262,9 @@ ${fmtRows(data.platform_tabs)}
 
 ${fmtRows(data.external_links)}
 
-## All event counts
+## All event counts (real traffic)
 
 ${fmtRows(data.event_counts)}
-
-## Bot traffic detected
-
-${fmtRows(data.bot_visits)}
 
 ---
 
