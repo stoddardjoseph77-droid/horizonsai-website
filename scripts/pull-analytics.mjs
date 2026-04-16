@@ -75,7 +75,7 @@ async function main() {
     properties.$browser IN ('HeadlessChrome', 'PhantomJS', 'PhantomJS-prerender')
     OR properties.$lib IN ('posthog-node', 'posthog-python', 'curl')
     OR distinct_id LIKE 'claude-%'
-    OR event IN ('claude_e2e_verification', 'e2e_final_verification', 'calendly_event')
+    OR event IN ('claude_e2e_verification', 'e2e_final_verification')
   )`;
   const range = `${baseRange} AND NOT ${botMatch}`;
 
@@ -163,6 +163,22 @@ async function main() {
         count(DISTINCT if(event = 'calendly_booking_completed', distinct_id, NULL)) AS unique_bookers
       FROM events WHERE ${range}
     `,
+    calendly_funnel: `
+      SELECT
+        count(DISTINCT if(event = 'calendly_loaded', distinct_id, NULL)) AS loaded,
+        count(DISTINCT if(event = 'calendly_link_ready', distinct_id, NULL)) AS link_ready,
+        count(DISTINCT if(event = 'calendly_booker_viewed', distinct_id, NULL)) AS booker_viewed,
+        count(DISTINCT if(event = 'calendly_event_type_selected', distinct_id, NULL)) AS event_type_selected,
+        count(DISTINCT if(event = 'calendly_slot_selected', distinct_id, NULL)) AS slot_selected,
+        count(DISTINCT if(event = 'calendly_booking_completed', distinct_id, NULL)) AS booking_completed,
+        count(DISTINCT if(event IN ('calendly_booking_failed', 'calendly_link_failed'), distinct_id, NULL)) AS errored
+      FROM events WHERE ${range}
+    `,
+    calendly_events_breakdown: `
+      SELECT event, count() AS n, count(DISTINCT distinct_id) AS users
+      FROM events WHERE event LIKE 'calendly_%' AND ${range}
+      GROUP BY event ORDER BY n DESC
+    `,
     funnel_step_users: `
       SELECT
         count(DISTINCT if(event = '$pageview' AND properties.$pathname LIKE '/commercial%', distinct_id, NULL)) AS step1_commercial,
@@ -217,6 +233,26 @@ _Generated ${new Date().toISOString()} · Source: PostHog project ${PROJECT_ID} 
 | Reached /book-a-call | ${fn[3] ?? 0} | ${pct(fn[3], fn[2])} |
 | Calendly loaded | ${fn[4] ?? 0} | ${pct(fn[4], fn[3])} |
 | Booking completed | ${fn[5] ?? 0} | ${pct(fn[5], fn[4])} |
+
+## Cal.com sub-funnel (inside the iframe)
+
+${(() => {
+  const cf = data.calendly_funnel.rows?.[0] || [];
+  return `| Stage | Users | % of prev |
+| --- | --- | --- |
+| Page + iframe loaded | ${cf[0] ?? 0} | — |
+| Cal.com link ready | ${cf[1] ?? 0} | ${pct(cf[1], cf[0])} |
+| Saw booker (calendar rendered) | ${cf[2] ?? 0} | ${pct(cf[2], cf[1])} |
+| Picked event type | ${cf[3] ?? 0} | ${pct(cf[3], cf[2])} |
+| Picked a time slot | ${cf[4] ?? 0} | ${pct(cf[4], cf[3])} |
+| **Booking completed** | **${cf[5] ?? 0}** | ${pct(cf[5], cf[4])} |
+| (errored: link or booking failure) | ${cf[6] ?? 0} | — |
+`;
+})()}
+
+## Cal.com events breakdown
+
+${fmtRows(data.calendly_events_breakdown)}
 
 ## CTA performance by location
 
