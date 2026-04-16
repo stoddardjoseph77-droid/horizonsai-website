@@ -1,0 +1,43 @@
+name: Daily Analytics Pull
+
+on:
+  schedule:
+    - cron: '0 13 * * *'
+  workflow_dispatch:
+    inputs:
+      date:
+        description: 'Target date (YYYY-MM-DD). Leave empty for yesterday.'
+        required: false
+
+permissions:
+  contents: write
+
+jobs:
+  pull:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Pull PostHog analytics
+        env:
+          POSTHOG_PERSONAL_API_KEY: ${{ secrets.POSTHOG_PERSONAL_API_KEY }}
+          POSTHOG_PROJECT_ID: '384624'
+          POSTHOG_API_HOST: 'https://us.posthog.com'
+        run: node scripts/pull-analytics.mjs ${{ inputs.date }}
+
+      - name: Commit report
+        run: |
+          git config user.name "horizonsai-analytics-bot"
+          git config user.email "analytics-bot@users.noreply.github.com"
+          git add analytics/
+          if git diff --staged --quiet; then
+            echo "No analytics changes to commit."
+          else
+            REPORT_DATE=$(ls -t analytics/daily/*.md 2>/dev/null | head -1 | xargs -I{} basename {} .md)
+            git commit -m "Daily analytics pull: ${REPORT_DATE}"
+            git push
+          fi
