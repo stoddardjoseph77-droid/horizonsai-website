@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import CalendlyTracker from "@/components/CalendlyTracker";
 
 export const metadata: Metadata = {
   title: "Book a Call | HorizonsAI",
@@ -8,7 +9,8 @@ export const metadata: Metadata = {
 
 export default function BookACallPage() {
   return (
-    <section className="dark-section py-16 md:py-24 relative overflow-hidden">
+    <section data-section="calendly" className="dark-section py-16 md:py-24 relative overflow-hidden">
+      <CalendlyTracker />
       <div className="gradient-blob gradient-blob-primary -top-40 -left-20" />
       <div className="gradient-blob gradient-blob-secondary bottom-0 -right-40" />
       <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

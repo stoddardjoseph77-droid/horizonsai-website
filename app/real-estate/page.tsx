@@ -25,6 +25,9 @@ import DashboardMockup from "@/components/DashboardMockup";
 import HeroSilhouette from "@/components/HeroSilhouette";
 import SectionAccent from "@/components/SectionAccent";
 import HeroStats from "@/components/HeroStats";
+import TrackedExternalLink from "@/components/TrackedExternalLink";
+import EngagementTracker from "@/components/EngagementTracker";
+import { EVENTS } from "@/lib/analytics";
 
 export const metadata: Metadata = {
   title: "Real Estate Agencies | HorizonsAI",
@@ -34,8 +37,9 @@ export const metadata: Metadata = {
 export default function RealEstatePage() {
   return (
     <>
+      <EngagementTracker />
       {/* 1. Hero */}
-      <section className="hero-gradient py-12 md:py-40 relative overflow-hidden">
+      <section data-section="hero" className="hero-gradient py-12 md:py-40 relative overflow-hidden">
         <div className="gradient-blob gradient-blob-primary -top-40 -left-20" />
         <div className="gradient-blob gradient-blob-secondary top-20 -right-40" />
         <HeroSilhouette variant="residential" />
@@ -55,7 +59,12 @@ export default function RealEstatePage() {
             </p>
           </AnimateIn>
           <AnimateIn delay={0.2}>
-            <Button href="/book-a-call" size="lg">
+            <Button
+              href="/book-a-call"
+              size="lg"
+              trackEvent={EVENTS.CTA_CLICKED}
+              trackProps={{ location: "hero_real_estate", label: RE_HERO.cta, href: "/book-a-call" }}
+            >
               {RE_HERO.cta}
             </Button>
             <p className="text-text-on-dark/50 text-sm mt-4">
@@ -74,7 +83,7 @@ export default function RealEstatePage() {
       <div className="section-divider" />
 
       {/* 3. Problem / Solution */}
-      <section className="bg-dark-deep py-16 md:py-36 relative overflow-hidden">
+      <section data-section="problem_solution" className="bg-dark-deep py-16 md:py-36 relative overflow-hidden">
         <SectionAccent icon="search" position="top-right" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimateIn>
@@ -91,7 +100,7 @@ export default function RealEstatePage() {
       <div className="section-divider" />
 
       {/* 3.5 AI Agent Chat Preview */}
-      <section className="bg-[#0A0A1A] py-16 md:py-36 relative overflow-hidden dashboard-dots">
+      <section data-section="ai_agent_chat" className="bg-[#0A0A1A] py-16 md:py-36 relative overflow-hidden dashboard-dots">
         <div className="gradient-blob gradient-blob-secondary -top-40 -right-20" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <AnimateIn>
@@ -146,7 +155,7 @@ export default function RealEstatePage() {
       <div className="section-divider" />
 
       {/* 4. Services */}
-      <section className="bg-[#0A0A1A] py-16 md:py-36 relative overflow-hidden grid-pattern">
+      <section data-section="services" className="bg-[#0A0A1A] py-16 md:py-36 relative overflow-hidden grid-pattern">
         <div className="gradient-blob gradient-blob-primary -top-20 -right-40" />
         <div className="gradient-blob gradient-blob-secondary bottom-0 -left-20" />
         <SectionAccent icon="gear" position="bottom-left" />
@@ -177,7 +186,7 @@ export default function RealEstatePage() {
       <div className="section-divider" />
 
       {/* 4.5 Dashboard Preview */}
-      <section className="bg-dark-deep py-16 md:py-36 relative overflow-hidden">
+      <section data-section="dashboard_preview" className="bg-dark-deep py-16 md:py-36 relative overflow-hidden">
         <div className="gradient-blob gradient-blob-primary -bottom-40 left-1/2 -translate-x-1/2" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <AnimateIn>
@@ -199,7 +208,7 @@ export default function RealEstatePage() {
       <div className="section-divider" />
 
       {/* 5. Benefits */}
-      <section className="bg-dark-deep py-16 md:py-36">
+      <section data-section="benefits" className="bg-dark-deep py-16 md:py-36">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimateIn>
             <SectionHeading
@@ -228,7 +237,7 @@ export default function RealEstatePage() {
       <div className="section-divider" />
 
       {/* 6. Process */}
-      <section className="bg-[#0A0A1A] py-16 md:py-36 relative overflow-hidden">
+      <section data-section="process" className="bg-[#0A0A1A] py-16 md:py-36 relative overflow-hidden">
         <div className="gradient-blob gradient-blob-secondary -bottom-40 -left-40" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <AnimateIn>
@@ -256,7 +265,7 @@ export default function RealEstatePage() {
       <div className="section-divider" />
 
       {/* 7. About */}
-      <section className="bg-dark-deep py-16 md:py-36 relative overflow-hidden">
+      <section data-section="about" className="bg-dark-deep py-16 md:py-36 relative overflow-hidden">
         <div className="gradient-blob gradient-blob-primary -top-40 left-1/2 -translate-x-1/2" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
@@ -283,17 +292,17 @@ export default function RealEstatePage() {
                 <p className="text-white/70 text-lg leading-relaxed mb-8">
                   {ABOUT_TEXT_RE}
                 </p>
-                <a
+                <TrackedExternalLink
                   href="https://www.linkedin.com/in/joey-stoddard-8a2b78357"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  label="Joey Stoddard LinkedIn"
+                  location="about_real_estate"
                   className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.06] border border-white/[0.08] text-white/60 hover:text-brand-primary hover:border-brand-primary/30 hover:bg-brand-primary/[0.06] transition-all duration-300"
                 >
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                   </svg>
                   <span className="text-sm font-medium">Connect on LinkedIn</span>
-                </a>
+                </TrackedExternalLink>
               </div>
             </AnimateIn>
           </div>
@@ -303,7 +312,7 @@ export default function RealEstatePage() {
       <div className="section-divider" />
 
       {/* 8. Testimonials */}
-      <section className="bg-[#0A0A1A] py-16 md:py-36 relative overflow-hidden grid-pattern">
+      <section data-section="testimonials" className="bg-[#0A0A1A] py-16 md:py-36 relative overflow-hidden grid-pattern">
         <div className="gradient-blob gradient-blob-primary -top-40 -right-20" />
         <div className="gradient-blob gradient-blob-secondary -bottom-40 -left-20" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -331,7 +340,7 @@ export default function RealEstatePage() {
       <div className="section-divider" />
 
       {/* 9. FAQ */}
-      <section className="bg-dark-deep py-16 md:py-36">
+      <section data-section="faq" className="bg-dark-deep py-16 md:py-36">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             title="Frequently Asked Questions"

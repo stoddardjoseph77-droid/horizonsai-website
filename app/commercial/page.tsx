@@ -23,6 +23,9 @@ import OpportunityMapView from "@/components/OpportunityMapView";
 import OpportunityMapViewMobile from "@/components/OpportunityMapViewMobile";
 import PlatformViewer from "@/components/PlatformViewer";
 import PioneerFeatured from "@/components/PioneerFeatured";
+import TrackedExternalLink from "@/components/TrackedExternalLink";
+import EngagementTracker from "@/components/EngagementTracker";
+import { EVENTS } from "@/lib/analytics";
 
 export const metadata: Metadata = {
   title: "HorizonsAI | AI Deal Intelligence for Commercial Real Estate",
@@ -39,8 +42,9 @@ const pipelinePhases = [
 export default function CommercialPage() {
   return (
     <>
+      <EngagementTracker />
       {/* ── 1. Hero ── Asymmetric split: text left, product right */}
-      <section className="min-h-[100dvh] flex items-end lg:items-center relative overflow-hidden">
+      <section data-section="hero" className="min-h-[100dvh] flex items-end lg:items-center relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none hidden lg:block" aria-hidden="true">
           <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-gold/[0.04] rounded-full blur-[120px]" />
           <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-cyan-900/[0.06] rounded-full blur-[100px]" />
@@ -67,7 +71,14 @@ export default function CommercialPage() {
               </AnimateIn>
               <AnimateIn delay={0.15}>
                 <div className="flex flex-wrap items-center gap-4">
-                  <Button href="/book-a-call" size="lg">{CRE_HERO.cta}</Button>
+                  <Button
+                    href="/book-a-call"
+                    size="lg"
+                    trackEvent={EVENTS.CTA_CLICKED}
+                    trackProps={{ location: "hero_commercial", label: CRE_HERO.cta, href: "/book-a-call" }}
+                  >
+                    {CRE_HERO.cta}
+                  </Button>
                   <span className="text-muted/50 text-sm md:text-base">{CRE_HERO.proofText}</span>
                 </div>
               </AnimateIn>
@@ -90,7 +101,7 @@ export default function CommercialPage() {
       <div className="divider" />
 
       {/* ── 4. Platform Viewer ── */}
-      <section className="py-24 md:py-36 relative overflow-hidden">
+      <section data-section="platform_viewer" className="py-24 md:py-36 relative overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <AnimateIn>
             <SectionHeading
@@ -108,7 +119,7 @@ export default function CommercialPage() {
       <div className="divider" />
 
       {/* ── 5. Full Opportunity View ── */}
-      <section className="py-24 md:py-36 relative overflow-hidden">
+      <section data-section="opportunity_deep_dive" className="py-24 md:py-36 relative overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <AnimateIn>
             <SectionHeading
@@ -133,7 +144,7 @@ export default function CommercialPage() {
       <div className="divider" />
 
       {/* ── 6. Problem / Solution ── */}
-      <section className="py-16 md:py-36 relative overflow-hidden">
+      <section data-section="problem_solution" className="py-16 md:py-36 relative overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <AnimateIn>
             <SectionHeading
@@ -149,7 +160,7 @@ export default function CommercialPage() {
       <div className="divider" />
 
       {/* ── 6. Pipeline Overview ── */}
-      <section className="py-16 md:py-36 relative overflow-hidden">
+      <section data-section="pipeline_overview" className="py-16 md:py-36 relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none hidden lg:block" aria-hidden="true">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-accent/[0.04] rounded-full blur-[140px]" />
         </div>
@@ -196,7 +207,7 @@ export default function CommercialPage() {
       <div className="divider" />
 
       {/* ── 7. Data Sources ── */}
-      <section className="py-16 md:py-36 relative overflow-hidden">
+      <section data-section="data_sources" className="py-16 md:py-36 relative overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <AnimateIn>
             <SectionHeading
@@ -223,7 +234,7 @@ export default function CommercialPage() {
       <div className="divider hidden lg:block" />
 
       {/* ── 8. Market Intelligence ── */}
-      <section className="hidden lg:block py-24 md:py-36 relative overflow-hidden grid-bg">
+      <section data-section="market_intelligence" className="hidden lg:block py-24 md:py-36 relative overflow-hidden grid-bg">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <AnimateIn>
             <SectionHeading
@@ -242,7 +253,7 @@ export default function CommercialPage() {
 
 
       {/* ── 10. Process ── */}
-      <section className="py-16 md:py-36 relative overflow-hidden">
+      <section data-section="process" className="py-16 md:py-36 relative overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <AnimateIn>
             <SectionHeading
@@ -264,7 +275,7 @@ export default function CommercialPage() {
       <div className="divider" />
 
       {/* ── 11. About ── */}
-      <section className="py-16 md:py-36 relative overflow-hidden">
+      <section data-section="about" className="py-16 md:py-36 relative overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-12 lg:gap-20 items-start">
             <AnimateIn>
@@ -280,12 +291,17 @@ export default function CommercialPage() {
                 <h3 className="font-semibold text-2xl tracking-tight text-[#E8EAED] mb-1">Joey Stoddard</h3>
                 <p className="text-gold text-sm mb-6">Founder, HorizonsAI</p>
                 <p className="text-muted text-base leading-relaxed max-w-[55ch] mb-6">{ABOUT_TEXT_CRE}</p>
-                <a href="https://www.linkedin.com/in/joey-stoddard-8a2b78357" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/[0.04] border border-white/[0.06] text-muted hover:text-gold hover:border-gold/20 transition-all duration-200">
+                <TrackedExternalLink
+                  href="https://www.linkedin.com/in/joey-stoddard-8a2b78357"
+                  label="Joey Stoddard LinkedIn"
+                  location="about_commercial"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/[0.04] border border-white/[0.06] text-muted hover:text-gold hover:border-gold/20 transition-all duration-200"
+                >
                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                   </svg>
                   <span className="text-sm font-medium">LinkedIn</span>
-                </a>
+                </TrackedExternalLink>
               </div>
             </AnimateIn>
           </div>
@@ -295,7 +311,7 @@ export default function CommercialPage() {
       <div className="divider" />
 
       {/* ── 12. FAQ ── */}
-      <section className="py-16 md:py-36">
+      <section data-section="faq" className="py-16 md:py-36">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading title="Frequently asked questions" />
           <FAQAccordion items={CRE_FAQ} />

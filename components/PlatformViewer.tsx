@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef, useCallback, memo } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { useIsMobile } from "@/hooks/useIsMobile";
+import { track, EVENTS } from "@/lib/analytics";
 import dynamic from "next/dynamic";
 const DemoMapView = dynamic(() => import("@/components/DemoMapView"), { ssr: false });
 
@@ -417,6 +418,7 @@ export default function PlatformViewer() {
   const selectTab = useCallback((id: TabId) => {
     setActiveTab(id);
     setProgressKey((k) => k + 1);
+    track(EVENTS.PLATFORM_TAB_CLICKED, { tab: id });
   }, []);
 
   // Only start auto-advance once the section has scrolled into view

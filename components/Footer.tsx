@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import { SITE } from "@/lib/constants";
+import { track, EVENTS } from "@/lib/analytics";
 
 export default function Footer() {
   return (
@@ -8,7 +11,11 @@ export default function Footer() {
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div>
-            <Link href="/" className="flex items-center gap-2">
+            <Link
+              href="/"
+              className="flex items-center gap-2"
+              onClick={() => track(EVENTS.LOGO_CLICKED, { location: "footer" })}
+            >
               <svg viewBox="0 0 40 28" width="48" height="34" className="shrink-0">
                 <polyline points="2,2 14,14 2,26" fill="none" stroke="#E8EAED" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" opacity="0.3"/>
                 <polyline points="13,2 25,14 13,26" fill="none" stroke="#E8EAED" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" opacity="0.6"/>
@@ -25,9 +32,27 @@ export default function Footer() {
           </div>
           <div className="flex flex-col md:items-end gap-3">
             <h4 className="text-xs font-medium uppercase tracking-widest text-muted/50 mb-2">Contact</h4>
-            <a href={`mailto:${SITE.email}`} className="text-muted hover:text-[#E8EAED] transition-colors duration-200 text-sm">{SITE.email}</a>
-            <a href={`tel:${SITE.phone}`} className="text-muted hover:text-[#E8EAED] transition-colors duration-200 text-sm">{SITE.phone}</a>
-            <Link href="/book-a-call" className="text-gold hover:text-gold-light transition-colors duration-200 text-sm font-medium mt-2">Book a Call</Link>
+            <a
+              href={`mailto:${SITE.email}`}
+              onClick={() => track(EVENTS.EMAIL_LINK_CLICKED, { location: "footer", email: SITE.email })}
+              className="text-muted hover:text-[#E8EAED] transition-colors duration-200 text-sm"
+            >
+              {SITE.email}
+            </a>
+            <a
+              href={`tel:${SITE.phone}`}
+              onClick={() => track(EVENTS.PHONE_LINK_CLICKED, { location: "footer", phone: SITE.phone })}
+              className="text-muted hover:text-[#E8EAED] transition-colors duration-200 text-sm"
+            >
+              {SITE.phone}
+            </a>
+            <Link
+              href="/book-a-call"
+              onClick={() => track(EVENTS.CTA_CLICKED, { location: "footer", label: "Book a Call", href: "/book-a-call" })}
+              className="text-gold hover:text-gold-light transition-colors duration-200 text-sm font-medium mt-2"
+            >
+              Book a Call
+            </Link>
           </div>
         </div>
       </div>

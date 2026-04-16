@@ -5,6 +5,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import HydrationGate from "@/components/HydrationGate";
+import { PostHogProvider } from "@/components/PostHogProvider";
 
 export const metadata: Metadata = {
   title: "HorizonsAI | Distressed CRE Deal Intelligence",
@@ -27,10 +28,12 @@ export default function RootLayout({
     <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
       <body className="noise-overlay font-sans antialiased bg-surface text-[#E8EAED]">
         <script dangerouslySetInnerHTML={{ __html: "history.scrollRestoration='manual'" }} />
-        <Navbar />
-        <HydrationGate />
-        <main id="main-content">{children}</main>
-        <Footer />
+        <PostHogProvider>
+          <Navbar />
+          <HydrationGate />
+          <main id="main-content">{children}</main>
+          <Footer />
+        </PostHogProvider>
       </body>
     </html>
   );

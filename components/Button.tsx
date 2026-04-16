@@ -1,10 +1,16 @@
+"use client";
+
 import Link from "next/link";
+import { track } from "@/lib/analytics";
 
 interface ButtonProps {
   variant?: "primary" | "secondary" | "ghost";
   size?: "sm" | "md" | "lg";
   href?: string;
   children: React.ReactNode;
+  trackEvent?: string;
+  trackProps?: Record<string, unknown>;
+  onClick?: () => void;
 }
 
 const variantStyles = {
@@ -27,16 +33,28 @@ export default function Button({
   size = "md",
   href,
   children,
+  trackEvent,
+  trackProps,
+  onClick,
 }: ButtonProps) {
   const className = `inline-flex items-center justify-center rounded-xl font-medium transition-all duration-200 active:scale-[0.98] ${variantStyles[variant]} ${sizeStyles[size]}`;
 
+  const handleClick = () => {
+    if (trackEvent) track(trackEvent, trackProps);
+    if (onClick) onClick();
+  };
+
   if (href) {
     return (
-      <Link href={href} className={className}>
+      <Link href={href} className={className} onClick={handleClick}>
         {children}
       </Link>
     );
   }
 
-  return <button className={className}>{children}</button>;
+  return (
+    <button className={className} onClick={handleClick}>
+      {children}
+    </button>
+  );
 }
