@@ -19,6 +19,8 @@ const KNOWN_CAL_EVENTS = new Set([
   "bookerReopened",
   "bookerReloaded",
   "availabilityLoaded",
+  "navigatedToBooker",
+  "routeChanged",
   "eventTypeSelected",
   "slotSelected",
   "bookingSuccessful",
@@ -57,8 +59,13 @@ export default function CalendlyTracker() {
 
       const eventName = `calendly_${toSnakeCase(type)}`;
 
-      if (type === "bookingSuccessful" || type === "bookingSuccessfulV2") {
+      // Cal.com emits both bookingSuccessful (v1, legacy) and bookingSuccessfulV2
+      // per real booking. Canonical booking event = V2 only. V1 kept as separate
+      // legacy event so we don't double-count.
+      if (type === "bookingSuccessfulV2") {
         track(EVENTS.CALENDLY_BOOKING_COMPLETED, { raw_type: type, data: payload.data });
+      } else if (type === "bookingSuccessful") {
+        track("calendly_booking_successful_legacy", { raw_type: type, data: payload.data });
       } else {
         track(eventName, { raw_type: type, namespace: payload.namespace, data: payload.data });
       }
