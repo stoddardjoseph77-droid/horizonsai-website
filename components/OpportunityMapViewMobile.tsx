@@ -65,6 +65,34 @@ export default function OpportunityMapViewMobile() {
         </div>
       </div>
 
+      {/* Contacts */}
+      <div className="p-4 border-b border-white/[0.05]">
+        <div className="flex items-center justify-between mb-3">
+          <p className="text-muted/40 text-[9px] uppercase tracking-widest">Contacts</p>
+          <span className="bg-accent/15 text-accent text-[8px] px-1.5 py-0.5 rounded font-bold uppercase tracking-wider">Skip-Traced</span>
+        </div>
+        <div className="space-y-2.5">
+          <div className="flex items-start gap-2.5">
+            <div className="w-7 h-7 rounded-full bg-gold/10 border border-gold/20 flex items-center justify-center shrink-0">
+              <span className="text-gold text-[9px] font-semibold font-mono">DH</span>
+            </div>
+            <div className="flex-1 min-w-0">
+              <div className="text-[#E8EAED] text-[11px] font-medium">David Hartman <span className="text-muted/40 text-[9px] font-normal">· Borrower</span></div>
+              <div className="text-muted/60 text-[10px] font-mono truncate">(214) 555-0182 · d.hartman@apexcre.com</div>
+            </div>
+          </div>
+          <div className="flex items-start gap-2.5">
+            <div className="w-7 h-7 rounded-full bg-gold/10 border border-gold/20 flex items-center justify-center shrink-0">
+              <span className="text-gold text-[9px] font-semibold font-mono">SC</span>
+            </div>
+            <div className="flex-1 min-w-0">
+              <div className="text-[#E8EAED] text-[11px] font-medium">Sarah Chen <span className="text-muted/40 text-[9px] font-normal">· Special Servicer</span></div>
+              <div className="text-muted/60 text-[10px] font-mono truncate">(305) 555-1700 · schen@servicer-example.com</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Status + Address */}
       <div className="p-4 flex items-center justify-between">
         <span className="text-muted/40 font-mono text-[10px]">4700 Ross Ave, Dallas, TX</span>

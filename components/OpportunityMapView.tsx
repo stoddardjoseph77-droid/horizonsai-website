@@ -29,6 +29,23 @@ const loanInfo = [
   { label: "Remittance ID", value: "18" },
 ];
 
+const contacts = [
+  {
+    role: "Borrower Principal",
+    name: "David Hartman",
+    title: "Manager · Apex Centre Holdings LLC",
+    phone: "(214) 555-0182",
+    email: "d.hartman@apexcre.com",
+  },
+  {
+    role: "Special Servicer",
+    name: "Sarah Chen",
+    title: "Asset Manager · CMBS Workout Group",
+    phone: "(305) 555-1700",
+    email: "schen@servicer-example.com",
+  },
+];
+
 const distressInfo = [
   { label: "Distress Type", value: "REO" },
   { label: "Months Delinquent", value: "4 Mo" },
@@ -185,6 +202,45 @@ export default function OpportunityMapView() {
                   <span className="text-muted/40 text-[10px] shrink-0">{d.label}</span>
                   <span className="text-[#E8EAED] text-[11px] font-medium text-right">{d.value}</span>
                 </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Contacts */}
+          <div className="p-4 border-b border-white/[0.05]">
+            <div className="flex items-center justify-between mb-3">
+              <p className="text-muted/40 text-[9px] uppercase tracking-widest">Contacts</p>
+              <span className="bg-accent/15 text-accent text-[8px] px-1.5 py-0.5 rounded font-bold uppercase tracking-wider">Skip-Traced</span>
+            </div>
+            <div className="space-y-3">
+              {contacts.map((c, i) => (
+                <motion.div
+                  key={c.name}
+                  className="flex items-start gap-2.5"
+                  initial={{ opacity: 0, y: 4 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ type: "spring", stiffness: 120, damping: 18, delay: 0.4 + i * 0.05 }}
+                >
+                  <div className="w-7 h-7 rounded-full bg-gold/10 border border-gold/20 flex items-center justify-center shrink-0">
+                    <span className="text-gold text-[9px] font-semibold font-mono">
+                      {c.name.split(" ").map((n) => n[0]).join("")}
+                    </span>
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-1.5 mb-0.5">
+                      <span className="text-[#E8EAED] text-[11px] font-medium">{c.name}</span>
+                      <span className="text-muted/30 text-[9px]">·</span>
+                      <span className="text-muted/50 text-[9px] uppercase tracking-wider">{c.role}</span>
+                    </div>
+                    <div className="text-muted/50 text-[10px] mb-1">{c.title}</div>
+                    <div className="flex items-center gap-2 text-[10px] font-mono">
+                      <span className="text-muted/60">{c.phone}</span>
+                      <span className="text-muted/20">·</span>
+                      <span className="text-muted/60 truncate">{c.email}</span>
+                    </div>
+                  </div>
+                </motion.div>
               ))}
             </div>
           </div>
