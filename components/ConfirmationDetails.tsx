@@ -77,9 +77,9 @@ export default function ConfirmationDetails() {
       )}
 
       <p className="text-muted text-lg leading-relaxed max-w-[55ch]">
-        A confirmation with the call link is on its way to your inbox. In the meantime,
-        watch the short video on the right &mdash; it covers what we&rsquo;ll cover, what to bring,
-        and what happens after.
+        A confirmation with the call link is on its way to your inbox. Below you&rsquo;ll
+        find a quick rundown of what to have ready, a note from a current client, and
+        answers to the questions that come up most.
       </p>
 
       {manageHref && (

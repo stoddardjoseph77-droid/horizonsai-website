@@ -4,7 +4,7 @@ import CalendlyTracker from "@/components/CalendlyTracker";
 export const metadata: Metadata = {
   title: "Book a Call | HorizonsAI",
   description:
-    "Book a 20-minute discovery call with HorizonsAI. No commitment required.",
+    "Book a 30-minute discovery call with HorizonsAI. No commitment required.",
 };
 
 export default function BookACallPage() {

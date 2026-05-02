@@ -21,47 +21,30 @@ const PREP_BULLETS = [
   },
   {
     title: "How you source deals now",
-    body: "Brokers, listing platforms, networks, your own outreach &mdash; whatever the current flow looks like.",
+    body: "Brokers, listing platforms, networks, your own outreach — whatever the current flow looks like.",
   },
   {
-    title: "What &lsquo;good&rsquo; looks like",
-    body: "An example or two of recent deals you closed or chased &mdash; helps us calibrate scoring to your buy box.",
+    title: "What 'good' looks like",
+    body: "An example or two of recent deals you closed or chased — helps us calibrate scoring to your buy box.",
   },
 ];
 
 export default function ThankYouPage() {
   return (
     <>
-      {/* ── 1. Hero ── Two-column: confirmation details + video ── */}
-      <section data-section="thank_you_hero" className="min-h-[100dvh] flex items-center relative overflow-hidden pt-20 lg:pt-0">
+      {/* ── 1. Hero ── Single column until thank-you video is recorded ── */}
+      <section data-section="thank_you_hero" className="min-h-[80dvh] flex items-center relative overflow-hidden pt-24 lg:pt-32 pb-16 lg:pb-24">
         <div className="absolute inset-0 pointer-events-none hidden lg:block" aria-hidden="true">
           <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-accent/[0.05] rounded-full blur-[120px]" />
           <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-cyan-900/[0.06] rounded-full blur-[100px]" />
         </div>
 
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full py-16 lg:py-0">
-          <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_1fr] gap-12 lg:gap-16 items-center">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+          <div className="max-w-2xl">
             <AnimateIn>
               <Suspense fallback={null}>
                 <ConfirmationDetails />
               </Suspense>
-            </AnimateIn>
-
-            <AnimateIn delay={0.1} direction="left">
-              {/* Video placeholder &mdash; swap src for Loom embed or self-hosted MP4 once recorded. */}
-              <div className="relative aspect-video w-full rounded-2xl overflow-hidden glass">
-                <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-gradient-to-br from-surface-raised to-surface">
-                  <div className="w-16 h-16 rounded-full bg-white/[0.06] border border-white/[0.08] flex items-center justify-center">
-                    <svg className="w-6 h-6 text-[#E8EAED] ml-1" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M8 5v14l11-7L8 5z" />
-                    </svg>
-                  </div>
-                  <div className="text-center px-6">
-                    <p className="text-[#E8EAED] text-sm font-medium mb-1">A quick word from Joey</p>
-                    <p className="text-muted text-xs">Video coming soon</p>
-                  </div>
-                </div>
-              </div>
             </AnimateIn>
           </div>
         </div>
@@ -74,7 +57,7 @@ export default function ThankYouPage() {
             <SectionHeading
               label="Before the call"
               title="What to have ready"
-              subtitle="Twenty minutes goes fast. The more we know going in, the more useful we can be on the call."
+              subtitle="Thirty minutes goes fast. The more we know going in, the more useful we can be on the call."
             />
           </AnimateIn>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
@@ -83,10 +66,7 @@ export default function ThankYouPage() {
                 <div className="glass p-7 h-full">
                   <div className="text-gold/80 text-xs font-mono tracking-wider mb-4">0{i + 1}</div>
                   <h3 className="font-semibold text-lg tracking-tight text-[#E8EAED] mb-3">{item.title}</h3>
-                  <p
-                    className="text-sm leading-relaxed text-muted"
-                    dangerouslySetInnerHTML={{ __html: item.body }}
-                  />
+                  <p className="text-sm leading-relaxed text-muted">{item.body}</p>
                 </div>
               </AnimateIn>
             ))}
