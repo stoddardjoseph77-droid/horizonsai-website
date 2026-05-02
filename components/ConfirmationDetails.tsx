@@ -46,7 +46,18 @@ export default function ConfirmationDetails() {
     });
   }, [name, dateRaw, bookingUid]);
 
-  const firstName = name?.trim().split(/\s+/)[0];
+  // Prefer space-delimited first name ("Joey Stoddard" → "Joey").
+  // Fallback to camelCase split if the user typed it mashed together
+  // ("JoeyStoddard" → "Joey"). Require 3+ chars in the first segment so we don't
+  // mangle prefixes like "McGregor" → "Mc".
+  const firstName = (() => {
+    const trimmed = name?.trim();
+    if (!trimmed) return undefined;
+    const spaceParts = trimmed.split(/\s+/);
+    if (spaceParts.length > 1) return spaceParts[0];
+    const camelMatch = trimmed.match(/^([A-Z][a-z]{2,})(?=[A-Z])/);
+    return camelMatch ? camelMatch[1] : trimmed;
+  })();
   const manageHref = bookingUid ? `https://cal.com/booking/${bookingUid}` : null;
 
   return (
