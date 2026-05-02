@@ -219,7 +219,7 @@ export default function CommercialPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {CRE_DATA_SOURCES.map((source, index) => (
               <AnimateIn key={source.title} delay={index * 0.08}>
-                <Card icon={source.icon} title={source.title} description={source.description} timing={source.timing} tags={source.tags} />
+                <Card icon={source.icon} title={source.title} description={source.description} timing={source.timing} />
               </AnimateIn>
             ))}
           </div>
