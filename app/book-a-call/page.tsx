@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import CalendlyTracker from "@/components/CalendlyTracker";
+import CalEmbed from "@/components/CalEmbed";
 
 export const metadata: Metadata = {
   title: "Book a Call | HorizonsAI",
@@ -18,18 +19,10 @@ export default function BookACallPage() {
           Book a Discovery Call
         </h1>
 
-        {/* Cal.com Embed — tall enough that Cal's "confirm your details" modal isn't clipped. */}
-        <div className="glass-card overflow-hidden rounded-3xl" style={{ height: "clamp(720px, calc(100dvh - 180px), 1100px)" }}>
-          <iframe
-            src="https://cal.com/joey-stoddard-iy7cjz/20-minute-exploration-call?theme=dark"
-            width="100%"
-            height="100%"
-            frameBorder="0"
-            title="Schedule a call with HorizonsAI"
-            className="rounded-3xl block w-full h-full"
-            loading="lazy"
-          />
-        </div>
+        {/* Cal.com official embed — auto-resizes via postMessage so the iframe
+            tracks Cal's actual content height, avoiding the clipped form / floating
+            footer issue we got with a fixed-height raw iframe. */}
+        <CalEmbed />
       </div>
     </section>
   );
