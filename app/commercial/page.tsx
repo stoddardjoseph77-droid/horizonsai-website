@@ -125,7 +125,7 @@ export default function CommercialPage() {
             <SectionHeading
               label="Deep Dive"
               title="Full opportunity intelligence at a glance"
-              subtitle="Every property comes with AI analysis, financial metrics, distress timeline, an interactive satellite view, and skip-traced contact details for the borrower, owner, and loan servicer — all in one panel."
+              subtitle="Every property comes with AI analysis, financial metrics, distress timeline, an interactive satellite view, and skip-traced contact details for the borrower, owner, and loan servicer - all in one panel."
             />
           </AnimateIn>
           <div className="hidden lg:block">
@@ -213,7 +213,7 @@ export default function CommercialPage() {
             <SectionHeading
               label="Data"
               title="Six core sources, one pipeline"
-              subtitle="CMBS filings, county records, broker sites, CRE news, major REITs, and local & regional bank debt — aggregated, cleaned, and scored automatically."
+              subtitle="CMBS filings, county records, broker sites, CRE news, major REITs, and local & regional bank debt - aggregated, cleaned, and scored automatically."
             />
           </AnimateIn>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -225,7 +225,7 @@ export default function CommercialPage() {
           </div>
           <AnimateIn delay={0.5}>
             <p className="text-muted/50 text-sm mt-8 max-w-xl">
-              These are the starting point. Our pipeline is customizable — we add data sources based on your target market, asset class, and criteria.
+              These are the starting point. Our pipeline is customizable - we add data sources based on your target market, asset class, and criteria.
             </p>
           </AnimateIn>
         </div>

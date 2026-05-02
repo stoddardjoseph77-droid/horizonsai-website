@@ -50,14 +50,14 @@ const distressInfo = [
   { label: "Distress Type", value: "REO" },
   { label: "Months Delinquent", value: "4 Mo" },
   { label: "Resolution Strategy", value: "REO" },
-  { label: "Payment Status", value: "—" },
+  { label: "Payment Status", value: "-" },
   { label: "REO Date", value: "Jan 6, 2026" },
 ];
 
 const tenantInfo = [
   { name: "Regus (IWG)", sf: "32,400 SF", pct: "17%", expiry: "Dec 2026", risk: "high" },
   { name: "Keller Williams", sf: "18,600 SF", pct: "10%", expiry: "Mar 2028", risk: "low" },
-  { name: "Vacant", sf: "78,120 SF", pct: "42%", expiry: "—", risk: "critical" },
+  { name: "Vacant", sf: "78,120 SF", pct: "42%", expiry: "-", risk: "critical" },
 ];
 
 const submarketData = [
@@ -75,7 +75,7 @@ const timeline = [
 ];
 
 const analysisText =
-  "REO asset, 58% occupied. Largest tenant Regus expiring Dec 2026. Dallas office vacancy at 24.8%. Appraised below loan balance — strong value-add candidate at discount to replacement cost.";
+  "REO asset, 58% occupied. Largest tenant Regus expiring Dec 2026. Dallas office vacancy at 24.8%. Appraised below loan balance - strong value-add candidate at discount to replacement cost.";
 
 
 function easeOutCubic(t: number) {
@@ -145,7 +145,7 @@ export default function OpportunityMapView() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-[340px_1fr]" style={{ minHeight: "520px" }}>
-        {/* Left panel — deal details */}
+        {/* Left panel - deal details */}
         <div className="border-r border-white/[0.05] overflow-y-auto" style={{ maxHeight: "520px" }}>
           {/* AI Intelligence */}
           <div className="p-4 border-b border-white/[0.05]">
@@ -345,7 +345,7 @@ export default function OpportunityMapView() {
           </div>
         </div>
 
-        {/* Right panel — property image with drone-style animation */}
+        {/* Right panel - property image with drone-style animation */}
         <div className="relative overflow-hidden" style={{ minHeight: "520px" }}>
           <motion.div
             className="absolute inset-0"
@@ -362,7 +362,7 @@ export default function OpportunityMapView() {
           >
             <Image
               src="/building-option4.jpg"
-              alt="Apex Centre Tower — modern office building"
+              alt="Apex Centre Tower - modern office building"
               fill
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 60vw"

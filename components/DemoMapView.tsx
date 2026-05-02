@@ -5,7 +5,7 @@ import mapboxgl from "mapbox-gl";
 import MapGL, { Source, Layer } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 
-// Fix CJS/ESM interop — react-map-gl's dynamic import gets { default: mapboxgl }
+// Fix CJS/ESM interop - react-map-gl's dynamic import gets { default: mapboxgl }
 // but expects mapboxgl.Map at the top level. We pass it explicitly.
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const mapLib = Promise.resolve({ ...mapboxgl, Map: mapboxgl.Map }) as any;
@@ -16,7 +16,7 @@ const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN ?? "";
 const DEMO_POINTS: GeoJSON.FeatureCollection<GeoJSON.Point> = {
   type: "FeatureCollection",
   features: [
-    // Southeast cluster — high concentration
+    // Southeast cluster - high concentration
     { type: "Feature", geometry: { type: "Point", coordinates: [-84.39, 33.75] }, properties: { ai_score: 92 } },
     { type: "Feature", geometry: { type: "Point", coordinates: [-84.20, 33.85] }, properties: { ai_score: 78 } },
     { type: "Feature", geometry: { type: "Point", coordinates: [-84.55, 33.65] }, properties: { ai_score: 85 } },
@@ -175,7 +175,7 @@ const DemoMapView = memo(function DemoMapView() {
         attributionControl={false}
       >
         <Source id="demo-opportunities" type="geojson" data={DEMO_POINTS}>
-          {/* Heatmap — same config as production */}
+          {/* Heatmap - same config as production */}
           <Layer
             id="heatmap-density"
             type="heatmap"

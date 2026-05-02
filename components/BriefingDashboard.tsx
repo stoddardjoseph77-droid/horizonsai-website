@@ -121,7 +121,7 @@ function NewDealNotification() {
                 <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-accent" />
               </span>
               <span className="text-accent text-[10px] font-medium">New opportunity scored</span>
-              <span className="text-[#E8EAED] text-[10px] font-mono ml-auto">Cordova Square — 68</span>
+              <span className="text-[#E8EAED] text-[10px] font-mono ml-auto">Cordova Square - 68</span>
             </div>
           </motion.div>
         )}
@@ -158,7 +158,7 @@ function TickingCount({ base, format }: { base: number; format?: boolean }) {
     return () => cancelAnimationFrame(raf);
   }, [inView, base]);
 
-  // After count-up, slowly tick up — only when visible
+  // After count-up, slowly tick up - only when visible
   useEffect(() => {
     if (!done || !stillInView) return;
     const interval = setInterval(() => {

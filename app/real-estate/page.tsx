@@ -89,7 +89,7 @@ export default function RealEstatePage() {
           <AnimateIn>
             <SectionHeading
               label="Problem / Solution"
-              title="Where Most Agencies Get Stuck — And How We Fix It"
+              title="Where Most Agencies Get Stuck - And How We Fix It"
 
             />
           </AnimateIn>
@@ -107,7 +107,7 @@ export default function RealEstatePage() {
             <SectionHeading
               label="See It In Action"
               title="AI That Qualifies Leads Instantly"
-              subtitle="Our AI agent responds in under 60 seconds — qualifying buyers and routing warm leads to your team."
+              subtitle="Our AI agent responds in under 60 seconds - qualifying buyers and routing warm leads to your team."
 
             />
           </AnimateIn>
@@ -193,7 +193,7 @@ export default function RealEstatePage() {
             <SectionHeading
               label="CRM Integration"
               title="Your CRM, Supercharged by AI"
-              subtitle="Lead scores, qualification notes, and follow-up status — synced directly into your existing CRM in real time."
+              subtitle="Lead scores, qualification notes, and follow-up status - synced directly into your existing CRM in real time."
 
             />
           </AnimateIn>

@@ -137,7 +137,7 @@ export default function OpportunitiesTable() {
         </div>
       </div>
 
-      {/* Table — fixed height prevents layout shift when new row appears */}
+      {/* Table - fixed height prevents layout shift when new row appears */}
       <div className="overflow-x-auto overflow-y-hidden" style={{ maxHeight: "320px" }}>
         <table className="w-full">
           <thead>

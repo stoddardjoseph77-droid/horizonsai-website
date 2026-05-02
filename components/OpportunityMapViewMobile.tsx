@@ -10,7 +10,7 @@ const metrics = [
 ];
 
 const analysisText =
-  "REO asset, 58% occupied. Largest tenant Regus expiring Dec 2026. Dallas office vacancy at 24.8%. Appraised below loan balance — strong value-add candidate at discount to replacement cost.";
+  "REO asset, 58% occupied. Largest tenant Regus expiring Dec 2026. Dallas office vacancy at 24.8%. Appraised below loan balance - strong value-add candidate at discount to replacement cost.";
 
 export default function OpportunityMapViewMobile() {
   return (

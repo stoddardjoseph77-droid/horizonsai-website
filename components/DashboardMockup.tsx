@@ -101,7 +101,7 @@ export default function DashboardMockup() {
         ))}
       </div>
 
-      {/* Lead table — desktop */}
+      {/* Lead table - desktop */}
       <div className="overflow-x-auto hidden md:block">
         {/* Table header */}
         <div className="grid grid-cols-[1fr_0.7fr_0.5fr_0.8fr_1.2fr_0.6fr] gap-3 pb-2.5 border-b border-white/[0.06] min-w-[650px]">
@@ -147,7 +147,7 @@ export default function DashboardMockup() {
         </div>
       </div>
 
-      {/* Lead cards — mobile */}
+      {/* Lead cards - mobile */}
       <div className="space-y-3 md:hidden">
         {leads.map((lead, i) => (
           <div

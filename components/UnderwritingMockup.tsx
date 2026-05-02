@@ -8,7 +8,7 @@ const metrics = [
 ] as const;
 
 const riskFactors = [
-  "Tenant rollover risk — 3 leases expire in 2026",
+  "Tenant rollover risk - 3 leases expire in 2026",
   "Deferred maintenance estimated at $400K",
 ] as const;
 

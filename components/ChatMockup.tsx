@@ -2,7 +2,7 @@ export default function ChatMockup() {
   const messages = [
     {
       sender: "buyer",
-      text: "Hi, I saw your listing on Elm Street — is it still available?",
+      text: "Hi, I saw your listing on Elm Street - is it still available?",
       time: "10:32 AM",
     },
     {
@@ -17,7 +17,7 @@ export default function ChatMockup() {
     },
     {
       sender: "ai",
-      text: "Great — that's within range. When would you like to schedule a viewing? I can connect you with Sarah, who specializes in that area.",
+      text: "Great - that's within range. When would you like to schedule a viewing? I can connect you with Sarah, who specializes in that area.",
       time: "10:33 AM",
     },
     {

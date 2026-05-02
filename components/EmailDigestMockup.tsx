@@ -17,7 +17,7 @@ export default function EmailDigestMockup() {
           <span className="text-zinc-600 text-xs ml-auto font-mono">Mon, Feb 10</span>
         </div>
         <p className="mt-1.5 text-zinc-100 font-medium">
-          Your Weekly Deal Digest — 12 New Opportunities
+          Your Weekly Deal Digest - 12 New Opportunities
         </p>
       </div>
 
@@ -30,7 +30,7 @@ export default function EmailDigestMockup() {
         <ul className="space-y-2 text-zinc-500 text-sm">
           <li>12 new distressed opportunities identified</li>
           <li>3 scored above 85 (high priority)</li>
-          <li>Top deal: Sunrise Office Park, Tampa — Score: 87</li>
+          <li>Top deal: Sunrise Office Park, Tampa - Score: 87</li>
         </ul>
 
         <div className="mt-6 flex gap-3">

@@ -21,7 +21,7 @@ function Typewriter({ text, delay, isStatic }: { text: string; delay: number; is
   const [started, setStarted] = useState(!!isStatic);
   const ref = useRef<HTMLParagraphElement>(null);
   const hasTriggered = useRef(false);
-  // Continuous check — not once: true — so we know when it leaves view
+  // Continuous check - not once: true - so we know when it leaves view
   const inView = useInView(ref, { once: false });
 
   useEffect(() => {

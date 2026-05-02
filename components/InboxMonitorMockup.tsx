@@ -1,8 +1,8 @@
 const emails = [
   { sender: "CBRE Research", subject: "Q4 Office Distress Report", matched: true, score: 82 },
-  { sender: "Marcus & Millichap", subject: "New Retail Listings — FL", matched: true, score: 71 },
+  { sender: "Marcus & Millichap", subject: "New Retail Listings - FL", matched: true, score: 71 },
   { sender: "JLL Capital Markets", subject: "Rate Update Newsletter", matched: false },
-  { sender: "Eastdil Secured", subject: "Loan Sale Portfolio — SE", matched: true, score: 89 },
+  { sender: "Eastdil Secured", subject: "Loan Sale Portfolio - SE", matched: true, score: 89 },
   { sender: "Newmark", subject: "Weekly Market Wrap", matched: false },
   { sender: "Cushman & Wakefield", subject: "Distressed Asset Alert", matched: true, score: 94 },
 ] as const;

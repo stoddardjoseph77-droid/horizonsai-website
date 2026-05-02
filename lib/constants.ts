@@ -185,7 +185,7 @@ export const ABOUT_TEXT_CRE =
 export const CRE_HERO = {
   headline: "Source Off-Market Deals Before They Hit the Market",
   subtext:
-    "We monitor $2T+ in commercial real estate debt and surface distressed opportunities months before your competition — then score every deal against your acquisition criteria using AI.",
+    "We monitor $2T+ in commercial real estate debt and surface distressed opportunities months before your competition - then score every deal against your acquisition criteria using AI.",
   cta: "Book a Call",
   proofText: "20+ calls scheduled last month",
 };
@@ -218,7 +218,7 @@ export const CRE_PROBLEMS = [
 export const CRE_DATA_SOURCES = [
   {
     title: "CMBS Loan Data",
-    description: "Loan-level data from CMBS trusts — special servicing transfers, maturity defaults, foreclosures, and REO status.",
+    description: "Loan-level data from CMBS trusts - special servicing transfers, maturity defaults, foreclosures, and REO status.",
     timing: "1–3 month lead time",
     icon: "file",
     tags: ["Office", "Retail", "Multi-family"],
@@ -253,7 +253,7 @@ export const CRE_DATA_SOURCES = [
   },
   {
     title: "Local & Regional Bank Debt",
-    description: "Upcoming loan maturities, balloon dates, and refinancing risk across community and regional bank CRE portfolios — surfacing properties heading toward forced sale or workout 12–24 months out.",
+    description: "Upcoming loan maturities, balloon dates, and refinancing risk across community and regional bank CRE portfolios - surfacing properties heading toward forced sale or workout 12–24 months out.",
     timing: "12–24 mo forward view",
     icon: "bank",
     tags: ["Bank Debt", "CRE Loans"],
@@ -307,7 +307,7 @@ export const CRE_PROCESS = [
     step: 3,
     title: "Get Opportunities Live",
     description:
-      "Scored, ranked opportunities delivered straight to your live dashboard as they surface — no waiting, no delays.",
+      "Scored, ranked opportunities delivered straight to your live dashboard as they surface - no waiting, no delays.",
   },
 ];
 

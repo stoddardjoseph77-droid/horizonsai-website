@@ -189,7 +189,7 @@ const SearchTypewriter = memo(function SearchTypewriter() {
         )}
       </AnimatePresence>
 
-      {/* Prompt pills — visible before results */}
+      {/* Prompt pills - visible before results */}
       <AnimatePresence mode="wait">
         {phase !== "results" ? (
           <motion.div
@@ -437,7 +437,7 @@ export default function PlatformViewer() {
 
   return (
     <div ref={sectionRef} className={`${isMobile ? "space-y-6" : "grid grid-cols-[280px_1fr] gap-8"}`}>
-      {/* Left column — tab selectors */}
+      {/* Left column - tab selectors */}
       <div className={`${isMobile ? "flex gap-2 overflow-x-auto pb-2" : "space-y-1"}`}>
         {TABS.map((tab) => (
           <button
@@ -472,7 +472,7 @@ export default function PlatformViewer() {
         ))}
       </div>
 
-      {/* Right column — content */}
+      {/* Right column - content */}
       <div className="glass rounded-2xl overflow-hidden border border-white/[0.07] h-[520px]">
         <AnimatePresence mode="wait">
           {activeTab === "search" && (

@@ -47,7 +47,7 @@ export default function DealCard() {
         </div>
 
         <p className="mt-4 text-zinc-500 text-sm">
-          Special Servicing — 90+ days delinquent
+          Special Servicing - 90+ days delinquent
         </p>
 
         <div className="mt-4 bg-white/[0.02] rounded-xl border border-white/[0.04] p-4">
