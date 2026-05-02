@@ -315,7 +315,7 @@ export const CRE_FAQ = [
   {
     question: "Do you have a pre-built database I can log into, or are you setting it up custom?",
     answer:
-      "The infrastructure is built and running - parsers, scrapers, scoring system, data source integrations. During the 3\u20134 week onboarding we configure the pipeline to your specific criteria, markets, and strategy, so the dashboard you log into on day one is populated with deals filtered to what you\u2019d actually buy.",
+      "No - there's no giant historical database you log into. The infrastructure is built and running (parsers, scrapers, scoring system, data source integrations), but we set it up custom for you during the 3-4 week onboarding, configured to your criteria, markets, and strategy. The dashboard you log into on day one is populated with live deals filtered to what you'd actually buy.",
   },
   {
     question: "How is this different from CoStar, Trepp, or CRED iQ?",
