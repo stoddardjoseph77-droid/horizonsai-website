@@ -43,7 +43,7 @@ export default function DashboardMockup() {
       scoreColor: "red",
       status: "New Lead",
       aiNote: "Browsing only, no timeline given",
-      response: "\u2014",
+      response: "-",
     },
   ];
 

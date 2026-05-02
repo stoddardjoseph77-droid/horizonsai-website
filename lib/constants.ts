@@ -17,7 +17,7 @@ export const NAV_LINKS = [
 export const RE_HERO = {
   headline: "Convert More High-Value Enquiries Into Property Sales",
   subtext:
-    "We build AI agents that qualify buyers, personalize follow-ups, and power reporting dashboards that show what\u2019s working \u2014 all in one place.",
+    "We build AI agents that qualify buyers, personalize follow-ups, and power reporting dashboards that show what\u2019s working - all in one place.",
   cta: "Book a Free Consultation",
   proofText: "20+ calls scheduled last month",
 };
@@ -131,7 +131,7 @@ export const RE_TESTIMONIALS = [
   },
   {
     quote:
-      "30% less admin work after HorizonsAI\u2019s development \u2014 shipped with clear docs and easy updates.",
+      "30% less admin work after HorizonsAI\u2019s development - shipped with clear docs and easy updates.",
     name: "Sravan",
     role: "Team Lead",
   },
@@ -172,13 +172,13 @@ export const RE_FAQ = [
 ];
 
 export const ABOUT_TEXT =
-  "I\u2019m Joey, founder of HorizonsAI. We build AI-powered systems that help real estate agencies and commercial investors work smarter \u2014 from capturing and qualifying leads to sourcing and scoring distressed deals. Instead of losing hours to manual tasks, scattered tools, and guesswork, we integrate AI agents and automation directly into your existing workflow \u2014 making your operations seamless and stress-free.";
+  "I\u2019m Joey, founder of HorizonsAI. We build AI-powered systems that help real estate agencies and commercial investors work smarter - from capturing and qualifying leads to sourcing and scoring distressed deals. Instead of losing hours to manual tasks, scattered tools, and guesswork, we integrate AI agents and automation directly into your existing workflow - making your operations seamless and stress-free.";
 
 export const ABOUT_TEXT_RE =
-  "I\u2019m Joey, founder of HorizonsAI. We design smart systems that transform how real estate agencies capture, qualify, and follow up with leads. Instead of losing hours to manual tasks, scattered tools, and guesswork, we integrate AI agents and automation directly into the platforms you already use \u2014 making your operations seamless and stress-free.";
+  "I\u2019m Joey, founder of HorizonsAI. We design smart systems that transform how real estate agencies capture, qualify, and follow up with leads. Instead of losing hours to manual tasks, scattered tools, and guesswork, we integrate AI agents and automation directly into the platforms you already use - making your operations seamless and stress-free.";
 
 export const ABOUT_TEXT_CRE =
-  "I\u2019m Joey, founder of HorizonsAI. We build AI systems that help commercial real estate investors find and evaluate distressed deals faster. Instead of manually combing through SEC filings, county records, and broker emails, our pipeline does the heavy lifting \u2014 surfacing scored opportunities matched to your specific acquisition criteria.";
+  "I\u2019m Joey, founder of HorizonsAI. We build AI systems that help commercial real estate investors find and evaluate distressed deals faster. Instead of manually combing through SEC filings, county records, and broker emails, our pipeline does the heavy lifting - surfacing scored opportunities matched to your specific acquisition criteria.";
 
 // ── Commercial Real Estate Page ─────────────────────────────────
 
@@ -313,33 +313,33 @@ export const CRE_PROCESS = [
 
 export const CRE_FAQ = [
   {
-    question: "Do you have a pre-built database I can log into, or are you building it from scratch?",
+    question: "Do you have a pre-built database I can log into, or are you setting it up custom?",
     answer:
-      "The infrastructure is built and running \u2014 parsers, scrapers, scoring system, data source integrations. During the 3\u20134 week onboarding we configure the pipeline to your specific criteria, markets, and strategy, so the dashboard you log into on day one is populated with deals filtered to what you\u2019d actually buy.",
+      "The infrastructure is built and running - parsers, scrapers, scoring system, data source integrations. During the 3\u20134 week onboarding we configure the pipeline to your specific criteria, markets, and strategy, so the dashboard you log into on day one is populated with deals filtered to what you\u2019d actually buy.",
   },
   {
     question: "How is this different from CoStar, Trepp, or CRED iQ?",
     answer:
-      "CoStar is a property database \u2014 comps, tenants, ownership, market data; you still have to find the deals yourself. Trepp and CRED iQ go deep on CMBS, but CMBS is only about a small chunk of CRE debt \u2014 bank, life-co, and private debt aren\u2019t there. We do the finding and scoring of every deal against your buy box, and pull from: CMBS, county records, REIT filings, broker channels, news, and more.",
+      "CoStar is a property database - comps, tenants, ownership, market data; you still have to find the deals yourself. Trepp and CRED iQ go deep on CMBS, but CMBS is only about a small chunk of CRE debt - bank, life-co, and private debt aren\u2019t there. We do the finding and scoring of every deal against your buy box, and pull from: CMBS, county records, REIT filings, broker channels, news, and more.",
   },
   {
     question: "What happens after I see a deal? Do I get contact info?",
     answer:
-      "Yes \u2014 opportunities include borrower/owner contact details (name, phone, email where available) plus loan servicer info for CMBS.",
+      "Yes - opportunities include borrower/owner contact details (name, phone, email where available) plus loan servicer info for CMBS.",
   },
   {
     question: "How many deals will I actually see per month?",
     answer:
-      "It depends on how tight your criteria are \u2014 narrower geographies and asset classes mean fewer, higher-quality opportunities. We benchmark against your existing deal flow during onboarding so you know what to expect before going live.",
+      "It depends on how tight your criteria is - narrower geographies and asset classes mean fewer, higher-quality opportunities. We benchmark against your existing deal flow during onboarding so you know what to expect before going live.",
   },
   {
     question: "Will this work for my specific asset class and market?",
     answer:
-      "Yes \u2014 we cover office, retail, industrial, and multifamily across all 50 states. On the intro call we\u2019ll tell you straight up where coverage is strong, where it\u2019s thin, and whether your niche fits before you commit to anything.",
+      "Yes - we cover office, retail, industrial, and multifamily across all 50 states. On the intro call we\u2019ll tell you straight up where coverage is strong, where it\u2019s thin, and whether your niche fits before you commit to anything.",
   },
   {
     question: "What does ongoing support look like after launch?",
     answer:
-      "Direct access to the team for criteria changes, new market additions, or filter tweaks. As your strategy evolves, the pipeline evolves with it \u2014 you\u2019re not locked into the buy box you defined on day one.",
+      "Direct access to the team for criteria changes, new market additions, or filter tweaks. As your strategy evolves, the pipeline evolves with it - you\u2019re not locked into the buy box you defined on day one.",
   },
 ];
