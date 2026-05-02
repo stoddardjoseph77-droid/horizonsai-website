@@ -18,15 +18,15 @@ export default function BookACallPage() {
           Book a Discovery Call
         </h1>
 
-        {/* Cal.com Embed */}
-        <div className="glass-card overflow-hidden" style={{ minHeight: "min(700px, 80vh)" }}>
+        {/* Cal.com Embed — tall enough that Cal's "confirm your details" modal isn't clipped. */}
+        <div className="glass-card overflow-hidden rounded-3xl" style={{ height: "clamp(720px, calc(100dvh - 180px), 1100px)" }}>
           <iframe
             src="https://cal.com/joey-stoddard-iy7cjz/20-minute-exploration-call?theme=dark"
             width="100%"
-            height="700"
+            height="100%"
             frameBorder="0"
             title="Schedule a call with HorizonsAI"
-            className="rounded-3xl"
+            className="rounded-3xl block w-full h-full"
             loading="lazy"
           />
         </div>
