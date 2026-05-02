@@ -253,8 +253,8 @@ export const CRE_DATA_SOURCES = [
   },
   {
     title: "Local & Regional Bank Debt",
-    description: "Non-performing CRE loans, charge-offs, and credit-quality signals from FDIC call reports and quarterly disclosures of community and regional bank lenders.",
-    timing: "Quarterly updates",
+    description: "Upcoming loan maturities, balloon dates, and refinancing risk across community and regional bank CRE portfolios — surfacing properties heading toward forced sale or workout 12–24 months out.",
+    timing: "12–24 mo forward view",
     icon: "bank",
     tags: ["Bank Debt", "CRE Loans"],
   },
