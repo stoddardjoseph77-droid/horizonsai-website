@@ -36,7 +36,7 @@ const pipelinePhases = [
   { label: "Data Sources", detail: "CMBS, County, Brokers, News, REITs" },
   { label: "Enrichment", detail: "Clean, normalize, deduplicate" },
   { label: "AI Scoring", detail: "AI scoring & ranking" },
-  { label: "Delivery", detail: "Live dashboard + weekly digest" },
+  { label: "Delivery", detail: "Live dashboard + contacts + weekly digest" },
 ];
 
 export default function CommercialPage() {
@@ -125,7 +125,7 @@ export default function CommercialPage() {
             <SectionHeading
               label="Deep Dive"
               title="Full opportunity intelligence at a glance"
-              subtitle="Every property comes with AI analysis, financial metrics, distress timeline, and an interactive satellite view — all in one panel."
+              subtitle="Every property comes with AI analysis, financial metrics, distress timeline, an interactive satellite view, and skip-traced contact details for the borrower, owner, and loan servicer — all in one panel."
             />
           </AnimateIn>
           <div className="hidden lg:block">
@@ -212,8 +212,8 @@ export default function CommercialPage() {
           <AnimateIn>
             <SectionHeading
               label="Data"
-              title="Five core sources, one pipeline"
-              subtitle="CMBS filings, county records, broker sites, CRE news, and major REITs — aggregated, cleaned, and scored automatically."
+              title="Six core sources, one pipeline"
+              subtitle="CMBS filings, county records, broker sites, CRE news, major REITs, and local & regional bank debt — aggregated, cleaned, and scored automatically."
             />
           </AnimateIn>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

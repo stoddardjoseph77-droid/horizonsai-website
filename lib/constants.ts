@@ -251,6 +251,13 @@ export const CRE_DATA_SOURCES = [
     icon: "trending",
     tags: ["CMBS", "CRE Loans"],
   },
+  {
+    title: "Local & Regional Bank Debt",
+    description: "Non-performing CRE loans, charge-offs, and credit-quality signals from FDIC call reports and quarterly disclosures of community and regional bank lenders.",
+    timing: "Quarterly updates",
+    icon: "bank",
+    tags: ["Bank Debt", "CRE Loans"],
+  },
 ];
 
 export const CRE_DELIVERABLES = [
@@ -306,28 +313,33 @@ export const CRE_PROCESS = [
 
 export const CRE_FAQ = [
   {
-    question: "What data sources do you monitor?",
+    question: "Do you have a pre-built database I can log into, or are you building it from scratch?",
     answer:
-      "We monitor county records (NODs, lis pendens, trustee sales), CMBS filings and servicer reports, CRE news publications (Bisnow, The Real Deal, Commercial Observer), broker listing sites, REIT quarterly filings, and your own network via email ingestion. Sources are added and customized based on your target markets.",
+      "The infrastructure is built and running \u2014 parsers, scrapers, scoring system, data source integrations. During the 3\u20134 week onboarding we configure the pipeline to your specific criteria, markets, and strategy, so the dashboard you log into on day one is populated with deals filtered to what you\u2019d actually buy.",
   },
   {
-    question: "How often do I receive reports?",
+    question: "How is this different from CoStar, Trepp, or CRED iQ?",
     answer:
-      "You receive scored and ranked opportunities in a live custom dashboard that\u2019s updated continuously, plus a weekly PDF digest every Monday.",
+      "CoStar is a property database \u2014 comps, tenants, ownership, market data; you still have to find the deals yourself. Trepp and CRED iQ go deep on CMBS, but CMBS is only about a small chunk of CRE debt \u2014 bank, life-co, and private debt aren\u2019t there. We do the finding and scoring of every deal against your buy box, and pull from: CMBS, county records, REIT filings, broker channels, news, and more.",
   },
   {
-    question: "Can the system be customized to my markets?",
+    question: "What happens after I see a deal? Do I get contact info?",
     answer:
-      "Absolutely. You tell us your target markets, asset classes, deal size range, and investment strategy. We configure every data source to filter for exactly what you\u2019re looking for.",
+      "Yes \u2014 opportunities include borrower/owner contact details (name, phone, email where available) plus loan servicer info for CMBS.",
   },
   {
-    question: "How is this different from CoStar or Reonomy?",
+    question: "How many deals will I actually see per month?",
     answer:
-      "Those platforms list what\u2019s already on the market. We surface distressed opportunities before they\u2019re listed \u2014 from CMBS servicer reports, county filings, and news signals \u2014 then score every deal against your specific acquisition criteria so you only see what fits.",
+      "It depends on how tight your criteria are \u2014 narrower geographies and asset classes mean fewer, higher-quality opportunities. We benchmark against your existing deal flow during onboarding so you know what to expect before going live.",
   },
   {
-    question: "How do I get started?",
+    question: "Will this work for my specific asset class and market?",
     answer:
-      "Book a call and we\u2019ll walk through your criteria in 20 minutes. From there, we typically have your pipeline live within 3\u20134 weeks.",
+      "Yes \u2014 we cover office, retail, industrial, and multifamily across all 50 states. On the intro call we\u2019ll tell you straight up where coverage is strong, where it\u2019s thin, and whether your niche fits before you commit to anything.",
+  },
+  {
+    question: "What does ongoing support look like after launch?",
+    answer:
+      "Direct access to the team for criteria changes, new market additions, or filter tweaks. As your strategy evolves, the pipeline evolves with it \u2014 you\u2019re not locked into the buy box you defined on day one.",
   },
 ];
