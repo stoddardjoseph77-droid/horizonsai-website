@@ -219,44 +219,38 @@ export const CRE_DATA_SOURCES = [
   {
     title: "CMBS Loan Data",
     description: "Loan-level data from CMBS trusts - special servicing transfers, maturity defaults, foreclosures, and REO status.",
-    timing: "1–3 month lead time",
+    timing: "Monthly filings",
     icon: "file",
-    tags: ["Office", "Retail", "Multi-family"],
   },
   {
     title: "County Records",
     description: "Notice of Default, Lis Pendens, and Trustee Sale filings sourced directly from county courthouses nationwide.",
     timing: "Real-time filings",
     icon: "building",
-    tags: ["All Asset Classes"],
   },
   {
     title: "Broker Sites",
     description: "Listings and deal flow from major CRE brokerage platforms, aggregated and matched against your acquisition criteria.",
     timing: "Continuous monitoring",
     icon: "globe",
-    tags: ["All Asset Classes"],
   },
   {
     title: "CRE News",
     description: "Distress signals and market intel from Commercial Observer, Bisnow, The Real Deal, GlobeSt, and more.",
     timing: "Daily coverage",
     icon: "newspaper",
-    tags: ["Office", "Retail", "Industrial"],
   },
   {
     title: "Major REITs",
     description: "Quarterly filings from publicly traded REITs and mREITs showing impaired loans, dispositions, and risk ratings.",
     timing: "Quarterly updates",
     icon: "trending",
-    tags: ["CMBS", "CRE Loans"],
   },
   {
     title: "Local & Regional Bank Debt",
-    description: "Upcoming loan maturities, balloon dates, and refinancing risk across community and regional bank CRE portfolios - surfacing properties heading toward forced sale or workout 12–24 months out.",
-    timing: "12–24 mo forward view",
+    description: "Upcoming loan maturities, balloon dates, and refinancing risk across community and regional bank CRE portfolios - surfacing properties heading toward forced sale or workout 12-24 months out.",
+    timing: "Monthly filings",
     icon: "bank",
-    tags: ["Bank Debt", "CRE Loans"],
   },
 ];
 
