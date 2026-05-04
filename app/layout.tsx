@@ -8,14 +8,36 @@ import HydrationGate from "@/components/HydrationGate";
 import { PostHogProvider } from "@/components/PostHogProvider";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.horizonsai.co"),
   title: "HorizonsAI | Distressed CRE Deal Intelligence",
   description:
     "We monitor SEC filings, county records, and CRE news to surface distressed opportunities before your competitors find them.",
+  alternates: {
+    canonical: "/commercial",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   openGraph: {
     title: "HorizonsAI | Distressed CRE Deal Intelligence",
     description:
       "We monitor SEC filings, county records, and CRE news to surface distressed opportunities before your competitors find them.",
+    url: "https://www.horizonsai.co/commercial",
+    siteName: "HorizonsAI",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "HorizonsAI | Distressed CRE Deal Intelligence",
+    description:
+      "We monitor SEC filings, county records, and CRE news to surface distressed opportunities before your competitors find them.",
   },
 };
 
