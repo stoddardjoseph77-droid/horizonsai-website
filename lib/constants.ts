@@ -185,7 +185,7 @@ export const ABOUT_TEXT_CRE =
 export const CRE_HERO = {
   headline: "Source Off-Market Deals Before They Hit the Market",
   subtext:
-    "We monitor $2T+ in commercial real estate debt and surface distressed opportunities months before your competition - then score every deal against your acquisition criteria using AI.",
+    "We monitor $2T+ in commercial real estate debt and surface off-market opportunities months before your competition - then score every deal against your acquisition criteria using AI.",
   cta: "Book a Call",
   proofText: "20+ calls scheduled last month",
 };
