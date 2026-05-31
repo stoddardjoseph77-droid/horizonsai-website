@@ -321,7 +321,7 @@ export default function CommercialPage() {
       {/* ── 13. CTA ── */}
       <CTABanner
         headline="Get ahead of the market"
-        subtext="Start receiving scored distressed opportunities before your competitors find them."
+        subtext="Start receiving scored opportunities before your competitors find them."
         ctaText="Book a Call"
         ctaHref="/book-a-call"
       />
