@@ -16,7 +16,6 @@ import FAQAccordion from "@/components/FAQAccordion";
 import CTABanner from "@/components/CTABanner";
 import TrustBar from "@/components/TrustBar";
 import AnimateIn from "@/components/AnimateIn";
-import Image from "next/image";
 import BriefingDashboard from "@/components/BriefingDashboard";
 import MarketIntel from "@/components/MarketIntel";
 import OpportunityMapView from "@/components/OpportunityMapView";
@@ -277,34 +276,25 @@ export default function CommercialPage() {
       {/* ── 11. About ── */}
       <section data-section="about" className="py-16 md:py-36 relative overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-12 lg:gap-20 items-start">
-            <AnimateIn>
-              <div className="flex flex-col items-center lg:items-start">
-                <div className="w-36 h-36 md:w-44 md:h-44 rounded-2xl overflow-hidden border border-white/[0.06] ring-1 ring-gold/10">
-                  <Image src="/joey.jpg" alt="Joey Stoddard" width={176} height={176} className="object-cover object-top w-full h-full scale-[1.3]" />
-                </div>
-              </div>
-            </AnimateIn>
-            <AnimateIn delay={0.1}>
-              <div>
-                <span className="text-gold text-xs font-medium uppercase tracking-widest mb-4 block">About</span>
-                <h3 className="font-semibold text-2xl tracking-tight text-[#E8EAED] mb-1">Joey Stoddard</h3>
-                <p className="text-gold text-sm mb-6">Founder, HorizonsAI</p>
-                <p className="text-muted text-base leading-relaxed max-w-[55ch] mb-6">{ABOUT_TEXT_CRE}</p>
-                <TrackedExternalLink
-                  href="https://www.linkedin.com/in/joey-stoddard-8a2b78357"
-                  label="Joey Stoddard LinkedIn"
-                  location="about_commercial"
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/[0.04] border border-white/[0.06] text-muted hover:text-gold hover:border-gold/20 transition-all duration-200"
-                >
-                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                  </svg>
-                  <span className="text-sm font-medium">LinkedIn</span>
-                </TrackedExternalLink>
-              </div>
-            </AnimateIn>
-          </div>
+          <AnimateIn>
+            <div>
+              <span className="text-gold text-xs font-medium uppercase tracking-widest mb-4 block">About</span>
+              <h3 className="font-semibold text-2xl tracking-tight text-[#E8EAED] mb-1">Joey Stoddard</h3>
+              <p className="text-gold text-sm mb-6">Founder, HorizonsAI</p>
+              <p className="text-muted text-base leading-relaxed max-w-[55ch] mb-6">{ABOUT_TEXT_CRE}</p>
+              <TrackedExternalLink
+                href="https://www.linkedin.com/in/joey-stoddard-8a2b78357"
+                label="Joey Stoddard LinkedIn"
+                location="about_commercial"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/[0.04] border border-white/[0.06] text-muted hover:text-gold hover:border-gold/20 transition-all duration-200"
+              >
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                </svg>
+                <span className="text-sm font-medium">LinkedIn</span>
+              </TrackedExternalLink>
+            </div>
+          </AnimateIn>
         </div>
       </section>
 

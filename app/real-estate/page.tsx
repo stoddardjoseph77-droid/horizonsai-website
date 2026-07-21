@@ -19,7 +19,6 @@ import TestimonialCard from "@/components/TestimonialCard";
 import FAQAccordion from "@/components/FAQAccordion";
 import CTABanner from "@/components/CTABanner";
 import AnimateIn from "@/components/AnimateIn";
-import Image from "next/image";
 import ChatMockup from "@/components/ChatMockup";
 import DashboardMockup from "@/components/DashboardMockup";
 import HeroSilhouette from "@/components/HeroSilhouette";
@@ -278,15 +277,6 @@ export default function RealEstatePage() {
             </AnimateIn>
             <AnimateIn delay={0.1}>
               <div className="glass-card p-10 md:p-14 flex flex-col items-center">
-                <div className="w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden border-2 border-white/10 mb-8 ring-2 ring-brand-primary/20 ring-offset-4 ring-offset-transparent">
-                  <Image
-                    src="/joey.jpg"
-                    alt="Joey Stoddard"
-                    width={192}
-                    height={192}
-                    className="object-cover object-top w-full h-full scale-[1.3]"
-                  />
-                </div>
                 <h3 className="font-heading font-semibold text-xl text-text-on-dark mb-1">Joey Stoddard</h3>
                 <p className="text-brand-primary text-sm mb-6">Founder, HorizonsAI</p>
                 <p className="text-white/70 text-lg leading-relaxed mb-8">
