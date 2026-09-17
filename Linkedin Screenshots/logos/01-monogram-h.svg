@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
-  <rect width="400" height="400" rx="40" fill="#0B1622"/>
-  <!-- Geometric H with sharp architectural angles -->
-  <path d="M130 120 L130 280 M130 200 L270 200 M270 120 L270 280"
-    fill="none" stroke="#E8EAED" stroke-width="18" stroke-linecap="square"/>
-  <text x="200" y="345" text-anchor="middle" fill="#7B8FA3" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="500" letter-spacing="4">HORIZONSAI</text>
-</svg>

@@ -34,3 +34,19 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local working material — not part of the site
+/.agents/
+/.claude/skills/design-taste-frontend
+/.claude/skills/full-output-enforcement
+/.claude/skills/high-end-visual-design
+/.claude/skills/industrial-brutalist-ui
+/.claude/skills/minimalist-ui
+/.claude/skills/redesign-existing-projects
+/.claude/skills/stitch-design-taste
+/Linkedin Screenshots/
+/Product Screenshots/
+/map code example/
+/fullpage.png
+/skills-lock.json
+/CLAUDE.md

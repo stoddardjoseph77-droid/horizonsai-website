@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
-  <!-- Style 12: Two overlapping rounded squares — layers of data -->
-  <rect width="400" height="400" rx="40" fill="#0B1622"/>
-  <rect x="140" y="110" width="100" height="100" rx="18" fill="none" stroke="#E8EAED" stroke-width="3" opacity="0.25"/>
-  <rect x="165" y="135" width="100" height="100" rx="18" fill="none" stroke="#E8EAED" stroke-width="3" opacity="0.55"/>
-  <rect x="190" y="160" width="100" height="100" rx="18" fill="none" stroke="#E8EAED" stroke-width="3.5"/>
-  <text x="200" y="320" text-anchor="middle" fill="#E8EAED" font-family="Inter, system-ui, sans-serif" font-size="34" font-weight="700" letter-spacing="-1.5">HorizonsAI</text>
-  <text x="200" y="348" text-anchor="middle" fill="#7B8FA3" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="500" letter-spacing="3">DEAL INTELLIGENCE</text>
-</svg>
