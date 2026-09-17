@@ -129,9 +129,11 @@ export default function Page() {
     </div>
   </section>
   <section className="close" id="book">
-    <div className="wrap">
-      <h2 className="h2 display">See what’s moving in your markets.</h2>
-      <p className="close-p">Bring your buy box. We’ll tell you where our coverage is strong in those markets, and whether your niche fits.</p>
+    <div className="wrap close-in">
+      <div>
+        <h2 className="close-h display">See what’s moving in your markets.</h2>
+        <p className="close-p">Bring your buy box. We’ll tell you where our coverage is strong in those markets, and whether your niche fits.</p>
+      </div>
       <a className="btn btn-lg btn-o" href="/book-a-call">Book a call</a>
     </div>
   </section>

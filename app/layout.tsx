@@ -29,6 +29,18 @@ export const metadata: Metadata = {
     siteName: "HorizonsAI",
     type: "website",
   },
+  /* Declared explicitly rather than left to the file convention, which
+     labelled the multi-frame .ico as sizes="16x16" — so Safari had no
+     reason to reach for the 32 or 48 frame on a Retina tab. The ?v query
+     also gives Safari an icon URL it holds no stale entry for. */
+  icons: {
+    icon: [
+      { url: "/favicon.ico?v=3", sizes: "16x16 32x32 48x48", type: "image/x-icon" },
+      { url: "/icon.png?v=3", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [{ url: "/apple-icon.png?v=3", sizes: "180x180", type: "image/png" }],
+    shortcut: "/favicon.ico?v=3",
+  },
   twitter: {
     card: "summary_large_image",
     title: "HorizonsAI | Distressed CRE Deal Intelligence",
