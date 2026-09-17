@@ -48,10 +48,10 @@ export default function HomePage() {
     </div>
     <div className="hero-strip">
     <div className="wrap strip-in">
-      <div className="strip-m"><b>$0</b><span>Commission on what you buy</span></div>
-      <div className="strip-m"><b>50</b><span>States covered</span></div>
-      <div className="strip-m"><b>6</b><span>Asset classes</span></div>
-      <div className="strip-m"><b>30+</b><span>Signals read per property</span></div>
+      <div className="strip-m"><b className="cnt">$4.2B</b><span>Asset value surfaced</span></div>
+      <div className="strip-m"><b className="cnt">2,800</b><span>Opportunities delivered</span></div>
+      <div className="strip-m"><b className="cnt">94 days</b><span>Median lead on the listing</span></div>
+      <div className="strip-m"><b className="cnt">50</b><span>States covered</span></div>
     </div>
     </div>
   </section>
@@ -65,6 +65,11 @@ export default function HomePage() {
           <span><b>James Peterson</b><i>Co-Founder, Pioneer Acquisitions</i></span>
         </div>
         <p className="cs-q">“In the months since launch, the platform has surfaced hundreds of opportunities on and off market aligned with our criteria — including deals headed for maturity with weak refi math, county pre-foreclosure filings and pre-marketed REO properties that would not have reached our desk otherwise.”</p>
+      <div className="cs-f">
+        <div className="cs-fc"><p className="cs-fv">$840<small>M</small></p><p className="label cs-fl">Pipeline generated</p></div>
+        <div className="cs-fc"><p className="cs-fv">1.8<small>k+</small></p><p className="label cs-fl">Opportunities delivered</p></div>
+        <div className="cs-fc"><p className="cs-fv">3<small>wks</small></p><p className="label cs-fl">To the first deal pursued</p></div>
+      </div>
         
       </div>
       <div className="cs-r">

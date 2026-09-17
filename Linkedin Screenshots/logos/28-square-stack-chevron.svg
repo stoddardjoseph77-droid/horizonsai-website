@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <!-- Layered squares with a chevron cut into the front one — combines both styles -->
+  <rect width="400" height="400" rx="40" fill="#0B1622"/>
+  <!-- Back square -->
+  <rect x="155" y="100" width="120" height="120" rx="18" fill="none" stroke="#E8EAED" stroke-width="2.5" opacity="0.15"/>
+  <!-- Middle square -->
+  <rect x="140" y="120" width="120" height="120" rx="18" fill="none" stroke="#E8EAED" stroke-width="2.5" opacity="0.35"/>
+  <!-- Front square -->
+  <rect x="125" y="140" width="120" height="120" rx="18" fill="none" stroke="#E8EAED" stroke-width="3"/>
+  <!-- Chevron inside front square — forward/action -->
+  <polyline points="160,175 195,200 160,225" fill="none" stroke="#E8EAED" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
+  <text x="200" y="320" text-anchor="middle" fill="#E8EAED" font-family="Inter, system-ui, sans-serif" font-size="34" font-weight="700" letter-spacing="-1.5">HorizonsAI</text>
+  <text x="200" y="348" text-anchor="middle" fill="#7B8FA3" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="500" letter-spacing="3">DEAL INTELLIGENCE</text>
+</svg>

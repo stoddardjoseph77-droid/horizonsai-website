@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+  body { font-family: 'Inter', system-ui, sans-serif; background: #000; display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+
+  .banner {
+    width: 1584px;
+    height: 396px;
+    background: #0B1622;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Noise */
+  .banner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  /* Grid bg */
+  .banner::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+    background-size: 64px 64px;
+    z-index: 0;
+  }
+
+  .glow {
+    position: absolute;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(232,234,237,0.035) 0%, transparent 60%);
+    top: -200px; left: 600px;
+    z-index: 0;
+  }
+
+  .content {
+    position: relative;
+    z-index: 10;
+    padding-left: 240px;
+    padding-right: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* ── Left: Text ── */
+  .text-side { max-width: 500px; }
+
+  .brand {
+    font-size: 11px;
+    font-weight: 600;
+    color: rgba(123,143,163,0.5);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  h1 {
+    font-size: 42px;
+    font-weight: 900;
+    color: #E8EAED;
+    line-height: 1.0;
+    letter-spacing: -0.04em;
+    margin-bottom: 14px;
+  }
+
+  .sub {
+    font-size: 14px;
+    color: #7B8FA3;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    max-width: 400px;
+  }
+
+  .cta-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 28px;
+    background: #E8EAED;
+    color: #0B1622;
+    font-size: 13px;
+    font-weight: 700;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(232,234,237,0.15), 0 0 60px rgba(232,234,237,0.06);
+  }
+  .url {
+    font-size: 12px;
+    color: rgba(123,143,163,0.4);
+    font-weight: 500;
+  }
+
+  /* ── Right: Dashboard + Detail Mockup ── */
+  .mockup-stack {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+    transform: perspective(1200px) rotateY(-2deg);
+  }
+
+  .card {
+    background: rgba(19,33,54,0.6);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.04), 0 25px 50px -12px rgba(0,0,0,0.4);
+  }
+
+  /* Detail card */
+  .detail-card {
+    width: 280px;
+  }
+  .detail-header {
+    padding: 8px 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .source-badge {
+    font-size: 8px;
+    font-weight: 600;
+    color: #E8EAED;
+    background: rgba(232,234,237,0.1);
+    padding: 2px 6px;
+    border-radius: 4px;
+    text-transform: uppercase;
+  }
+  .detail-title {
+    font-size: 9px;
+    font-weight: 600;
+    color: #E8EAED;
+  }
+  .detail-loc {
+    font-size: 8px;
+    color: rgba(123,143,163,0.4);
+    margin-left: auto;
+    font-family: 'SF Mono', monospace;
+  }
+  .detail-body { padding: 12px; }
+
+  /* Score ring */
+  .score-section {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .score-ring {
+    width: 52px; height: 52px;
+    flex-shrink: 0;
+    position: relative;
+  }
+  .score-ring svg { width: 100%; height: 100%; }
+  .score-ring-val {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .score-num {
+    font-size: 14px;
+    font-weight: 700;
+    color: #10B981;
+    font-family: 'SF Mono', monospace;
+    line-height: 1;
+  }
+  .score-label {
+    font-size: 6px;
+    color: rgba(123,143,163,0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .ai-text {
+    font-size: 8px;
+    color: #7B8FA3;
+    line-height: 1.5;
+  }
+  .confidence {
+    display: inline-block;
+    font-size: 7px;
+    font-weight: 700;
+    color: #10B981;
+    background: rgba(16,185,129,0.15);
+    padding: 1px 5px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  /* Metrics grid */
+  .metrics {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px 12px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    margin-top: 8px;
+  }
+  .metric-label {
+    font-size: 7px;
+    color: rgba(123,143,163,0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .metric-val {
+    font-size: 9px;
+    color: #E8EAED;
+    font-weight: 600;
+    font-family: 'SF Mono', monospace;
+  }
+
+  /* Table card */
+  .table-card {
+    width: 280px;
+  }
+  .table-header {
+    padding: 8px 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .table-title {
+    font-size: 9px;
+    color: #E8EAED;
+    font-weight: 600;
+  }
+  .table-count {
+    font-family: 'SF Mono', monospace;
+    font-variant-numeric: tabular-nums;
+  }
+  .table-filter {
+    display: flex; gap: 2px;
+  }
+  .filter-tab {
+    font-size: 7px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: rgba(123,143,163,0.4);
+    font-weight: 600;
+  }
+  .filter-tab.active {
+    color: #E8EAED;
+    background: rgba(255,255,255,0.05);
+  }
+  .t-row {
+    display: grid;
+    grid-template-columns: 1fr 48px 28px;
+    align-items: center;
+    padding: 5px 12px;
+    gap: 6px;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+  }
+  .t-row.new { background: rgba(16,185,129,0.04); }
+  .t-name {
+    font-size: 8px;
+    color: #E8EAED;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .t-loc { font-size: 7px; color: rgba(123,143,163,0.4); }
+  .t-bal {
+    font-size: 7px;
+    color: #7B8FA3;
+    font-family: 'SF Mono', monospace;
+    text-align: right;
+  }
+  .t-score {
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 7px;
+    font-weight: 700;
+    font-family: 'SF Mono', monospace;
+    justify-self: end;
+  }
+  .s-g { border: 1.5px solid rgba(16,185,129,0.4); color: #10B981; }
+  .s-y { border: 1.5px solid rgba(245,158,11,0.4); color: #F59E0B; }
+  .new-dot {
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: #10B981;
+    flex-shrink: 0;
+  }
+</style>
+</head>
+<body>
+<div class="banner">
+  <div class="glow"></div>
+  <div class="content">
+    <div class="text-side">
+      <div class="brand">HorizonsAI</div>
+      <h1>Find Distressed CRE<br>Deals Months Early</h1>
+      <p class="sub">AI monitors $5T+ in commercial debt across 50+ public sources. Every deal scored to your criteria.</p>
+      <div class="cta-row">
+        <div class="cta-btn">Book a Call</div>
+        <span class="url">horizonsai.co</span>
+      </div>
+    </div>
+
+    <div class="mockup-stack">
+      <!-- Property Detail -->
+      <div class="card detail-card">
+        <div class="detail-header">
+          <span class="source-badge">CMBS</span>
+          <span class="detail-title">One Liberty Plaza</span>
+          <span class="detail-loc">Manhattan, NY</span>
+        </div>
+        <div class="detail-body">
+          <div class="score-section">
+            <div class="score-ring">
+              <svg viewBox="0 0 52 52">
+                <circle cx="26" cy="26" r="22" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="3"/>
+                <circle cx="26" cy="26" r="22" fill="none" stroke="#10B981" stroke-width="3"
+                  stroke-linecap="round"
+                  stroke-dasharray="${2 * Math.PI * 22}"
+                  stroke-dashoffset="${2 * Math.PI * 22 * (1 - 0.92)}"
+                  transform="rotate(-90 26 26)"
+                  style="stroke-dasharray: 138.2; stroke-dashoffset: 11;"/>
+              </svg>
+              <div class="score-ring-val">
+                <span class="score-num">92</span>
+                <span class="score-label">Score</span>
+              </div>
+            </div>
+            <div>
+              <div class="confidence">High Confidence</div>
+              <div class="ai-text">CMBS special servicing transfer with 90+ day delinquency. Loan maturity default with declining NOI trajectory...</div>
+            </div>
+          </div>
+          <div class="metrics">
+            <div><div class="metric-label">Loan Balance</div><div class="metric-val">$142.5M</div></div>
+            <div><div class="metric-label">Severity</div><div class="metric-val" style="color:#EF4444">Critical</div></div>
+            <div><div class="metric-label">Asset Class</div><div class="metric-val">Office</div></div>
+            <div><div class="metric-label">Servicer</div><div class="metric-val">LNR</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pipeline Table -->
+      <div class="card table-card">
+        <div class="table-header">
+          <span class="table-title"><span class="table-count">2,847</span> opportunities</span>
+          <div class="table-filter">
+            <span class="filter-tab active">All</span>
+            <span class="filter-tab">New</span>
+            <span class="filter-tab">Critical</span>
+          </div>
+        </div>
+        <div class="t-row new">
+          <div>
+            <div class="t-name"><div class="new-dot"></div>One Liberty Plaza</div>
+            <div class="t-loc">Manhattan, NY &middot; Office</div>
+          </div>
+          <div class="t-bal">$142M</div>
+          <div class="t-score s-g">92</div>
+        </div>
+        <div class="t-row">
+          <div>
+            <div class="t-name">Westfield Valley Fair</div>
+            <div class="t-loc">San Jose, CA &middot; Retail</div>
+          </div>
+          <div class="t-bal">$89M</div>
+          <div class="t-score s-g">87</div>
+        </div>
+        <div class="t-row">
+          <div>
+            <div class="t-name">Park Place Tower</div>
+            <div class="t-loc">Chicago, IL &middot; Office</div>
+          </div>
+          <div class="t-bal">$67M</div>
+          <div class="t-score s-y">74</div>
+        </div>
+        <div class="t-row">
+          <div>
+            <div class="t-name">Harbor Point Industrial</div>
+            <div class="t-loc">Houston, TX &middot; Industrial</div>
+          </div>
+          <div class="t-bal">$38M</div>
+          <div class="t-score s-y">71</div>
+        </div>
+        <div class="t-row">
+          <div>
+            <div class="t-name">Grand Ave Retail Center</div>
+            <div class="t-loc">Los Angeles, CA &middot; Retail</div>
+          </div>
+          <div class="t-bal">$24M</div>
+          <div class="t-score s-y">68</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

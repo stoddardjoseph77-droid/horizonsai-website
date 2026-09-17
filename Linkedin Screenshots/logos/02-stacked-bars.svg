@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <rect width="400" height="400" rx="40" fill="#0B1622"/>
+  <!-- Three horizontal bars forming abstract H / data bars -->
+  <rect x="120" y="130" width="80" height="12" rx="3" fill="#E8EAED"/>
+  <rect x="120" y="160" width="160" height="12" rx="3" fill="#E8EAED"/>
+  <rect x="120" y="190" width="120" height="12" rx="3" fill="#E8EAED"/>
+  <!-- Right vertical connector -->
+  <rect x="268" y="130" width="12" height="72" rx="3" fill="#E8EAED" opacity="0.4"/>
+  <text x="200" y="280" text-anchor="middle" fill="#E8EAED" font-family="Inter, system-ui, sans-serif" font-size="34" font-weight="700" letter-spacing="-1.5">HorizonsAI</text>
+  <text x="200" y="310" text-anchor="middle" fill="#7B8FA3" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="500" letter-spacing="3">DEAL INTELLIGENCE</text>
+</svg>

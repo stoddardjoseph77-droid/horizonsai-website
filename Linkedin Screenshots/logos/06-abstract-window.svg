@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <rect width="400" height="400" rx="40" fill="#0B1622"/>
+  <!-- Rounded square with horizon line dividing it — like a dashboard panel -->
+  <rect x="130" y="100" width="140" height="140" rx="24" fill="none" stroke="#E8EAED" stroke-width="4"/>
+  <!-- Horizon line cutting through -->
+  <line x1="130" y1="175" x2="270" y2="175" stroke="#E8EAED" stroke-width="2.5"/>
+  <!-- Top half slightly brighter — like looking at the sky -->
+  <rect x="132" y="102" width="136" height="71" rx="22" fill="#E8EAED" opacity="0.04"/>
+  <!-- Small detail: tiny score-like circle in top-right of window -->
+  <circle cx="248" cy="132" r="10" fill="none" stroke="#E8EAED" stroke-width="2" opacity="0.35"/>
+  <text x="200" y="300" text-anchor="middle" fill="#E8EAED" font-family="Inter, system-ui, sans-serif" font-size="34" font-weight="700" letter-spacing="-1.5">HorizonsAI</text>
+  <text x="200" y="328" text-anchor="middle" fill="#7B8FA3" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="500" letter-spacing="3">DEAL INTELLIGENCE</text>
+</svg>

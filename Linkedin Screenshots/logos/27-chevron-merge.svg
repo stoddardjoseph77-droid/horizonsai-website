@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <!-- Multiple source lines merging into a single chevron — data consolidation -->
+  <rect width="400" height="400" rx="40" fill="#0B1622"/>
+  <!-- Source lines coming from the left -->
+  <line x1="100" y1="130" x2="180" y2="175" stroke="#E8EAED" stroke-width="2.5" stroke-linecap="round" opacity="0.2"/>
+  <line x1="100" y1="160" x2="180" y2="175" stroke="#E8EAED" stroke-width="2.5" stroke-linecap="round" opacity="0.3"/>
+  <line x1="100" y1="190" x2="180" y2="175" stroke="#E8EAED" stroke-width="2.5" stroke-linecap="round" opacity="0.25"/>
+  <line x1="100" y1="220" x2="180" y2="175" stroke="#E8EAED" stroke-width="2.5" stroke-linecap="round" opacity="0.15"/>
+  <!-- Merge point -->
+  <circle cx="180" cy="175" r="5" fill="#E8EAED" opacity="0.5"/>
+  <!-- Output chevrons — refined, scored -->
+  <polyline points="200,145 240,175 200,205" fill="none" stroke="#E8EAED" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+  <polyline points="240,145 280,175 240,205" fill="none" stroke="#E8EAED" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Delivery dot -->
+  <circle cx="300" cy="175" r="6" fill="#E8EAED"/>
+  <text x="200" y="295" text-anchor="middle" fill="#E8EAED" font-family="Inter, system-ui, sans-serif" font-size="34" font-weight="700" letter-spacing="-1.5">HorizonsAI</text>
+  <text x="200" y="323" text-anchor="middle" fill="#7B8FA3" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="500" letter-spacing="3">DEAL INTELLIGENCE</text>
+</svg>

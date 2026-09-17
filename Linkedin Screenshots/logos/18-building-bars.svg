@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <!-- Style 18: Vertical bars like a city skyline / bar chart -->
+  <rect width="400" height="400" rx="40" fill="#0B1622"/>
+  <!-- Skyline bars, varying heights -->
+  <rect x="130" y="175" width="22" height="70" rx="3" fill="#E8EAED" opacity="0.3"/>
+  <rect x="160" y="145" width="22" height="100" rx="3" fill="#E8EAED" opacity="0.5"/>
+  <rect x="190" y="110" width="22" height="135" rx="3" fill="#E8EAED"/>
+  <rect x="220" y="155" width="22" height="90" rx="3" fill="#E8EAED" opacity="0.6"/>
+  <rect x="250" y="130" width="22" height="115" rx="3" fill="#E8EAED" opacity="0.4"/>
+  <!-- Baseline -->
+  <line x1="120" y1="248" x2="282" y2="248" stroke="#E8EAED" stroke-width="2" opacity="0.15"/>
+  <text x="200" y="310" text-anchor="middle" fill="#E8EAED" font-family="Inter, system-ui, sans-serif" font-size="34" font-weight="700" letter-spacing="-1.5">HorizonsAI</text>
+  <text x="200" y="338" text-anchor="middle" fill="#7B8FA3" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="500" letter-spacing="3">DEAL INTELLIGENCE</text>
+</svg>

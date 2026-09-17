@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+  body { font-family: 'Inter', system-ui, sans-serif; background: #000; display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+
+  .banner {
+    width: 1584px;
+    height: 396px;
+    background: #0B1622;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Noise */
+  .banner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .glow-1 {
+    position: absolute;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(232,234,237,0.025) 0%, transparent 60%);
+    top: -250px; right: 500px;
+  }
+
+  .content {
+    position: relative;
+    z-index: 10;
+    padding-left: 240px;
+    padding-right: 40px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    gap: 40px;
+  }
+
+  /* ── Left: Centered text ── */
+  .center-block {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    border-radius: 100px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.06);
+    margin-bottom: 14px;
+    width: fit-content;
+  }
+  .pill-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: #10B981;
+  }
+  .pill-text {
+    font-size: 10px;
+    font-weight: 600;
+    color: #7B8FA3;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  h1 {
+    font-size: 40px;
+    font-weight: 800;
+    color: #E8EAED;
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+    margin-bottom: 10px;
+  }
+
+  .sub {
+    font-size: 13px;
+    color: #7B8FA3;
+    line-height: 1.55;
+    max-width: 420px;
+    margin-bottom: 20px;
+  }
+
+  .cta-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 28px;
+    background: #E8EAED;
+    color: #0B1622;
+    font-size: 13px;
+    font-weight: 700;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(232,234,237,0.15), 0 0 60px rgba(232,234,237,0.06);
+  }
+  .url {
+    font-size: 12px;
+    color: rgba(123,143,163,0.4);
+    font-weight: 500;
+  }
+
+  /* ── Right: Full dashboard mockup ── */
+  .mockup {
+    width: 520px;
+    flex-shrink: 0;
+    background: rgba(19,33,54,0.6);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.04), 0 25px 50px -12px rgba(0,0,0,0.5);
+  }
+
+  /* Top bar */
+  .m-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 7px 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .m-bar-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .m-logo {
+    font-size: 10px;
+    font-weight: 700;
+    color: #E8EAED;
+  }
+  .m-nav {
+    display: flex; gap: 2px;
+  }
+  .m-nav-item {
+    font-size: 7px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 3px 7px;
+    border-radius: 5px;
+    color: rgba(123,143,163,0.4);
+    font-weight: 600;
+  }
+  .m-nav-item.active {
+    color: #E8EAED;
+    background: rgba(255,255,255,0.05);
+  }
+  .live {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .live-dot {
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: #10B981;
+    box-shadow: 0 0 6px rgba(16,185,129,0.4);
+  }
+  .live-text {
+    font-size: 7px;
+    color: #10B981;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-family: monospace;
+  }
+
+  /* Greeting */
+  .m-greeting {
+    padding: 10px 14px 8px;
+  }
+  .m-greeting-text {
+    font-size: 11px;
+    color: #E8EAED;
+    font-weight: 500;
+  }
+  .m-greeting-date {
+    font-size: 8px;
+    color: rgba(123,143,163,0.4);
+    font-family: monospace;
+    margin-top: 2px;
+  }
+
+  /* Metric pills */
+  .m-pills {
+    display: flex;
+    gap: 5px;
+    padding: 0 14px 8px;
+    flex-wrap: wrap;
+  }
+  .m-pill {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 8px;
+    border-radius: 5px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.05);
+  }
+  .m-pill-dot {
+    width: 4px; height: 4px;
+    border-radius: 50%;
+  }
+  .m-pill-count {
+    font-size: 9px;
+    font-weight: 600;
+    color: #E8EAED;
+    font-family: monospace;
+    font-variant-numeric: tabular-nums;
+  }
+  .m-pill-label {
+    font-size: 7px;
+    color: rgba(123,143,163,0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  /* Two-column: watchlist + AI picks */
+  .m-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+  .m-col {
+    padding: 8px 12px;
+  }
+  .m-col:first-child {
+    border-right: 1px solid rgba(255,255,255,0.05);
+  }
+  .m-col-title {
+    font-size: 7px;
+    color: rgba(123,143,163,0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .m-col-title span { font-size: 8px; }
+
+  .m-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 6px;
+    border-radius: 6px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.04);
+    margin-bottom: 3px;
+  }
+  .m-item-name {
+    font-size: 8px;
+    color: #E8EAED;
+    font-weight: 500;
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .m-item-loc {
+    font-size: 7px;
+    color: rgba(123,143,163,0.4);
+  }
+  .m-item-bal {
+    font-size: 7px;
+    color: rgba(123,143,163,0.5);
+    font-family: monospace;
+  }
+
+  /* Mini score ring */
+  .mini-ring {
+    width: 22px; height: 22px;
+    flex-shrink: 0;
+    position: relative;
+  }
+  .mini-ring svg { width: 100%; height: 100%; }
+  .mini-ring-val {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 7px;
+    font-weight: 700;
+    color: #10B981;
+    font-family: monospace;
+  }
+</style>
+</head>
+<body>
+<div class="banner">
+  <div class="glow-1"></div>
+
+  <div class="content">
+    <div class="center-block">
+      <div class="pill">
+        <div class="pill-dot"></div>
+        <span class="pill-text">AI Deal Intelligence</span>
+      </div>
+      <h1>Source Off-Market CRE<br>Deals Before Anyone Else</h1>
+      <p class="sub">We monitor $5T+ in commercial debt to surface distressed opportunities months before your competitors find them.</p>
+      <div class="cta-row">
+        <div class="cta-btn">Book a Call</div>
+        <span class="url">horizonsai.co</span>
+      </div>
+    </div>
+
+    <div class="mockup">
+      <div class="m-bar">
+        <div class="m-bar-left">
+          <span class="m-logo">HorizonsAI</span>
+          <div class="m-nav">
+            <span class="m-nav-item active">Briefing</span>
+            <span class="m-nav-item">Pipeline</span>
+            <span class="m-nav-item">Map</span>
+            <span class="m-nav-item">Intel</span>
+          </div>
+        </div>
+        <div class="live">
+          <div class="live-dot"></div>
+          <span class="live-text">Live</span>
+        </div>
+      </div>
+
+      <div class="m-greeting">
+        <div class="m-greeting-text">Good morning, Joey</div>
+        <div class="m-greeting-date">Friday, Mar 28 2026 &middot; 09:14 AM</div>
+      </div>
+
+      <div class="m-pills">
+        <div class="m-pill">
+          <div class="m-pill-dot" style="background:#10B981"></div>
+          <span class="m-pill-count">12</span>
+          <span class="m-pill-label">New</span>
+        </div>
+        <div class="m-pill">
+          <div class="m-pill-dot" style="background:#E8EAED"></div>
+          <span class="m-pill-count">8</span>
+          <span class="m-pill-label">Reviewing</span>
+        </div>
+        <div class="m-pill">
+          <div class="m-pill-dot" style="background:#EF4444"></div>
+          <span class="m-pill-count">3</span>
+          <span class="m-pill-label">Price Drops</span>
+        </div>
+        <div class="m-pill">
+          <div class="m-pill-dot" style="background:#E8EAED"></div>
+          <span class="m-pill-count">5</span>
+          <span class="m-pill-label">Watchlisted</span>
+        </div>
+      </div>
+
+      <div class="m-cols">
+        <div class="m-col">
+          <div class="m-col-title"><span>&#9733;</span> Watchlist</div>
+          <div class="m-item">
+            <div class="m-item-name">One Liberty Plaza</div>
+            <div class="m-item-loc">NYC</div>
+            <div class="mini-ring">
+              <svg viewBox="0 0 22 22"><circle cx="11" cy="11" r="9" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="2"/><circle cx="11" cy="11" r="9" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-dasharray="56.5" stroke-dashoffset="4.5" transform="rotate(-90 11 11)"/></svg>
+              <div class="mini-ring-val">92</div>
+            </div>
+          </div>
+          <div class="m-item">
+            <div class="m-item-name">Westfield Valley Fair</div>
+            <div class="m-item-loc">CA</div>
+            <div class="mini-ring">
+              <svg viewBox="0 0 22 22"><circle cx="11" cy="11" r="9" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="2"/><circle cx="11" cy="11" r="9" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-dasharray="56.5" stroke-dashoffset="7.3" transform="rotate(-90 11 11)"/></svg>
+              <div class="mini-ring-val">87</div>
+            </div>
+          </div>
+          <div class="m-item">
+            <div class="m-item-name">Park Place Tower</div>
+            <div class="m-item-loc">IL</div>
+            <div class="mini-ring">
+              <svg viewBox="0 0 22 22"><circle cx="11" cy="11" r="9" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="2"/><circle cx="11" cy="11" r="9" fill="none" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" stroke-dasharray="56.5" stroke-dashoffset="14.7" transform="rotate(-90 11 11)"/></svg>
+              <div class="mini-ring-val" style="color:#F59E0B">74</div>
+            </div>
+          </div>
+        </div>
+        <div class="m-col">
+          <div class="m-col-title">AI Top Picks</div>
+          <div class="m-item">
+            <div class="m-item-name">Grand Ave Retail</div>
+            <div class="m-item-bal">$24M</div>
+            <div class="mini-ring">
+              <svg viewBox="0 0 22 22"><circle cx="11" cy="11" r="9" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="2"/><circle cx="11" cy="11" r="9" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-dasharray="56.5" stroke-dashoffset="5.1" transform="rotate(-90 11 11)"/></svg>
+              <div class="mini-ring-val">91</div>
+            </div>
+          </div>
+          <div class="m-item">
+            <div class="m-item-name">Harbor Point Ind.</div>
+            <div class="m-item-bal">$38M</div>
+            <div class="mini-ring">
+              <svg viewBox="0 0 22 22"><circle cx="11" cy="11" r="9" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="2"/><circle cx="11" cy="11" r="9" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-dasharray="56.5" stroke-dashoffset="6.2" transform="rotate(-90 11 11)"/></svg>
+              <div class="mini-ring-val">89</div>
+            </div>
+          </div>
+          <div class="m-item">
+            <div class="m-item-name">Summit Office Park</div>
+            <div class="m-item-bal">$52M</div>
+            <div class="mini-ring">
+              <svg viewBox="0 0 22 22"><circle cx="11" cy="11" r="9" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="2"/><circle cx="11" cy="11" r="9" fill="none" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" stroke-dasharray="56.5" stroke-dashoffset="13" transform="rotate(-90 11 11)"/></svg>
+              <div class="mini-ring-val" style="color:#F59E0B">77</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

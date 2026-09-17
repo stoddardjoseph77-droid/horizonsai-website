@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <!-- Style 15: Hexagon with H inside — tech/data feel -->
+  <rect width="400" height="400" rx="40" fill="#0B1622"/>
+  <polygon points="200,100 268,135 268,215 200,250 132,215 132,135" fill="none" stroke="#E8EAED" stroke-width="3.5"/>
+  <!-- H inside -->
+  <path d="M168 145 L168 205 M168 175 L232 175 M232 145 L232 205" fill="none" stroke="#E8EAED" stroke-width="6" stroke-linecap="round"/>
+  <text x="200" y="315" text-anchor="middle" fill="#E8EAED" font-family="Inter, system-ui, sans-serif" font-size="34" font-weight="700" letter-spacing="-1.5">HorizonsAI</text>
+  <text x="200" y="343" text-anchor="middle" fill="#7B8FA3" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="500" letter-spacing="3">DEAL INTELLIGENCE</text>
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <rect width="512" height="512" rx="96" fill="#0B1622"/>
+  <!-- Three chevrons with progressive opacity — forward momentum / data filtering -->
+  <polyline points="176,155 256,215 176,275" fill="none" stroke="#E8EAED" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity="0.18"/>
+  <polyline points="220,155 300,215 220,275" fill="none" stroke="#E8EAED" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity="0.48"/>
+  <polyline points="264,155 344,215 264,275" fill="none" stroke="#E8EAED" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="256" y="380" text-anchor="middle" fill="#E8EAED" font-family="Inter, system-ui, sans-serif" font-size="44" font-weight="700" letter-spacing="-2">HorizonsAI</text>
+  <text x="256" y="416" text-anchor="middle" fill="#7B8FA3" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="500" letter-spacing="4">DEAL INTELLIGENCE</text>
+</svg>
