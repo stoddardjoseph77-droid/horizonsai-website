@@ -379,52 +379,52 @@ export default function HomePage() {
     <div className="wrap">
       <div className="sec-head"><span className="sec-n">05 / Why us</span><span className="sec-r"></span></div>
       <h2 className="h2 display">Against the other three ways to find a deal.</h2>
-      <p className="lede">You already have brokers, you have probably bought a list, and you could hire for this. Here is where each one actually lands.</p>
+      <p className="lede">You already work with brokers, you have probably bought a list, and you could hire for this. Here is where each channel lands.</p>
 
       <div className="cmp-w">
         <table className="cmp">
           <thead>
             <tr>
-              <th scope="col"> </th>
+              <th scope="col"> </th>
               <th scope="col" className="us">HorizonsAI</th>
-              <th scope="col">Broker relationships</th>
+              <th scope="col">Broker-marketed deals</th>
               <th scope="col">A bought list</th>
               <th scope="col">Hiring an analyst</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <th scope="row" className="row">Reaches you pre-listing</th>
-              <td data-k="HorizonsAI" className="us">Months ahead</td><td data-k="Broker relationships" data-m="Brokers">Only where the relationship is strong</td><td data-k="A bought list" data-m="Bought list">No, it is scraped after the fact</td><td data-k="Hiring an analyst" data-m="An analyst">Yes, at the pace one person can read</td>
+              <th scope="row" className="row">When you hear about it</th>
+              <td data-k="HorizonsAI" className="us">Months before it is marketed</td><td data-k="Broker-marketed deals" data-m="Broker deals">When it goes to market</td><td data-k="A bought list" data-m="Bought list">After the fact</td><td data-k="Hiring an analyst" data-m="An analyst">As fast as one person can read</td>
             </tr>
             <tr>
-              <th scope="row" className="row">Built to your buy box</th>
-              <td data-k="HorizonsAI" className="us">Configured to your criteria</td><td data-k="Broker relationships" data-m="Brokers">Partly — they show what they have</td><td data-k="A bought list" data-m="Bought list">No, the same file goes to everyone</td><td data-k="Hiring an analyst" data-m="An analyst">Yes</td>
+              <th scope="row" className="row">Matched to your criteria</th>
+              <td data-k="HorizonsAI" className="us">Configured to your buy box</td><td data-k="Broker-marketed deals" data-m="Broker deals">Whatever is being marketed</td><td data-k="A bought list" data-m="Bought list">The same file everyone gets</td><td data-k="Hiring an analyst" data-m="An analyst">Yes</td>
             </tr>
             <tr>
-              <th scope="row" className="row">Exclusive to you</th>
-              <td data-k="HorizonsAI" className="us">Yes, per market</td><td data-k="Broker relationships" data-m="Brokers">No</td><td data-k="A bought list" data-m="Bought list">No</td><td data-k="Hiring an analyst" data-m="An analyst">Yes</td>
+              <th scope="row" className="row">Who else is looking at it</th>
+              <td data-k="HorizonsAI" className="us">Yours alone, per market</td><td data-k="Broker-marketed deals" data-m="Broker deals">Every firm on the list</td><td data-k="A bought list" data-m="Bought list">Everyone who bought it</td><td data-k="Hiring an analyst" data-m="An analyst">Yours alone</td>
             </tr>
             <tr>
-              <th scope="row" className="row">Owner contact</th>
-              <td data-k="HorizonsAI" className="us">Named human, corroborated</td><td data-k="Broker relationships" data-m="Brokers">They hold the relationship</td><td data-k="A bought list" data-m="Bought list">Often an LLC and an agent address</td><td data-k="Hiring an analyst" data-m="An analyst">Manual, a week per deal</td>
+              <th scope="row" className="row">Who you contact</th>
+              <td data-k="HorizonsAI" className="us">Named owner, corroborated</td><td data-k="Broker-marketed deals" data-m="Broker deals">The broker</td><td data-k="A bought list" data-m="Bought list">Often an LLC and an agent address</td><td data-k="Hiring an analyst" data-m="An analyst">Manual, about a week per deal</td>
             </tr>
             <tr>
-              <th scope="row" className="row">Where the number came from</th>
-              <td data-k="HorizonsAI" className="us">Linked to the filing</td><td data-k="Broker relationships" data-m="Brokers">Verbal</td><td data-k="A bought list" data-m="Bought list">Unsourced</td><td data-k="Hiring an analyst" data-m="An analyst">Depends who you hired</td>
+              <th scope="row" className="row">Where the figures come from</th>
+              <td data-k="HorizonsAI" className="us">Linked to the filing</td><td data-k="Broker-marketed deals" data-m="Broker deals">The marketing package</td><td data-k="A bought list" data-m="Bought list">Unsourced</td><td data-k="Hiring an analyst" data-m="An analyst">Depends who you hired</td>
             </tr>
             <tr>
-              <th scope="row" className="row">Question the whole book</th>
-              <td data-k="HorizonsAI" className="us">Ask it, any hour</td><td data-k="Broker relationships" data-m="Brokers">You call and wait</td><td data-k="A bought list" data-m="Bought list">No, it is a file</td><td data-k="Hiring an analyst" data-m="An analyst">Yes, when they are free</td>
+              <th scope="row" className="row">Asking a follow-up question</th>
+              <td data-k="HorizonsAI" className="us">Ask the assistant, any hour</td><td data-k="Broker-marketed deals" data-m="Broker deals">Call and wait for a reply</td><td data-k="A bought list" data-m="Bought list">It is a static file</td><td data-k="Hiring an analyst" data-m="An analyst">When they are at their desk</td>
             </tr>
             <tr>
-              <th scope="row" className="row">Cost</th>
-              <td data-k="HorizonsAI" className="us">Fixed monthly, no fee on the trade</td><td data-k="Broker relationships" data-m="Brokers">Commission on what you buy</td><td data-k="A bought list" data-m="Bought list">Per file</td><td data-k="Hiring an analyst" data-m="An analyst">Salary, benefits, ramp</td>
+              <th scope="row" className="row">What it costs</th>
+              <td data-k="HorizonsAI" className="us">Fixed monthly, no fee on the trade</td><td data-k="Broker-marketed deals" data-m="Broker deals">Commission on the trade</td><td data-k="A bought list" data-m="Bought list">Per file</td><td data-k="Hiring an analyst" data-m="An analyst">Salary, benefits, ramp time</td>
             </tr>
           </tbody>
         </table>
       </div>
-      <p className="cmp-n">We are not arguing you drop your brokers. Most of our clients run this alongside them — it changes which calls they are making.</p>
+      <p className="cmp-n">This runs alongside your broker relationships, not instead of them. It changes which calls you make first.</p>
     </div>
   </section>
 
