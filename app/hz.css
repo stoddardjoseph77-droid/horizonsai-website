@@ -466,3 +466,20 @@
   .cmp tbody tr td:last-child{padding-bottom:10px}
   .cmp-n{margin-top:14px}
 }
+
+/* ── footer contact ── */
+.ftr-c{
+  display:flex;flex-wrap:wrap;gap:2px 26px;align-items:center;
+  margin-top:18px;padding-top:16px;border-top:1px solid var(--rule-soft);
+}
+.ftr-c a{
+  font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;
+  color:var(--ink-2);text-decoration:underline;
+  text-decoration-color:var(--rule);text-decoration-thickness:1px;
+  text-underline-offset:4px;
+}
+.ftr-c a:hover{color:var(--bronze-d);text-decoration-color:var(--bronze)}
+@media(max-width:700px){
+  .ftr-c{gap:0 22px}
+  .ftr-c a{display:inline-flex;align-items:center;min-height:44px}
+}

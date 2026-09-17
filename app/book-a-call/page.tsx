@@ -36,6 +36,7 @@ export default function Page() {
         </ul>
         <p className="bk-real">No deck. A straight conversation about what you buy, and whether we can find it.</p>
         <p className="bk-note">We don’t broker. No fee on anything you buy.</p>
+        <p className="bk-direct"><span className="bk-direct-l">Or skip the calendar</span><a href="mailto:joey@horizonsai.co">joey@horizonsai.co</a><span className="bk-direct-s">·</span><a href="tel:+16167233848">616-723-3848</a></p>
       </div>
       <div className="bk-r">
         <img src="/img/hz-667f07b1.jpg" alt="Loading dock elevation of a single-tenant distribution warehouse" />
@@ -53,9 +54,9 @@ export default function Page() {
         </div>
         <div className="cal-live">
           <div className="cal-month">
-            <div className="cal-mh"><span>September 2026</span><span className="cal-nav">‹  ›</span></div>
+            <div className="cal-mh"><span id="cal-mlabel">—</span><span className="cal-nav"><button type="button" id="cal-prev" aria-label="Previous month">‹</button><button type="button" id="cal-next" aria-label="Next month">›</button></span></div>
             <div className="cal-dow"><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span></div>
-            <div className="cal-days"><span></span><span></span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><button className="day" type="button" data-d="17" aria-pressed="false">17</button><span>18</span><span>19</span><span>20</span><button className="day" type="button" data-d="21" aria-pressed="false">21</button><button className="day" type="button" data-d="22" aria-pressed="false">22</button><button className="day" type="button" data-d="23" aria-pressed="false">23</button><button className="day" type="button" data-d="24" aria-pressed="false">24</button><span>25</span><span>26</span><span>27</span><button className="day" type="button" data-d="28" aria-pressed="false">28</button><button className="day" type="button" data-d="29" aria-pressed="false">29</button><button className="day" type="button" data-d="30" aria-pressed="false">30</button><span></span><span></span><span></span></div>
+            <div className="cal-days" id="cal-grid"></div>
           </div>
           <div className="cal-times">
             <p className="label label-q" id="cal-day">Select a date</p>
@@ -73,6 +74,10 @@ export default function Page() {
     <div className="ftr-in">
       <p className="label label-q">HorizonsAI · Commercial Real Estate Intelligence</p>
       <div className="ftr-l"><a href="/">Home</a></div>
+    </div>
+    <div className="ftr-c">
+      <a href="mailto:joey@horizonsai.co">joey@horizonsai.co</a>
+      <a href="tel:+16167233848">616-723-3848</a>
     </div>
   </div>
 </footer>
