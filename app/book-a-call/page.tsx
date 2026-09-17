@@ -3,6 +3,7 @@ import CalendlyTracker from "@/components/CalendlyTracker";
 import CalEmbed from "@/components/CalEmbed";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/book-a-call" },
   title: "Book a Call | HorizonsAI",
   description:
     "Book a 30-minute discovery call with HorizonsAI. No commitment required.",

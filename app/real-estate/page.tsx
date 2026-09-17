@@ -29,6 +29,7 @@ import EngagementTracker from "@/components/EngagementTracker";
 import { EVENTS } from "@/lib/analytics";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/real-estate" },
   title: "Real Estate Agencies | HorizonsAI",
   description: RE_HERO.subtext,
 };

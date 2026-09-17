@@ -12,9 +12,6 @@ export const metadata: Metadata = {
   title: "HorizonsAI | Distressed CRE Deal Intelligence",
   description:
     "We monitor SEC filings, county records, and CRE news to surface distressed opportunities before your competitors find them.",
-  alternates: {
-    canonical: "/commercial",
-  },
   robots: {
     index: true,
     follow: true,

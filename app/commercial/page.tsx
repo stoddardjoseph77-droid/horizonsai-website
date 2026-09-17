@@ -27,6 +27,7 @@ import EngagementTracker from "@/components/EngagementTracker";
 import { EVENTS } from "@/lib/analytics";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/commercial" },
   title: "HorizonsAI | AI Deal Intelligence for Commercial Real Estate",
   description: CRE_HERO.subtext,
 };
