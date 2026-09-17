@@ -473,7 +473,7 @@ export default function HomePage() {
   <div className="wrap">
     <div className="ftr-in">
       <p className="label label-q">HorizonsAI · Commercial Real Estate Intelligence</p>
-      <div className="ftr-l"><a href="#process">Process</a><a href="#benefits">What it means</a><a href="#signals-link">What we see</a><a href="#delivery">What you get</a><a href="#compare">Why us</a><a href="#faq">Questions</a></div>
+      <div className="ftr-l"><a href="#process">Process</a><a href="#benefits">What it means</a><a href="/how-we-find-deals">What we see</a><a href="#delivery">What you get</a><a href="#compare">Why us</a><a href="#faq">Questions</a></div>
     </div>
     <div className="ftr-c">
       <a href="mailto:joey@horizonsai.co">joey@horizonsai.co</a>
