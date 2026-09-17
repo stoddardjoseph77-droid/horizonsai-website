@@ -90,3 +90,47 @@ export function CommercialSchema() {
     />
   );
 }
+
+/** Article + breadcrumb for the signals page.
+ *  It carries the site's only substantial body of explanatory content and
+ *  had no structured data at all, which left it the least legible page to
+ *  both Google and the AI crawlers already quoting the brand. */
+export function SignalsSchema() {
+  const url = `${BASE}/how-we-find-deals`;
+  const data = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "@id": `${url}#article`,
+        headline: "Where off-market commercial real estate signals come from",
+        description:
+          "The public records we read before a commercial property is listed: ownership and succession, pressure on title, the debt, and how the asset is running.",
+        mainEntityOfPage: url,
+        author: { "@id": `${BASE}/#organization` },
+        publisher: { "@id": `${BASE}/#organization` },
+        about: [
+          { "@type": "Thing", name: "Off-market commercial real estate" },
+          { "@type": "Thing", name: "Public records research" },
+          { "@type": "Thing", name: "Commercial real estate acquisitions" },
+        ],
+        isPartOf: { "@id": `${BASE}/#website` },
+        inLanguage: "en-US",
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${url}#breadcrumb`,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: BASE },
+          { "@type": "ListItem", position: 2, name: "How we find deals", item: url },
+        ],
+      },
+    ],
+  };
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+}

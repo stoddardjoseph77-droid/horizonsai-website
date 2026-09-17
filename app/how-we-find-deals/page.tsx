@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import { SignalsSchema } from "@/components/StructuredData";
 import "../hz.css";
 
 export const metadata: Metadata = {
@@ -25,6 +26,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <div className="hz">
+      <SignalsSchema />
       <Script src="/hz.js" strategy="afterInteractive" />
 <header className="hdr">
   <div className="wrap hdr-in">
