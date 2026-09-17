@@ -69,24 +69,3 @@
 @media(max-width:700px){
   .cal-nav button{min-height:44px;min-width:44px;display:inline-flex;align-items:center;justify-content:center}
 }
-
-/* direct contact, for anyone who would rather not use the calendar */
-.bk-direct{
-  display:flex;flex-wrap:wrap;align-items:baseline;gap:0 9px;
-  margin-top:18px;font-size:14px;color:var(--ink-2);
-}
-.bk-direct-l::after{content:"\2009\2014"}
-.bk-direct-s{color:var(--ink-3)}
-.bk-direct a{
-  color:var(--ink);text-decoration:underline;white-space:nowrap;
-  text-decoration-color:var(--rule);text-decoration-thickness:1px;
-  text-underline-offset:4px;
-}
-.bk-direct a:hover{color:var(--bronze-d);text-decoration-color:var(--bronze)}
-@media(max-width:700px){
-  /* stacking beats a dangling separator at the end of a wrapped line */
-  .bk-direct{flex-direction:column;align-items:flex-start;gap:0}
-  .bk-direct-l::after{content:none}
-  .bk-direct-s{display:none}
-  .bk-direct a{display:inline-flex;align-items:center;min-height:40px}
-}

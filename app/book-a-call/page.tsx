@@ -36,7 +36,6 @@ export default function Page() {
         </ul>
         <p className="bk-real">No deck. A straight conversation about what you buy, and whether we can find it.</p>
         <p className="bk-note">We don’t broker. No fee on anything you buy.</p>
-        <p className="bk-direct"><span className="bk-direct-l">Or skip the calendar</span><a href="mailto:joey@horizonsai.co">joey@horizonsai.co</a><span className="bk-direct-s">·</span><a href="tel:+16167233848">616-723-3848</a></p>
       </div>
       <div className="bk-r">
         <img src="/img/hz-667f07b1.jpg" alt="Loading dock elevation of a single-tenant distribution warehouse" />
