@@ -4,7 +4,7 @@ import { CommercialSchema } from "@/components/StructuredData";
 import "./hz.css";
 
 export const metadata: Metadata = {
-  title: "HorizonsAI | Off-Market CRE Deal Sourcing",
+  title: "Off-Market Commercial Real Estate Deal Sourcing | HorizonsAI",
   description:
     "Off-market commercial real estate deal sourcing. We read public filings and county records months before a property is listed, scored to your buy box.",
   alternates: { canonical: "/" },

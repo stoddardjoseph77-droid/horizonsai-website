@@ -4,7 +4,7 @@ import "../hz.css";
 import "./bk.css";
 
 export const metadata: Metadata = {
-  title: "Book a Call | HorizonsAI",
+  title: "Book a CRE Deal Sourcing Call | HorizonsAI",
   description: "Bring your buy box. We will tell you where our coverage is strong in your markets and whether your niche fits.",
   alternates: { canonical: "/book-a-call" },
   openGraph: {

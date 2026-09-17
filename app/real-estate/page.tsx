@@ -32,7 +32,10 @@ import { EVENTS } from "@/lib/analytics";
 export const metadata: Metadata = {
   alternates: { canonical: "/real-estate" },
   title: "Real Estate Agencies | HorizonsAI",
-  description: RE_HERO.subtext,
+  description: RE_HERO.subtext,  /* The residential service line is retired. Kept reachable so any old
+     inbound link still resolves, but out of the index so it stops
+     competing with the commercial pages for topical relevance. */
+  robots: { index: false, follow: true },
 };
 
 export default function RealEstatePage() {

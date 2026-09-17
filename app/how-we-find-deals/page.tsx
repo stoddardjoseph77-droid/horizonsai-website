@@ -3,7 +3,7 @@ import Script from "next/script";
 import "../hz.css";
 
 export const metadata: Metadata = {
-  title: "How We Find Deals | HorizonsAI",
+  title: "How We Find Off-Market CRE Deals | 30+ Public Record Signals",
   description: "The public records we read before a commercial property is listed: ownership and succession, pressure on title, the debt, and how the asset is running.",
   alternates: { canonical: "/how-we-find-deals" },
   openGraph: {
