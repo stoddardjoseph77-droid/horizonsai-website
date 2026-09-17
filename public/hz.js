@@ -347,10 +347,18 @@ function drawDealMap(cv, img){
   c.fillStyle='rgba(247,247,245,.58)'; c.fillRect(0,0,w,h);
   function X(u){ return ox+u*dw; } function Y(v){ return oy+v*dh; }
 
+  /* Below ~560px the label positions below, which are tuned for a wide
+     canvas, run off the edge and collide with each other. NARROW shortens
+     the text and clamps every label inside the frame. */
+  var NARROW = w < 560;
   function lbl(x,y,text,strong,align){
-    c.font=(strong?'500 ':'500 ')+(strong?11:10)+'px "IBM Plex Mono", ui-monospace, monospace';
+    c.font='500 '+(strong?11:10)+'px "IBM Plex Mono", ui-monospace, monospace';
     try{ c.letterSpacing=strong?'.12em':'.16em'; }catch(e){}
     var tw=c.measureText(text).width, px=(align==='right')?x-tw-14:x;
+    if(NARROW){
+      px=Math.max(4, Math.min(px, w-tw-18));
+      y =Math.max(14, Math.min(y, h-8));
+    }
     c.fillStyle='rgba(247,247,245,.94)'; c.fillRect(px,y-12,tw+14,19);
     c.fillStyle=strong?INK:INK2; c.fillText(text,px+7,y+2);
     try{ c.letterSpacing='0px'; }catch(e){}
@@ -364,7 +372,7 @@ function drawDealMap(cv, img){
   c.closePath(); c.fill();
   c.strokeStyle='rgba(19,20,22,.22)'; c.lineWidth=1; c.setLineDash([5,4]);
   c.beginPath(); c.moveTo(X(0),Y(0.86)); c.lineTo(X(0.34),Y(0.78)); c.stroke(); c.setLineDash([]);
-  lbl(X(0.02),Y(0.94),'FEMA ZONE AE');
+  lbl(X(0.02), NARROW?Y(0.72):Y(0.94), 'FEMA ZONE AE');
 
   /* ── rail spur ── */
   c.strokeStyle='rgba(19,20,22,.42)'; c.lineWidth=1.6;
@@ -373,7 +381,7 @@ function drawDealMap(cv, img){
     var u=0.02+(0.96*i/26), vx=X(u), vy=Y(0.115-(0.06*i/26));
     c.beginPath(); c.moveTo(vx,vy-4); c.lineTo(vx,vy+4); c.stroke();
   }
-  lbl(X(0.62),Y(0.075),'NS RAIL SPUR · 0.3 MI');
+  lbl(NARROW?X(0.40):X(0.62), Y(0.075), NARROW?'RAIL · 0.3 MI':'NS RAIL SPUR · 0.3 MI');
 
   /* ── the subject parcel ── */
   var sx=X(0.589), sy=Y(0.433), sw=dw*0.128, sh=dh*0.213;
@@ -385,7 +393,7 @@ function drawDealMap(cv, img){
     c.lineWidth=3; c.beginPath();
     c.moveTo(q[0]+q[2]*k,q[1]); c.lineTo(q[0],q[1]); c.lineTo(q[0],q[1]+q[3]*k); c.stroke();
   });
-  lbl(sx, sy-8, 'SUBJECT · 214,000 SF · 9.4 AC', true);
+  lbl(sx, sy-8, NARROW?'SUBJECT':'SUBJECT · 214,000 SF · 9.4 AC', true);
 
   /* ── comparables ── */
   var comps=[[0.255,0.300,'$6.90/SF'],[0.815,0.365,'$7.35/SF'],[0.365,0.755,'$6.75/SF']];
@@ -394,7 +402,10 @@ function drawDealMap(cv, img){
     c.strokeStyle='rgba(19,20,22,.65)'; c.lineWidth=1.5;
     c.strokeRect(px-r,py-r,r*2,r*2);
     c.fillStyle='rgba(19,20,22,.65)'; c.fillRect(px-2,py-2,4,4);
-    lbl(px+r+4, py+4, 'COMP · '+p[2]);
+    /* on a narrow canvas the right-hand comp shares a line with the
+       SUBJECT label; drop it below rather than over it */
+    var ly = (NARROW && p[0]>0.6) ? py+30 : py+4;
+    lbl(px+r+4, ly, (NARROW?'':'COMP · ')+p[2]);
   });
 
   /* ── one-mile ring from the subject ── */
@@ -403,14 +414,14 @@ function drawDealMap(cv, img){
   c.beginPath(); c.arc(cx,cy,R,0,6.2832); c.stroke(); c.setLineDash([]);
   c.strokeStyle='rgba(140,106,60,.42)'; c.lineWidth=1;
   c.beginPath(); c.moveTo(cx,cy); c.lineTo(cx+R*0.94,cy-R*0.33); c.stroke();
-  lbl(cx+R*0.34, cy-R*0.20, '1 MI · 71% PROHIBITS THIS USE');
+  if(!NARROW) lbl(cx+R*0.34, cy-R*0.20, '1 MI · 71% PROHIBITS THIS USE');
 
   /* ── corridor ── */
   c.strokeStyle='rgba(19,20,22,.30)'; c.lineWidth=5;
   c.beginPath(); c.moveTo(X(0.98),Y(0.20)); c.lineTo(X(0.90),Y(1.02)); c.stroke();
   c.strokeStyle='rgba(247,247,245,.8)'; c.lineWidth=1; c.setLineDash([9,7]);
   c.beginPath(); c.moveTo(X(0.98),Y(0.20)); c.lineTo(X(0.90),Y(1.02)); c.stroke(); c.setLineDash([]);
-  lbl(X(0.985),Y(0.30),'WESTERVILLE RD · 31,400 AADT','', 'right');
+  lbl(X(0.985), NARROW?Y(0.16):Y(0.30), NARROW?'31,400 AADT':'WESTERVILLE RD · 31,400 AADT', '', 'right');
   c.restore();
 
   /* ── scale bar ── */
@@ -422,7 +433,7 @@ function drawDealMap(cv, img){
   c.font='500 10px "IBM Plex Mono", ui-monospace, monospace';
   try{ c.letterSpacing='.18em'; }catch(e){}
   c.fillStyle=INK3; c.fillText('1/4 MI', bx, by-11);
-  c.textAlign='right'; c.fillText('FRANKLIN COUNTY GIS · FEMA · ODOT', w-16, by+4); c.textAlign='left';
+  c.textAlign='right'; c.fillText(NARROW?'FRANKLIN CO GIS · FEMA':'FRANKLIN COUNTY GIS · FEMA · ODOT', w-16, by+4); c.textAlign='left';
   try{ c.letterSpacing='0px'; }catch(e){}
 }
 

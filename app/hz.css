@@ -443,8 +443,9 @@
   .det-score{flex:none;text-align:right}
   .det-sv{font-size:2.3rem}
   .det-sl{margin-top:4px;font-size:.5rem}
-  /* a 4:3 map is a third of the record's height for no extra information */
-  .det-map{aspect-ratio:2/1}
+  /* a 4:3 map was a third of the record's height; 16:10 keeps the labels
+     legible without that cost */
+  .det-map{aspect-ratio:16/10}
   /* four stacked facts become a 2x2 block */
   .det-grid{grid-template-columns:repeat(2,1fr)}
   .det-c{padding:12px 14px 13px}
