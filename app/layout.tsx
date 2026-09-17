@@ -8,9 +8,9 @@ import { OrganizationSchema } from "@/components/StructuredData";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.horizonsai.co"),
-  title: "HorizonsAI | Distressed CRE Deal Intelligence",
+  title: "HorizonsAI | Off-Market CRE Deal Sourcing",
   description:
-    "We monitor SEC filings, county records, and CRE news to surface distressed opportunities before your competitors find them.",
+    "Off-market commercial real estate deal sourcing. We read public filings and county records months before a property is listed, scored to your buy box.",
   robots: {
     index: true,
     follow: true,
@@ -22,9 +22,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "HorizonsAI | Distressed CRE Deal Intelligence",
+    title: "HorizonsAI | Off-Market CRE Deal Sourcing",
     description:
-      "We monitor SEC filings, county records, and CRE news to surface distressed opportunities before your competitors find them.",
+      "Off-market commercial real estate deal sourcing. We read public filings and county records months before a property is listed, scored to your buy box.",
     url: "https://www.horizonsai.co",
     siteName: "HorizonsAI",
     type: "website",
@@ -43,9 +43,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "HorizonsAI | Distressed CRE Deal Intelligence",
+    title: "HorizonsAI | Off-Market CRE Deal Sourcing",
     description:
-      "We monitor SEC filings, county records, and CRE news to surface distressed opportunities before your competitors find them.",
+      "Off-market commercial real estate deal sourcing. We read public filings and county records months before a property is listed, scored to your buy box.",
   },
 };
 

@@ -7,6 +7,20 @@ export const metadata: Metadata = {
   title: "Book a Call | HorizonsAI",
   description: "Bring your buy box. We will tell you where our coverage is strong in your markets and whether your niche fits.",
   alternates: { canonical: "/book-a-call" },
+  openGraph: {
+    title: "Book a Call | HorizonsAI",
+    description:
+      "Bring your buy box. We will tell you where our coverage is strong in your markets and whether your niche fits.",
+    url: "https://www.horizonsai.co/book-a-call",
+    siteName: "HorizonsAI",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Book a Call | HorizonsAI",
+    description:
+      "Bring your buy box. We will tell you where our coverage is strong in your markets and whether your niche fits.",
+  },
 };
 
 export default function Page() {

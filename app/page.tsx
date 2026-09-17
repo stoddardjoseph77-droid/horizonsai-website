@@ -8,6 +8,14 @@ export const metadata: Metadata = {
   description:
     "Off-market commercial real estate deal sourcing. We read public filings and county records months before a property is listed, scored to your buy box.",
   alternates: { canonical: "/" },
+  openGraph: {
+    title: "HorizonsAI | Off-Market CRE Deal Sourcing",
+    description:
+      "Off-market commercial real estate deal sourcing. We read public filings and county records months before a property is listed, scored to your buy box.",
+    url: "https://www.horizonsai.co",
+    siteName: "HorizonsAI",
+    type: "website",
+  },
 };
 
 export default function HomePage() {

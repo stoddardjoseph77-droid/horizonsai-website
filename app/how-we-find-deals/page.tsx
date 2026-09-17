@@ -6,6 +6,20 @@ export const metadata: Metadata = {
   title: "How We Find Deals | HorizonsAI",
   description: "The public records we read before a commercial property is listed: ownership and succession, pressure on title, the debt, and how the asset is running.",
   alternates: { canonical: "/how-we-find-deals" },
+  openGraph: {
+    title: "Where Off-Market CRE Signals Come From | HorizonsAI",
+    description:
+      "The public records we read before a commercial property is listed: ownership and succession, pressure on title, the debt, and how the asset is running.",
+    url: "https://www.horizonsai.co/how-we-find-deals",
+    siteName: "HorizonsAI",
+    type: "article",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Where Off-Market CRE Signals Come From | HorizonsAI",
+    description:
+      "The public records we read before a commercial property is listed: ownership and succession, pressure on title, the debt, and how the asset is running.",
+  },
 };
 
 export default function Page() {
@@ -29,7 +43,7 @@ export default function Page() {
   <section className="sec sec-auto" id="signals" style={{background:'var(--concrete-2)'}}>
     <div className="wrap">
       <div className="sec-head"><span className="sec-n">The signals</span><span className="sec-r"></span></div>
-      <h2 className="h2 display">Where the signals come from.</h2>
+      <h1 className="h2 display">Where the signals come from.</h1>
       <p className="lede">No one record means much. Read together they name the seller, months before a broker does.</p>
       <div className="sig-g">
         <div className="sig-c">
