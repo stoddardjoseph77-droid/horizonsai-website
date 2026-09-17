@@ -1,0 +1,56 @@
+/* Booking page styles — extracted from the booking design source.
+   These were missed in the original port, which left /book-a-call
+   rendering with only the shared base CSS. */
+
+.bk{border-bottom:1px solid var(--rule)}
+.bk-g{display:grid;grid-template-columns:.92fr 1.08fr;min-height:clamp(420px,52vw,640px)}
+@media(max-width:940px){
+  .bk-g{grid-template-columns:1fr}
+}
+.bk-l{padding:clamp(40px,5vw,72px) clamp(24px,3vw,48px) clamp(40px,5vw,72px) var(--edge);display:flex;flex-direction:column;justify-content:center}
+@media(max-width:940px){
+  .bk-l{padding-inline:var(--edge)}
+}
+.bk-h{font-family:var(--serif);font-variation-settings:"opsz" 72;font-weight:300;font-size:clamp(2.2rem,5vw,4.1rem);line-height:.98;letter-spacing:-.034em;max-width:13ch;margin-top:20px}
+.bk-list{margin:38px 0 0;padding:0;list-style:none;border-top:1px solid var(--rule);max-width:46ch}
+.bk-list li{display:grid;grid-template-columns:26px 1fr;gap:14px;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--rule-soft);font-size:14.5px;line-height:1.5;color:var(--ink-2)}
+.bk-list i{font-style:normal;font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;color:var(--bronze)}
+.bk-list strong{color:var(--ink);font-weight:600}
+.bk-real{margin-top:34px;padding-left:16px;border-left:2px solid var(--bronze);max-width:46ch;font-family:var(--serif);font-variation-settings:"opsz" 48;font-weight:300;font-size:clamp(1.12rem,1.9vw,1.42rem);line-height:1.32;letter-spacing:-.014em;color:var(--ink)}
+.bk-note{margin-top:24px;padding-left:13px;border-left:2px solid var(--bronze);font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2)}
+.bk-r{position:relative;overflow:hidden;background:var(--concrete-2);min-height:clamp(260px,34vw,640px)}
+.bk-r img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;max-width:100%}
+.bk-r::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(222,222,219,1) 0%,rgba(222,222,219,0) 20%),linear-gradient(0deg,rgba(222,222,219,.5) 0%,rgba(222,222,219,0) 24%)}
+.cal{padding-block:clamp(50px,7vw,96px);border-bottom:1px solid var(--rule)}
+.cal-frame{border:1px solid var(--rule);background:var(--paper);margin-top:clamp(28px,3.4vw,44px)}
+.cal-bar{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:10px;padding:13px 18px;border-bottom:1px solid var(--rule);background:var(--concrete)}
+.cal-live{display:grid;grid-template-columns:1.35fr .65fr;gap:1px;background:var(--rule-soft)}
+@media(max-width:700px){
+  .cal-live{grid-template-columns:1fr}
+}
+.cal-month{background:var(--paper);padding:clamp(20px,2.6vw,32px)}
+.cal-mh{display:flex;justify-content:space-between;align-items:baseline;font-family:var(--serif);font-variation-settings:"opsz" 40;font-size:1.22rem;letter-spacing:-.014em}
+.cal-nav{font-family:var(--mono);font-size:.9rem;color:var(--ink-3)}
+.cal-dow,.cal-days{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.cal-dow{margin-top:22px;padding-bottom:10px;border-bottom:1px solid var(--rule-soft)}
+.cal-dow span{text-align:center;font-family:var(--mono);font-size:.56rem;letter-spacing:.14em;color:var(--ink-3)}
+.cal-days{margin-top:10px}
+.cal-days button,.cal-days span{display:flex;align-items:center;justify-content:center;aspect-ratio:1;font-family:var(--mono);font-size:.76rem;font-weight:500;font-variant-numeric:tabular-nums}
+.cal-days button{color:var(--ink);border:1px solid var(--rule);background:transparent;cursor:pointer;padding:0}
+.cal-days button:hover{border-color:var(--bronze);color:var(--bronze-d)}
+.cal-days span{color:var(--ink-3)}
+.cal-days button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.cal-times{background:var(--paper);padding:clamp(20px,2.6vw,32px);display:flex;flex-direction:column}
+.slot{width:100%;font-family:var(--mono);font-size:.76rem;letter-spacing:.06em;padding:11px 10px;border:1px solid var(--rule);background:transparent;color:var(--ink);cursor:pointer;font-variant-numeric:tabular-nums}
+.slot:hover{border-color:var(--bronze);color:var(--bronze-d)}
+.slot[aria-pressed="true"]{background:rgba(140,106,60,.12);border-color:var(--bronze);color:var(--bronze-d)}
+.cal-days button:focus-visible,.slot:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
+@media(max-width:700px){
+  .cal-month{padding:20px 12px}
+  .cal-dow,.cal-days{gap:2px}
+  .cal-days button,.cal-days span{aspect-ratio:auto;min-height:46px}
+  .slot{min-height:46px;display:flex;align-items:center;justify-content:center}
+  .bk-list li{padding:17px 0}
+}
+#cal-slots{display:flex;flex-direction:column;gap:8px;margin-top:14px}
+#cal-go[aria-disabled="true"]{background:var(--concrete-2);border-color:var(--rule);color:var(--ink-3);pointer-events:none}

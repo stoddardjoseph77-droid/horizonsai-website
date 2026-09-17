@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import "../hz.css";
+import "./bk.css";
 
 export const metadata: Metadata = {
   title: "Book a Call | HorizonsAI",
@@ -12,6 +13,7 @@ export default function Page() {
   return (
     <div className="hz">
       <Script src="/hz.js" strategy="afterInteractive" />
+      <Script src="/bk.js" strategy="afterInteractive" />
 <header className="hdr">
   <div className="wrap hdr-in">
     <a className="mark" href="/">
