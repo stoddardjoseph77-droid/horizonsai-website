@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import CalEmbed from "@/components/CalEmbed";
 import "../hz.css";
 import "./bk.css";
 
@@ -27,31 +28,6 @@ export default function Page() {
   return (
     <div className="hz">
       <Script src="/hz.js" strategy="afterInteractive" />
-      <Script id="cal-embed-init" strategy="afterInteractive">{`
-(function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document;
-  C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments;
-    if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || [];
-      d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; }
-    if (ar[0] === L) { const api = function () { p(api, arguments); };
-      const namespace = ar[1]; api.q = api.q || [];
-      if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api;
-        p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar);
-      return; } p(cal, ar); };
-})(window, "https://app.cal.com/embed/embed.js", "init");
-Cal("init", "book", { origin: "https://cal.com" });
-Cal.ns.book("inline", {
-  elementOrSelector: "#cal-embed",
-  calLink: "joey-stoddard-iy7cjz/20-minute-exploration-call",
-  layout: "month_view",
-  config: { theme: "light" }
-});
-Cal.ns.book("ui", {
-  theme: "light",
-  cssVarsPerTheme: { light: { "cal-brand": "#A37F3D" } },
-  hideEventTypeDetails: false,
-  layout: "month_view"
-});
-`}</Script>
 <header className="hdr">
   <div className="wrap hdr-in">
     <a className="mark" href="/">
@@ -89,10 +65,10 @@ Cal.ns.book("ui", {
           <span className="label">Availability</span>
           <span className="label label-q">Google Meet · your timezone</span>
         </div>
-        {/* Cal.com inline embed. The mock calendar looked right but sent people
-            to a generic Cal.com page to pick all over again — and its times were
-            illustrative, not real availability. This books on the page. */}
-        <div id="cal-embed" className="cal-embed" />
+        {/* Uses the existing CalEmbed component — official React embed, and it
+            already listens for bookingSuccessful and forwards name/date/uid
+            to /thank-you. */}
+        <div className="cal-embed"><CalEmbed /></div>
       </div>
     </div>
   </section>

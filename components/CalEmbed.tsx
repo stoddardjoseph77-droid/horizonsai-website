@@ -53,10 +53,10 @@ export default function CalEmbed() {
       if (cancelled) return;
 
       cal("ui", {
-        theme: "dark",
+        theme: "light",
         cssVarsPerTheme: {
-          light: { "cal-brand": "#10B981" },
-          dark: { "cal-brand": "#10B981" },
+          light: { "cal-brand": "#A37F3D" },
+          dark: { "cal-brand": "#A37F3D" },
         },
         hideEventTypeDetails: false,
       });
@@ -87,7 +87,7 @@ export default function CalEmbed() {
       namespace={NAMESPACE}
       calLink={CAL_LINK}
       style={{ width: "100%", height: "auto", overflow: "hidden" }}
-      config={{ layout: "month_view", theme: "dark" }}
+      config={{ layout: "month_view", theme: "light" }}
     />
   );
 }
