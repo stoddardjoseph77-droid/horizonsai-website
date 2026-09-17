@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import LegacyShell from "@/components/LegacyShell";
 import {
   RE_HERO,
   RE_PROBLEMS,
@@ -36,6 +37,7 @@ export const metadata: Metadata = {
 
 export default function RealEstatePage() {
   return (
+    <LegacyShell>
     <>
       <EngagementTracker />
       {/* 1. Hero */}
@@ -348,5 +350,6 @@ export default function RealEstatePage() {
         ctaHref="/book-a-call"
       />
     </>
+    </LegacyShell>
   );
 }

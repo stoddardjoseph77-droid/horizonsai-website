@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import LegacyShell from "@/components/LegacyShell";
 import Image from "next/image";
 import { Suspense } from "react";
 import { CRE_FAQ, SITE } from "@/lib/constants";
@@ -31,6 +32,7 @@ const PREP_BULLETS = [
 
 export default function ThankYouPage() {
   return (
+    <LegacyShell>
     <>
       {/* ── 1. Hero ── Single column until thank-you video is recorded ── */}
       <section data-section="thank_you_hero" className="min-h-[80dvh] flex items-center relative overflow-hidden pt-24 lg:pt-32 pb-16 lg:pb-24">
@@ -148,5 +150,6 @@ export default function ThankYouPage() {
         </div>
       </section>
     </>
+    </LegacyShell>
   );
 }

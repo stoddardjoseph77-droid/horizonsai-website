@@ -46,7 +46,7 @@ export function CommercialSchema() {
     "@graph": [
       {
         "@type": "Service",
-        "@id": `${BASE}/commercial#service`,
+        "@id": `${BASE}/#service`,
         name: "Off-Market CRE Deal Sourcing",
         serviceType: "Commercial real estate deal origination",
         provider: { "@id": `${BASE}/#organization` },
@@ -58,11 +58,11 @@ export function CommercialSchema() {
           audienceType:
             "Commercial real estate acquisition teams, syndicators, private equity, owner-operators, family offices and REITs",
         },
-        url: `${BASE}/commercial`,
+        url: BASE,
       },
       {
         "@type": "FAQPage",
-        "@id": `${BASE}/commercial#faq`,
+        "@id": `${BASE}/#faq`,
         mainEntity: CRE_FAQ.map((f) => ({
           "@type": "Question",
           name: f.question,
@@ -76,8 +76,8 @@ export function CommercialSchema() {
           {
             "@type": "ListItem",
             position: 2,
-            name: "Commercial Real Estate",
-            item: `${BASE}/commercial`,
+            name: "Off-Market CRE Sourcing",
+            item: BASE,
           },
         ],
       },
