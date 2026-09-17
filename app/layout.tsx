@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import HydrationGate from "@/components/HydrationGate";
 import { PostHogProvider } from "@/components/PostHogProvider";
+import { OrganizationSchema } from "@/components/StructuredData";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.horizonsai.co"),
@@ -47,6 +48,7 @@ export default function RootLayout({
     <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
       <body className="noise-overlay font-sans antialiased bg-surface text-[#E8EAED]">
         <script dangerouslySetInnerHTML={{ __html: "history.scrollRestoration='manual'" }} />
+        <OrganizationSchema />
         <PostHogProvider>
           <Navbar />
           <HydrationGate />

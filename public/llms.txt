@@ -1,0 +1,32 @@
+# HorizonsAI
+
+> Off-market commercial real estate deal sourcing for acquisition teams. We read
+> public filings, court and county records, loan servicing data and market
+> channels to surface opportunities months before a property is listed, each one
+> scored against the buyer's own acquisition criteria.
+
+## What we do
+HorizonsAI monitors the public record for signs that a commercial property is
+heading toward a sale — long ownership tenure, probate and estate filings, lis
+pendens, tax delinquency, loan maturity inside 24 months, occupancy decline and
+more than thirty other signals. Each opportunity is delivered with the owner
+resolved to a named human and every figure linked to the filing it came from.
+
+## Who it is for
+Commercial real estate acquisition teams: syndicators, private equity,
+owner-operators, family offices and REITs.
+
+## Asset classes
+Industrial, multifamily, retail, office, outdoor storage and flex.
+
+## What we are not
+We are not a broker and take no commission on any transaction. We are not a
+property database — we do the finding and scoring rather than handing over a
+search tool.
+
+## Pages
+- [Commercial real estate deal sourcing](https://www.horizonsai.co/commercial)
+- [Book a call](https://www.horizonsai.co/book-a-call)
+
+## Contact
+joey@horizonsai.co

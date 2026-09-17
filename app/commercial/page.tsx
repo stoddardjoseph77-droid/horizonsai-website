@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { CommercialSchema } from "@/components/StructuredData";
 import {
   CRE_HERO,
   CRE_PROBLEMS,
@@ -29,7 +30,8 @@ import { EVENTS } from "@/lib/analytics";
 export const metadata: Metadata = {
   alternates: { canonical: "/commercial" },
   title: "HorizonsAI | AI Deal Intelligence for Commercial Real Estate",
-  description: CRE_HERO.subtext,
+  description:
+    "Off-market commercial real estate deal sourcing. We read public filings and county records months before a property is listed, scored to your buy box.",
 };
 
 const pipelinePhases = [
@@ -42,6 +44,7 @@ const pipelinePhases = [
 export default function CommercialPage() {
   return (
     <>
+      <CommercialSchema />
       <EngagementTracker />
       {/* ── 1. Hero ── Asymmetric split: text left, product right */}
       <section data-section="hero" className="min-h-[100dvh] flex items-end lg:items-center relative overflow-hidden">
