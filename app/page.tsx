@@ -399,7 +399,7 @@ export default function HomePage() {
             </tr>
             <tr>
               <th scope="row" className="row">Matched to your criteria</th>
-              <td data-k="HorizonsAI" className="us">Configured to your buy box</td><td data-k="Broker-marketed deals" data-m="Broker deals">Whatever is being marketed</td><td data-k="A bought list" data-m="Bought list">The same file everyone gets</td><td data-k="Hiring an analyst" data-m="An analyst">Yes</td>
+              <td data-k="HorizonsAI" className="us">Configured to your buy box</td><td data-k="Broker-marketed deals" data-m="Broker deals">Whatever is being marketed</td><td data-k="A bought list" data-m="Bought list">Broad filters, not your box</td><td data-k="Hiring an analyst" data-m="An analyst">Yes</td>
             </tr>
             <tr>
               <th scope="row" className="row">Who else is looking at it</th>
@@ -407,7 +407,7 @@ export default function HomePage() {
             </tr>
             <tr>
               <th scope="row" className="row">Who you contact</th>
-              <td data-k="HorizonsAI" className="us">Named owner, corroborated</td><td data-k="Broker-marketed deals" data-m="Broker deals">The broker</td><td data-k="A bought list" data-m="Bought list">Often an LLC and an agent address</td><td data-k="Hiring an analyst" data-m="An analyst">Manual, about a week per deal</td>
+              <td data-k="HorizonsAI" className="us">Named owner, corroborated</td><td data-k="Broker-marketed deals" data-m="Broker deals">The broker</td><td data-k="A bought list" data-m="Bought list">Often an LLC and an agent address</td><td data-k="Hiring an analyst" data-m="An analyst">The owner, after a week of digging</td>
             </tr>
             <tr>
               <th scope="row" className="row">Where the figures come from</th>
