@@ -49,5 +49,10 @@
 
 /* The embed brings its own typography. Nudge it toward the page so the
    calendar reads as part of the frame rather than a pasted-in widget. */
-.cal-embed{padding:clamp(10px,1.4vw,20px) 0}
+.cal-embed{padding:clamp(8px,1vw,14px) 0}
 .cal-embed *{font-family:var(--sans)!important}
+/* Cal centres its calendar at a fixed width, so a full-bleed frame left a
+   275px dead margin either side. Hug the content instead — 880 is the
+   narrowest width where the month and the slot list still sit side by side. */
+.cal-frame{max-width:880px;margin-inline:auto}
+@media(max-width:920px){ .cal-frame{max-width:none} }
