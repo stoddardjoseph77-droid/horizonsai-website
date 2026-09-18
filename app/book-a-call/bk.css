@@ -46,3 +46,8 @@
 @media(max-width:700px){
   .cal-embed{min-height:600px}
 }
+
+/* The embed brings its own typography. Nudge it toward the page so the
+   calendar reads as part of the frame rather than a pasted-in widget. */
+.cal-embed{padding:clamp(10px,1.4vw,20px) 0}
+.cal-embed *{font-family:var(--sans)!important}

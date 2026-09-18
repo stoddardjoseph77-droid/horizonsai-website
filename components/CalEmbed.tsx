@@ -52,13 +52,29 @@ export default function CalEmbed() {
       const cal = await getCalApi({ namespace: NAMESPACE });
       if (cancelled) return;
 
+      // Themed to the site palette. hideEventTypeDetails drops Cal's own
+      // left-hand event panel, so what is left is the month and the slots —
+      // the same shape the page had before the embed went in.
+      const PALETTE = {
+        "cal-brand": "#A37F3D",
+        "cal-brand-emphasis": "#7D5F2B",
+        "cal-brand-text": "#FFFFFF",
+        "cal-bg": "#FFFFFF",
+        "cal-bg-emphasis": "#F4F6F9",
+        "cal-bg-subtle": "#F8FAFC",
+        "cal-bg-muted": "#F8FAFC",
+        "cal-text": "#0B1B3D",
+        "cal-text-emphasis": "#0B1B3D",
+        "cal-text-subtle": "#4A5568",
+        "cal-text-muted": "#626D80",
+        "cal-border": "#DCE2EA",
+        "cal-border-subtle": "#E9EEF3",
+        "cal-border-emphasis": "#A37F3D",
+      };
       cal("ui", {
         theme: "light",
-        cssVarsPerTheme: {
-          light: { "cal-brand": "#A37F3D" },
-          dark: { "cal-brand": "#A37F3D" },
-        },
-        hideEventTypeDetails: false,
+        cssVarsPerTheme: { light: PALETTE, dark: PALETTE },
+        hideEventTypeDetails: true,
       });
 
       cal("on", {
