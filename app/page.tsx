@@ -395,7 +395,7 @@ export default function HomePage() {
           <tbody>
             <tr>
               <th scope="row" className="row">When you hear about it</th>
-              <td data-k="HorizonsAI" className="us">Months before it is marketed</td><td data-k="Broker-marketed deals" data-m="Broker deals">When it goes to market</td><td data-k="A bought list" data-m="Bought list">After the fact</td><td data-k="Hiring an analyst" data-m="An analyst">As fast as one person can read</td>
+              <td data-k="HorizonsAI" className="us">Months before it is marketed</td><td data-k="Broker-marketed deals" data-m="Broker deals">When it goes to market</td><td data-k="A bought list" data-m="Bought list">After the fact</td><td data-k="Hiring an analyst" data-m="An analyst">Pre-listing, in the markets they cover</td>
             </tr>
             <tr>
               <th scope="row" className="row">Matched to your criteria</th>
