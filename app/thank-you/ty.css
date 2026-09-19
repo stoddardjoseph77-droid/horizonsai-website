@@ -1,0 +1,26 @@
+/* /thank-you — builds on the booking page's .bk hero (bk.css) and the
+   shared section / FAQ / close styles in hz.css. */
+
+.ty-ok{display:inline-flex;align-items:center;gap:10px;color:var(--bronze-d)}
+.ty-dot{width:7px;height:7px;border-radius:50%;background:var(--bronze);box-shadow:0 0 0 4px rgba(163,127,61,.16)}
+.ty-h{max-width:14ch}
+.ty-when{display:inline-flex;align-items:center;gap:12px;align-self:flex-start;margin-top:28px;padding:12px 16px;border:1px solid var(--rule);background:var(--paper);font-family:var(--mono);font-size:.74rem;letter-spacing:.06em;color:var(--ink);font-variant-numeric:tabular-nums}
+.ty-when svg{color:var(--bronze);flex:none}
+.ty-p{margin-top:26px;max-width:44ch;font-size:16.5px;line-height:1.6;color:var(--ink-2)}
+.ty-manage{align-self:flex-start;margin-top:22px;display:inline-flex;align-items:center;gap:8px;min-height:44px;font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);text-decoration:underline;text-decoration-color:var(--bronze);text-underline-offset:5px}
+.ty-manage:hover{color:var(--bronze-d)}
+
+.ty-grid{list-style:none;margin:clamp(30px,3.8vw,50px) 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink)}
+.ty-grid li{display:flex;flex-direction:column;gap:10px;padding:24px clamp(18px,2.4vw,32px) 8px 0}
+.ty-grid li + li{padding-left:clamp(18px,2.4vw,32px);border-left:1px solid var(--rule-soft)}
+.ty-grid i{font-style:normal;font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;color:var(--bronze)}
+.ty-grid strong{font-family:var(--serif);font-variation-settings:"opsz" 48;font-weight:400;font-size:clamp(1.25rem,1.9vw,1.5rem);line-height:1.2;letter-spacing:-.014em;color:var(--ink)}
+.ty-grid span{font-size:15px;line-height:1.6;color:var(--ink-2);max-width:36ch}
+@media(max-width:820px){
+  .ty-grid{grid-template-columns:1fr}
+  .ty-grid li,.ty-grid li + li{padding:20px 0;border-left:0;border-bottom:1px solid var(--rule-soft)}
+}
+
+.ty-contact{display:flex;flex-direction:column;gap:6px}
+.ty-contact a{display:inline-flex;align-items:center;min-height:44px;font-family:var(--serif);font-variation-settings:"opsz" 48;font-weight:300;font-size:clamp(1.2rem,2vw,1.55rem);letter-spacing:-.012em;color:var(--ink);text-decoration:underline;text-decoration-color:var(--bronze);text-decoration-thickness:1px;text-underline-offset:6px}
+.ty-contact a:hover{color:var(--bronze-d)}
