@@ -6,11 +6,14 @@
 > scored against the buyer's own acquisition criteria.
 
 ## What we do
-HorizonsAI monitors the public record for signs that a commercial property is
-heading toward a sale — long ownership tenure, probate and estate filings, lis
-pendens, tax delinquency, loan maturity inside 24 months, occupancy decline and
-more than thirty other signals. Each opportunity is delivered with the owner
-resolved to a named human and every figure linked to the filing it came from.
+HorizonsAI monitors more than $2 trillion in commercial real estate debt and
+reads the public record for signs that a commercial property is heading toward
+a sale — long ownership tenure, probate and estate filings, lis pendens, tax
+delinquency, loan maturity inside 24 months, occupancy decline and more than
+thirty other signals. Each opportunity is delivered with the owner resolved to
+a named human and every figure linked to the filing it came from. That work
+has surfaced $4.2 billion of asset value and 2,800 opportunities, with a
+median lead of 94 days before a listing.
 
 ## Who it is for
 Commercial real estate acquisition teams: syndicators, private equity,
@@ -25,8 +28,9 @@ property database — we do the finding and scoring rather than handing over a
 search tool.
 
 ## Pages
-- [Commercial real estate deal sourcing](https://www.horizonsai.co/commercial)
-- [Book a call](https://www.horizonsai.co/book-a-call)
+- [Off-market CRE deal sourcing](https://www.horizonsai.co/): How the pipeline is configured to a buy box, what lands on the desk, and how it compares with brokers, bought lists, and hiring an analyst.
+- [How we find deals](https://www.horizonsai.co/how-we-find-deals): The public records read before a property is listed — ownership and succession, pressure on title, the debt, and how the asset is running.
+- [Book a call](https://www.horizonsai.co/book-a-call): Schedule a call to see coverage in your markets.
 
 ## Contact
 joey@horizonsai.co

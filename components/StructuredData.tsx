@@ -1,6 +1,12 @@
 import { SITE, CRE_FAQ } from "@/lib/constants";
 
 const BASE = "https://www.horizonsai.co";
+const LINKEDIN_COMPANY = "https://www.linkedin.com/company/horizons-ai";
+const LINKEDIN_FOUNDER = "https://www.linkedin.com/in/joey-stoddard-8a2b78357";
+/** First ship of /how-we-find-deals. */
+const SIGNALS_PUBLISHED = "2026-09-17";
+/** Last substantive edit of the signals page. */
+const SIGNALS_UPDATED = "2026-10-19";
 
 /** Sitewide identity. Emitted once from the root layout. */
 export function OrganizationSchema() {
@@ -19,7 +25,16 @@ export function OrganizationSchema() {
         description:
           "HorizonsAI sources off-market commercial real estate opportunities for acquisition teams, scoring every deal against the buyer's own acquisition criteria.",
         areaServed: { "@type": "Country", name: "United States" },
-        founder: { "@type": "Person", name: "Joey Stoddard" },
+        sameAs: [LINKEDIN_COMPANY],
+        founder: {
+          "@type": "Person",
+          "@id": `${BASE}/#founder`,
+          name: "Joey Stoddard",
+          jobTitle: "Founder",
+          url: LINKEDIN_FOUNDER,
+          sameAs: [LINKEDIN_FOUNDER],
+          worksFor: { "@id": `${BASE}/#organization` },
+        },
       },
       {
         "@type": "WebSite",
@@ -107,8 +122,10 @@ export function SignalsSchema() {
         description:
           "The public records we read before a commercial property is listed: ownership and succession, pressure on title, the debt, and how the asset is running.",
         mainEntityOfPage: url,
-        author: { "@id": `${BASE}/#organization` },
+        author: { "@id": `${BASE}/#founder` },
         publisher: { "@id": `${BASE}/#organization` },
+        datePublished: SIGNALS_PUBLISHED,
+        dateModified: SIGNALS_UPDATED,
         about: [
           { "@type": "Thing", name: "Off-market commercial real estate" },
           { "@type": "Thing", name: "Public records research" },

@@ -47,6 +47,8 @@ export default function Page() {
       <div className="sec-head"><span className="sec-n">The signals</span><span className="sec-r"></span></div>
       <h1 className="h2 display">Where the signals come from.</h1>
       <p className="lede">No one record means much. Read together they name the seller, months before a broker does.</p>
+      <p className="lede">An off-market commercial property leaves a trail in the public record before anyone lists it. We read that trail across all 50 states: who has held the asset, what is pressing on the title, how the debt is behaving, and how the building is running. HorizonsAI monitors more than $2 trillion of commercial real estate debt. That work has surfaced $4.2 billion of asset value and 2,800 opportunities, a median of 94 days before the listing.</p>
+      <p className="label sig-by">Joey Stoddard, founder · Updated 19 October 2026</p>
       <div className="sig-g">
         <div className="sig-c">
           <p className="label label-q">From the owner</p>
@@ -57,6 +59,7 @@ export default function Page() {
             <li>Partnership dissolution</li>
             <li>Individual, not an entity</li><li>Absentee owner</li>
           </ul>
+          <p className="sig-d">A hold of twenty years or more, a probate filing, heirs or an estate on the deed, a successor trustee, a divorce, or a partnership dissolution means the person who has owned the building may be ready to let it go. An owner who holds it as an individual, or who lives somewhere else, can be reached directly. When the deed is in an entity, the useful fact is the person behind it. These records name that person before a broker is hired.</p>
         </div>
         <div className="sig-c">
           <p className="label label-q">From the courthouse</p>
@@ -66,6 +69,7 @@ export default function Page() {
             <li>Tax lien</li><li>Mechanic’s lien</li><li>Code violation</li>
             <li>Receivership</li><li>Bankruptcy</li>
           </ul>
+          <p className="sig-d">A lis pendens, notice of default, tax delinquency, tax lien, mechanic’s lien, code violation, receivership, or bankruptcy is filed at the courthouse and is public that day. The filing is the pressure. The listing is what happens after the owner or the lender decides to sell. Reading the docket is how a property shows up while it is still off market.</p>
         </div>
         <div className="sig-c">
           <p className="label label-q">From the debt</p>
@@ -76,6 +80,7 @@ export default function Page() {
             <li>DSCR decline</li><li>Missed payment</li>
             <li>Servicer advances</li><li>Special servicing</li>
           </ul>
+          <p className="sig-d">Debt signals show the capital structure failing before a sale is marketed. A maturity inside 24 months, a fund hold period ending, no mortgage of record, a refinance gap, a falling DSCR, a missed payment, servicer advances, or a move into special servicing each say the current loan is unlikely to roll over quietly. CMBS trusts publish a share of this on a schedule. Bank, life-company, and private debt show up through other filings. The listing comes last.</p>
         </div>
         <div className="sig-c">
           <p className="label label-q">From the asset</p>
@@ -86,6 +91,7 @@ export default function Page() {
             <li>Expired listing</li><li>Repeated price cut</li>
             <li>Broker change</li>
           </ul>
+          <p className="sig-d">Occupancy falling, rents below the market, tenant reviews dropping, deferred maintenance, a failed or expired listing, repeated price cuts, or a change of broker describe the building itself. None of these is a sale on its own. Together with the ownership and debt records they explain why a sale is likely, and they are already public while the property is still unlisted.</p>
         </div>
       </div>
 

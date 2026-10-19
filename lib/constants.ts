@@ -307,33 +307,33 @@ export const CRE_PROCESS = [
 
 export const CRE_FAQ = [
   {
-    question: "Do you have a pre-built database I can log into, or are you setting it up custom?",
+    question: "Can I trust the owner contacts?",
     answer:
-      "There's no giant historical database you log into. The infrastructure is built and running (parsers, scrapers, scoring system, data source integrations), but we set it up custom for you during the 3-4 week onboarding, configured to your criteria, markets, and strategy. The dashboard you log into on day one is populated with live deals filtered to what you'd actually buy.",
+      "You can see where every one came from. A contact reaches you with the chain attached — the assessor record that named the owner, the state registry filing that named the human behind the entity, and the second source that corroborated the number or email. Every opportunity carries the owner’s name, phone and email where available, plus servicer detail on securitised loans. Anything we could not corroborate is marked unconfirmed. Where the owner is a government body or a railroad we tell you it is not acquirable instead of selling you a contact for it.",
   },
   {
-    question: "How is this different from CoStar, Trepp, or CRED iQ?",
+    question: "How is this different from CoStar, Reonomy, Trepp, or CRED iQ?",
     answer:
-      "CoStar is a property database - comps, tenants, ownership, market data; you still have to find the deals yourself. Trepp and CRED iQ go deep on CMBS, but CMBS is only about a small chunk of CRE debt - bank, life-co, and private debt aren\u2019t there. We do the finding and scoring of every deal against your buy box, and pull from: CMBS, county records, REIT filings, broker channels, news, and more.",
-  },
-  {
-    question: "What happens after I see a deal? Do I get contact info?",
-    answer:
-      "Yes - opportunities include borrower/owner contact details (name, phone, email where available) plus loan servicer info for CMBS.",
-  },
-  {
-    question: "How many deals will I actually see per month?",
-    answer:
-      "It depends on how tight your criteria is - narrower geographies and asset classes mean fewer, higher-quality opportunities. We benchmark against your existing deal flow during onboarding so you know what to expect before going live.",
+      "CoStar and Reonomy are property databases — comps, tenants, ownership, market data; you still have to find the deals yourself, and every subscriber is searching the same file. Trepp and CRED iQ go deep on CMBS, but CMBS is only a small share of CRE debt — bank, life-co and private debt are not there. Yours is built around one mandate and keeps what it learns, and a built-in assistant holds your criteria and reads every deal in it. Ask it which deals fit a change in your buy box, in plain English. A database cannot answer that.",
   },
   {
     question: "Will this work for my specific asset class and market?",
     answer:
-      "Yes - we cover office, retail, industrial, and multifamily across all 50 states. On the intro call we\u2019ll tell you straight up where coverage is strong, where it\u2019s thin, and whether your niche fits before you commit to anything.",
+      "Yes — we cover office, retail, industrial, and multifamily across all 50 states. On the intro call we’ll tell you straight up where coverage is strong, where it’s thin, and whether your niche fits before you commit to anything.",
   },
   {
-    question: "What does ongoing support look like after launch?",
+    question: "How many deals will I actually see per month?",
     answer:
-      "Direct access to the team for criteria changes, new market additions, or filter tweaks. As your strategy evolves, the pipeline evolves with it - you\u2019re not locked into the buy box you defined on day one.",
+      "It depends on how tight your criteria is — narrower geographies and asset classes mean fewer, higher-quality opportunities. We benchmark against your existing deal flow during onboarding so you know what to expect before going live.",
+  },
+  {
+    question: "What does it cost?",
+    answer:
+      "Pricing depends on how much ground you want covered — the markets and asset classes in scope, not how many deals we send. There is no fee on anything you buy and no commission on the trade. We will give you a number on the first call once we know the scope.",
+  },
+  {
+    question: "What happens on the first call?",
+    answer:
+      "Bring your buy box. We will tell you where our coverage is strong in your markets, where it is thin, and whether your niche fits. If it is not a fit we will tell you on that call rather than book a second one.",
   },
 ];

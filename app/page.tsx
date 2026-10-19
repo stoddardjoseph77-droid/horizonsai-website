@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import { CommercialSchema } from "@/components/StructuredData";
+import { CRE_FAQ } from "@/lib/constants";
 import "./hz.css";
 
 export const metadata: Metadata = {
@@ -433,24 +434,12 @@ export default function HomePage() {
       <div className="sec-head"><span className="sec-n">06 / Questions</span><span className="sec-r"></span></div>
       <h2 className="h2 display">What acquisition teams ask first.</h2>
       <div className="faq">
-        <details><summary>Can I trust the owner contacts?</summary>
-          <p className="faq-a">You can see where every one came from. A contact reaches you with the chain attached — the assessor record that named the owner, the state registry filing that named the human behind the entity, and the second source that corroborated the number or email. Every opportunity carries the owner’s name, phone and email where available, plus servicer detail on securitised loans. Anything we could not corroborate is marked unconfirmed. Where the owner is a government body or a railroad we tell you it is not acquirable instead of selling you a contact for it.</p>
-        </details>
-        <details><summary>How is this different from CoStar, Reonomy, Trepp, or CRED iQ?</summary>
-          <p className="faq-a">CoStar and Reonomy are property databases — comps, tenants, ownership, market data; you still have to find the deals yourself, and every subscriber is searching the same file. Trepp and CRED iQ go deep on CMBS, but CMBS is only a small share of CRE debt — bank, life-co and private debt are not there. Yours is built around one mandate and keeps what it learns, and a built-in assistant holds your criteria and reads every deal in it. Ask it which deals fit a change in your buy box, in plain English. A database cannot answer that.</p>
-        </details>
-        <details><summary>Will this work for my specific asset class and market?</summary>
-          <p className="faq-a">Yes — we cover office, retail, industrial, and multifamily across all 50 states. On the intro call we’ll tell you straight up where coverage is strong, where it’s thin, and whether your niche fits before you commit to anything.</p>
-        </details>
-        <details><summary>How many deals will I actually see per month?</summary>
-          <p className="faq-a">It depends on how tight your criteria is — narrower geographies and asset classes mean fewer, higher-quality opportunities. We benchmark against your existing deal flow during onboarding so you know what to expect before going live.</p>
-        </details>
-        <details><summary>What does it cost?</summary>
-          <p className="faq-a">Pricing depends on how much ground you want covered — the markets and asset classes in scope, not how many deals we send. There is no fee on anything you buy and no commission on the trade. We will give you a number on the first call once we know the scope.</p>
-        </details>
-        <details><summary>What happens on the first call?</summary>
-          <p className="faq-a">Bring your buy box. We will tell you where our coverage is strong in your markets, where it is thin, and whether your niche fits. If it is not a fit we will tell you on that call rather than book a second one.</p>
-        </details>
+        {CRE_FAQ.map((item) => (
+          <details key={item.question}>
+            <summary>{item.question}</summary>
+            <p className="faq-a">{item.answer}</p>
+          </details>
+        ))}
       </div>
     </div>
   </section>
