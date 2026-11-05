@@ -4,7 +4,7 @@ import Cal, { getCalApi } from "@calcom/embed-react";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 
-const CAL_LINK = "joey-stoddard-iy7cjz/20-minute-exploration-call";
+const CAL_LINK = "joey-stoddard-iy7cjz/30-minute-exploration-call";
 const NAMESPACE = "discovery";
 
 type CalBookingDetail = {
